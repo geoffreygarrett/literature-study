@@ -1,0 +1,56 @@
+% MIT License
+%
+% Copyright (c) 2021 Geoffrey H. Garrett
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEPENDENCIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
+%\usetikzlibrary{positioning}                  % for TikZ relative positioning
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USER STYLING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TikZ node design.
+\tikzset{basic/.style={draw,text width=1em,text badly centered}}
+\tikzset{input/.style={basic, fill=green!25, circle}}
+\tikzset{output/.style={basic, fill=blue!25, circle}}
+\tikzset{weight/.style={basic,circle}}
+\tikzset{hidden/.style={basic,circle}}
+\tikzset{function/.style={basic,circle}}
+
+\def\sep{4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TIKZ PICTURE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+    \node[input] (X) {$\mathbf{x}$};
+    \node[hidden, right=\sep of X, label={[xshift=-0.0em]center:$\mathbf{h}^{(1)}$}] (H1) {\phantom{$\mathbf{h}^{(1)}$}};
+    \node[hidden, right=\sep of H1, label={[xshift=-0.0em]center:$\mathbf{h}^{(n)}$}] (H2) {\phantom{$\mathbf{h}^{(2)}$}};
+    \node[output, right=\sep of H2] (Y) {$\mathbf{y}$};
+    \path[draw,->] (X) -- (H1);
+        \node[right=0.8em of H1] (M) {$\ldots$};
+    \path[draw,->] (H2) -- (Y);
+\end{tikzpicture}
+

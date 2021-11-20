@@ -1,0 +1,181 @@
+% spell-checker: disable
+\usepackage{enumitem}       % Formatted enumerations
+\usepackage{graphicx}       % Figure within minipage
+\usepackage{wrapfig}        % Wrap text around figure
+\usepackage{float}          % For [H] option in figures
+\usepackage{color,amsmath}  % Math formatting
+\usepackage{mathtools}      % Loads extensions to amsmath (e.g. alignment in matrix environments)
+\usepackage{amssymb}        % Extended math fonts (specially Blackboard Bold)
+\usepackage{pdfpages}       % to include full pdf pages
+\usepackage[utf8]{inputenc} % Extended character catalogue (accents, etc)
+\usepackage{color}          % Coloured text
+\usepackage{romannum}       % roman numerals
+\usepackage{siunitx}
+\usepackage{comment}
+\usepackage{bm}                 % Allows bold font in equations with \bm
+\usepackage{footnotehyper}      % Updated version of \footnote package for hyperref
+\usepackage[bottom]{footmisc}   % Ensure footnotes stay at the end of the page
+\usepackage{color,soul}         % For highlighting
+\usepackage{csquotes}           % For quotations
+\usepackage{stackengine}
+\usepackage{tocloft}            % Allows adding stuff to the TOC without page numbers
+\usepackage{subcaption}         % Enable sub-figures
+\usepackage{cleveref}           % Better than autoref
+
+%---------------------------
+% Bibliography
+%---------------------------
+\usepackage[
+    natbib=true,
+    backend=bibtex,
+    sorting=anyvt,
+    url=true,
+    style=draft,
+    doi=true]{biblatex}
+
+\addbibresource{sample.bib}
+ \usepackage[nottoc]{tocbibind} % Include in TOC
+ \bibliography{sample}
+
+%---------------------------
+% Table formatting
+%---------------------------
+\usepackage{array}
+\usepackage{makecell}  % Allows for multiline cells
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ctable}
+\usepackage{tabu}  % Better customisation than the default tabular
+\setlength\tabulinesep{2mm}
+\usepackage{booktabs}
+\usepackage{dcolumn}  % For aligning equations accross table entries
+
+%---------------------------
+% Disable hyphenation
+%---------------------------
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+%---------------------------
+% Paper size
+%---------------------------
+\usepackage{geometry}
+\geometry{
+	paper=a4paper,  % Change to letterpaper for US letter
+	inner=2.5cm,    % Inner margin
+	outer=2.5cm,    % Outer margin
+% 	bindingoffset=.5cm, % Binding offset
+	top=2.2cm,      % Top margin
+	bottom=2.2cm,   % Bottom margin
+% 	showframe,      % Uncomment to show the precise text area
+}
+
+%---------------------------
+% Link formatting
+%---------------------------
+\usepackage{hyperref}
+\hypersetup{pdfpagemode={UseOutlines},
+    bookmarksopen=true,
+    bookmarksopenlevel=0,
+    hypertexnames=true,
+    colorlinks=true, % Set to false to disable coloring links
+    citecolor=[rgb]{0.258,0.38,0.737}, % The color of citations
+    linkcolor=black, % The color of references to document elements (sections, figures, etc)
+    urlcolor=[rgb]{0.258,0.38,0.737}, % The color of hyperlinks (URLs)
+    pdfstartview={FitV},
+    breaklinks=true,
+}
+
+%-------------------------------
+%	Indent multi-line captions
+%-------------------------------
+% \usepackage{caption}
+% \captionsetup{format=hang}
+
+%-------------------------------
+%	Code highlighting
+%-------------------------------
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{10} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{10}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0.8,0.47,0.19}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{sky_blue}{rgb}{0.37, 0.55, 0.69}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+numberstyle=\color{sky_blue},
+frame=tb,                         % Any extra options here
+showstringspaces=false,            % 
+breaklines=true,
+postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for external files
+% \newcommand\pythonexternal[2][]{{
+% \pythonstyle
+% \lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+%-------------------------------
+%	Math utils
+%-------------------------------
+% argmin and argmax operators, write \argmin_x or \argmax_x
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+%-------------------------------
+%	Nomenclature and formatting
+%-------------------------------
+\newcommand{\mdollar}[2]{USD #1 million (#2)} % $ <> million (USD)
+\newcommand{\bdollar}[2]{USD #1 billion (#2)} % $ <> billion (USD)
+ 
+\newcommand{\valueunit}[2]{\mbox{#1\hspace{0.07cm}#2}}
+
+% Format latin words
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\newcommand\latin[1]{\itshape#1\normalfont}
+% \usepackage{times}  % Times font
+
+% Footnote symbols
+% The possible styles are:
+% arabic    Arabic numerals.
+% roman     Lower case Roman numerals.
+% Roman     Upper case Roman numerals.
+% alph      Alphabetic lower case.
+% Alph      Alphabetic upper case.
+% fnsymbol  A set of 9 special symbols.
+\renewcommand{\thefootnote}{\arabic{footnote}}

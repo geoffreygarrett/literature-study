@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage\section*{Appendix B}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Conversions of Orbital Elements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Modified Equinoctial to Keplerian\label{mee2kep}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+    a = \frac{p}{1-f^2-g^2}
+\end{equation}
+
+\begin{equation}
+    e = \sqrt{f^2 + g^2}
+\end{equation}
+
+\begin{equation}
+    i = 2\tan^{-1}{\sqrt{h^2+k^2}}=\textrm{atan2}(2\sqrt{h^2+k^2},1-h^2-k^2)
+\end{equation}
+
+\begin{equation}
+    i = 2\tan^{-1}{\sqrt{h^2+k^2}}=\textrm{atan2}(2\sqrt{h^2+k^2},1-h^2-k^2)
+\end{equation}
+
+\begin{equation}
+    \omega=\tan^{-1}(g/f)-\tan^{-1}(k/h)=\textrm{atan2}(gh-fk, fh+gk)
+\end{equation}
+
+\begin{equation}
+    \Omega=\textrm{atan2}(k, h)
+\end{equation}
+
+\begin{equation}
+    \theta = L-(\Omega+\omega)=L-\tan^{-1}(g/f)
+\end{equation}
+
+\begin{equation}
+    u = \omega+\theta = \textrm{atan2}(h\sin{L}-k\cos{L},h\cos{L}+k\sin{L})
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Modified Equinoctial to Cartesian\label{mee2rec}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Cartesian to Modified Equinoctial\label{rec2mee}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Keplerian to Cartesian\label{kep2rec}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Cartesian to Keplerian\label{rec2kep}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

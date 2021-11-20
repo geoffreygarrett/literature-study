@@ -1,0 +1,229 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Machine Learning\label{chap:ML}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 2) A feedforward neural network, as formally defined in the article concerning feedforward neural networks, whose parameters are collectively denoted θ\thetaθ. In backpropagation, the parameters of primary interest are wijkw_{ij}^kwijk​, the weight between node jjj in layer lkl_klk​ and node iii in layer lk−1l_{k-1}lk−1​, and bikb_i^kbik​, the bias for node iii in layer lkl_klk​. There are no connections between nodes in the same layer and layers are fully connected.
+% 3) An error function, E(X,θ)E(X, \theta)E(X,θ), which defines the error between the desired output yi⃗\vec{y_i}yi
+%  and the calculated output yi⃗^\hat{\vec{y_i}}yi​​^​ of the neural network on input xi⃗\vec{x_i}xi​​ for a set of input-output pairs (xi⃗,yi⃗)∈X\big(\vec{x_i}, \vec{y_i}\big) \in X(xi​​,yi​​)∈X and a particular value of the parameters θ\thetaθ.
+
+Machine learning, often described as a proper subset of artificial
+intelligence \cite{Goodfellow-et-al-2016}, and is the field in computer science
+which deals with the improvement of algorithms through experience and the use of
+data \cite{Mitchell97}. Our daily lives exhibit wide applications of intelligent
+software to automate routine labour, understand speech or images, assist in
+diagnoses in medicine and support basic scientific research. This field as a
+whole is relatively young, having been coined in 1959 by Arthur Samuel
+\cite{5392560}, however little progress in reaching human-comparable learning
+was achieved until the advent of deep learning, termed by Rina Dechter in 1986
+\cite{Rina1986}. Even then, human-like recognition of real-world images was not
+achieved until ImageNet was created in 2009 \cite{5206848}, which is often
+considered as the catalyst for the AI boom of the 21st century
+\cite{hardy_2016}.
+
+%An ongoing trend in society is the augmentation of responsibility in intelligent
+%algorithms through autonomy, evident by the advent of semi-autonomous cars,
+%autonomous cyber-security \cite{Taeihagh2019}, autonomous industrial site
+%inspection\footnote{\url{https://newsroom.ibm.com/Boston-Dynamics-and-IBM-Join-Forces-to-Bring-Mobile-Edge-Analytics-to-Industrial-Operations}},
+%and autonomous supply-chain
+%management\footnote{\url{https://www.forbes.com/sites/stevebanker/2021/04/01/amazon-supply-chain-innovation-continues/}},
+%to name a few.
+
+This section reviews the current ongoing research in the field of machine
+learning as a whole. First the main categories: \textit{Supervised learning},
+\textit{Unsupervised learning}, \textit{Semi-supervised learning}, and
+\textit{Reinforcement learning} are distinguished with examples in
+\autoref{sec:ML_categories}. The biggest contributing technique to the field as
+a whole: deep learning, predominantly part of supervised learning, is reviewed
+in \autoref{sec:DL}. Finally, the category of reinforcement learning is reviewed
+in \autoref{ssec:RL}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Categories of Machine Learning\label{sec:ML_categories}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Tasks provided to machine learning algorithms have different formulations based
+on the problem being addressed. These categories of tasks are most distinct by
+the method by which the algorithm is provided further experience, or data, from
+which it is expected to learn some pattern. These are defined by the following
+main categories:
+
+\begin{itemize}
+
+    \item \textbf{Supervised learning} is the machine learning task of learning
+    a mapping between an input $\mathbf{x}$ to an output $\mathbf{y}$ based on
+    example input-output pairs, otherwise referred to as the labelled training
+    data consisting of a set of training examples. The trained \textit{model} is
+    then provided an unseen $x$ for which it must estimate $y$ based on its
+    experience. Supervised models are further grouped into two subcategories,
+    classification and regression. \textbf{Classification} is the task of
+    mapping $x$ to a discrete output variable $y$ which determines the predicted
+    class based on the $x$. A simple example of this would be a $y$ in
+    $\mathbb{R}^2$ which determines whether the input image was a \textit{cat}
+    or a \textit{dog}. \textbf{Regression} is task of mapping $x$ onto a
+    continuous output variable $y$ which determines the value of some variable
+    of interest. An example of this would be the task of learning an
+    approximator to the function: $f(x)=x^2$.
+    % Dimensionality reduction \cite{vogelstein2021supervised}
+
+    \item \textbf{Unsupervised learning} involves the task of learning relations
+    between input data, $x$ with no labels, $y$ provided. This form of learning
+    often deal with pattern recognition problems in \textit{association} \&
+    \textit{clustering} \cite{barlow1999ul}.
+
+    \item \textbf{Semi-supervised} is a middle ground between supervised
+    learning (in which all training data is labelled) and unsupervised learning
+    (in which no label data is provided)~\cite{books/mit/06/CSZ2006}. Some
+    example applications of this paradigm are dimensionality reduction
+    ~\cite{Zhang2007}, clustering \cite{Bair2013}, and anomaly detection
+    \cite{DBLP:journals/corr/abs-1805-06725}.
+
+    \item \textbf{Reinforcement learning} is a learning task which relies
+    exclusively on a series of reinforcements. These reinforcements can be
+    positive (rewards) or negative (punishments). This category is discussed
+    further in \autoref{ssec:RL}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Deep Learning\label{sec:DL}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The fundamental component: Perceptrons}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Proposed by Rosenblatt \cite{Rosenblatt_1957_6098} in his technical
+report funded by the United States Office of Naval Research
+\cite{doi:10.1177/030631296026003005} in 1957, the \textit{perceptron} is a
+fundamental component of deep learning, describing a mathematical model of a
+biological neuron. There are two different sets of notation which exist when
+dealing with the bias of a perceptron. One involves the inclusion of a unit
+constant in the input vector $\mathbf{x}$, with the bias being specified by the
+value of the first weight $w_0$. An alternative notation exists which treats the
+bias as a standalone value $b$. The latter notation will be used, as it is the
+preferred notation in contemporary deep learning papers. The notation defining
+the mapping of a perceptron is then: $f(\mathbf{x};\mathbf{w},
+b)=\mathbf{x}^T\mathbf{w}+b$; $x\in\mathbb{R}^{d_{in}}$,
+$\mathbf{w}\in\mathbb{R}^{d_{in}}$, $b\in\mathbb{R}$.
+
+\begin{figure}[htbp]
+    \centering
+    \input{graphics/tikz/perceptron}
+    \caption{Perceptron}
+    \label{fig:perceptron}
+\end{figure}
+
+This mathematical mimicry of a biological neuron was first used used proposed by
+Rosenblatt where a set of inputs $\mathbf{x}$ weighted using $\mathbf{w}$ before
+being summed. If this sum surpassed a threshold, then a binary output of $1$ was
+returned. \autoref{fig:perceptron} shows a more general formulation which
+applies to the resulting field of deep learning, with any activation function
+$\phi$ analogous for the level of excitation of a biological neuron in response
+to its stimulus $\mathbf{x}$.
+
+The primary criticism of the perceptron came in 1969 from Minsky and Papert
+\cite{minsky69perceptrons}, where it was shown that the perceptron could only
+solve \textit{linearly separable} functions, and failed to solve the XOR and
+NXOR functions. They went on to claim that the research being done was doomed to
+failure due to these limitations, resulting in little research in the area being
+done until about the 1980's.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Activation function}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Since the early days of the perceptron, a wide variety of activation functions
+$\phi$ have been used and improve upon the threshold step function.
+
+%\begin{figure}[htbp]
+%    \centering
+%    \input{graphics/tikz/activation}
+%    \caption{Activation functions}
+%    \label{fig:activation}
+%\end{figure}
+\input{graphics/tikz/activation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Multilayer perceptrons, a.k.a feed forward networks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$f(\mathbf{x};\mathbf{w}, b)=\mathbf{x}^T\mathbf{w}+b$; $x\in\mathbb{R}^{d_{in}}$, $\mathbf{w}\in\mathbb{R}^{d_{in}\times}$, $b\in\mathbb{R}^1$.
+
+\begin{figure}
+    \centering
+    \input{graphics/tikz/mlp}
+    \caption{Multilayer perceptron}
+    \label{fig:mlp}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \input{graphics/tikz/mlp-vec}
+    \caption{Multilayer perceptron}
+    \label{fig:mlp-vec}
+\end{figure}
+
+
+\begin{equation}
+    \mathbf{h}^{(1)} = g^{(1)} \bigg(\mathbf{W}^{(1)}^T\mathbf{x} + \mathbf{b}^{(1)}\bigg);
+\end{equation}
+
+\begin{equation}
+    \mathbf{h}^{(2)} = g^{(2)} \bigg(\mathbf{W}^{(2)}^T\mathbf{h}^{(1)} + \mathbf{b}^{(2)}\bigg);
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Gradient based learning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Universal Approximation Properties and Depth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A linear model by definition, may only optimised to represent linear functions.
+It has advantages in its simplicity to optimise however we often require our
+estimator models to learn nonlinear functions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Backpropagation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Backpropagation, short for "backward propagation of errors," is a
+\textit{supervised learning} algorithm for artificial neural networks using
+\textit{gradient descent}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reinforcement Learning\label{ssec:RL}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{graphics/tikz/agent-environment}
+
+\begin{itemize}
+    \item states and observations,
+    \item action spaces,
+    \item policies,
+    \item trajectories,
+    \item different formulations of return,
+    \item the RL optimization problem,
+    \item and value functions.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Taxonomy of Reinforcement Learning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Value-based methods}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Policy-based methods}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Policy gradient}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Deep deterministic policy gradient (DDPG)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

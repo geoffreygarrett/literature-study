@@ -1,0 +1,96 @@
+\documentclass[
+    11pt,
+    oneside,
+    doublespace
+]{tudat}
+\include{settings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COVER PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+
+% paragraph linbreaks
+
+
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% for braces
+\usetikzlibrary{decorations.pathreplacing}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{longtable,tabularx}
+\setlength\LTleft{0pt}
+
+
+%added after
+
+% stop caption being bold with \textmd{medium/regular}
+%\usepackage[font=bf]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+    \pagenumbering{gobble}
+
+    %% Roman numerals
+    \frontmatter
+
+    %% Defining the main parameters
+    \title{A Title to the ASDASDASDASDASD}
+    \subtitle{A Catchy Subtitle that \\ Grabs the Attention} % Two lines recommended
+    \author{Author}
+    \subject{AB1234: Course Name}
+
+    \coverimage{figures/cover2.jpg} % Aspect ratio of 2:3 (portrait) recommended
+    \definecolor{title}{HTML}{4884d6} % Color for the title
+
+    \makecover
+
+    \frontmatter % Use roman page numbering style
+
+    \input{chapters/0-front-matter/nomenclature.tex}
+    \listoffigures
+    \listoftables
+
+    \newpage
+
+    \setcounter{tocdepth}{2} % Set TOC to display up to subsections
+    \tableofcontents
+
+    \mainmatter % Begin numeric (1,2,3...) page numbering
+
+    \input{chapters/0-front-matter/introduction.tex}
+    \input{chapters/1-main-matter/astrodynamics.tex}
+    \input{chapters/1-main-matter/dynamic-modelling.tex}
+    \input{chapters/1-main-matter/numerical-analysis.tex}
+    \input{chapters/1-main-matter/trajectory-optimization.tex}
+    \input{chapters/1-main-matter/linearization.tex}
+    \input{chapters/1-main-matter/observation-models.tex}
+    \input{chapters/1-main-matter/machine-learning.tex}
+
+    \newpage
+
+    \backmatter
+
+    \appendix
+%    \begin{appendices}
+    \input{chapters/2-back-matter/appendix-A.tex}
+    \input{chapters/2-back-matter/appendix-B.tex}
+%    \end{appendices}
+
+\end{document}

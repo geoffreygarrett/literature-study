@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Appendix A: Mathematical Expressions\label{appendix:rotational_transformations}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Rotation transformations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+    \mathbb{T}_x(\phi_x)=
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & \cos\phi_x & \sin\phi_x \\
+        0 & -\sin\phi_x & \cos\phi_x \\
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    \mathbb{T}_y(\phi_y)=
+    \begin{bmatrix}
+        \cos\phi_y  & 0 & -\sin\phi_y  \\
+        0           & 1 & 0            \\
+        -\sin\phi_y & 0 & \cos\phi_y   \\
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    \mathbb{T}_z(\phi_z)=
+    \begin{bmatrix}
+         \cos\phi_z & \sin\phi_z & 0 \\
+        -\sin\phi_z & \cos\phi_z & 0 \\
+        0           & 0          & 1 \\
+    \end{bmatrix}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Incomplete integrals}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+    U(r_x, r_y, r_z) = G\int_V\frac{\rho{(s_x,s_y,s_z)}}{\sqrt{(r_x-s_x)^2+(r_y-s_y)^2+(r_z-s_z)^2}}\;dx\;dy\;dz
+    \label{eq:ur-gen-rect}
+\end{equation}
+
+\begin{equation}
+    R_F\!\left(x, y, z\right) = \frac{1}{2} \int_{0}^{\infty} \frac{1}{\sqrt{t + x} \sqrt{t + y} \sqrt{t + z}} \, dt
+    \label{eq:elliptic_RF}
+\end{equation}
+
+\begin{equation}
+    R_D\!\left(x, y, z\right) = \frac{3}{2} \int_{0}^{\infty} \frac{1}{\left(t + x\right) \left(t + y\right) {\left(t + z\right)}^{3 / 2}} \, dt
+    \label{eq:elliptic_RD}
+\end{equation}

@@ -1,0 +1,71 @@
+\usepackage{subfig}
+\usepackage{parskip}
+
+%---------------------------
+% Paper size
+%---------------------------
+\usepackage{geometry}
+\geometry{
+    paper=a4paper,  % Change to letterpaper for US letter
+    inner=2.5cm,    % Inner margin
+    outer=2.5cm,    % Outer margin
+% 	bindingoffset=.5cm, % Binding offset
+    top=2.5cm,      % Top margin
+    bottom=2.5cm,   % Bottom margin
+% 	showframe,      % Uncomment to show the precise text area
+}
+
+%---------------------------
+% Math
+%---------------------------
+% bold math symbols
+\usepackage{bm}
+\usepackage{amsfonts}
+
+%---------------------------
+% Physics
+%---------------------------
+% Enables partial derivatives using: \dv{a}{t}
+\usepackage{physics}
+%\usepackage{xcolor}
+
+%---------------------------
+% Figures
+%---------------------------
+\usepackage{import}   % For use with SVG's from GIMP (pdf_tex)
+\usepackage{mathabx}
+
+%---------------------------
+% Plots
+%---------------------------
+\usepackage{pgfplots}
+\pgfplotsset{every axis/.append style={tick label style={/pgf/number format/fixed},font=\scriptsize,ylabel near ticks,xlabel near ticks,grid=major}}
+\pgfplotsset{compat=1.16}
+
+%\usepackage[style=nature,backend=bibtex]{biblatex}
+%\addbibresource{bib.bib}
+%---------------------------
+% Bibliography
+%---------------------------
+%\usepackage[
+%%    natbib=true,
+%    backend=bibtex,
+%    sorting=anyvt,
+%    url=true,
+%    style=nature,
+%    doi=true]{biblatex}
+
+%\addbibresource{library.bib}
+%
+%% \usepackage[nottoc]{tocbibind} % Include in TOC
+% \bibliography{library.bib}
+%\usepackage[
+%    natbib=true,
+%    backend=bibtex,
+%%    sorting=anyvt,
+%    url=true,
+%    style=draft,
+%    doi=true]{biblatex}
+%
+%\addbibresource{library}
+%%\usepackage[nottoc]{tocbibind} % Include in TOC

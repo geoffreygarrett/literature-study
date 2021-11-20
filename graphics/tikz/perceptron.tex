@@ -1,0 +1,114 @@
+% MIT License
+%
+% Copyright (c) 2021 Geoffrey H. Garrett
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGEMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Design and implementation of this diagram was inspired and adapted from:
+% https://tex.stackexchange.com/questions/104334/tikz-diagram-of-a-perceptron
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEPENDENCIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
+%\usetikzlibrary{positioning}                  % for TikZ relative positioning
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USER STYLING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TikZ node design.
+\tikzset{basic/.style={draw,text width=1em,text badly centered}}
+\tikzset{input/.style={}}
+\tikzset{output/.style={}}
+\tikzset{weight/.style={basic,circle}}
+\tikzset{hidden/.style={basic,circle}}
+\tikzset{function/.style={basic,circle}}
+
+% Labels and symbols.
+\def\activationlabel{activation function}  % activation function label
+\def\activationsymbol{$\phi$}              % activation function symbol
+\def\transferlabel{transfer function}      % transfer function label
+\def\transfersymbol{$\sum$}                % transfer function symbol
+\def\outputsymbol{$y$}                     % output symbol
+\def\inputsymbol{$x$}                      % input symbol
+\def\inputvecsymbol{$\mathbf{x}$}          % input vector symbol
+\def\weightslabel{weights}                 % input vector symbol
+\def\biassymbol{$b$}                       % bias symbol
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TIKZ PICTURE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+    \node[function] at ({\transferx}, -{int(2)})  (transfer) {\transfersymbol};
+    \node[function, right=3em of transfer] (activation) {\activationsymbol};
+    \node[below of=activation,font=\scriptsize,text width=3em] {\activationlabel};
+    \node[below of=transfer,font=\scriptsize,text width=3em] {\transferlabel};
+    \node[output, right=\layersep of activation] (output) {\outputsymbol};
+    \path[draw,->] (transfer) -- (activation);
+    \path[draw,->] (activation) -- (output);
+
+    % Iterate through each row of units.
+    \foreach \n [evaluate=\n as \p using {int(\n-1)}] in {0,1,2,3,4} {
+        \ifnum \n=0
+        \node[input] at (0, -\n) (X-\n) {$1$};
+        \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
+        \else \ifnum \n=3
+        \node[] at (0, -\n) (X-\n) {$\vdots$};
+        \node[] at (\layersep, -\n) (W-\n) {$\vdots$};
+        \else \ifnum \n=4
+        \node[input] at (0, -\n) (X-\n) {$x_{d_{{in}}}$};
+        \node[weight,label={[xshift=-0.0em]center:$w_{d_{{in}}}$}] at (\layersep, -\n) (W-\n) {\phantom{$w_{d_{{in}}}$}};
+        \else
+        \node[input] at (0, -\n) (X-\n) {$x_\n$};
+        \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
+        \fi
+        \fi
+        \fi
+
+        % Arrow from input to weight.
+        \ifnum \n=3
+        \else
+        \path[draw,->] (X-\n) -- (W-\n);
+                    \path[draw,->] (W-\n) -- (transfer);
+        \fi
+
+    }
+
+    % Brace for bias.
+    \node[left=1em of X-0] (bias-brace) {};
+    \node[above=1em of bias-brace] (bias-brace-up) {};
+    \node[below=1em of bias-brace] (bias-brace-down) {};
+    \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);
+    \node[left of=bias-brace,font=\scriptsize] {bias, \biassymbol};
+
+    % Brace for input.
+    \node[below=10em of bias-brace-down] (input-brace-down) {};
+    \node[below=5em of bias-brace-down] (input-brace) {};
+    \draw[decorate,decoration = {brace}] (input-brace-down) --  (bias-brace-down);
+    \node[left of=input-brace,font=\scriptsize] {inputs, \inputvecsymbol};
+
+    % Weights label.
+    \node[below of=W-4,font=\scriptsize] {\weightslabel};
+
+\end{tikzpicture}

@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Trajectory Optimization}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Trajectory optimisation is the process of designing a series of states across a
+temporal dimension that maximizes (or minimizes) a measure of performance. This
+technique is generally used to obtain the open-loop solution of an optimal
+control problem within a finite horizon. Due to the common presence of
+nonlinearities in the constraint and/or performance functions, trajectory
+optimisation problems often employ the use of \textit{nonlinear programming}.
+
+Mathematicaly the problem can be described by $N$ phases, with the independent
+variable $t$, where phase $k$ lies within the region
+$t_0^{(k)}\leq{t}\leq{t_f^{(k)}}$. The independent variable $t$ very often
+describes \text{time} within mosr practical applications, where the phases are
+sequential, that is $t_0^{(k+1)}=t_f^{(k)}$, however as stated by
+\textit{Betts}, and demononstrated well by \autoref{sec:sundmann}, neither of
+these assumptions are required. In phase $k$, the dynamic variables are
+described as,
+\begin{equation}
+  \mathbf{z}=
+  \begin{bmatrix}
+  \mathbf{x}^{(k)}(t) \\
+  \mathbf{u}^{(k)}(t)
+  \end{bmatrix},
+\end{equation}
+where $\mathbf{x}_k$ and $\mathbf{u}_k$ describe the \textit{state variables}
+and \textit{control variables} respectively at the $n$ knot points.
+bash -ic \usr\bin\pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf \"-output-directory=/mnt/c/Users/ggarr/OneDrive/Documents/Literature Study/out\" /mnt/c/Users/ggarr/OneDrive/Documents/Literature Study/main.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sims-Flanagan Method}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A common method for low-thrust trajectory optimisation in numerical
+astrodynamics, the Sims-Flanagan method \cite{Sims2000}, is the optimisation of
+a low-thrust trajectory following transcription into a series of conic arcs
+connected by $\Delta{V}$ impulses, as seen in Figure \autoref{fig:sf}.
+
+\begin{figure}[H]
+    \centering
+    \label{fig:sf}
+%    \includegraphics[width=0.4\textwidth]{graphics/1/sims-flanagan-izzo}
+    \caption{
+        Impulsive $\Delta{V}$ transcription of a low-thrust trajectory, after
+        Sims and Flanagan \cite{Yam2010}.
+    }
+\end{figure}
+
+This method is fast and robust, however due to its discretization of a
+continuous low-thrust problem, it can fail to be a faithful representation of
+reality. Yam et al. improve upon this method in two ways: 1) the $\Delta{V}$
+impulses are replaced with continuous thrust where the low-thrust arcs are
+numerically propagated; and 2) the time mesh, or series of knot points, are
+optimised together with the trajectory.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sundmann Transform\label{sec:sundmann}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Karl Sundman introduced a simple transformation for the time variable, to
+regularize the otherwise singular three body problem. A new variable $s$ is
+introduced through the relation $ds=dt/r$ which \textit{guarantees an
+asymptotically slower flow} near the singularities ~\cite{Sundman1913}.
+
+\begin{equation}
+    \begin{aligned}
+        r&=\sqrt{x_1 ^2 + x_2 ^ 2 + x_3 ^ 2}\\
+        \dot{x}_1 &= x_{4}r\\
+        \dot{x}_2 &= x_{5}r\\
+        \dot{x}_3 &= x_{6}r\\
+        \dot{x}_4 &= -x_{1}/r^2+u_1{r}\\
+        \dot{x}_5 &= -x_{2}/r^2+u_2{r}\\
+        \dot{x}_6 &= -x_{3}/r^2+u_3{r}\\
+        \dot{t} &= r
+    \end{aligned}
+\end{equation}
+Yam et al. demonstrates quite effectively that sampling in the $s$ domain is
+useful for trajectory optimization. \cite{Yam2010} The difference between equal
+sampling in the $s$ domain compared to that of time, is seen in Figure
+\ref{fig:t-s}.
+
+\begin{figure}[H]
+    \centering
+    \label{fig:t-s}
+    \includegraphics[width=0.8\textwidth]{graphics/1/sampling-t-s}
+    \caption{
+        A trajectory sampled with the same number of a) time spaced segments b)
+        s-spaced segments \cite{Yam2010}.
+    }
+\end{figure}
+
+It is evident from Figure \ref{fig:t-s} that sampling the $s$ domain is superior
+in generating a smooth trajectory, in the context of orbital trajectory
+discretization. \textcolor{blue}{This presents an interesting aspect when one
+considers replacing the temporal variable of time with the s-domain in the
+context of an infinite-horizon reinforcement learning problem.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Optimal Control}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potryagins maximum principal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Model predictive control (MPC)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Recent Research}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Autoencoder of coordinates}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\url{https://www.youtube.com/watch?v=KmQkDgu-Qp0}

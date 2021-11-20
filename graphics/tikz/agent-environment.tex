@@ -1,0 +1,32 @@
+\tikzset{basic/.style={draw,text width=1em,text badly centered}}
+\tikzset{component/.style={rectangle, draw=black, thick, text width=7em,align=center, rounded corners, minimum height=2em}}
+
+\begin{figure}[!htp]
+    \label{fig:agent-environment}
+    \centering
+    \tikzstyle{block} = [rectangle, draw,
+    text width=8em, text centered, rounded corners, minimum height=4em]
+
+    \tikzstyle{line} = [draw, -latex]
+
+    \begin{tikzpicture}[node distance = 6em, auto, thick]
+        \node [block] (Agent) {Agent};
+        \node [block, below=5em of Agent] (Environment) {Environment};
+        \node [left=3em of Environment] (Dashed) {};
+        \node [above=1.7em of Dashed] (Dashed-up) {};
+        \node [below=1.7em of Dashed] (Dashed-down) {};
+
+        \path [line] (Agent.0) --++ (4em,0em) |- node [near start]{Action, $a_t$} (Environment.0);
+
+        \path [line] (Environment.190) -- (Environment.190-|Dashed-down.east) node [midway, label={[xshift=-0.0em]center:$s_{t+1}$}] {\phantom{$s_{t+1}$}};
+        \path [line] (Environment.170) -- (Environment.170-|Dashed-up.east) node [midway, above, label={[xshift=-0.0em]center:$r_{t+1}$}] {\phantom{$r_{t+1}$}};
+
+        \path [line] (Environment.190|-Environment.190) --++ (-6em,0em) |- node [near start] {} node [near start, label={[xshift=-0.0em]center:State, $s_t$}] {\phantom{State, $s_t$}} (Agent.170);
+        \path [line] (Environment.170|-Environment.170) --++ (-4.25em,0em) |- node [near start, right] {} node [near start, right, label={[xshift=-0.0em]center:Reward, $r_t$}] {\phantom{Reward, $r_t$}} (Agent.190);
+
+        \draw[dotted] (Dashed-up.east) -- (Dashed-down.east);
+
+
+    \end{tikzpicture}
+    \caption{Agent-environment interaction interface.}
+\end{figure}
