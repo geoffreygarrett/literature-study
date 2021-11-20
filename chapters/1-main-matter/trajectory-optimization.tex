@@ -25,7 +25,6 @@ described as,
 \end{equation}
 where $\mathbf{x}_k$ and $\mathbf{u}_k$ describe the \textit{state variables}
 and \textit{control variables} respectively at the $n$ knot points.
-bash -ic \usr\bin\pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf \"-output-directory=/mnt/c/Users/ggarr/OneDrive/Documents/Literature Study/out\" /mnt/c/Users/ggarr/OneDrive/Documents/Literature Study/main.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sims-Flanagan Method}
@@ -35,7 +34,7 @@ astrodynamics, the Sims-Flanagan method \cite{Sims2000}, is the optimisation of
 a low-thrust trajectory following transcription into a series of conic arcs
 connected by $\Delta{V}$ impulses, as seen in Figure \autoref{fig:sf}.
 
-\begin{figure}[H]
+\begin{figure}[htp]
     \centering
     \label{fig:sf}
 %    \includegraphics[width=0.4\textwidth]{graphics/1/sims-flanagan-izzo}
@@ -74,13 +73,12 @@ asymptotically slower flow} near the singularities ~\cite{Sundman1913}.
 \end{equation}
 Yam et al. demonstrates quite effectively that sampling in the $s$ domain is
 useful for trajectory optimization. \cite{Yam2010} The difference between equal
-sampling in the $s$ domain compared to that of time, is seen in Figure
-\ref{fig:t-s}.
+sampling in the $s$ domain compared to that of time, is seen in \autoref{fig:t-s}.
 
-\begin{figure}[H]
+\begin{figure}[htp]
     \centering
     \label{fig:t-s}
-    \includegraphics[width=0.8\textwidth]{graphics/1/sampling-t-s}
+%    \includegraphics[width=0.8\textwidth]{graphics/1/sampling-t-s}
     \caption{
         A trajectory sampled with the same number of a) time spaced segments b)
         s-spaced segments \cite{Yam2010}.

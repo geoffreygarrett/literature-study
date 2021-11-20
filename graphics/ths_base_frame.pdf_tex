@@ -58,6 +58,6 @@
     \put(0.27725499,0.10322514){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{X}$\end{tabular}}}}%
     \put(0.6798795,0.10514828){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{Y}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{ths_base_frame.pdf}}%
-    \put(0.43213417,0.16247978){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{X}\cross{\mathbf{Y}}=\mathbf{Z}\end{tabular}}}}%
+    \put(0.43213417,0.16247978){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{X}\cross{\mathbf{Y}}=\mathbf{Z}$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

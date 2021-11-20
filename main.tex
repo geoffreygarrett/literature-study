@@ -21,24 +21,31 @@
 
 
 \usepackage{mathtools}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
+%\usepackage{tikz}
 
 % for braces
-\usetikzlibrary{decorations.pathreplacing}
 
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage[version=4]{mhchem}
-\usepackage{siunitx}
-\usepackage{longtable,tabularx}
-\setlength\LTleft{0pt}
+%\usepackage{graphicx}
+%\usepackage{amsmath}
+%\usepackage[version=4]{mhchem}
+%\usepackage{siunitx}
+%\usepackage{longtable,tabularx}
+%\setlength\LTleft{0pt}
 
 
 %added after
 
 % stop caption being bold with \textmd{medium/regular}
 %\usepackage[font=bf]{caption}
+\usepackage[
+%    natbib=true,
+    backend=bibtex,
+    sorting=anyvt,
+    url=true,
+    style=nature,
+    doi=true]{biblatex}
+
+\addbibresource{sample.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
@@ -48,18 +55,7 @@
     \pagenumbering{gobble}
 
     %% Roman numerals
-    \frontmatter
-
-    %% Defining the main parameters
-    \title{A Title to the ASDASDASDASDASD}
-    \subtitle{A Catchy Subtitle that \\ Grabs the Attention} % Two lines recommended
-    \author{Author}
-    \subject{AB1234: Course Name}
-
-    \coverimage{figures/cover2.jpg} % Aspect ratio of 2:3 (portrait) recommended
-    \definecolor{title}{HTML}{4884d6} % Color for the title
-
-    \makecover
+%    \makecover
 
     \frontmatter % Use roman page numbering style
 
@@ -84,6 +80,8 @@
     \input{chapters/1-main-matter/machine-learning.tex}
 
     \newpage
+    
+    \bibliography{sample}
 
     \backmatter
 

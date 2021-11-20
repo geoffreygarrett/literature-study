@@ -60,7 +60,10 @@
 % TIKZ PICTURE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
-    \node[function] at ({\transferx}, -{int(2)})  (transfer) {\transfersymbol};
+    \usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
+    \usetikzlibrary{positioning}                  % for TikZ relative positioning
+
+    \node[function] at (\transferx, -{int(2)})  (transfer) {\transfersymbol};
     \node[function, right=3em of transfer] (activation) {\activationsymbol};
     \node[below of=activation,font=\scriptsize,text width=3em] {\activationlabel};
     \node[below of=transfer,font=\scriptsize,text width=3em] {\transferlabel};

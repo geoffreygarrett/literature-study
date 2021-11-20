@@ -1,4 +1,4 @@
-\usepackage{subfig}
+\usepackage{subfigure}
 \usepackage{parskip}
 
 %---------------------------
@@ -33,7 +33,10 @@
 % Figures
 %---------------------------
 \usepackage{import}   % For use with SVG's from GIMP (pdf_tex)
-\usepackage{mathabx}
+\let\savediv\div
+\let\div\relax
+\usepackage{mathabx}  % For use with SVG's from GIMP (pdf_tex)
+\let\div\savedev
 
 %---------------------------
 % Plots
@@ -42,20 +45,19 @@
 \pgfplotsset{every axis/.append style={tick label style={/pgf/number format/fixed},font=\scriptsize,ylabel near ticks,xlabel near ticks,grid=major}}
 \pgfplotsset{compat=1.16}
 
+%---------------------------
+% TikZ
+%---------------------------
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
+\usetikzlibrary{positioning}                  % for TikZ relative positioning
+
 %\usepackage[style=nature,backend=bibtex]{biblatex}
 %\addbibresource{bib.bib}
 %---------------------------
 % Bibliography
 %---------------------------
-%\usepackage[
-%%    natbib=true,
-%    backend=bibtex,
-%    sorting=anyvt,
-%    url=true,
-%    style=nature,
-%    doi=true]{biblatex}
 
-%\addbibresource{library.bib}
 %
 %% \usepackage[nottoc]{tocbibind} % Include in TOC
 % \bibliography{library.bib}
