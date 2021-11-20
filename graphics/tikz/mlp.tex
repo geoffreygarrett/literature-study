@@ -49,6 +49,8 @@
 % TIKZ PICTURE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
+    \usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
+    \usetikzlibrary{positioning}                  % for TikZ relative positioning
 
     % input
     \foreach \n/\p in {0/1,1/2,2/3,3/4,4/5} {
@@ -73,7 +75,7 @@
             \node[right of=Y_\n] (O_\n) {$y_{d_{out}}$};
             \path[draw,->] (Y_\n) -- (O_\n);
         \else
-            \node[input] at (0, -\n) (X_\n) {};
+            \node[input] at (0, -{\n}) (X_\n) {};
             \node[left of=X_\n] (I_\n) {$x_{\p}$};
             \path[draw,->] (I_\n) -- (X_\n);
             \node[hidden] at (\hiddenx, -\n) (H1_\n) {};%{$h_{\n, 1}$};

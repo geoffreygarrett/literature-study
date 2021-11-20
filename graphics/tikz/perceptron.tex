@@ -30,8 +30,6 @@
 % DEPENDENCIES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{tikz}
-%\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
-%\usetikzlibrary{positioning}                  % for TikZ relative positioning
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % USER STYLING
@@ -74,17 +72,17 @@
     % Iterate through each row of units.
     \foreach \n [evaluate=\n as \p using {int(\n-1)}] in {0,1,2,3,4} {
         \ifnum \n=0
-        \node[input] at (0, -\n) (X-\n) {$1$};
-        \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
+        \node[input] at (0, -{\n}) (X-\n) {$1$};
+        \node[weight] at (\layersep, -{\n}) (W-\n) {$w_\n$};
         \else \ifnum \n=3
-        \node[] at (0, -\n) (X-\n) {$\vdots$};
-        \node[] at (\layersep, -\n) (W-\n) {$\vdots$};
+        \node[] at (0, -{\n}) (X-\n) {$\vdots$};
+        \node[] at (\layersep, -{\n}) (W-\n) {$\vdots$};
         \else \ifnum \n=4
-        \node[input] at (0, -\n) (X-\n) {$x_{d_{{in}}}$};
-        \node[weight,label={[xshift=-0.0em]center:$w_{d_{{in}}}$}] at (\layersep, -\n) (W-\n) {\phantom{$w_{d_{{in}}}$}};
+        \node[input] at (0, -{\n}) (X-\n) {$x_{d_{{in}}}$};
+        \node[weight,label={[xshift=-0.0em]center:$w_{d_{{in}}}$}] at (\layersep, {-\n}) (W-\n) {\phantom{$w_{d_{{in}}}$}};
         \else
-        \node[input] at (0, -\n) (X-\n) {$x_\n$};
-        \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
+        \node[input] at (0, -{\n}) (X-\n) {$x_\n$};
+        \node[weight] at (\layersep, -{\n}) (W-\n) {$w_\n$};
         \fi
         \fi
         \fi

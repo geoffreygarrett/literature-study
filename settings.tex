@@ -21,6 +21,7 @@
 % bold math symbols
 \usepackage{bm}
 \usepackage{amsfonts}
+\usepackage{mathtools}
 
 %---------------------------
 % Physics
@@ -43,7 +44,7 @@
 %---------------------------
 \usepackage{pgfplots}
 \pgfplotsset{every axis/.append style={tick label style={/pgf/number format/fixed},font=\scriptsize,ylabel near ticks,xlabel near ticks,grid=major}}
-\pgfplotsset{compat=1.16}
+%\pgfplotsset{compat=1.16}
 
 %---------------------------
 % TikZ
@@ -59,15 +60,15 @@
 %---------------------------
 
 %
-%% \usepackage[nottoc]{tocbibind} % Include in TOC
-% \bibliography{library.bib}
-%\usepackage[
-%    natbib=true,
-%    backend=bibtex,
-%%    sorting=anyvt,
-%    url=true,
-%    style=draft,
-%    doi=true]{biblatex}
-%
+% \usepackage[nottoc]{tocbibind} % Include in TOC
+\usepackage[
+    natbib=true,
+    backend=bibtex,
+%    sorting=anyvt,
+    url=true,
+    style=nature,
+    doi=true]{biblatex}
+\bibliography{sample}
+
 %\addbibresource{library}
 %%\usepackage[nottoc]{tocbibind} % Include in TOC
