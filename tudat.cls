@@ -121,7 +121,7 @@
 
 % subsubsections
 \titleformat{\subsubsection}
-{\normalsize\itshape\singlespacing}
+{\normalsize\bfseries\singlespacing}
 {\thesubsubsection.\space}{0pt}{#1}[]
 \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
 

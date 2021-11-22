@@ -1,0 +1,84 @@
+% DEP
+% \usetikzlibrary{matrix}
+
+% ACK
+% https://tex.stackexchange.com/questions/429451/k-fold-cross-validation-figure-using-tikz-or-table
+
+\begin{tikzpicture}
+    \matrix (M)
+        [
+        matrix of nodes,
+        nodes={
+            minimum height = 6mm,
+            minimum width = 1.3cm,
+            outer sep=0,
+            anchor=center,
+            draw
+        },
+        column 1/.style={nodes={draw=none}, minimum width = 4cm},
+        column 5/.style={nodes={draw=none}},
+        column 7/.style={nodes={draw=none},minimum width = 1.0cm},
+        row 4/.style={nodes={draw=none}},
+        row sep=1mm,
+        column sep=-\pgflinewidth,
+        nodes in empty cells,
+        e/.style={fill=yellow!10},
+        n/.style={nodes={draw=none, fill=none}},
+        ]
+    {
+        Iteration 1   & |[e]|  &        &        & \ldots &        & \textrightarrow\;$e_1$ \\
+        Iteration 2   &        & |[e]|  &        & \ldots &        & \textrightarrow\;$e_2$ \\
+        Iteration 3   &        &        & |[e]|  & \ldots &        & \textrightarrow\;$e_3$ \\
+              \vdots  & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots                \\
+        Iteration $K$ &        &        &        & \ldots & |[e]|  & \textrightarrow\;$e_K$ \\
+    };
+    \draw (M-1-2.north west) ++(0,2mm) coordinate (LT) edge[|<->|, >= latex] node[above]{Total number of folds} (LT-|M-1-6.north east);
+%    \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);
+    \draw[decorate,decoration = {brace, raise=0.5em, amplitude=0.5em}]
+        (M-5-6.south east)
+        -- node[below=1em, align=center] {Validation \\ fold}
+        ([shift={(0.1em,0)}]M-5-6.south west);
+
+    \draw[decorate,decoration = {brace, raise=0.5em, amplitude=0.5em}]
+        ([shift={(-0.1em,0)}]M-5-5.south east)
+        -- node[below=1em, align=center] {Training folds}
+        (M-5-2.south west);
+
+    \draw[decorate,decoration = {brace, raise=0.5em, amplitude=0.5em}]
+        (M.north east)
+        -- node[midway, right=1.5em] {$e=\frac{1}{K}\sum_{i=0}^K{e_i}$}
+        (M.south east);
+
+%    \matrix (L)
+%        [
+%        matrix of nodes,
+%        right=of M,
+%        nodes={
+%            minimum height = 6mm,
+%            minimum width = 1.5cm,
+%            outer sep=0,
+%            anchor=center,
+%            draw
+%        },
+%        column 1/.style={nodes={draw=none}, minimum width = 4cm},
+%        row sep=1mm,
+%        column sep=-\pgflinewidth,
+%        nodes in empty cells,
+%        e/.style={fill=yellow!10}
+%        ]
+%    {
+%        Training   &       \\
+%        Validation & |[e]| \\
+%    };
+
+%    \node[east=of M.east] {
+%    \hskip1em
+%    \begin{tabular}[c]{|p{2em}|l}
+%      \cline{1-1}
+%      \ccell{0}{1}  & Training
+%      \nextrow{1-1}
+%      \ccell{1}{1}  & Validation\\
+%      \cline{1-1}
+%    \end{tabular}
+%    }
+\end{tikzpicture}

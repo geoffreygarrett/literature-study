@@ -31,39 +31,54 @@ considered as the catalyst for the AI boom of the 21st century
 \end{figure}
 
 
-\newpage\section{Machine Learning Basics}
+\newpage
+
+
+\section{Machine Learning Basics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This section aims at a non-exhaustive coverage of the basics of machine learning
-is covered which apply to all machine learning algorithms. We start by defining
-what it is for an algorithm to be one that "learns". The types of datasets that
-may be encountered in the application of these learning algorithms are then
-briefly covered to provide insight to the reader into some potential
-applications which are not covered here. The distinction is then made between
-the goal of fitting training data and the goal of finding patterns that
-generalize to new data. A very common concept in machine learning are
-\textit{hyperparameters} which are settings of a learning algorithm which must
-be determined outside the learning algorithm itself.
+This section aims at a providing a non-exhaustive coverage of the basics of
+machine learning can can be applied to all machine learning algorithms. This
+section starts by defining what is meant when it is said that an algorithm
+``learns". The types of datasets that may be encountered in the application of
+these learning algorithms are then briefly covered to provide insight into the
+potential applications which are not covered in this review. The distinction is
+then made between the goal of fitting training data and the goal of finding
+patterns that generalize to new data. This section then covers a very common
+concept in machine learning: \textit{hyperparameters}, which are
+\textit{settings} of a learning algorithm which must be determined outside the
+learning algorithm itself.
 
 \subsection{Learning algorithms}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Generally speaking, a machine learning algorithm is a procedure for learning
-from data. Mitchell \cite{Mitchell97LearningAlgorithm} provides a succint
-definition:
+from data.However correct this definition is, it provides little insight into
+the relevant concepts in the field. A more succint definition is provided by
+Mitchell \cite{Mitchell97LearningAlgorithm}:
 \begin{quotation}
     \textit{
-        A computer program is said to learn from experience $E$ with
-        respect to some class of tasks $T$ and a performance measure $P$, if its
-        performance at tasks in $T$, as measured by $P$,improves with experience
-        $E$.
+        A computer program is said to learn from experience $E$ with respect to
+        some class of tasks $T$ and a performance measure $P$, if its
+        performance at tasks in $T$, as measured by $P$, improves with
+        experience $E$.
     }
 \end{quotation}
-
-This definition is general and the contained concepts will not be defined in
-the following sections as it is far outside the scope of this literature, rather
-we will cover examples of each which will provide insight to the reader.
+This definition introduces the general entities which are present during all
+machine learning tasks. The entities will not be formally defined in the
+following sections as it is far outside the scope of this literature, and is
+philosophical in nature. This section will instead cover examples of each which
+will provide practical insight on which the reader can build their knowledge.
 
 \subsubsection{The Task, $T$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+There exists a plethora of tasks which humanity has applied learning algorithms
+to during the timeline of the field. It is common for ML practitioners to
+originate from domains outside that of computer science, in order to access the
+feasibility of existing algorithms in their domain. There is however a question
+that often presents itself to specialists in their respective fields when they
+consider applying ML to the existing problems in their field. Why should a
+specialist opt for solving problems with ML that have been solved using tried
+and true techniques in their domain of expertise? Goodfellow et al.
+\cite{Goodfellow-et-al-2016} provide an insightful response to this:
 
 \begin{quotation}
     \textit{
@@ -75,6 +90,24 @@ we will cover examples of each which will provide insight to the reader.
         intelligence.
     }
 \end{quotation}
+An example of a field which has undergone dramatic changes in a short period of
+time, with the advent of DL and modern hardware, is computer vision (CV). Mahony
+et. al. discuss this in their paper with a focus on comparing DL and CV
+\cite{Mahony-et-al-2020}. Their paper concludes that many CV techniques invented
+in the 20 years preceding the paper have become irrelevant as a result of DL.
+However, they emphasise on the importance of the knowledge established in those
+20 years, arguing that \textit{``knowledge is never obsolete"}, as it provides
+specialists with more tools and intuition when addressing problems. Some typical
+applications of CV are detailed and although these may be outperformed by DL,
+relying on DL in some cases is overkill. They also point out some hybrid
+approaches between DL and CV which synergize, saying that CV provides improved
+performance in DL by reducing training time. This emphasizes that specialists
+should not expect an end-all solution from ML in addressing their
+domain-specific problems, but rather as mentioned by Goodfellow et al., strive
+for a better understanding of the principles that underlie intelligence, and by
+extension, those that underlie the practitioners domain-specific problems.
+
+
 
 %An ongoing trend in society is the augmentation of responsibility in intelligent
 %algorithms through autonomy, evident by the advent of semi-autonomous cars,
@@ -84,18 +117,21 @@ we will cover examples of each which will provide insight to the reader.
 %management\footnote{\url{https://www.forbes.com/sites/stevebanker/2021/04/01/amazon-supply-chain-innovation-continues/}},
 %to name a few.
 
-This section reviews the current ongoing research in the field of machine
-learning as a whole. First the main categories: \textit{Supervised learning},
+%This section reviews the current ongoing research in the field of machine
+%learning as a whole. First the main categories:
+
+\subsubsection{The Performance, $P$\label{sec:ML_performance}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{The Experience, $E$\label{sec:ML_experience}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textit{Supervised learning},
 \textit{Unsupervised learning}, \textit{Semi-supervised learning}, and
 \textit{Reinforcement learning} are distinguished with examples in
 \autoref{sec:ML_categories}. The biggest contributing technique to the field as
 a whole: deep learning, predominantly part of supervised learning, is reviewed
 in \autoref{sec:DL}. Finally, the category of reinforcement learning is reviewed
 in \autoref{ssec:RL}.
-
-
-\subsubsection{The Experience, $E$\label{sec:ML_categories}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Tasks provided to machine learning algorithms have different formulations based
 on the problem being addressed. These tasks can be broadly categorized by
@@ -129,7 +165,6 @@ which it is expected to learn some pattern of interest.
     containing only features and learn some useful properties of the structure
     of the dataset. This form of learning often addresses recognition problems
     in \textit{association} \& \textit{clustering} \cite{barlow1999ul}.
-    \item These algorithms can sometime be unpredictable in nature.
 
     \item \textbf{Semi-supervised} is a middle ground between supervised
     learning (in which all training data is labelled) and unsupervised learning
@@ -143,6 +178,51 @@ which it is expected to learn some pattern of interest.
     positive (rewards) or negative (punishments). This category is discussed
     further in \autoref{ssec:RL}.
 \end{itemize}
+
+\subsection{Capacity, Overfitting and Underfitting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{No Free Lunch Theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Regularization}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Hyperparameters and Validation Sets}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Resubstitution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Holdout}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{K-Fold Cross-Validation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[htbp]
+    \centering
+    \input{graphics/tikz/kfold-cv}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        K-fold cross-validation procedure: (1) Dataset is divided into K-folds
+        of roughly equal size. (2) Choose one fold randomly to be the
+        holdout set then fit model on the remaining K-1 folds. (3)
+        Iterate through the remaining K-1 folds, using each as the holdout set
+        and record the error $e_i$ of the iteration. (4) Average the errors
+        obtained over the K-folds.
+    }
+    \label{fig:kfold-cv}
+\end{figure}
+
+\subsubsection{Leave-One-Out Cross-Validation (LOOCV)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Bootstrapping}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Supervised}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Deep Learning\label{sec:DL}}
