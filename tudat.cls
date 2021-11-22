@@ -67,6 +67,16 @@
 \doublespacing
 \fi
 
+\makeatletter
+\renewenvironment{quotation}
+    {\list{}{\listparindent 1.5em%
+    %\itemindent    \listparindent
+    %\rightmargin \leftmargin
+    \parsep        \z@ \@plus\p@}%
+    \item\relax}
+    {\endlist}
+\makeatother
+
 % title sec
 \RequirePackage[explicit]{titlesec}
 \renewcommand{\thechapter}{\arabic{chapter}}
@@ -81,39 +91,39 @@
 %
 %
 \makeatletter
-    % see https://www.overleaf.com/learn/latex/sections_and_chapters
-    \titlespacing
-        {\chapter}                        % command
-        {0pt}                             % left
-        {-4ex}                            % before-sep
-        {6ex}                             % after-sep
-    \titleformat
-        {\chapter}                        % command - the sectioning command to be redefined
-        [frame]                           % shape - is sectioning paragraph shape; possible values are: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
-        {\bfseries\large\rm}              % format -  is the format to be applied to the title, label, and text
-        {\chaptername \ \thechapter}      % label - specify sectioning label
-        {2.5ex}                           % sep - horizontal separation between label and title body
-        {\huge\bfseries\centering{#1}}    % before-code - code preceding the title body
-        []                                % after-code - code following the title body
+% see https://www.overleaf.com/learn/latex/sections_and_chapters
+\titlespacing
+    {\chapter}                        % command
+    {0pt}                             % left
+    {-4ex}                            % before-sep
+    {6ex}                             % after-sep
+\titleformat
+    {\chapter}                        % command - the sectioning command to be redefined
+    [frame]                           % shape - is sectioning paragraph shape; possible values are: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
+    {\bfseries\large\rm}              % format -  is the format to be applied to the title, label, and text
+    {\chaptername \ \thechapter}      % label - specify sectioning label
+    {2.5ex}                           % sep - horizontal separation between label and title body
+    {\huge\bfseries\centering{#1}}    % before-code - code preceding the title body
+    []                                % after-code - code following the title body
 \makeatother
 
 % section
 \titleformat{\section}
-    {\large\bfseries\singlespacing\centering}
-    {\thesection.\space}{0pt}{#1}[]
-    \titlespacing{\section}{0pt}{0.5\baselineskip}{0pt}
+{\large\bfseries\singlespacing\centering}
+{\thesection.\space}{0pt}{#1}[]
+\titlespacing{\section}{0pt}{0.5\baselineskip}{0pt}
 
 % subsections
 \titleformat{\subsection}
-    {\normalsize\bfseries\singlespacing}
-    {\Alph{subsection}.\space}{0pt}{#1}[]
-    \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0pt}
+{\normalsize\bfseries\singlespacing}
+{\thesubsection.\space}{0pt}{#1}[]
+\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0pt}
 
 % subsubsections
 \titleformat{\subsubsection}
-    {\normalsize\itshape\singlespacing}
-    {\arabic{subsubsection}.\space}{0pt}{#1}[]
-    \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
+{\normalsize\itshape\singlespacing}
+{\thesubsubsection.\space}{0pt}{#1}[]
+\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
 
 \setlength{\abovedisplayskip}{\baselineskip}
 \setlength{\belowdisplayskip}{\baselineskip}

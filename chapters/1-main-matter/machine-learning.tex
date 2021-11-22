@@ -20,24 +20,6 @@ achieved until ImageNet was created in 2009 \cite{5206848}, which is often
 considered as the catalyst for the AI boom of the 21st century
 \cite{hardy_2016}.
 
-
-\section{Basics of Machine Learning}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This section aims at a non-extensive coverage of the basics which apply to all
-machine learning algorithms. Firstly a learning algorithm is described.
-
-\subsection{Learning algorithms}
-A machine learning algorithm is a procedure for learning from data. Mitchell
-\cite{Mitchell97LearningAlgorithm} provides a succint definition:
-\begin{quotation}
-    \noindent{}"A computer program is said to learn from experience $E$ with respect to some class of
-    tasks $T$ and a performance measure $P$, if its performance at tasks in $T$, as
-    measured by $P$,improves with experience $E$."
-\end{quotation}
-
-The relationships between the subfield of machine learning are often unclear due to
-the
-
 \begin{figure}[htp!]
     \centering
     \input{graphics/tikz/ai-ml-dl.tex}
@@ -47,6 +29,52 @@ the
     }
     \label{fig:al-ml-dl}
 \end{figure}
+
+
+\newpage\section{Machine Learning Basics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This section aims at a non-exhaustive coverage of the basics of machine learning
+is covered which apply to all machine learning algorithms. We start by defining
+what it is for an algorithm to be one that "learns". The types of datasets that
+may be encountered in the application of these learning algorithms are then
+briefly covered to provide insight to the reader into some potential
+applications which are not covered here. The distinction is then made between
+the goal of fitting training data and the goal of finding patterns that
+generalize to new data. A very common concept in machine learning are
+\textit{hyperparameters} which are settings of a learning algorithm which must
+be determined outside the learning algorithm itself.
+
+\subsection{Learning algorithms}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Generally speaking, a machine learning algorithm is a procedure for learning
+from data. Mitchell \cite{Mitchell97LearningAlgorithm} provides a succint
+definition:
+\begin{quotation}
+    \textit{
+        A computer program is said to learn from experience $E$ with
+        respect to some class of tasks $T$ and a performance measure $P$, if its
+        performance at tasks in $T$, as measured by $P$,improves with experience
+        $E$.
+    }
+\end{quotation}
+
+This definition is general and the contained concepts will not be defined in
+the following sections as it is far outside the scope of this literature, rather
+we will cover examples of each which will provide insight to the reader.
+
+\subsubsection{The Task, $T$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quotation}
+    \textit{
+        Machine learning enables us to tackle tasks that are too difficult to
+        solve with fixed programs written and designed by human beings. From a
+        scientific and philosophical point of view, machine learning is
+        interesting because developing our understanding of it entails
+        developing our understanding of the principles that underlie
+        intelligence.
+    }
+\end{quotation}
 
 %An ongoing trend in society is the augmentation of responsibility in intelligent
 %algorithms through autonomy, evident by the advent of semi-autonomous cars,
@@ -66,7 +94,7 @@ in \autoref{sec:DL}. Finally, the category of reinforcement learning is reviewed
 in \autoref{ssec:RL}.
 
 
-\section{Categories of Machine Learning\label{sec:ML_categories}}
+\subsubsection{The Experience, $E$\label{sec:ML_categories}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Tasks provided to machine learning algorithms have different formulations based
