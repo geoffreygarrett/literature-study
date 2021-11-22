@@ -20,6 +20,24 @@ achieved until ImageNet was created in 2009 \cite{5206848}, which is often
 considered as the catalyst for the AI boom of the 21st century
 \cite{hardy_2016}.
 
+
+\section{Basics of Machine Learning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This section aims at a non-extensive coverage of the basics which apply to all
+machine learning algorithms. Firstly a learning algorithm is described.
+
+\subsection{Learning algorithms}
+A machine learning algorithm is a procedure for learning from data. Mitchell
+\cite{Mitchell97LearningAlgorithm} provides a succint definition:
+\begin{quotation}
+    \noindent{}"A computer program is said to learn from experience $E$ with respect to some class of
+    tasks $T$ and a performance measure $P$, if its performance at tasks in $T$, as
+    measured by $P$,improves with experience $E$."
+\end{quotation}
+
+The relationships between the subfield of machine learning are often unclear due to
+the
+
 \begin{figure}[htp!]
     \centering
     \input{graphics/tikz/ai-ml-dl.tex}
@@ -48,42 +66,42 @@ in \autoref{sec:DL}. Finally, the category of reinforcement learning is reviewed
 in \autoref{ssec:RL}.
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Categories of Machine Learning\label{sec:ML_categories}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Tasks provided to machine learning algorithms have different formulations based
-on the problem being addressed. These categories of tasks are most distinct by
-the method by which the algorithm is provided further experience, or data, from
-which it is expected to learn some pattern. These are defined by the following
-main categories:
+on the problem being addressed. These tasks can be broadly categorized by
+the kind of experience that the algorithm has access to during learning, from
+which it is expected to learn some pattern of interest.
 
 \begin{itemize}
 
-    \item \textbf{Supervised learning} is the machine learning task of learning
-    a mapping between an input $\mathbf{x}$ to an output $\mathbf{y}$ based on
-    example input-output pairs, otherwise referred to as the labelled training
-    data consisting of a set of training examples. The trained \textit{model} is
-    then provided an unseen $x$ for which it must estimate $y$ based on its
-    experience. Supervised models are further grouped into two subcategories,
-    classification and regression. \textbf{Classification} is the task of
-    mapping $x$ to a discrete output variable $y$ which determines the predicted
-    class based on the $x$. A simple example of this would be a $y$ in
-    $\mathbb{R}^2$ which determines whether the input image was a \textit{cat}
-    or a \textit{dog}. \textbf{Regression} is task of mapping $x$ onto a
-    continuous output variable $y$ which determines the value of some variable
-    of interest. An example of this would be the task of learning an
-    approximator to the function: $f(x)=x^2$.
+    \item \textbf{Supervised learning} algorithms experience a dataset
+    containing features (input) and labels (expected output), and are
+    expected to learn a function mapping between the two. These algorithms
+    can be further divided into two categories. \textbf{Classification algorithms}
+    learn a mapping from an input to a discrete class label output. \textit{Regression
+    algorithms} learn a mapping from an input to a continuous value output.
+
+%    example input-output pairs, otherwise referred to as the labelled training
+%    data consisting of a set of training examples. The trained \textit{model} is
+%    then provided an unseen $x$ for which it must estimate $y$ based on its
+%    experience. Supervised models are further grouped into two subcategories,
+%    classification and regression. \textbf{Classification} is the task of
+%    mapping $x$ to a discrete output variable $y$ which determines the predicted
+%    class based on the $x$. A simple example of this would be a $y$ in
+%    $\mathbb{R}^2$ which determines whether the input image was a \textit{cat}
+%    or a \textit{dog}. \textbf{Regression} is task of mapping $x$ onto a
+%    continuous output variable $y$ which determines the value of some variable
+%    of interest. An example of this would be the task of learning an
+%    approximator to the function: $f(x)=x^2$.
     % Dimensionality reduction \cite{vogelstein2021supervised}
 
-    \item \textbf{Unsupervised learning} involves the task of learning relations
-    between input data ($x$) with no labels ($y$) provided. This form of learning
-    often deal with pattern recognition problems in \textit{association} \&
-    \textit{clustering} \cite{barlow1999ul}. This form of learning is sometimes
-    unpredictable in nature due to the lack of guidance given by the machine
-    learning architect.
+    \item \textbf{Unsupervised learning} algorithms experience a dataset
+    containing only features and learn some useful properties of the structure
+    of the dataset. This form of learning often addresses recognition problems
+    in \textit{association} \& \textit{clustering} \cite{barlow1999ul}.
+    \item These algorithms can sometime be unpredictable in nature.
 
     \item \textbf{Semi-supervised} is a middle ground between supervised
     learning (in which all training data is labelled) and unsupervised learning
@@ -98,7 +116,7 @@ main categories:
     further in \autoref{ssec:RL}.
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Deep Learning\label{sec:DL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Deep Learning is a field of machine learning that is primarily concerned with
@@ -107,7 +125,6 @@ network to learn representations of data. The main difference between a
 neural network and a traditional machine learning algorithm is that the
 neural network is a function of the data, rather than the data itself.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The fundamental component: Perceptrons}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -147,7 +164,6 @@ NXOR functions. They went on to claim that the research being done was doomed to
 failure due to these limitations, resulting in little research in the area being
 done until about the 1980's.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Activation function}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -162,7 +178,6 @@ $\phi$ have been used and improve upon the threshold step function.
 %\end{figure}
 \input{graphics/tikz/activation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Multilayer perceptrons, a.k.a feed forward networks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -192,11 +207,9 @@ $f(\mathbf{x};\mathbf{w}, b)=\mathbf{x}^T\mathbf{w}+b$; $x\in\mathbb{R}^{d_{in}}
     \mathbf{h}^{(2)} = g^{(2)} \bigg(\mathbf{W}^{{(2)}\;T}\mathbf{h}^{(1)} + \mathbf{b}^{(2)}\bigg);
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Gradient based learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Universal Approximation Properties and Depth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -204,7 +217,6 @@ A linear model by definition, may only optimised to represent linear functions.
 It has advantages in its simplicity to optimise however we often require our
 estimator models to learn nonlinear functions.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Backpropagation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -212,7 +224,7 @@ Backpropagation, short for "backward propagation of errors," is a
 \textit{supervised learning} algorithm for artificial neural networks using
 \textit{gradient descent}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Reinforcement Learning\label{ssec:RL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -228,22 +240,17 @@ Backpropagation, short for "backward propagation of errors," is a
     \item and value functions.
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Taxonomy of Reinforcement Learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Value-based methods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Policy-based methods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Policy gradient}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deep deterministic policy gradient (DDPG)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
