@@ -37,6 +37,71 @@
 % stop caption being bold with \textmd{medium/regular}
 %\usepackage[font=bf]{caption}
 
+
+\usepackage[cc]{titlepic}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xspace}
+
+%% Some of the TU Delft house style colours
+\definecolor{tudelft-cyan}{cmyk}{1,0,0,0}
+\definecolor{tudelft-black}{cmyk}{0,0,0,1}
+\definecolor{tudelft-white}{cmyk}{0,0,0,0}
+
+
+%% Commands to define the title, author, etc
+\renewcommand{\title}[1]{%
+    \def\atitle{#1}%
+    \hypersetup{pdftitle=#1}} % Adding to metadata
+
+\renewcommand*{\author}[2][]{%
+    \def\aauthor{#2}%
+    \def\aauthor@short{#1}%
+    \hypersetup{pdfauthor=\ifdefvoid{\aauthor@short}{#2}{#1}}} % Adding to metadata
+
+%% Arguments to define
+\newcommand*\subtitle[1]{\def\asubtitle{#1}}
+\newcommand*\coverimage[1]{\def\@cover@image{#1}}
+\newcommand\subject[1]{\def\asubject{#1}}
+
+\definecolor{title}{HTML}{4884d6} % Color for the title
+\usepackage{etoolbox}   % General toolbox (e.g. \ifdefvoid)
+\usepackage{fontspec}
+
+\newcommand*\makecover{
+    \clearpage
+    \thispagestyle{empty}
+    \usetikzlibrary{positioning}
+
+    % cover image.
+    \begin{tikzpicture}[remember picture, overlay]
+
+     % cover image.
+     \node[inner sep=0pt] at (current page.center) {%
+      \includegraphics[height=\paperheight]{cover.png}%
+    };
+
+    \node[rotate=90,below right=4cm and .3cm] at (current page.west) {%
+        \titlestyle\color{white} Delft University of Technology};
+
+    % white TU Delft logo.
+    \node[above right=0.2cm and 0.6cm] at (current page.south west) {%
+        \includegraphics[width=0.35\linewidth]{tudelft/logo-white.pdf}};
+
+
+    \node[below=1cm,minimum width={\paperwidth},inner ysep=25pt,opacity=0.7,text opacity=1] at (current page.north) {%
+        \begin{minipage}{0.9\paperwidth}
+            \fontsize{35}{35}\selectfont\color{title}\centering\atitle \\[0.5ex]
+            \ifdefvoid{\asubtitle}{}{\fontsize{22}{22}\selectfont\color{white} The balance of risk and reward  \\[2.5ex]}
+            \ifdefvoid{\asubject}{}{\fontsize{22}{22}\selectfont\color{white} \\[0.5ex]}
+            \fontsize{24}{24}\selectfont\color{white}\centering Geoffrey H. Garrett
+        \end{minipage}};
+
+    \end{tikzpicture}
+    \cleardoublepage{}
+}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,7 +110,14 @@
     \pagenumbering{gobble}
 
     %% Roman numerals
-%    \makecover
+%    \maketitle
+    \title{Autonomous Space Exploration}
+%    \author{Geoffrey H. Garrett}{}
+    \coverimage{cover}
+    \subtitle{Test}
+    \subject{Test}
+
+    \makecover
 
     \frontmatter % Use roman page numbering style
 
@@ -70,7 +142,7 @@
     \input{chapters/1-main-matter/machine-learning.tex}
 
     \newpage
-    
+
     \printbibliography
 
     \backmatter
