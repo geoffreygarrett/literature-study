@@ -1,0 +1,34 @@
+\begin{tikzpicture}
+
+    % Circle with label
+    \node[draw,
+        circle,
+        minimum size =22em,
+        label=Artificial Intelligence] (ai_circ) at (0,0){};
+
+    % Circle with label
+    \node[draw,
+        circle,
+        minimum size =16em,
+        label=Machine Learning] (ml_circ) at (0,-2.5em){};
+
+    % Circle with label
+    \node[draw,
+        circle,
+        minimum size =7em,
+        label=Deep L.] (dl_circ) at (-3em,-5em){};
+
+    \node[draw,
+        circle,
+        minimum size =7em,
+        label=Reinforcement L.] (rl_circ) at (3em,-5em){};
+
+
+    % Intersection
+    \begin{scope}
+        \clip (-3em,-5em) circle(3.5em);
+        \clip (3em,-5em) circle(3.5em);
+        \fill[gray!50](3em,-5em) circle(3.5em);
+    \end{scope}
+
+\end{tikzpicture}

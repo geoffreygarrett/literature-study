@@ -30,6 +30,8 @@
 % DEPENDENCIES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{tikz}
+%\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
+%\usetikzlibrary{positioning}                  % for TikZ relative positioning
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % USER STYLING
@@ -42,6 +44,10 @@
 \tikzset{weight/.style={basic,circle}}
 \tikzset{hidden/.style={basic,circle}}
 \tikzset{function/.style={basic,circle}}
+\def\layersep{3em}
+\def\transferx{9em}
+\def\hiddenx{7em}
+\def\hiddenxn{12em}
 
 % Labels and symbols.
 \def\activationlabel{activation function}  % activation function label
@@ -58,10 +64,8 @@
 % TIKZ PICTURE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
-    \usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
-    \usetikzlibrary{positioning}                  % for TikZ relative positioning
 
-    \node[function] at (\transferx, -{int(2)})  (transfer) {\transfersymbol};
+    \node[function] at ({\transferx}, -{int(2)})  (transfer) {\transfersymbol};
     \node[function, right=3em of transfer] (activation) {\activationsymbol};
     \node[below of=activation,font=\scriptsize,text width=3em] {\activationlabel};
     \node[below of=transfer,font=\scriptsize,text width=3em] {\transferlabel};
@@ -72,17 +76,17 @@
     % Iterate through each row of units.
     \foreach \n [evaluate=\n as \p using {int(\n-1)}] in {0,1,2,3,4} {
         \ifnum \n=0
-        \node[input] at (0, -{\n}) (X-\n) {$1$};
-        \node[weight] at (\layersep, -{\n}) (W-\n) {$w_\n$};
+            \node[input] at (0, -\n) (X-\n) {$1$};
+            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
         \else \ifnum \n=3
-        \node[] at (0, -{\n}) (X-\n) {$\vdots$};
-        \node[] at (\layersep, -{\n}) (W-\n) {$\vdots$};
+            \node[] at (0, -\n) (X-\n) {$\vdots$};
+            \node[] at (\layersep, -\n) (W-\n) {$\vdots$};
         \else \ifnum \n=4
-        \node[input] at (0, -{\n}) (X-\n) {$x_{d_{{in}}}$};
-        \node[weight,label={[xshift=-0.0em]center:$w_{d_{{in}}}$}] at (\layersep, {-\n}) (W-\n) {\phantom{$w_{d_{{in}}}$}};
+            \node[input] at (0, -\n) (X-\n) {$x_{d_{{in}}}$};
+            \node[weight,label={[xshift=-0.0em]center:$w_{d_{{in}}}$}] at (\layersep, -\n) (W-\n) {\phantom{$w_{d_{{in}}}$}};
         \else
-        \node[input] at (0, -{\n}) (X-\n) {$x_\n$};
-        \node[weight] at (\layersep, -{\n}) (W-\n) {$w_\n$};
+            \node[input] at (0, -\n) (X-\n) {$x_\n$};
+            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
         \fi
         \fi
         \fi
@@ -90,8 +94,8 @@
         % Arrow from input to weight.
         \ifnum \n=3
         \else
-        \path[draw,->] (X-\n) -- (W-\n);
-                    \path[draw,->] (W-\n) -- (transfer);
+            \path[draw,->] (X-\n) -- (W-\n);
+                        \path[draw,->] (W-\n) -- (transfer);
         \fi
 
     }

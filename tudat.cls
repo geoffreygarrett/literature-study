@@ -4,6 +4,8 @@
 \RequirePackage{xcolor}     % Using colours in documents
 %\RequirePackage{color}     % Using colours in documents
 \RequirePackage{tikz}       % Create graphic elements
+\usetikzlibrary{positioning,arrows.meta,calc,decorations.pathreplacing}
+
 %\RequirePackage{amsmath}    % Mathematics
 %\RequirePackage{amssymb}    % Symbols
 %\RequirePackage{siunitx}    % Various functions, e.g. \num{}

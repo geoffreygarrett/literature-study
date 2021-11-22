@@ -37,6 +37,17 @@ a whole: deep learning, predominantly part of supervised learning, is reviewed
 in \autoref{sec:DL}. Finally, the category of reinforcement learning is reviewed
 in \autoref{ssec:RL}.
 
+\begin{figure}[!htp]
+    \centering
+    \input{graphics/tikz/ai-ml-dl.tex}
+    \caption{
+        The relation between the field of Artificial Intelligence,
+        Machine Learning, Deep Learning and Reinforcement Learning.
+    }
+    \label{fig:al-ml-dl}
+\end{figure}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Categories of Machine Learning\label{sec:ML_categories}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,9 +77,11 @@ main categories:
     % Dimensionality reduction \cite{vogelstein2021supervised}
 
     \item \textbf{Unsupervised learning} involves the task of learning relations
-    between input data, $x$ with no labels, $y$ provided. This form of learning
+    between input data ($x$) with no labels ($y$) provided. This form of learning
     often deal with pattern recognition problems in \textit{association} \&
-    \textit{clustering} \cite{barlow1999ul}.
+    \textit{clustering} \cite{barlow1999ul}. This form of learning is sometimes
+    unpredictable in nature due to the lack of guidance given by the machine
+    learning architect.
 
     \item \textbf{Semi-supervised} is a middle ground between supervised
     learning (in which all training data is labelled) and unsupervised learning
@@ -86,6 +99,11 @@ main categories:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deep Learning\label{sec:DL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Deep Learning is a field of machine learning that is primarily concerned with
+the learning of representations of data. The main idea is to use a neural
+network to learn representations of data. The main difference between a
+neural network and a traditional machine learning algorithm is that the
+neural network is a function of the data, rather than the data itself.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The fundamental component: Perceptrons}
