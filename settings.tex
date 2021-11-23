@@ -56,7 +56,14 @@
 % TikZ
 %---------------------------
 \usepackage{tikz}
-\usetikzlibrary{positioning,arrows.meta,calc,decorations.pathreplacing}
+\usetikzlibrary{
+    positioning,
+    arrows.meta,
+    calc,
+    decorations.pathreplacing,
+    decorations.text,
+    bending,
+    matrix}
 \usetikzlibrary{matrix}
 %\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
 %\usetikzlibrary{positioning}                  % for TikZ relative positioning
@@ -68,6 +75,12 @@
 \pgfplotsset{every axis/.append style={tick label style={/pgf/number format/fixed},font=\scriptsize,ylabel near ticks,xlabel near ticks,grid=major}}
 \pgfplotsset{compat=1.16}
 
+
+%$ error-capacity plot
+
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{pgfplots}
+\usepackage{sansmath}
 %\usepackage[style=nature,backend=bibtex]{biblatex}
 %\addbibresource{bib.bib}
 %---------------------------

@@ -91,19 +91,19 @@ and true techniques in their domain of expertise? Goodfellow et al.
     }
 \end{quotation}
 An example of a field which has undergone dramatic changes in a short period of
-time, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et. al.
-discuss this in their paper with a focus on comparing \gls{DL} and \gls{CV}
+time, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et.
+al. discuss this in their paper with a focus on comparing \gls{DL} and \gls{CV}
 \cite{Mahony-et-al-2020}. Their paper concludes that many \gls{CV} techniques
 invented in the 20 years preceding the paper have become irrelevant as a result
 of \gls{DL}. However, they emphasise on the importance of the knowledge
 established in those 20 years, arguing that \textit{``knowledge is never
 obsolete"}, as it provides specialists with more tools and intuition when
 addressing problems. Some typical applications of \gls{CV} are detailed and
-although these may be outperformed by \gls{DL}, relying on \gls{DL} in some cases
-is overkill. They also point out some hybrid approaches between \gls{DL} and
-\gls{CV} which synergize, saying that \gls{CV} provides improved performance in
-\gls{DL} by reducing training time. This emphasizes that specialists should not
-expect an end-all solution from \gls{ML} in addressing their domain-specific
+although these may be outperformed by \gls{DL}, relying on \gls{DL} in some
+cases is overkill. They also point out some hybrid approaches between \gls{DL}
+and \gls{CV} which synergize, saying that \gls{CV} provides improved performance
+in \gls{DL} by reducing training time. This emphasizes that specialists should
+not expect an end-all solution from \gls{ML} in addressing their domain-specific
 problems, but rather as mentioned by Goodfellow et al., strive for a better
 understanding of the principles that underlie intelligence, and by extension,
 those that underlie the practitioners domain-specific problems.
@@ -114,12 +114,33 @@ those that underlie the practitioners domain-specific problems.
           \{1,...,k\}$. When $y=f(\mathbf{x})$, the model assigns a provided
           input, $\mathbf{x}$ to a category identified by numeric code $y$. An
           example of this would be the mapping of a grayscale image,
-          $\mathbf{x}\in\mathbb{R}^2$ to a value corresponding to code
-          $y:\rightarrow\{\textrm{Cat}, \textrm{Dog}\}$.
-    \item \textbf{Classification with missing inputs}:
-    \item \textbf{Regression}
-    \item \textbf{Transcription}
-    \item \textbf{Machine translation}
+          $\mathbf{x}\in\mathbb{R}^2$ to a value corresponding to a numerical
+          encoding $f:\mathbb{R}^n\rightarrow\{\textrm{Cat},\;\textrm{Dog}\}$.
+    \item \textbf{Classification with missing inputs}: Classification becomes
+          more challenging when the input measurements to the model are not
+          guaranteed to always be the same. In this situation the algorithm must
+          learn the set of all function mappings arising from the possible
+          combinations of input vectors that arise from missing subsets of
+          inputs in $\mathbf{x}$. An example of this would be the classification
+          of a diagnosis in medicine, as depending on the invasiveness of of
+          certain procedures, different subsets of measurements are available.
+    \item \textbf{Regression}: In this task, the learning algorithm is expected
+          to predict a continuous numerical value for a given input. This is
+          done by learning a function $f: \mathbb{R^n}\rightarrow\mathbb{R}$.
+          the formulation is similar to that of classification, except for the
+          output format. An example of this would be learning of a function to
+          predict the expected returns for a given investment given the state of
+          the market, as is common is algorithmic trading.
+    \item \textbf{Transcription}: This type of task involves the learning
+          algorithm observing a relatively unstructured input and transcribing
+          it into some discrete textual form. An example of this is the
+          transcription of an audio waveform containing speech into text.
+    \item \textbf{Machine translation}: In machine translation, the already
+          structured input is mapped into a different language. This is common
+          in the field of \gls{NLP}, where languages are translated between, for
+          example English and French. This however is not limited to natural
+          languages but can also be applied to programming languages for
+          example.
     \item \textbf{Structured output}
     \item \textbf{Anomaly detection}
     \item \textbf{Synthesis and sampling}
@@ -140,6 +161,27 @@ those that underlie the practitioners domain-specific problems.
 
 \subsubsection{The Performance, $P$\label{sec:ML-performance}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In order to access the performance of our learning algorithm in task $T$,
+we must have some quantitative measure of performance $P$ with which we steer
+the algorithm towards the desired behaviour. $T$ and $P$ in this way are
+coupled, and must $P$ must be chosen according to $T$. In this way it can be
+unclear to the \gls{ML} practitioner what $P$ should be chosen.
+
+Firstly, it is worth considering the true goal of the learning algorithm. We
+wish for it to train according to some dataset such that it can generalize to
+inputs that it has never seen before. After all, there is little worth in a
+classification algorithm recognizing cats and dogs with 90\% accuracy on its
+training dataset, if it performs with 20\% accuracy on an unseen \textbf{test}
+dataset. This previously mentioned scenario is known as \textit{overfitting} and
+is discussed in its own section later in the chapter. For this reason, the first
+requirement on managing our dataset is presented, there must be some
+\textbf{train-test split}. This is further complicated by the
+\textbf{validation} dataset which is discussed later in the chapter.
+
+With the
+In the case of classification, most metrics are derived from the confusion
+matric
+
 
 \subsubsection{The Experience, $E$\label{sec:ML-experience}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -191,6 +233,32 @@ which it is generally expected to learn some pattern of interest.
 \subsection{Capacity, Overfitting and Underfitting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{figure}[htp]
+    \centering
+    \input{graphics/tikz/overfitting}
+%    \caption{Multilayer perceptron}
+%    \label{fig:mlp}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \input{graphics/tikz/capacity-vs-error}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        Typical relationship between capacity and error. Training and test error
+        behave differently. At the left end of the graph, training error and
+        generalization error are both high. This is the \textbf{underfitting
+        regime} As we increase capacity, training error decreases, but the gap
+        between training and generalisation error increases. Eventually, the
+        size of this gap outweighs the decrease in training error, and we enter
+        the \textbf{overfitting regime}, where capacity is too large, above the
+        \textbf{optimal capacity}. Adapted from Goodfellow et. al.
+        \cite{Goodfellow-et-al-2016}.
+    }
+    \label{fig:capacity}
+\end{figure}
+
+
 \subsubsection{No Free Lunch Theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -236,10 +304,9 @@ which it is generally expected to learn some pattern of interest.
 
 \section{Deep Learning\label{sec:DL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Deep Learning is a field of machine learning that is primarily concerned with
-the learning of representations of data. The main idea is to use a neural
-network to learn representations of data. The main difference between a
-neural network and a traditional machine learning algorithm is that the
+\Gls{DL} is a field of \gls{ML} that is primarily concerned with
+the learning of representations of data. The main idea is to use a \gls{NN} to learn representations of data. The main difference between a
+\gls{NN} and a traditional \gls{ML} algorithm is that the
 neural network is a function of the data, rather than the data itself.
 
 \subsection{The fundamental component: Perceptrons}
