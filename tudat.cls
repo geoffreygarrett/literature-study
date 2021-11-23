@@ -180,7 +180,9 @@
         \node[below=1cm,minimum width={\paperwidth},inner ysep=25pt,opacity=0.7,text opacity=1] at (current page.north) {%
             \begin{minipage}{0.9\paperwidth}
                 \fontsize{35}{35}\selectfont\color{title}\centering\atitle \\[0.5ex]
-                \ifdefvoid{\asubtitle}{}{\fontsize{22}{22}\selectfont\color{tudelft-white} The balance of risk and reward  \\[2.5ex]}
+                \ifdefvoid{\asubtitle}{}{\fontsize{22}{22}\selectfont\color{tudelft-white} 
+                The balance of risk and reward in the autonomous navigation of environments with inherent epistemic uncertainty
+                \\[2.5ex]}
                 \ifdefvoid{\asubject}{}{\fontsize{22}{22}\selectfont\color{tudelft-white} \\[0.5ex]}
                 \fontsize{24}{24}\selectfont\color{tudelft-white}\centering Geoffrey H. Garrett
             \end{minipage}};
