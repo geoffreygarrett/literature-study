@@ -6,10 +6,10 @@
 % 3) An error function, E(X,θ)E(X, \theta)E(X,θ), which defines the error between the desired output yi⃗\vec{y_i}yi
 %  and the calculated output yi⃗^\hat{\vec{y_i}}yi​​^​ of the neural network on input xi⃗\vec{x_i}xi​​ for a set of input-output pairs (xi⃗,yi⃗)∈X\big(\vec{x_i}, \vec{y_i}\big) \in X(xi​​,yi​​)∈X and a particular value of the parameters θ\thetaθ.
 
-Machine learning, often described as a proper subset of artificial
-intelligence \cite{Goodfellow-et-al-2016}, and is the field in computer science
-which deals with the improvement of algorithms through experience and the use of
-data \cite{Mitchell97}. Our daily lives exhibit wide applications of intelligent
+\Gls{ML}, often described as a proper subset of \gls{AI}
+\cite{Goodfellow-et-al-2016}, and is the field in computer science which deals
+with the improvement of algorithms through experience and the use of data
+\cite{Mitchell97}. Our daily lives exhibit wide applications of intelligent
 software to automate routine labour, understand speech or images, assist in
 diagnoses in medicine and support basic scientific research. This field as a
 whole is relatively young, having been coined in 1959 by Arthur Samuel
@@ -71,12 +71,12 @@ will provide practical insight on which the reader can build their knowledge.
 \subsubsection{The Task, $T$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 There exists a plethora of tasks which humanity has applied learning algorithms
-to during the timeline of the field. It is common for ML practitioners to
+to during the timeline of the field. It is common for \gls{ML} practitioners to
 originate from domains outside that of computer science, in order to access the
 feasibility of existing algorithms in their domain. There is however a question
 that often presents itself to specialists in their respective fields when they
-consider applying ML to the existing problems in their field. Why should a
-specialist opt for solving problems with ML that have been solved using tried
+consider applying \gls{ML} to the existing problems in their field. Why should a
+specialist opt for solving problems with \gls{ML} that have been solved using tried
 and true techniques in their domain of expertise? Goodfellow et al.
 \cite{Goodfellow-et-al-2016} provide an insightful response to this:
 
@@ -91,24 +91,42 @@ and true techniques in their domain of expertise? Goodfellow et al.
     }
 \end{quotation}
 An example of a field which has undergone dramatic changes in a short period of
-time, with the advent of DL and modern hardware, is computer vision (CV). Mahony
-et. al. discuss this in their paper with a focus on comparing DL and CV
-\cite{Mahony-et-al-2020}. Their paper concludes that many CV techniques invented
-in the 20 years preceding the paper have become irrelevant as a result of DL.
-However, they emphasise on the importance of the knowledge established in those
-20 years, arguing that \textit{``knowledge is never obsolete"}, as it provides
-specialists with more tools and intuition when addressing problems. Some typical
-applications of CV are detailed and although these may be outperformed by DL,
-relying on DL in some cases is overkill. They also point out some hybrid
-approaches between DL and CV which synergize, saying that CV provides improved
-performance in DL by reducing training time. This emphasizes that specialists
-should not expect an end-all solution from ML in addressing their
-domain-specific problems, but rather as mentioned by Goodfellow et al., strive
-for a better understanding of the principles that underlie intelligence, and by
-extension, those that underlie the practitioners domain-specific problems.
+time, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et. al.
+discuss this in their paper with a focus on comparing \gls{DL} and \gls{CV}
+\cite{Mahony-et-al-2020}. Their paper concludes that many \gls{CV} techniques
+invented in the 20 years preceding the paper have become irrelevant as a result
+of \gls{DL}. However, they emphasise on the importance of the knowledge
+established in those 20 years, arguing that \textit{``knowledge is never
+obsolete"}, as it provides specialists with more tools and intuition when
+addressing problems. Some typical applications of \gls{CV} are detailed and
+although these may be outperformed by \gls{DL}, relying on \gls{DL} in some cases
+is overkill. They also point out some hybrid approaches between \gls{DL} and
+\gls{CV} which synergize, saying that \gls{CV} provides improved performance in
+\gls{DL} by reducing training time. This emphasizes that specialists should not
+expect an end-all solution from \gls{ML} in addressing their domain-specific
+problems, but rather as mentioned by Goodfellow et al., strive for a better
+understanding of the principles that underlie intelligence, and by extension,
+those that underlie the practitioners domain-specific problems.
 
-
-
+\begin{itemize}
+    \item \textbf{Classification}: In this task, the learning algorithm is
+          expected to produce a function $f: \mathbb{R^n}\rightarrow
+          \{1,...,k\}$. When $y=f(\mathbf{x})$, the model assigns a provided
+          input, $\mathbf{x}$ to a category identified by numeric code $y$. An
+          example of this would be the mapping of a grayscale image,
+          $\mathbf{x}\in\mathbb{R}^2$ to a value corresponding to code
+          $y:\rightarrow\{\textrm{Cat}, \textrm{Dog}\}$.
+    \item \textbf{Classification with missing inputs}:
+    \item \textbf{Regression}
+    \item \textbf{Transcription}
+    \item \textbf{Machine translation}
+    \item \textbf{Structured output}
+    \item \textbf{Anomaly detection}
+    \item \textbf{Synthesis and sampling}
+    \item \textbf{Imputation of missing values}
+    \item \textbf{Denoising}
+    \item \textbf{Density estimation} or \textbf{probability mass function estimation}
+\end{itemize}
 %An ongoing trend in society is the augmentation of responsibility in intelligent
 %algorithms through autonomy, evident by the advent of semi-autonomous cars,
 %autonomous cyber-security \cite{Taeihagh2019}, autonomous industrial site
@@ -120,10 +138,10 @@ extension, those that underlie the practitioners domain-specific problems.
 %This section reviews the current ongoing research in the field of machine
 %learning as a whole. First the main categories:
 
-\subsubsection{The Performance, $P$\label{sec:ML_performance}}
+\subsubsection{The Performance, $P$\label{sec:ML-performance}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{The Experience, $E$\label{sec:ML_experience}}
+\subsubsection{The Experience, $E$\label{sec:ML-experience}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Tasks provided to machine learning algorithms have different formulations based
 on the experience made available. Learning algorithms can be broadly categorized

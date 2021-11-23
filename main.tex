@@ -36,7 +36,14 @@
 
 % stop caption being bold with \textmd{medium/regular}
 %\usepackage[font=bf]{caption}
-
+\makenoidxglossaries
+\newacronym{AI}{AI}{artificial intelligence}
+\newacronym{ML}{ML}{machine learning}
+\newacronym{DL}{DL}{deep learning}
+\newacronym{RL}{RL}{reinforcement learning}
+\newacronym{CV}{CV}{computer vision}
+\newacronym{MLP}{MLP}{multilayer perceptron}
+\newacronym{LOOCV}{LOOCV}{leave-one-out cross-validation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
@@ -54,9 +61,17 @@
 
     \makecover
 
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage
+
     \frontmatter % Use roman page numbering style
 
-    \input{chapters/0-front-matter/nomenclature.tex}
+%    \printnoidxglossaries
+    \printnoidxglossary[type=\acronymtype, title=Abbreviations]
+%    \printglossary[title=Nomenclature]
+%    \printacronyms[include=nomencl,name=Nomenclature]
     \listoffigures
     \listoftables
 
