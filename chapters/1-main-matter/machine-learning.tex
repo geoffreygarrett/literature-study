@@ -76,8 +76,8 @@ originate from domains outside that of computer science, in order to access the
 feasibility of existing algorithms in their domain. There is however a question
 that often presents itself to specialists in their respective fields when they
 consider applying \gls{ML} to the existing problems in their field. Why should a
-specialist opt for solving problems with \gls{ML} that have been solved using tried
-and true techniques in their domain of expertise? Goodfellow et al.
+specialist opt for solving problems with \gls{ML} that have been solved using
+tried and true techniques in their domain of expertise? Goodfellow et al.
 \cite{Goodfellow-et-al-2016} provide an insightful response to this:
 
 \begin{quotation}
@@ -102,7 +102,7 @@ addressing problems. Some typical applications of \gls{CV} are detailed and
 although these may be outperformed by \gls{DL}, relying on \gls{DL} in some
 cases is overkill. They also point out some hybrid approaches between \gls{DL}
 and \gls{CV} which synergize, saying that \gls{CV} provides improved performance
-in \gls{DL} by reducing training time. This emphasizes that specialists should
+in \gls{DL} by reducing training time. This emphasises that specialists should
 not expect an end-all solution from \gls{ML} in addressing their domain-specific
 problems, but rather as mentioned by Goodfellow et al., strive for a better
 understanding of the principles that underlie intelligence, and by extension,
@@ -122,11 +122,11 @@ those that underlie the practitioners domain-specific problems.
           learn the set of all function mappings arising from the possible
           combinations of input vectors that arise from missing subsets of
           inputs in $\mathbf{x}$. An example of this would be the classification
-          of a diagnosis in medicine, as depending on the invasiveness of of
+          of a diagnosis in medicine, as depending on the invasiveness of
           certain procedures, different subsets of measurements are available.
     \item \textbf{Regression}: In this task, the learning algorithm is expected
           to predict a continuous numerical value for a given input. This is
-          done by learning a function $f: \mathbb{R^n}\rightarrow\mathbb{R}$.
+          done by learning a function $f: \mathbb{R}^n\rightarrow\mathbb{R}$.
           the formulation is similar to that of classification, except for the
           output format. An example of this would be learning of a function to
           predict the expected returns for a given investment given the state of
@@ -141,11 +141,30 @@ those that underlie the practitioners domain-specific problems.
           example English and French. This however is not limited to natural
           languages but can also be applied to programming languages for
           example.
-    \item \textbf{Structured output}
-    \item \textbf{Anomaly detection}
-    \item \textbf{Synthesis and sampling}
-    \item \textbf{Imputation of missing values}
-    \item \textbf{Denoising}
+    \item \textbf{Structured output}: This task entails those where the output
+          is a vector or a data structure which details important relationships
+          between the contained elements. This task subsumes the prior two of
+          transcription and machine translation. An example of this would be the
+          parsing of grammatical structure of a natural language sentence,
+          addressed in \gls{NLP} and demonstrated by Collobert
+          \cite{pmlr-v15-collobert11a}.
+    \item \textbf{Anomaly detection}: In this task, a learning algorithm learns
+          to sift through a set of events and classify events that are anomalous
+          in nature. These algorithms have been applied to credit card companies
+          in detection of fraud \cite{DBLP:journals/corr/abs-2108-10005}, and in
+          safety in the aviation industry \cite{Janakiraman2016, Basora2019}.
+    \item \textbf{Synthesis and sampling}: In this task, learning algorithms
+          generate \textbf{new} examples which appear to be drawn from the same
+          underlying distribution as, but are not present in the training data.
+          A recent example around which a lot of research is being done is the
+          \gls{GPT-3} which is able to produce human-like text, given prompts as
+          input \cite{DBLP:journals/corr/abs-2005-14165}.
+    \item \textbf{Imputation of missing values}: In this task, the learning
+          algorithm is given some input $x\in\mathbb{R}$ with some elements
+          $x_i$ missing. The algorithm must then make predictions for the
+          missing values. Emmanuel et. al. discuss the latest methods in
+          \gls{ML} that address this task \cite{Emmanuel2021}.
+    \item \textbf{Denoising}:
     \item \textbf{Density estimation} or \textbf{probability mass function estimation}
 \end{itemize}
 %An ongoing trend in society is the augmentation of responsibility in intelligent
@@ -158,6 +177,10 @@ those that underlie the practitioners domain-specific problems.
 
 %This section reviews the current ongoing research in the field of machine
 %learning as a whole. First the main categories:
+
+
+
+
 
 \subsubsection{The Performance, $P$\label{sec:ML-performance}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,10 +201,9 @@ requirement on managing our dataset is presented, there must be some
 \textbf{train-test split}. This is further complicated by the
 \textbf{validation} dataset which is discussed later in the chapter.
 
-With the
-In the case of classification, most metrics are derived from the confusion
-matric
-
+%With the
+%In the case of classification, most metrics are derived from the confusion
+%matric
 
 \subsubsection{The Experience, $E$\label{sec:ML-experience}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -282,12 +304,12 @@ which it is generally expected to learn some pattern of interest.
     \input{graphics/tikz/kfold-cv}
     \captionsetup{format=hang} % hanging captions
     \caption{
-        K-fold cross-validation procedure: (1) Dataset is divided into K-folds
-        of roughly equal size. (2) Choose one fold randomly to be the
-        holdout set then fit model on the remaining K-1 folds. (3)
-        Iterate through the remaining K-1 folds, using each as the holdout set
-        and record the error $e_i$ of the iteration. (4) Average the errors
-        obtained over the K-folds.
+        $k$-fold cross-validation procedure: (1) Dataset is divided into
+        $k$-folds of roughly equal size. (2) Choose one fold randomly to be the
+        holdout set then fit model on the remaining $k-1$ folds. (3) Iterate
+        through the remaining $k-1$ folds, using each as the holdout set and
+        record the error $e_i$ of the iteration. (4) Average the errors obtained
+        over the $k$-folds.
     }
     \label{fig:kfold-cv}
 \end{figure}

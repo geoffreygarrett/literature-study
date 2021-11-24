@@ -16,7 +16,7 @@
             draw
         },
         column 1/.style={nodes={draw=none}, minimum width = 4cm},
-        column 5/.style={nodes={draw=none}},
+        column 5/.style={nodes={draw=gray}, dashed},
         column 7/.style={nodes={draw=none},minimum width = 1.0cm},
         row 4/.style={nodes={draw=none}},
         row sep=1mm,
@@ -30,9 +30,9 @@
         Iteration 2   &        & |[e]|  &        & \ldots &        & \textrightarrow\;$e_2$ \\
         Iteration 3   &        &        & |[e]|  & \ldots &        & \textrightarrow\;$e_3$ \\
               \vdots  & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots                \\
-        Iteration $K$ &        &        &        & \ldots & |[e]|  & \textrightarrow\;$e_K$ \\
+        Iteration $k$ &        &        &        & \ldots & |[e]|  & \textrightarrow\;$e_k$ \\
     };
-    \draw (M-1-2.north west) ++(0,2mm) coordinate (LT) edge[|<->|, >= latex] node[above]{Total number of folds} (LT-|M-1-6.north east);
+    \draw (M-1-2.north west) ++(0,2mm) coordinate (LT) edge[|<->|, >= latex] node[above]{Total number of folds, $k$} (LT-|M-1-6.north east);
 %    \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);
     \draw[decorate,decoration = {brace, raise=0.5em, amplitude=0.5em}]
         (M-5-6.south east)
@@ -46,7 +46,7 @@
 
     \draw[decorate,decoration = {brace, raise=0.5em, amplitude=0.5em}]
         (M.north east)
-        -- node[midway, right=1.5em] {$e=\frac{1}{K}\sum_{i=0}^K{e_i}$}
+        -- node[midway, right=1.5em] {$e=\frac{1}{k}\sum_{i=0}^k{e_i}$}
         (M.south east);
 
 %    \matrix (L)
