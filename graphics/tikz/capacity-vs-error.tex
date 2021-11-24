@@ -6,11 +6,11 @@
     OverfitStyle/.style={align=center,anchor=west,rotate=0,font=\sffamily\scriptsize},
     UnderfitStyle/.style={align=center,anchor=east,rotate=0,font=\sffamily\scriptsize},
 }
-\pgfplotsset{compat=1.17,
-    samples=101,
-    axis lines = left,
-    every axis plot/.append style={line width=2pt},
-}
+%\pgfplotsset{compat=1.17,
+%    samples=101,
+%    axis lines = left,
+%    every axis plot/.append style={line width=2pt},
+%}
 
 %\begin{document}
 %\fbox{
@@ -31,17 +31,19 @@
         yticklabels={\empty},
         ymajorgrids=true,
         xmajorgrids=true,
-        width=0.8\linewidth,
+        samples=100,
+        width=0.85\linewidth,
         height=0.35\linewidth,
         axis line style = thick,
+        legend cell align={left},
         legend style={at={(0.95,0.95)},anchor=north east}
         ]
-        \addplot[domain=0.00:2.0, blue, dashed] {0.25/(3*x+0.1) + 0.01};   % Training error
+        \addplot[domain=0.00:2.0, blue, dashed, thick] {0.25/(3*x+0.1) + 0.01};   % Training error
         \addlegendentry{Training error}
-        \addplot[domain=0.00:2.0, green!80!black] {0.25/(3*x+0.1) + 0.1*x + 0.2 *x*x + 0.05};  % Generalisation error
+        \addplot[domain=0.00:2.0, green!50!black, thick] {0.25/(3*x+0.1) + 0.1*x + 0.2 *x*x + 0.05};  % Generalisation error
         \addlegendentry{Generalisation error}
 %      \addplot[domain=0.39:1.61,black] {3*(x-2)*x+3.8};  %Total error
-        \addplot[dotted, red] coordinates {(0.5,0) (0.5,2)};           %Optimum model complexity
+        \addplot[dotted, red, thick] coordinates {(0.5,0) (0.5,2)};           %Optimum model complexity
         \addplot[thin, <->] coordinates {(1.5,0.1) (1.5,0.65)};       %Optimum model complexity
 
         \node[OptimumStyle] at (axis cs:0.46,1.0) {Optimal capacity};

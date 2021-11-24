@@ -1,0 +1,72 @@
+% https://tex.stackexchange.com/questions/573127/tikz-plots-are-not-centered
+% \usetikzlibrary{positioning, decorations.text, calc}
+\tikzset{declare function={f(\x)=(-0.06*(\x-2)+0.5)*(\x-2)*(\x-2);}}% applied math style
+\foreach \Z in {1,...,42} {\pgfmathsetmacro{\X}{\Z/10}%
+\pgfmathsetmacro{\Y}{f(\X)+0.9*rnd}%
+\ifnum\Z=1
+\xdef\LstOne{(\X,\Y)}%
+\xdef\LstTwo{"(\X,\Y)"}%
+\else
+\xdef\LstOne{\LstOne (\X,\Y)}%
+\xdef\LstTwo{\LstTwo,"(\X,\Y)"}%
+\fi}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[local bounding box=under]
+            \foreach \Z in {1,...,42}
+                {\pgfmathsetmacro{\Coor}{{\LstTwo}[\Z-1]}
+            \fill \Coor circle[radius=1pt];}
+            \draw[thick,blue] (0.1,0.4) -- (4.2,2);
+        \end{scope}
+        \draw[gray,thin] ([xshift=-3pt,yshift=3pt]under.north west) rectangle  ([xshift=3pt,yshift=-3pt]under.south east);
+        \draw[stealth-stealth,thick] ([xshift=-3pt,yshift=3pt]under.north west) |- ([xshift=3pt,yshift=-3pt]under.south east);
+    \end{tikzpicture}
+    \subcaption{Underfitting}
+    \label{fig:underfitting}
+\end{minipage}\hfil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[local bounding box=good]
+            \foreach \Z in {1,...,42}
+                {\pgfmathsetmacro{\Coor}{{\LstTwo}[\Z-1]}
+            \fill \Coor circle[radius=1pt];}
+            \draw[thick,blue] plot[smooth,domain=0.1:4.2,variable=\x] (\x,{f(\x)+0.45});
+        \end{scope}
+        \draw[gray,thin] ([xshift=-3pt,yshift=3pt]good.north west) rectangle  ([xshift=3pt,yshift=-3pt]good.south east);
+        \draw[stealth-stealth,thick] ([xshift=-3pt,yshift=3pt]good.north west) |- ([xshift=3pt,yshift=-3pt]good.south east);
+    \end{tikzpicture}
+    \subcaption{Appropriate capacity}
+    \label{fig:appropriate-capacity}
+\end{minipage}\hfil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[local bounding box=over]
+            \foreach \Z in {1,...,40}
+                {\pgfmathsetmacro{\Last}{{\LstTwo}[\Z-1]}
+            \pgfmathsetmacro{\Current}{{\LstTwo}[\Z]}
+            \pgfmathsetmacro{\Next}{{\LstTwo}[\Z+1]}
+            \edef\temp{\noexpand\path ($0.6*\Current+0.2*\Last+0.2*\Next$)   coordinate   (p\Z);}
+            \temp
+            \ifnum\Z=1
+            \xdef\LstThree{(p\Z)}
+            \else
+            \xdef\LstThree{\LstThree (p\Z)}
+            \fi}
+            \foreach \Z in {1,...,42}
+                {\pgfmathsetmacro{\Coor}{{\LstTwo}[\Z-1]}
+            \fill \Coor circle[radius=1pt];}
+            \draw[thick,blue] plot[smooth] coordinates \LstThree;
+        \end{scope}
+        \draw[gray,thin] ([xshift=-3pt,yshift=3pt]over.north west) rectangle  ([xshift=3pt,yshift=-3pt]over.south east);
+        \draw[stealth-stealth,thick] ([xshift=-3pt,yshift=3pt]over.north west) |- ([xshift=3pt,yshift=-3pt]over.south east);
+        %\draw[red] (current bounding box.south west) rectangle (current bounding box.north east);
+    \end{tikzpicture}
+    \subcaption{Overfitting}
+    \label{fig:overfitting}
+\end{minipage}

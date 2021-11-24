@@ -23,9 +23,11 @@ considered as the catalyst for the AI boom of the 21st century
 \begin{figure}[htp!]
     \centering
     \input{graphics/tikz/ai-ml-dl.tex}
+    \captionsetup{format=hang} % hanging captions
     \caption{
         The relationship between the fields of Artificial Intelligence,
-        Machine Learning, Deep Learning and Reinforcement Learning.
+        Machine Learning, Deep Learning and Reinforcement Learning with some
+        arbitrary example provided per field.
     }
     \label{fig:al-ml-dl}
 \end{figure}
@@ -110,60 +112,60 @@ those that underlie the practitioners domain-specific problems.
 
 \begin{itemize}
     \item \textbf{Classification}: In this task, the learning algorithm is
-          expected to produce a function $f: \mathbb{R^n}\rightarrow
-          \{1,...,k\}$. When $y=f(\mathbf{x})$, the model assigns a provided
-          input, $\mathbf{x}$ to a category identified by numeric code $y$. An
-          example of this would be the mapping of a grayscale image,
-          $\mathbf{x}\in\mathbb{R}^2$ to a value corresponding to a numerical
-          encoding $f:\mathbb{R}^n\rightarrow\{\textrm{Cat},\;\textrm{Dog}\}$.
+    expected to produce a function $f: \mathbb{R^n}\rightarrow
+    \{1,...,k\}$. When $y=f(\mathbf{x})$, the model assigns a provided
+    input, $\mathbf{x}$ to a category identified by numeric code $y$. An
+    example of this would be the mapping of a grayscale image,
+    $\mathbf{x}\in\mathbb{R}^2$ to a value corresponding to a numerical
+    encoding $f:\mathbb{R}^n\rightarrow\{\textrm{Cat},\;\textrm{Dog}\}$.
     \item \textbf{Classification with missing inputs}: Classification becomes
-          more challenging when the input measurements to the model are not
-          guaranteed to always be the same. In this situation the algorithm must
-          learn the set of all function mappings arising from the possible
-          combinations of input vectors that arise from missing subsets of
-          inputs in $\mathbf{x}$. An example of this would be the classification
-          of a diagnosis in medicine, as depending on the invasiveness of
-          certain procedures, different subsets of measurements are available.
+    more challenging when the input measurements to the model are not
+    guaranteed to always be the same. In this situation the algorithm must
+    learn the set of all function mappings arising from the possible
+    combinations of input vectors that arise from missing subsets of
+    inputs in $\mathbf{x}$. An example of this would be the classification
+    of a diagnosis in medicine, as depending on the invasiveness of
+    certain procedures, different subsets of measurements are available.
     \item \textbf{Regression}: In this task, the learning algorithm is expected
-          to predict a continuous numerical value for a given input. This is
-          done by learning a function $f: \mathbb{R}^n\rightarrow\mathbb{R}$.
-          the formulation is similar to that of classification, except for the
-          output format. An example of this would be learning of a function to
-          predict the expected returns for a given investment given the state of
-          the market, as is common is algorithmic trading.
+    to predict a continuous numerical value for a given input. This is
+    done by learning a function $f: \mathbb{R}^n\rightarrow\mathbb{R}$.
+    the formulation is similar to that of classification, except for the
+    output format. An example of this would be learning of a function to
+    predict the expected returns for a given investment given the state of
+    the market, as is common is algorithmic trading.
     \item \textbf{Transcription}: This type of task involves the learning
-          algorithm observing a relatively unstructured input and transcribing
-          it into some discrete textual form. An example of this is the
-          transcription of an audio waveform containing speech into text.
+    algorithm observing a relatively unstructured input and transcribing
+    it into some discrete textual form. An example of this is the
+    transcription of an audio waveform containing speech into text.
     \item \textbf{Machine translation}: In machine translation, the already
-          structured input is mapped into a different language. This is common
-          in the field of \gls{NLP}, where languages are translated between, for
-          example English and French. This however is not limited to natural
-          languages but can also be applied to programming languages for
-          example.
+    structured input is mapped into a different language. This is common
+    in the field of \gls{NLP}, where languages are translated between, for
+    example English and French. This however is not limited to natural
+    languages but can also be applied to programming languages for
+    example.
     \item \textbf{Structured output}: This task entails those where the output
-          is a vector or a data structure which details important relationships
-          between the contained elements. This task subsumes the prior two of
-          transcription and machine translation. An example of this would be the
-          parsing of grammatical structure of a natural language sentence,
-          addressed in \gls{NLP} and demonstrated by Collobert
-          \cite{pmlr-v15-collobert11a}.
+    is a vector or a data structure which details important relationships
+    between the contained elements. This task subsumes the prior two of
+    transcription and machine translation. An example of this would be the
+    parsing of grammatical structure of a natural language sentence,
+    addressed in \gls{NLP} and demonstrated by Collobert
+    \cite{pmlr-v15-collobert11a}.
     \item \textbf{Anomaly detection}: In this task, a learning algorithm learns
-          to sift through a set of events and classify events that are anomalous
-          in nature. These algorithms have been applied to credit card companies
-          in detection of fraud \cite{DBLP:journals/corr/abs-2108-10005}, and in
-          safety in the aviation industry \cite{Janakiraman2016, Basora2019}.
+    to sift through a set of events and classify events that are anomalous
+    in nature. These algorithms have been applied to credit card companies
+    in detection of fraud \cite{DBLP:journals/corr/abs-2108-10005}, and in
+    safety in the aviation industry \cite{Janakiraman2016, Basora2019}.
     \item \textbf{Synthesis and sampling}: In this task, learning algorithms
-          generate \textbf{new} examples which appear to be drawn from the same
-          underlying distribution as, but are not present in the training data.
-          A recent example around which a lot of research is being done is the
-          \gls{GPT-3} which is able to produce human-like text, given prompts as
-          input \cite{DBLP:journals/corr/abs-2005-14165}.
+    generate \textbf{new} examples which appear to be drawn from the same
+    underlying distribution as, but are not present in the training data.
+    A recent example around which a lot of research is being done is the
+    \gls{GPT-3} which is able to produce human-like text, given prompts as
+    input \cite{DBLP:journals/corr/abs-2005-14165}.
     \item \textbf{Imputation of missing values}: In this task, the learning
-          algorithm is given some input $x\in\mathbb{R}$ with some elements
-          $x_i$ missing. The algorithm must then make predictions for the
-          missing values. Emmanuel et. al. discuss the latest methods in
-          \gls{ML} that address this task \cite{Emmanuel2021}.
+    algorithm is given some input $x\in\mathbb{R}$ with some elements
+    $x_i$ missing. The algorithm must then make predictions for the
+    missing values. Emmanuel et. al. discuss the latest methods in
+    \gls{ML} that address this task \cite{Emmanuel2021}.
     \item \textbf{Denoising}:
     \item \textbf{Density estimation} or \textbf{probability mass function estimation}
 \end{itemize}
@@ -177,10 +179,6 @@ those that underlie the practitioners domain-specific problems.
 
 %This section reviews the current ongoing research in the field of machine
 %learning as a whole. First the main categories:
-
-
-
-
 
 \subsubsection{The Performance, $P$\label{sec:ML-performance}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -246,10 +244,10 @@ which it is generally expected to learn some pattern of interest.
     ~\cite{Zhang2007}, clustering \cite{Bair2013}, and anomaly detection
     \cite{DBLP:journals/corr/abs-1805-06725}.
 
-    \item \textbf{Reinforcement learning} is a learning task which relies
-    exclusively on a series of reinforcements. These reinforcements can be
-    positive (rewards) or negative (punishments). This category is discussed
-    further in \autoref{ssec:RL}.
+    \item \textbf{Reinforcement learning} are learning algorithms which rely
+    exclusively on a series of reinforcements from its environment. These
+    reinforcements can be positive (rewards) or negative (punishments). This
+    category is discussed further in \autoref{ssec:RL}.
 \end{itemize}
 
 \subsection{Capacity, Overfitting and Underfitting}
@@ -258,8 +256,18 @@ which it is generally expected to learn some pattern of interest.
 \begin{figure}[htp]
     \centering
     \input{graphics/tikz/overfitting}
-%    \caption{Multilayer perceptron}
-%    \label{fig:mlp}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        Three different models fit to an arbitrary example training set
+        generated from an arbitrary third-degree polynomial with some added
+        noise. (a) Shows that first-degree polynomial (linear model) fails in
+        generalising well to the data, and results in \textbf{underfitting}. (b)
+        Shows a third-degree polynomial generalising well and is described as
+        having an \textbf{appropriate capacity}, potentially optimal. (c) Shows
+        an eleventh-degree polynomial which has a high variance in error and is
+        describedas \textbf{overfitting}.
+    }
+    \label{fig:mlp}
 \end{figure}
 
 \begin{figure}[htp]
@@ -279,7 +287,6 @@ which it is generally expected to learn some pattern of interest.
     }
     \label{fig:capacity}
 \end{figure}
-
 
 \subsubsection{No Free Lunch Theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
