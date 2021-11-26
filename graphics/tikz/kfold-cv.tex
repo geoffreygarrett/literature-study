@@ -26,11 +26,11 @@
         n/.style={nodes={draw=none, fill=none}},
         ]
     {
-        Iteration 1   & |[e]|  &        &        & \ldots &        & \textrightarrow\;$e_1$ \\
-        Iteration 2   &        & |[e]|  &        & \ldots &        & \textrightarrow\;$e_2$ \\
-        Iteration 3   &        &        & |[e]|  & \ldots &        & \textrightarrow\;$e_3$ \\
-              \vdots  & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots                \\
-        Iteration $k$ &        &        &        & \ldots & |[e]|  & \textrightarrow\;$e_k$ \\
+        Iteration 1   & |[e]|  &        &        & $\ldots$ &        & \textrightarrow\;$e_1$ \\
+        Iteration 2   &        & |[e]|  &        & $\ldots$ &        & \textrightarrow\;$e_2$ \\
+        Iteration 3   &        &        & |[e]|  & $\ldots$ &        & \textrightarrow\;$e_3$ \\
+              $\vdots$  & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$                \\
+        Iteration $k$ &        &        &        & $\ldots$ & |[e]|  & \textrightarrow\;$e_k$ \\
     };
     \draw (M-1-2.north west) ++(0,2mm) coordinate (LT) edge[|<->|, >= latex] node[above]{Total number of folds, $k$} (LT-|M-1-6.north east);
 %    \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);

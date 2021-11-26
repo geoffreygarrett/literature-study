@@ -199,6 +199,24 @@ requirement on managing our dataset is presented, there must be some
 \textbf{train-test split}. This is further complicated by the
 \textbf{validation} dataset which is discussed later in the chapter.
 
+\textbf{Regression loss functions}
+\begin{itemize}
+    \item \textbf{\Gls{MSE}} or \textbf{L2 loss}
+    \begin{equation}
+        \text{MSE} = \frac{1}{N}\sum_{i=0}^{N}||\hat{f}(\mathbf{x}_i)-\mathbf{y}_i||^2_2
+    \end{equation}
+    \item \textbf{\Gls{MAE}}
+    \begin{equation}
+        \text{MAE} = \frac{1}{N}\sum_{i=0}^{N}||\hat{f}(\mathbf{x}_i)-\mathbf{y}_i^||^2_2
+    \end{equation}
+    \item \textbf{\Gls{MBE}}
+    \begin{equation}
+        \text{MBE} = \frac{1}{N}\sum_{i=0}^{N}||\hat{f}(\mathbf{x}_i)-\mathbf{y}_i^||^2_2
+    \end{equation}
+\end{itemize}
+
+\textbf{Classification loss functions}
+
 %With the
 %In the case of classification, most metrics are derived from the confusion
 %matric
@@ -252,10 +270,24 @@ which it is generally expected to learn some pattern of interest.
 
 \subsection{Capacity, Overfitting and Underfitting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-An important concept in \gls{ML} is the \textit{capacity} of the model. This is
-defined informally as \textit{a model’s capacity is its ability to fit a wide
-variety of functions.}\cite[pp.~150--153]{Goodfellow-et-al-2016}.
+The primary objective in \gls{ML} is to find a model which performs well on
+previously \textit{unseen data}, which has not been used during the training or
+fitting of a model. This ability of the learning algorithm is referred to as the
+\textit{generalisation}.
 
+Typically the learning algorithm is trained according to a set of
+\textit{training data} with which we aim at reducing the learners
+\textbf{training error}. Due to this data having been directly used to optimize
+the moding during training, we cannot expect this error to be representative of
+the \textbf{generalisation error}. In order to derive an estimate of the
+generalisation error, we separate part of the initial data set into training and
+\textbf{test data}, from which the \textbf{test error} is derived. Given some
+assumptions about the \textbf{data-generating process}, it can be said that the
+test error is equal to the expected generalisation error of the mode.
+
+An important concept in \gls{ML} is the \textit{capacity} of the model. This is
+defined informally as \textit{"a model’s [...] ability to fit a wide
+variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}.
 
 \begin{figure}[htp]
     \centering
@@ -269,7 +301,7 @@ variety of functions.}\cite[pp.~150--153]{Goodfellow-et-al-2016}.
         Shows a third-degree polynomial generalising well and is described as
         having an \textbf{appropriate capacity}, potentially optimal. (c) Shows
         an eleventh-degree polynomial which has a high variance in error and is
-        describedas \textbf{overfitting}.
+        described as \textbf{overfitting}.
     }
     \label{fig:mlp}
 \end{figure}
@@ -301,13 +333,13 @@ variety of functions.}\cite[pp.~150--153]{Goodfellow-et-al-2016}.
 \subsection{Hyperparameters and Validation Sets}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Resubstitution}
+%\subsubsection{Resubstitution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Holdout}
+%\subsubsection{Holdout}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{K-Fold Cross-Validation}
+\subsubsection{Cross-Validation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[htbp]
@@ -325,13 +357,13 @@ variety of functions.}\cite[pp.~150--153]{Goodfellow-et-al-2016}.
     \label{fig:kfold-cv}
 \end{figure}
 
-\subsubsection{Leave-One-Out Cross-Validation (LOOCV)}
+%\subsubsection{Leave-One-Out Cross-Validation (LOOCV)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Bootstrapping}
+%\subsubsection{Bootstrapping}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Supervised}
+%\subsection{Supervised}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -427,6 +459,25 @@ $f(\mathbf{x};\mathbf{w}, b)=\mathbf{x}^T\mathbf{w}+b$; $x\in\mathbb{R}^{d_{in}}
 \subsection{Gradient based learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Backpropagation, short for "backward propagation of errors," is a
+\textit{supervised learning} algorithm for artificial neural networks using
+\textit{gradient descent}.
+
+\begin{figure}[htp]
+    \centering
+    \input{graphics/tikz/gradient-descent}
+    \caption{Gradient based learning}
+    \label{fig:gradient-descent}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \centering
+    \input{graphics/tikz/gradient-descent-3d}
+    \caption{Gradient based learning}
+    \label{fig:gradient-descent}
+\end{figure}
+
 \subsection{Universal Approximation Properties and Depth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -434,14 +485,10 @@ A linear model by definition, may only optimised to represent linear functions.
 It has advantages in its simplicity to optimise however we often require our
 estimator models to learn nonlinear functions.
 
-\subsection{Backpropagation}
+%\subsection{Backpropagation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Backpropagation, short for "backward propagation of errors," is a
-\textit{supervised learning} algorithm for artificial neural networks using
-\textit{gradient descent}.
-
-
+\newpage{}
 \section{Reinforcement Learning\label{ssec:RL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
