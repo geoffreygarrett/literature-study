@@ -20,7 +20,8 @@
 %\RequirePackage{titlesec}   % Custom titles  % NO NO NO
 %\RequirePackage{titletoc}   % Custom table of contents
 %\RequirePackage{fancyhdr}   % Custom header/footer
-\RequirePackage[hidelinks]{hyperref} % Improved referencing/links
+\definecolor{mylinkcolor}{RGB}{0,0,0}
+\RequirePackage[colorlinks,linkcolor=mylinkcolor]{hyperref} % Improved referencing/links
 %
 \RequirePackage{graphicx}   % Adding images
 %\RequirePackage{float}      % Additional float parameters

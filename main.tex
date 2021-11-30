@@ -53,6 +53,17 @@
 \newacronym{MBE}{MBE}{mean bias error}
 \newacronym{MSLE}{MSLE}{mean squared logarithmic error}
 \newacronym{NFLT}{NFLT}{No Free Lunch Theorem}
+\newacronym{NFL}{NFL}{No Free Lunch}
+\newacronym{CD}{CD}{cosine distance}
+\newacronym{CP}{CP}{cosine proximity}
+\newacronym{CS}{CS}{cosine similarity}
+\newacronym{iid}{i.i.d.}{independent and identically distributed}
+
+\newglossaryentry{x_in}{type=symbols,name=\ensuremath{\mathbf{x}},sort=x,description={Input vector}}
+\newglossaryentry{y_true}{type=symbols,name=\ensuremath{\mathbf{y}},sort=y,description={Input vector}}
+\newglossaryentry{y_pred}{type=symbols,name=\ensuremath{\hat{\mathbf{y}}},sort=y,description={Input vector}}
+%\newglossaryentry{x_in}{type=symbols,name=$\mathbf{x}$,sort=x,description={Input vector}}
+\newglossary{symbols}{sym}{sbl}{List of Symbols}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
@@ -78,6 +89,7 @@
     \frontmatter % Use roman page numbering style
 
     \printnoidxglossary[type=\acronymtype, title=Abbreviations]
+    \printnoidxglossary[type=symbols, title=Nomenclature]
     \listoffigures
     \listoftables
 

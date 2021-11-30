@@ -50,17 +50,19 @@ concept in machine learning: \textit{hyperparameters}, which are
 \textit{settings} of a learning algorithm which must be determined outside the
 learning algorithm itself.
 
-\subsection{Learning algorithms}
+\subsection{Learning algorithms\label{ssec:learning_algo}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Generally speaking, a machine learning algorithm is a procedure for learning
 from data.However correct this definition is, it provides little insight into
 the relevant concepts in the field. A more succint definition is provided by
-Mitchell \cite{Mitchell97LearningAlgorithm}:
-\begin{quotation}
-    \textit{A computer program is said to learn from experience $E$ with respect
+Mitchell~\cite{Mitchell97LearningAlgorithm}:
+
+\begin{fancyquotes}
+    A computer program is said to learn from experience $E$ with respect
     to some class of tasks $T$ and a performance measure $P$, if its performance
-    at tasks in $T$, as measured by $P$, improves with experience $E$.}
-\end{quotation}
+    at tasks in $T$, as measured by $P$, improves with experience $E$.
+\end{fancyquotes}
+
 This definition introduces the general entities which are present during all
 machine learning tasks. The entities will not be formally defined in the
 following sections as it is far outside the scope of this literature, and is
@@ -79,13 +81,14 @@ specialist opt for solving problems with \gls{ML} that have been solved using
 tried and true techniques in their domain of expertise? Goodfellow et al.
 \cite{Goodfellow-et-al-2016} provide an insightful response to this:
 
-\begin{quotation}
-    \textit{Machine learning enables us to tackle tasks that are too difficult
+\begin{fancyquotes}
+    Machine learning enables us to tackle tasks that are too difficult
     to solve with fixed programs written and designed by human beings. From a
     scientific and philosophical point of view, machine learning is interesting
     because developing our understanding of it entails developing our
-    understanding of the principles that underlie intelligence. }
-\end{quotation}
+    understanding of the principles that underlie intelligence.
+\end{fancyquotes}
+
 An example of a field which has undergone dramatic changes in a short period of
 time, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et.
 al. discuss this in their paper with a focus on comparing \gls{DL} and \gls{CV}
@@ -206,7 +209,7 @@ requirement on managing our dataset is presented, there must be some
 \textbf{train-test split}. This is further complicated by the
 \textbf{validation} dataset which is discussed later in the chapter.
 
-Given that the input-output pair is $\{\mathbf{x}_i, \mathbf{y}_i\}$,
+Given that the input-output pair is $\{\gls{x_in}_i, \mathbf{y}_i\}$,
 $\mathbf{y}_i$ is commonly referred to as the \textit{ground truth}, and
 $\hat{\mathbf{f}}(\mathbf{x}_i)=\hat{\mathbf{y}}_i$ are referred to as the
 \textit{predictor} and \textit{predicted output} respectively. The performance
@@ -244,50 +247,65 @@ $\hat{\mathbf{y}}_i$, therefore $L(\hat{\mathbf{y}}_i, \mathbf{y}_i)$.
     \begin{equation}
         L_\text{MAE} = \frac{1}{N}\sum_{i=1}^{N}||\hat{\mathbf{y}}_i-\mathbf{y}_i||_1
     \end{equation}
-    \item \textbf{\Gls{MBE}}
+    \item \textbf{\Gls{MBE}} is the sum of all differences between predictions
+    and the ground truth. \gls{MBE} is not often used as a measure of the model
+    error as high individual errors can produce a low \gls{MBE}. This metric is
+    primarily used to measure the average bias of a prediction.
     \begin{equation}
-        L_\text{MBE} = \frac{1}{N}\sum_{i=1}^{N}(\hat{\mathbf{y}}_i-\mathbf{y}_i)
+        L_\text{MBE} = \frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M}(\hat{{y}}_{ij}-{y}_{ij})
     \end{equation}
-    \item \textbf{\Gls{MSLE}}
+    \item \textbf{\Gls{MSLE}} can be interpreted a measure of the ratio
+    between predictions and the ground truth. This metric is used when it is
+    desirable to achieve some relative measure of accuracy as apposed to an
+    absolute. In other words, large and small discrepancies between the
+    predicted and ground truth are dealt in a relative manner, resulting in
+    similar loss value magnitudes.
     \begin{equation}
         \begin{aligned}
-            L_\text{MSLE} &= \frac{1}{N}\sum_{i=1}^{N}(\log{(y_i+1)} - \log{(\hat{\mathbf{y}}_i+1)})^2 \\
-            &= \frac{1}{N}\sum_{i=1}^{N}2\log(\frac{y_i+1}{\hat{\mathbf{y}}_i+1})
+            L_\text{MSLE} &= \frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M}(\log{({{y}}_{ij}+1)} - \log{(\hat{{y}}_{ij}+1)})^2 \\
+            &= \frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M}2\log(\frac{{{y}}_{ij}+1}{\hat{{y}}_{ij}+1})
         \end{aligned}
     \end{equation}
-    \item \textbf{Cosine Proximity}
-    \begin{equation}
-        L_\text{cos} = -\frac{\mathbf{y}_i\cdot{}\hat{\mathbf{y}}_i}{||\mathbf{y}_i||_2\cdot{}||\hat{\mathbf{y}}_i||_2}
+    \item \textbf{\Gls{CP}} or \textbf{\gls{CS}} is a measure of similarity
+    between two non-zero vectors of an inner product space. The metric is
+    defined as the cosine of the angle between the two vectors. The metric is
+    bounded in the interval $[-1,1]$, -1 for opposing orientation and 1 for the
+    same orientation. This is not often useful in some \gls{ML} tasks, so an
+    alternative form known as the \textbf{\gls{CD}} is used instead. The
+    relation between the metrics is $\text{\gls{CD}}=1-\text{\gls{CP}}$,
+    bounding the error in the interval $[0,2]$. \begin{equation}
+                                                    L_\text{\gls{CD}} =
+                                                    \frac{1}{N}\sum_{i=1}^{N}\bigg(1-\frac{\mathbf{y}_i\cdot{}\hat{\mathbf{y}}_i}{||\mathbf{y}_i||_2\cdot{}||\hat{\mathbf{y}}_i||_2}\bigg)
     \end{equation}
 \end{itemize}
 
+%\textbf{Binary classification loss functions}
+%\begin{itemize}
+%    \item \textbf{Binary cross-entropy} i
+%    \begin{equation}
+%        L=-\sum_{i=1}^N\bigg(y_i\log(\hat{\mathbf{y}}_i)+(1-y_i)\log(1-\hat{\mathbf{y}}_i)\bigg)\label{eq:equation}
+%    \end{equation}
+%    \item Hinge loss
+%    \begin{equation}
+%
+%    \end{equation}
+%    \item Squared hinge loss
+%\end{itemize}
+%
+%\textbf{Multi-class classification loss functions}
+%\begin{itemize}
+%    \item Multi-class cross-entropy
+%    \begin{equation}
+%        L_{CE}=-\sum_{i=1}^N\sum_{j=1}^{M}y_{ij}\log(\hat{f}_j(\mathbf{x}_i))
+%    \end{equation}
+%    \item Hinge loss
+%    \item Squared hinge loss
+%\end{itemize}
+%
+%
+%\begin{itemize}
+%\end{itemize}
 
-\textbf{Binary classification loss functions}
-\begin{itemize}
-    \item Binary cross-entropy
-    \begin{equation}
-        L=-\sum_{i=1}^N\bigg(y_i\log(\hat{\mathbf{y}}_i)+(1-y_i)\log(1-\hat{\mathbf{y}}_i)\bigg)\label{eq:equation}
-    \end{equation}
-    \item Hinge loss
-    \begin{equation}
-
-    \end{equation}
-    \item Squared hinge loss
-\end{itemize}
-
-\textbf{Multi-class classification loss functions}
-\begin{itemize}
-    \item Multi-class cross-entropy
-    \begin{equation}
-        L_{CE}=-\sum_{i=1}^N\sum_{j=1}^{M}y_{ij}\log(\hat{f}_j(\mathbf{x}_i))
-    \end{equation}
-    \item Hinge loss
-    \item Squared hinge loss
-\end{itemize}
-
-
-\begin{itemize}
-\end{itemize}
 %With the
 %In the case of classification, most metrics are derived from the confusion
 %matric
@@ -343,22 +361,35 @@ which it is generally expected to learn some pattern of interest.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The primary objective in \gls{ML} is to find a model which performs well on
 previously \textit{unseen data}, which has not been used during the training or
-fitting of a model. This ability of the learning algorithm is referred to as the
-\textit{generalisation}.
+fitting of a model. This ability of the learning algorithm is referred to as its
+ability to \textit{generalise}.
 
 Typically the learning algorithm is trained according to a set of
 \textit{training data} with which we aim at reducing the learners
 \textbf{training error}. Due to this data having been directly used to optimise
-the moding during training, we cannot expect this error to be representative of
-the \textbf{generalisation error}. In order to derive an estimate of the
+the model during training, we cannot expect this error to be representative of
+the model's \textbf{generalisation error}. In order to derive an estimate of the
 generalisation error, we separate part of the initial data set into training and
 \textbf{test data}, from which the \textbf{test error} is derived. Given some
-assumptions about the \textbf{data-generating process}, it can be said that the
-test error is equal to the expected generalisation error of the mode.
+assumptions about the \textbf{data-generating process}, such as the data being
+\textbf{\gls{iid}}, it can be said that the training error is equal to the
+expectation if the test error.
 
 An important concept in \gls{ML} is the \textit{capacity} of the model. This is
 defined informally as \textit{``a model’s [...] ability to fit a wide
-variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}.
+variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}. Machine learning
+algorithms will generally perform their best when their capacity is appropriate
+for the true complexity of the task they are expected to perform given the
+available training data. Models with insufficient capacity will fail to perform
+complex tasks and those with excessive capacity will perform complex tasks, but
+they may overfit the training data.
+
+One technique of controlling the capacity of an algorithm is to control its
+\textbf{hypothesis space}, the set of possible functions that the algorithm may
+use to solve the task at hand. In the case of a polynomial, such as the
+arbitrary one seen in \autoref{fig:capacity-plots}, this effect can be
+intuitively related to the models propensity to underfit and overfit a set of
+training data.
 
 \begin{figure}[htp]
     \centering
@@ -366,15 +397,15 @@ variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}.
     \captionsetup{format=hang} % hanging captions
     \caption{
         Three different models fit to an arbitrary example training set
-        generated from an arbitrary third-degree polynomial with some added
-        noise. (a) Shows that first-degree polynomial (linear model) fails in
-        generalising well to the data, and results in \textbf{underfitting}. (b)
-        Shows a third-degree polynomial generalising well and is described as
-        having an \textbf{appropriate capacity}, potentially optimal. (c) Shows
-        an eleventh-degree polynomial which has a high variance in error and is
-        described as \textbf{overfitting}.
+        generated from an arbitrary third-degree polynomial (dashed line) with
+        some added noise. (a) Shows that first-degree polynomial (linear model)
+        fails in generalising well to the data, and results in
+        \textbf{underfitting}. (b) Shows a third-degree polynomial generalising
+        well and is described as having an \textbf{appropriate capacity},
+        potentially optimal. (c) Shows an eleventh-degree polynomial which has a
+        high variance in error and is described as \textbf{overfitting}.
     }
-    \label{fig:mlp}
+    \label{fig:capacity-plots}
 \end{figure}
 
 \begin{figure}[htp]
@@ -398,18 +429,19 @@ variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}.
 \subsubsection{No Free Lunch Theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The \gls{NFLT}, sometimes abbreviated NFL, is a simple but important concept in
-\gls{ML} and optimisation. The theorem suggests that an optimisation technique
-will perform equally well as any other when averaging its performance over the
-set of all possible problems. This implies that there is no single best
-technique for addressing an arbitrary problem. Luke states the following in
-\textit{essentials of metaheuristics}~\cite{luke2012essentials}:
+The \gls{NFLT}, sometimes abbreviated as \gls{NFL}, is a simple but important
+concept in \gls{ML} and optimisation~\cite{Wolpert1997}. The theorem suggests
+that an optimisation technique will perform equally well as any other when
+averaging its performance over the set of all possible problems. This implies
+that there is no single best technique for addressing an arbitrary problem. Luke
+states the following in \textit{essentials of
+metaheuristics}~\cite{luke2012essentials}:
 
-\begin{quotation}
-    \textit{The NFL stated that within certain constraints, over the space of
+\begin{fancyquotes}
+    The \gls{NFL} stated that within certain constraints, over the space of
     all possible problems, every optimization technique will perform as well as
-    every other one on average (including Random Search)}
-\end{quotation}
+    every other one on average (including Random Search)
+\end{fancyquotes}
 
 This argues that without having substantive information about the fundamentals
 of the problem being modelled, choosing to apply a single technique to an
@@ -421,32 +453,46 @@ techniques should be applied.
 However, in practice, knowledge to some degree is known about the problem which
 is being optimised, or to which a learning algorithm is being applied. This
 theorem highlights the importance of having a clear understanding of the problem
-at hand before applying a learning algorithm or an optimisation technique. As
-stated by Domingos~\cite{Domingos15}:
+at hand before applying a learning algorithm or an optimisation technique.
+Domingos states ~\cite{Domingos15}:
 
-\begin{quotation}
-    \textit{In the meantime, the practical consequence of the “no free lunch”
+\begin{fancyquotes}
+    In the meantime, the practical consequence of the “no free lunch”
     theorem is that there’s no such thing as learning without knowledge. Data
-    alone is not enough.}
-\end{quotation}
+    alone is not enough.
+\end{fancyquotes}
 
 This theorem, in effect, motivates the true goal of machine learning, as worded
 by Goodfellow et. al.~\cite[p.~116]{Goodfellow-et-al-2016}:
 
-\begin{quotation}
-    \textit{This means that the goal of machine learning research is not to seek
+\begin{fancyquotes}
+    This means that the goal of machine learning research is not to seek
     a universal learning algorithm or the absolute best learning algorithm.
     Instead, our goal is to understand what kinds of distributions are relevant
     to the “real world” that an AI agent experiences, and what kinds of machine
     learning algorithms perform well on data drawn from the kinds of
-    data-generating distributions we care about.}
-\end{quotation}
+    data-generating distributions we care about.
+\end{fancyquotes}
+
+
+This is an important insight and directly relates to a learning algorithms
+tendency to overfit or underfit. If we do not have a clear understanding of the
+level of complexity of the task we are trying to find a solution to with our
+learning algorithm, then we are likely to overfit or underfit. If one assumes
+the complexity of the problem to be higher than its true complexity, the learner
+will have access to a much larger hypothesis space (capacity) than what is
+optimal. On the other hand, if we underestimate the complexity, it is almost
+certain that we will design an algorithm with insufficient capacity. This also
+extends to the quantity and quality of training data that we are training with.
+It is impossible, for example, to model an $n^\text{th}$ order process with anything less
+than $n$ training samples without underfitting, and this is without considering
+the possibility of measurement noise.
 
 \subsubsection{Regularization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Regularization is any modification we make to a learning algorithm that is
-intended to reduce its generalization error but not its training error
+intended to reduce its generalisation error but not its training error.
 
 \subsection{Hyperparameters and Validation Sets}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -474,6 +520,18 @@ intended to reduce its generalization error but not its training error
     }
     \label{fig:kfold-cv}
 \end{figure}
+
+\subsection{Challenges in Machine Learning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{The curse of dimensionality}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Local constancy and smoothness regularization}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Manifold learning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\subsubsection{Leave-One-Out Cross-Validation (LOOCV)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -619,7 +677,7 @@ estimator models to learn nonlinear functions.
 So far, we’ve discussed the agent’s environment in an informal way, but if you
 try to go digging through the literature, you’re likely to run into the standard
 mathematical formalism for this setting: Markov Decision Processes (MDPs). An
-MDP is a 5-tuple, \langle S, A, R, P, \rho_0 \rangle, where
+%MDP is a 5-tuple, \langle S, A, R, P, \rho_0 \rangle, where
 
 S is the set of all valid states,
 A is the set of all valid actions,
