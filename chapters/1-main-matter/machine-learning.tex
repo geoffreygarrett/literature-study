@@ -165,9 +165,22 @@ those that underlie the practitioners domain-specific problems.
     algorithm is given some input $x\in\mathbb{R}$ with some elements
     $x_i$ missing. The algorithm must then make predictions for the
     missing values. Emmanuel et. al. discuss the latest methods in
-    \gls{ML} that address this task \cite{Emmanuel2021}.
-    \item \textbf{Denoising}:
+    \gls{ML} that address this task~\cite{Emmanuel2021}.
+    \item \textbf{Denoising}: In this learning task, the machine learning
+    algorithm learns to generate a clean example $\mathbf{x}\in\mathbb{R}^n$
+    from a corrupted sample $\tilde{\mathbf{x}}\in\mathbb{R}^n$. Generally
+    speaking the learner is predicting the probability distribution
+    $p(\mathbf{x}|\tilde{\mathbf{x}})$.
     \item \textbf{Density estimation} or \textbf{probability mass function estimation}
+    involves the task task of learning a function $p_\text{model}:\mathbb{R}^n\rightarrow{}\mathbb{R}$,
+    where $p_\text{model}(\mathbf{x})$ is interpreted as a probability distribution function
+    from which $\mathbf{x}$ was drawn. Effectively the algorithm learns the
+    structure of the data that it has been provided with. Most of the
+    aforementioned tasks involve learning this distribution function, at least
+    implicitly. For example for the missing value imputation task, if $x_i$ is
+    missing, and all other values $x_{-i}$ are given, then the algorithm learns
+    the distribution $p(x_i|\mathbf{x}_{-i})$ which involves $p(\mathbf{x})$
+    implicitly.
 \end{itemize}
 %An ongoing trend in society is the augmentation of responsibility in intelligent
 %algorithms through autonomy, evident by the advent of semi-autonomous cars,
@@ -199,24 +212,88 @@ requirement on managing our dataset is presented, there must be some
 \textbf{train-test split}. This is further complicated by the
 \textbf{validation} dataset which is discussed later in the chapter.
 
+Given that the input-output pair is $\{\mathbf{x}_i, \mathbf{y}_i\}$,
+$\mathbf{y}_i$ is commonly referred to as the \textit{ground truth}, and
+$\hat{\mathbf{f}}(\mathbf{x}_i)=\hat{\mathbf{y}}_i$ are referred to as the
+\textit{predictor} and \textit{predicted output} respectively. The performance
+in the form of a loss function $L$ is then some function of $\mathbf{y}_i$ and
+$\hat{\mathbf{y}}_i$, therefore $L(\hat{\mathbf{y}}_i, \mathbf{y}_i)$.
+
+\gls{ML} often borrows from \textit{approximation theory} vector norm notation
+($\ell(\cdot)_p=||\cdot||_p$) to simplify notation in performance metrics. See
+\autoref{appendix:vector_norms} for the expressions of vector norms.
+
 \textbf{Regression loss functions}
 \begin{itemize}
-    \item \textbf{\Gls{MSE}} or \textbf{L2 loss}
+    \item \textbf{\Gls{MSE}} is the average of the squared differences between
+    predictions and the ground truth. It is only concerned with the average
+    magnitude of errors irrespective of their direction. Due to the squaring,
+    predictions which have greater errors are more heavily penalized. A
+    beneficial mathematical property of \gls{MSE} is that gradients can be
+    easily calculated.
     \begin{equation}
-        \text{MSE} = \frac{1}{N}\sum_{i=0}^{N}||\hat{f}(\mathbf{x}_i)-\mathbf{y}_i||^2_2
+        L_\text{MSE} = \frac{1}{N}\sum_{i=1}^{N}||\hat{\mathbf{y}}_i-\mathbf{y}_i||^2_2
     \end{equation}
-    \item \textbf{\Gls{MAE}}
+    \item \textbf{L2 error} is the average of the differences between
+    predictions and the ground truth. It is the same as \gls{MSE} but without
+    the squaring. Like \gls{MSE}, the gradient can be easily calculated.
     \begin{equation}
-        \text{MAE} = \frac{1}{N}\sum_{i=0}^{N}||\hat{f}(\mathbf{x}_i)-\mathbf{y}_i^||^2_2
+        L_\text{L2E} = \frac{1}{N}\sum_{i=1}^{N}||\hat{\mathbf{y}}_i-\mathbf{y}_i||_2
+    \end{equation}
+    \item \textbf{\Gls{MAE}} or \textbf{L1 loss} is the average of the sum of
+    absolute differences between predictions and the ground truth. This measure
+    is similar to \gls{MSE} in that it considers the magnitude of the errors and
+    ignores their direction. However, \gls{MAE} is more difficult to compute
+    gradients for, requiring linear programming. \gls{MAE} is also more
+    resilient to large error values as a result of outliers, as it does not make
+    use of a square.
+    \begin{equation}
+        L_\text{MAE} = \frac{1}{N}\sum_{i=1}^{N}||\hat{\mathbf{y}}_i-\mathbf{y}_i||_1
     \end{equation}
     \item \textbf{\Gls{MBE}}
     \begin{equation}
-        \text{MBE} = \frac{1}{N}\sum_{i=0}^{N}||\hat{f}(\mathbf{x}_i)-\mathbf{y}_i^||^2_2
+        L_\text{MBE} = \frac{1}{N}\sum_{i=1}^{N}(\hat{\mathbf{y}}_i-\mathbf{y}_i)
+    \end{equation}
+    \item \textbf{\Gls{MSLE}}
+    \begin{equation}
+        \begin{aligned}
+            L_\text{MSLE} &= \frac{1}{N}\sum_{i=1}^{N}(\log{(y_i+1)} - \log{(\hat{\mathbf{y}}_i+1)})^2 \\
+            &= \frac{1}{N}\sum_{i=1}^{N}2\log(\frac{y_i+1}{\hat{\mathbf{y}}_i+1})
+        \end{aligned}
+    \end{equation}
+    \item \textbf{Cosine Proximity}
+    \begin{equation}
+        L_\text{cos} = -\frac{\mathbf{y}_i\cdot{}\hat{\mathbf{y}}_i}{||\mathbf{y}_i||_2\cdot{}||\hat{\mathbf{y}}_i||_2}
     \end{equation}
 \end{itemize}
 
-\textbf{Classification loss functions}
 
+\textbf{Binary classification loss functions}
+\begin{itemize}
+    \item Binary cross-entropy
+    \begin{equation}
+        L=-\sum_{i=1}^N\bigg(y_i\log(\hat{\mathbf{y}}_i)+(1-y_i)\log(1-\hat{\mathbf{y}}_i)\bigg)\label{eq:equation}
+    \end{equation}
+    \item Hinge loss
+    \begin{equation}
+
+    \end{equation}
+    \item Squared hinge loss
+\end{itemize}
+
+\textbf{Multi-class classification loss functions}
+\begin{itemize}
+    \item Multi-class cross-entropy
+    \begin{equation}
+        L_{CE}=-\sum_{i=1}^N\sum_{j=1}^{M}y_{ij}\log(\hat{f}_j(\mathbf{x}_i))
+    \end{equation}
+    \item Hinge loss
+    \item Squared hinge loss
+\end{itemize}
+
+
+\begin{itemize}
+\end{itemize}
 %With the
 %In the case of classification, most metrics are derived from the confusion
 %matric
@@ -277,7 +354,7 @@ fitting of a model. This ability of the learning algorithm is referred to as the
 
 Typically the learning algorithm is trained according to a set of
 \textit{training data} with which we aim at reducing the learners
-\textbf{training error}. Due to this data having been directly used to optimize
+\textbf{training error}. Due to this data having been directly used to optimise
 the moding during training, we cannot expect this error to be representative of
 the \textbf{generalisation error}. In order to derive an estimate of the
 generalisation error, we separate part of the initial data set into training and
@@ -286,7 +363,7 @@ assumptions about the \textbf{data-generating process}, it can be said that the
 test error is equal to the expected generalisation error of the mode.
 
 An important concept in \gls{ML} is the \textit{capacity} of the model. This is
-defined informally as \textit{"a model’s [...] ability to fit a wide
+defined informally as \textit{``a model’s [...] ability to fit a wide
 variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}.
 
 \begin{figure}[htp]
@@ -327,8 +404,61 @@ variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}.
 \subsubsection{No Free Lunch Theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The \gls{NFLT}, sometimes abbreviated NFL, is a simple but important concept in
+\gls{ML} and optimisation. The theorem suggests that an optimisation technique
+will perform equally well as any other when averaging its performance over the
+set of all possible problems. This implies that there is no single best
+technique for addressing an arbitrary problem. Luke states the following in
+\textit{essentials of metaheuristics}~\cite{luke2012essentials}:
+
+\begin{quotation}
+    \textit{
+        The NFL stated that within certain constraints, over the space of all
+        possible problems, every optimization technique will perform as well as
+        every other one on average (including Random Search)
+    }
+\end{quotation}
+
+This argues that without having substantive information about the fundamentals
+of the problem being modelled, choosing to apply a single technique to an
+arbitrary problem will not yield a predictably better or worse result than
+applying another to the same problem. Therefore, in the case where the
+underlying process being optimised is not well-understood, a variety of
+techniques should be applied.
+
+However, in practice, knowledge to some degree is known about the problem which
+is being optimised, or to which a learning algorithm is being applied. This
+theorem highlights the importance of having a clear understanding of the problem
+at hand before applying a learning algorithm or an optimisation technique. As
+stated by Domingos~\cite{Domingos15}:
+
+\begin{quotation}
+    \textit{
+        In the meantime, the practical consequence of the “no free lunch”
+        theorem is that there’s no such thing as learning without knowledge.
+        Data alone is not enough.
+    }
+\end{quotation}
+
+This theorem, in effect, motivates the true goal of machine learning, as worded
+by Goodfellow et. al.~\cite[p.~116]{Goodfellow-et-al-2016}:
+
+\begin{quotation}
+    \textit{
+        This means that the goal of machine learning research is not to seek a
+        universal learning algorithm or the absolute best learning algorithm.
+        Instead, our goal is to understand what kinds of distributions are
+        relevant to the “real world” that an AI agent experiences, and what
+        kinds of machine learning algorithms perform well on data drawn from the
+        kinds of data-generating distributions we care about.
+    }
+\end{quotation}
+
 \subsubsection{Regularization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Regularization is any modification we make to a learning algorithm that is
+intended to reduce its generalization error but not its training error
 
 \subsection{Hyperparameters and Validation Sets}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -402,7 +532,7 @@ This mathematical mimicry of a biological neuron was first used used proposed by
 Rosenblatt where a set of inputs $\mathbf{x}$ weighted using $\mathbf{w}$ before
 being summed. If this sum surpassed a threshold, then a binary output of $1$ was
 returned. \autoref{fig:perceptron} shows a more general formulation which
-   applies to the resulting field of deep learning, with any activation function
+applies to the resulting field of deep learning, with any activation function
 $\phi$ analogous for the level of excitation of a biological neuron in response
 to its stimulus $\mathbf{x}$.
 
@@ -489,8 +619,31 @@ estimator models to learn nonlinear functions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage{}
+
+
 \section{Reinforcement Learning\label{ssec:RL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Key Concepts in Reinforcement Learning}
+
+\subsubsection{Markov Decision Processes (MDP)}
+
+So far, we’ve discussed the agent’s environment in an informal way, but if you
+try to go digging through the literature, you’re likely to run into the standard
+mathematical formalism for this setting: Markov Decision Processes (MDPs). An
+MDP is a 5-tuple, \langle S, A, R, P, \rho_0 \rangle, where
+
+S is the set of all valid states,
+A is the set of all valid actions,
+R : $S \times A \times S \to \mathbb{R}$ is the reward function, with $r_t = R(s_t, a_t, s_{t+1})$,
+P : $S \times A \to \mathcal{P}(S)$ is the transition probability function, with
+$P(s'|s,a)$ being the probability of transitioning into state $s'$ if you start
+in state $s$ and take action $a$,
+and $\rho_0$ is the starting state distribution.
+
+The name Markov Decision Process refers to the fact that the system obeys the
+Markov property: transitions only depend on the most recent state and action,
+and no prior history.
 
 \input{graphics/tikz/agent-environment}
 

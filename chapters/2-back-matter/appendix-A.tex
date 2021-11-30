@@ -1,9 +1,10 @@
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Appendix A: Mathematical Expressions\label{appendix:rotational_transformations}}
+\section{Mathematical Expressions\label{app:a}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Rotation transformations}
+\subsection{Rotation transformations\label{appendix:rotational_transformations}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{equation}
@@ -34,7 +35,7 @@
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Incomplete integrals}
+\subsection{Incomplete integrals\label{appendix:incomplete_integrals}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{equation}
@@ -51,3 +52,32 @@
     R_D\!\left(x, y, z\right) = \frac{3}{2} \int_{0}^{\infty} \frac{1}{\left(t + x\right) \left(t + y\right) {\left(t + z\right)}^{3 / 2}} \, dt
     \label{eq:elliptic_RD}
 \end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Vector norms\label{appendix:vector_norms}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Given $x\in\mathbb{R}^n$, the vector norms for $\ell_p(\mathbf{x})$ are defined
+by the following equations:
+
+\begin{equation}
+    \ell_1(\mathbf{x})=||\mathbf{x}||_1 = \sum_{d=1}^n |x_d|
+\end{equation}
+
+\begin{equation}
+    \ell_2(\mathbf{x})=||\mathbf{x}||_2 = \sqrt{\sum_{d=1}^n x_d^2}
+\end{equation}
+
+\begin{equation}
+    \ell_\infty(\mathbf{x})=||\mathbf{x}||_\infty = \max_{1\leq{d}\leq{n}}^n |x_d|
+\end{equation}
+
+\begin{equation}
+    \ell_p(\mathbf{x})=||\mathbf{x}||_p=
+    \begin{cases}
+      \bigg(\sum_{d=1}^n |x_d|^p\bigg)^{1/p}    &  1\leq{}p\le \infty \\
+      \max_{1\leq{d}\leq{n}}^n |x_d|            &  p=\infty \\
+   \end{cases}
+\end{equation}
+
+

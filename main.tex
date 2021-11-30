@@ -51,6 +51,8 @@
 \newacronym{MSE}{MSE}{mean squared error}
 \newacronym{MAE}{MAE}{mean absolute error}
 \newacronym{MBE}{MBE}{mean bias error}
+\newacronym{MSLE}{MSLE}{mean squared logarithmic error}
+\newacronym{NFLT}{NFLT}{No Free Lunch Theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
@@ -101,8 +103,13 @@
 
     \backmatter
 
-    \appendix
-    \input{chapters/2-back-matter/appendix-A.tex}
-    \input{chapters/2-back-matter/appendix-B.tex}
+    \begin{appendices}
+        \chapter*{Appendices}
+        \numberwithin{equation}{section}
+        \renewcommand{\thesection}{\Alph{section}}
+        \renewcommand\theequation{\Alph{section}.\arabic{equation}}
+        \input{chapters/2-back-matter/appendix-A.tex}
+        \input{chapters/2-back-matter/appendix-B.tex}
+    \end{appendices}
 
 \end{document}
