@@ -209,12 +209,13 @@ requirement on managing our dataset is presented, there must be some
 \textbf{train-test split}. This is further complicated by the
 \textbf{validation} dataset which is discussed later in the chapter.
 
-Given that the input-output pair is $\{\gls{x_in}_i, \mathbf{y}_i\}$,
-$\mathbf{y}_i$ is commonly referred to as the \textit{ground truth}, and
-$\hat{\mathbf{f}}(\mathbf{x}_i)=\hat{\mathbf{y}}_i$ are referred to as the
+Given that the input-output pair is $\{\gls{x_in_i}, \gls{y_true_i}\}$,
+\gls{y_true_i} is commonly referred to as the \textit{ground truth}, and
+$\hat{\mathbf{f}}(\gls{x_in_i})=\gls{y_pred_i}$ are referred to as the
 \textit{predictor} and \textit{predicted output} respectively. The performance
-in the form of a loss function $L$ is then some function of $\mathbf{y}_i$ and
-$\hat{\mathbf{y}}_i$, therefore $L(\hat{\mathbf{y}}_i, \mathbf{y}_i)$.
+in the form of a loss function \gls{J} (also referred to as an objective or cost
+function in literature) is then a function of \gls{y_true_i} and
+\gls{y_pred_i}, therefore $\gls{J}(\gls{y_pred_i}, \gls{y_true_i})$.
 
 \gls{ML} often borrows from \textit{approximation theory} vector norm notation
 ($\ell(\cdot)_p=||\cdot||_p$) to simplify notation in performance metrics. See
@@ -229,13 +230,23 @@ $\hat{\mathbf{y}}_i$, therefore $L(\hat{\mathbf{y}}_i, \mathbf{y}_i)$.
     beneficial mathematical property of \gls{MSE} is that gradients can be
     easily calculated.
     \begin{equation}
-        L_\text{MSE} = \frac{1}{N}\sum_{i=1}^{N}||\hat{\mathbf{y}}_i-\mathbf{y}_i||^2_2
+        \gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||^2_2
+        \label{eq:MSE}
     \end{equation}
+    \begin{equation*}
+        \begin{aligned}
+            \textrm{where, }
+            \eqdesc{J}\text{,} \\
+            \eqdesc{m}\text{,} \\
+            \eqdesc{y_pred_i}\text{,} \\
+            \eqdesc{y_true_i}\text{.} \\
+        \end{aligned}
+    \end{equation*}
     \item \textbf{L2 error} is the average of the differences between
     predictions and the ground truth. It is the same as \gls{MSE} but without
     the squaring. Like \gls{MSE}, the gradient can be easily calculated.
     \begin{equation}
-        L_\text{L2E} = \frac{1}{N}\sum_{i=1}^{N}||\hat{\mathbf{y}}_i-\mathbf{y}_i||_2
+        \gls{J}_\text{L2E} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_2
     \end{equation}
     \item \textbf{\Gls{MAE}} or \textbf{L1 loss} is the average of the sum of
     absolute differences between predictions and the ground truth. This measure
@@ -245,15 +256,24 @@ $\hat{\mathbf{y}}_i$, therefore $L(\hat{\mathbf{y}}_i, \mathbf{y}_i)$.
     resilient to large error values as a result of outliers, as it does not make
     use of a square.
     \begin{equation}
-        L_\text{MAE} = \frac{1}{N}\sum_{i=1}^{N}||\hat{\mathbf{y}}_i-\mathbf{y}_i||_1
+        \gls{J}_\text{MAE} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_1
+        \label{eq:MAE}
     \end{equation}
     \item \textbf{\Gls{MBE}} is the sum of all differences between predictions
     and the ground truth. \gls{MBE} is not often used as a measure of the model
     error as high individual errors can produce a low \gls{MBE}. This metric is
     primarily used to measure the average bias of a prediction.
     \begin{equation}
-        L_\text{MBE} = \frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M}(\hat{{y}}_{ij}-{y}_{ij})
+        \gls{J}_\text{MBE} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\sum_{j=0}^{\gls{n_y}}(\gls{y_pred_ij}-\gls{y_true_ij})
     \end{equation}
+    \begin{equation*}
+        \begin{aligned}
+            \textrm{where, }
+            \eqdesc{n_y}\text{,} \\
+            \eqdesc{y_pred_ij}\text{,} \\
+            \eqdesc{y_true_ij}\text{.} \\
+        \end{aligned}
+    \end{equation*}
     \item \textbf{\Gls{MSLE}} can be interpreted a measure of the ratio
     between predictions and the ground truth. This metric is used when it is
     desirable to achieve some relative measure of accuracy as apposed to an
@@ -262,8 +282,8 @@ $\hat{\mathbf{y}}_i$, therefore $L(\hat{\mathbf{y}}_i, \mathbf{y}_i)$.
     similar loss value magnitudes.
     \begin{equation}
         \begin{aligned}
-            L_\text{MSLE} &= \frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M}(\log{({{y}}_{ij}+1)} - \log{(\hat{{y}}_{ij}+1)})^2 \\
-            &= \frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M}2\log(\frac{{{y}}_{ij}+1}{\hat{{y}}_{ij}+1})
+            \gls{J}_\text{MSLE} &= \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}(\log{(\gls{y_true_ij}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
+            &= \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\sum_{j=0}^{\gls{n_y}}2\log(\frac{\gls{y_true_ij}+1}{\gls{y_pred_ij}+1})
         \end{aligned}
     \end{equation}
     \item \textbf{\Gls{CP}} or \textbf{\gls{CS}} is a measure of similarity
@@ -273,9 +293,10 @@ $\hat{\mathbf{y}}_i$, therefore $L(\hat{\mathbf{y}}_i, \mathbf{y}_i)$.
     same orientation. This is not often useful in some \gls{ML} tasks, so an
     alternative form known as the \textbf{\gls{CD}} is used instead. The
     relation between the metrics is $\text{\gls{CD}}=1-\text{\gls{CP}}$,
-    bounding the error in the interval $[0,2]$. \begin{equation}
-                                                    L_\text{\gls{CD}} =
-                                                    \frac{1}{N}\sum_{i=1}^{N}\bigg(1-\frac{\mathbf{y}_i\cdot{}\hat{\mathbf{y}}_i}{||\mathbf{y}_i||_2\cdot{}||\hat{\mathbf{y}}_i||_2}\bigg)
+    bounding the error in the interval $[0,2]$.
+    \begin{equation}
+        \gls{J}_\text{\gls{CD}} =
+        \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\bigg(1-\frac{\gls{y_true_i}\cdot{}\gls{y_pred_i}}{||\gls{y_true_i}||_2\cdot{}||\gls{y_pred_i}||_2}\bigg)
     \end{equation}
 \end{itemize}
 
@@ -490,12 +511,136 @@ the possibility of measurement noise.
 
 \subsubsection{Regularization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Generally speaking, regularization is any modification we make to a learning
+algorithm that is intended to reduce its generalisation error but not its
+training error. Due to the large number of techniques that fit this description
+within \gls{ML} and its subfields, it is outside of the scope of this paper to
+exhaustively cover this concept, however the core idea behind regularization
+within \gls{ML} is motivated here through one of its earliest forms.
 
-Regularization is any modification we make to a learning algorithm that is
-intended to reduce its generalisation error but not its training error.
+A fundamental approach to regularization in \gls{ML} originating
+from \textit{statistical learning} is the use of \textbf{parameter norm
+penalties} which aims at guiding the parameter vectors through the imposition of
+a penalty in the objective (cost/loss) function being minimised. This penalty
+constrains (regularizes) or shrinks the optimal \gls{w_vec} estimate towards
+zero, effectively discouraging a learning algorithm from producing an
+excessively complex model, so as to avoid overfitting. Norm penalty methods can
+be generalised as:
+
+\begin{equation}
+    \gls{J_reg}(\gls{m_theta}; \gls{X}, \gls{Y})
+    =
+    \gls{J}(\gls{m_theta}; \gls{X}, \gls{Y})_\text{train}
+    +
+    \gls{w_reg}\gls{o_reg}({\gls{m_theta}}),
+    \label{eq:norm_penalty_reg}
+\end{equation}
+\begin{equation*}
+    \begin{aligned}
+        \textrm{where, }
+        \eqdesc{J_reg}\text{,} \\
+        \eqdesc{m_theta}\text{,} \\
+        \eqdesc{X}\text{,} \\
+        \eqdesc{Y}\text{,} \\
+        \eqdesc{J}\text{,} \\
+        \eqdesc{w_reg}\text{,} \\
+        \eqdesc{o_reg}\text{.} \\
+    \end{aligned}
+\end{equation*}
+
+For learning algorithms which make use of gradient-based learning techniques,
+the parameter gradient must be computed. This can be challenging to compute in
+cases where the derivative of a cost function is not easily determined, such as
+with \gls{MAE} defined by \autoref{eq:MAE}. The expression of the regularized
+cost function is given by,
+
+\begin{equation}
+    \nabla_{\gls{w_vec}}\gls{J_reg}(\gls{w_vec};\gls{X},\gls{Y})
+    =
+    \nabla_{\gls{w_vec}}\gls{J}(\gls{w_vec};\gls{X},\gls{Y})
+    +
+    \gls{w_reg}\nabla_{\gls{w_vec}}\gls{o_reg}(\gls{m_theta})\text{.}
+    \label{eq:norm_penalty_reg_graident}
+\end{equation}
+
+
+$\bm{\text{L}^2}$ \textbf{regularization}, also known as \textbf{ridge
+regression}, \textbf{weight decay} or \textbf{Tikhonov regularization}
+\cite[p.~227]{Goodfellow-et-al-2016}, is a parameter norm regularization method
+which drives the weights of a model towards the origin in the weight space and
+contributes to \autoref{eq:norm_penalty_reg} as,
+\begin{equation}
+    \gls{o_reg}(\gls{m_theta})=\frac{1}{2}||\gls{w_vec}||^2_2.
+    \label{eq:l2_reg}
+\end{equation}
+
+$\bm{\text{L}^1}$ \textbf{regularization}, also known as \textbf{\gls{LASSO}
+regression} is a parameter norm regularization method which penalizes the
+largest weight maginitudes in the weight vector. It is defined by,
+\begin{equation}
+    \gls{o_reg}(\gls{m_theta})=||\gls{w_vec}||_1.
+    \label{eq:l1_reg}
+\end{equation}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \input{graphics/tikz/l1-regularization}
+        \subcaption{$\text{L}^1~\text{regularization}$}
+        \label{fig:underfitting}
+    \end{subfigure}\hfil
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \input{graphics/tikz/l2-regularization}
+        \subcaption{$\text{L}^2~\text{regularization}$}
+        \label{fig:underfitting}
+    \end{subfigure}\hfil
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        An illustration of the effect of of (a) L$^1$ and (b) L$^2$ (or weight
+        decay) regularization on the optimal value of \gls{w_vec} for
+        $\gls{w_vec}\in\mathbb{R}^2$. The solid contours show equal values of
+        the unregularized objective. The dashed contours show equal values of
+        the respective norm regularizer. The point $\tilde{\bm{w}}$ shows these
+        competing objectives reach an equilibrium, determined by the
+        minimization of \autoref{eq:norm_penalty_reg}, with each norm's
+        regularizer substituted, \autoref{eq:l1_reg} and  \autoref{eq:l2_reg}
+        respectively. Illustration adapted from Goodfellow et. al.~\cite[p.~116]{Goodfellow-et-al-2016}
+        and Hastie et. al.~\cite[p.~71]{hastie2009elements}
+    }
+    \label{fig:kfold-cv}
+\end{figure}
+
+\textbf{Elastic net regularization} is a combination of both $L^1$ and $L^2$
+regularization and is expressed by:
+\begin{equation}
+    \gls{o_reg}(\gls{m_theta})=\frac{1-\gls{b_ela}}{2}||\gls{w_vec}||^2_2 + \gls{b_ela}||\gls{w_vec}||_1\text{,}
+\end{equation}
+\begin{equation*}
+    \begin{aligned}
+        \textrm{where, }
+        \eqdesc{b_ela}\text{.} \\
+    \end{aligned}
+\end{equation*}
+
+
+%Given some function $f(\gls{x_in};\gls{m_theta})$ being learnt
+%by being modelled by a learning algorithm,
+
+
+\begin{itemize}
+    \item
+    \item
+\end{itemize}
 
 \subsection{Hyperparameters and Validation Sets}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Most machine learning algorithms have parameters referred to as hyperparameters.
+These define some algorithm setting which are not adapted by the algorithm
+itself during learning. This however does not mean that the algorithm cannot
+exist in a subroutine during which the hyperparameters are optimised.
+
 
 %\subsubsection{Resubstitution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

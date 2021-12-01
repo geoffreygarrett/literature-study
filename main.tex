@@ -58,12 +58,32 @@
 \newacronym{CP}{CP}{cosine proximity}
 \newacronym{CS}{CS}{cosine similarity}
 \newacronym{iid}{i.i.d.}{independent and identically distributed}
+\newacronym{LASSO}{LASSO}{least absolute shrinkage and selection operator}
 
-\newglossaryentry{x_in}{type=symbols,name=\ensuremath{\mathbf{x}},sort=x,description={Input vector}}
-\newglossaryentry{y_true}{type=symbols,name=\ensuremath{\mathbf{y}},sort=y,description={Input vector}}
-\newglossaryentry{y_pred}{type=symbols,name=\ensuremath{\hat{\mathbf{y}}},sort=y,description={Input vector}}
+\newglossaryentry{x_in}{type=symbols,name=\ensuremath{\bm{x}},sort=x,description={input vector}}
+\newglossaryentry{n_x}{type=symbols,name=\ensuremath{n_x},sort=n_x,description={input size}}
+\newglossaryentry{m}{type=symbols,name=\ensuremath{m},sort=m,description={number for examples in the dataset}}
+\newglossaryentry{n_y}{type=symbols,name=\ensuremath{n_y},sort=n_y,description={output size}}
+\newglossaryentry{x_in_i}{type=symbols,name=\ensuremath{\bm{x}^{(i)}},sort=x_i,description={input vector for the $i^\text{th}$ example}}
+\newglossaryentry{y_true}{type=symbols,name=\ensuremath{\bm{y}},sort=y_true,description={ground truth/ output vector}}
+\newglossaryentry{y_true_i}{type=symbols,name=\ensuremath{\bm{y}^{(i)}},sort=y_true_i,description={ground truth/ output vector for the $i^\text{th}$ example}}
+\newglossaryentry{y_true_ij}{type=symbols,name=\ensuremath{{y}^{(i)}_j},sort=y_true_ij,description={ground truth/ output vector for the $j^\text{th}$ component of the $i^\text{th}$ example}}
+\newglossaryentry{w_vec}{type=symbols,name=\ensuremath{\bm{w}},sort=w_vec,description={weight vector}}
+\newglossaryentry{Y}{type=symbols,name=\ensuremath{\bm{Y}},sort=Y,description={ground truth/ output matrix of all \gls{m} examples in the dataset}}
+\newglossaryentry{X}{type=symbols,name=\ensuremath{\bm{X}},sort=X,description={input matrix of all  \gls{m} examples in the dataset}}
+\newglossaryentry{y_pred}{type=symbols,name=\ensuremath{\hat{\bm{y}}},sort=x_pred,description={predicted output vector}}
+\newglossaryentry{y_pred_i}{type=symbols,name=\ensuremath{\hat{\bm{y}}^{(i)}},sort=y_pred_i,description={predicted output vector for the $i^\text{th}$ example}}
+\newglossaryentry{y_pred_ij}{type=symbols,name=\ensuremath{\hat{{y}}^{(i)}_j},sort=y_pred_ij,description={predicted output vector for the $j^\text{th}$ component of the $i^\text{th}$ example}}
+\newglossaryentry{m_theta}{type=symbols,name=\ensuremath{{\bm{\theta}}},sort=theta,description={model parameters}}
+\newglossaryentry{o_reg}{type=symbols,name=\ensuremath{{{\Omega}}},sort=Omega,description={regularization function}}
+\newglossaryentry{J}{type=symbols,name=\ensuremath{{{J}}},sort=J,description={objective function}}
+\newglossaryentry{J_reg}{type=symbols,name=\ensuremath{{{\tilde{J}}}},sort=Jtilde,description={regularised objective function}}
+\newglossaryentry{w_reg}{type=symbols,name=\ensuremath{{\alpha}},sort=alpha,description={norm penalty weight}}
+\newglossaryentry{b_ela}{type=symbols,name=\ensuremath{{\beta}},sort=beta,description={mixing parameter between $L^2$ ($\beta=1$) and $L_1$ ($\beta=0$) regularisation}}
 %\newglossaryentry{x_in}{type=symbols,name=$\mathbf{x}$,sort=x,description={Input vector}}
 \newglossary{symbols}{sym}{sbl}{List of Symbols}
+
+\newcommand{\eqdesc}[1]{\ensuremath{\gls{#1} &=} \text{\glsdesc{#1}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
