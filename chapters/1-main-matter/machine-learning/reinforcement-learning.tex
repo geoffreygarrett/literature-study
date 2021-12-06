@@ -1,0 +1,79 @@
+\section{Reinforcement Learning\label{ssec:RL}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Key Concepts in Reinforcement Learning}
+
+\subsubsection{Markov Decision Processes (MDP)}
+
+So far, we’ve discussed the agent’s environment in an informal way, but if you
+try to go digging through the literature, you’re likely to run into the standard
+mathematical formalism for this setting: Markov Decision Processes (MDPs). An
+%MDP is a 5-tuple, \langle S, A, R, P, \rho_0 \rangle, where
+
+S is the set of all valid states,
+A is the set of all valid actions,
+R : $S \times A \times S \to \mathbb{R}$ is the reward function, with $r_t = R(s_t, a_t, s_{t+1})$,
+P : $S \times A \to \mathcal{P}(S)$ is the transition probability function, with
+$P(s'|s,a)$ being the probability of transitioning into state $s'$ if you start
+in state $s$ and take action $a$,
+and $\rho_0$ is the starting state distribution.
+
+The name Markov Decision Process refers to the fact that the system obeys the
+Markov property: transitions only depend on the most recent state and action,
+and no prior history.
+
+\input{graphics/tikz/agent-environment}
+
+\begin{itemize}
+    \item states and observations,
+    \item action spaces,
+    \item policies,
+    \item trajectories,
+    \item different formulations of return,
+    \item the RL optimization problem,
+    \item and value functions.
+\end{itemize}
+
+\begin{equation}
+    R(\tau)=\sum_{t=0}^{T} r_t
+\end{equation}
+
+\begin{equation}
+    R(\tau)=\sum_{t=0}^{\infty} \gamma^t r_t
+\end{equation}
+% $\displaystyle \mathop{\mathbb{E}}_{x\in A}$
+\begin{equation}
+    \gls{value}^{\gls{policy}}(\gls{state})
+    =
+        {\displaystyle \mathop{\mathbb{E}}_{\gls{trajectory}\sim\gls{policy}}}
+    \lbrack R(\gls{trajectory})~|~\gls{state0}=\gls{state}\rbrack,
+\end{equation}
+
+\begin{equation}
+    \gls{Q}^{\gls{policy}}(\gls{state}, \gls{action})
+    =
+        {\displaystyle \mathop{\mathbb{E}}_{\gls{trajectory}\sim\gls{policy}}}
+    \lbrack R(\gls{trajectory})~|~\gls{state0}=\gls{state},~\gls{action0}=\gls{action}\rbrack,
+\end{equation}
+
+\begin{equation}
+    \gls{value}^{*}(\gls{state})
+    =
+    \max_{\gls{policy}}{\displaystyle \mathop{\mathbb{E}}_{\gls{trajectory}\sim\gls{policy}}}
+    \lbrack R(\gls{trajectory})~|~\gls{state0}=\gls{state}\rbrack,
+\end{equation}
+
+\subsection{Taxonomy of Reinforcement Learning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Value-based methods}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Policy-based methods}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Policy gradient}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Deep deterministic policy gradient (DDPG)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
