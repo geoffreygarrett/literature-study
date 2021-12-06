@@ -37,6 +37,7 @@
 % stop caption being bold with \textmd{medium/regular}
 %\usepackage[font=bf]{caption}
 \makenoidxglossaries
+
 \newacronym{AI}{AI}{artificial intelligence}
 \newacronym{ML}{ML}{machine learning}
 \newacronym{NN}{NN}{neural network}
@@ -59,7 +60,14 @@
 \newacronym{CS}{CS}{cosine similarity}
 \newacronym{iid}{i.i.d.}{independent and identically distributed}
 \newacronym{LASSO}{LASSO}{least absolute shrinkage and selection operator}
-
+\newacronym{RIFE}{RIFE}{real-time intermediate flow estimation for video frame interpolation}
+\newacronym{KFCV}{KFCV}{$k$-fold cross-validation}
+% march 14th
+% mathematics
+\newglossaryentry{E}{type=symbols, name=\ensuremath{\mathop{\mathbb{E}}},sort=E, description={statistical expectation}}
+% CCH ILLLL https://www.youtube.com/watch?v=L075FL5iG_g
+% general machine learning
+\newglossaryentry{b}{type=symbols,name=\ensuremath{b},sort=b,description={bias}}
 \newglossaryentry{x_in}{type=symbols,name=\ensuremath{\bm{x}},sort=x,description={input vector}}
 \newglossaryentry{n_x}{type=symbols,name=\ensuremath{n_x},sort=n_x,description={input size}}
 \newglossaryentry{m}{type=symbols,name=\ensuremath{m},sort=m,description={number for examples in the dataset}}
@@ -80,7 +88,17 @@
 \newglossaryentry{J_reg}{type=symbols,name=\ensuremath{{{\tilde{J}}}},sort=Jtilde,description={regularised objective function}}
 \newglossaryentry{w_reg}{type=symbols,name=\ensuremath{{\alpha}},sort=alpha,description={norm penalty weight}}
 \newglossaryentry{b_ela}{type=symbols,name=\ensuremath{{\beta}},sort=beta,description={mixing parameter between $L^2$ ($\beta=1$) and $L_1$ ($\beta=0$) regularisation}}
-%\newglossaryentry{x_in}{type=symbols,name=$\mathbf{x}$,sort=x,description={Input vector}}
+
+% reinforcement learning
+\newglossaryentry{value}{type=symbols, name=\ensuremath{V},sort=V, description={value function}}
+\newglossaryentry{Q}{type=symbols, name=\ensuremath{Q},sort=Q, description={action-value function}}
+\newglossaryentry{state}{type=symbols, name=\ensuremath{s},sort=s, description={state}}
+\newglossaryentry{action}{type=symbols, name=\ensuremath{a},sort=a, description={action}}
+\newglossaryentry{action0}{type=symbols, name=\ensuremath{a_0},sort=a_0, description={initial action}}
+\newglossaryentry{state0}{type=symbols, name=\ensuremath{s_0},sort=s_0, description={initial state}}
+\newglossaryentry{trajectory}{type=symbols, name=\ensuremath{\tau},sort=tau, description={the trajectory, i.e. the sequence of states and actions in the world}}
+\newglossaryentry{policy}{type=symbols, name=\ensuremath{\pi},sort=pi, description={the policy, i.e. a rule used by an agent to decide what action to take}}
+
 \newglossary{symbols}{sym}{sbl}{List of Symbols}
 
 \newcommand{\eqdesc}[1]{\ensuremath{\gls{#1} &=} \text{\glsdesc{#1}}}
@@ -120,13 +138,13 @@
 
     \mainmatter % Begin numeric (1,2,3...) page numbering
 
-    \input{chapters/0-front-matter/introduction.tex}
-    \input{chapters/1-main-matter/astrodynamics.tex}
-    \input{chapters/1-main-matter/dynamic-modelling.tex}
-    \input{chapters/1-main-matter/numerical-analysis.tex}
-    \input{chapters/1-main-matter/trajectory-optimization.tex}
-    \input{chapters/1-main-matter/linearization.tex}
-    \input{chapters/1-main-matter/observation-models.tex}
+%    \input{chapters/0-front-matter/introduction.tex}
+%    \input{chapters/1-main-matter/astrodynamics.tex}
+%    \input{chapters/1-main-matter/dynamic-modelling.tex}
+%    \input{chapters/1-main-matter/numerical-analysis.tex}
+%    \input{chapters/1-main-matter/trajectory-optimization.tex}
+%    \input{chapters/1-main-matter/linearization.tex}
+%    \input{chapters/1-main-matter/observation-models.tex}
     \input{chapters/1-main-matter/machine-learning.tex}
 
     \newpage

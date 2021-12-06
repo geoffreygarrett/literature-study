@@ -26,13 +26,13 @@
         n/.style={nodes={draw=none, fill=none}},
         ]
     {
-        Iteration 1   & |[e]|  &        &        & $\ldots$ &        & \textrightarrow\;$e_1$ \\
-        Iteration 2   &        & |[e]|  &        & $\ldots$ &        & \textrightarrow\;$e_2$ \\
-        Iteration 3   &        &        & |[e]|  & $\ldots$ &        & \textrightarrow\;$e_3$ \\
+        Iteration 1   & |[e]|  &        &        & $\ldots$ &        & \textrightarrow\;$\gls{J}_1$ \\
+        Iteration 2   &        & |[e]|  &        & $\ldots$ &        & \textrightarrow\;$\gls{J}_2$ \\
+        Iteration 3   &        &        & |[e]|  & $\ldots$ &        & \textrightarrow\;$\gls{J}_3$ \\
               $\vdots$  & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$                \\
-        Iteration $k$ &        &        &        & $\ldots$ & |[e]|  & \textrightarrow\;$e_k$ \\
+        Iteration $K$ &        &        &        & $\ldots$ & |[e]|  & \textrightarrow\;$\gls{J}_K$ \\
     };
-    \draw (M-1-2.north west) ++(0,2mm) coordinate (LT) edge[|<->|, >= latex] node[above]{Total number of folds, $k$} (LT-|M-1-6.north east);
+    \draw (M-1-2.north west) ++(0,2mm) coordinate (LT) edge[|<->|, >= latex] node[above]{Total number of folds, $K$} (LT-|M-1-6.north east);
 %    \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);
     \draw[decorate,decoration = {brace, raise=0.5em, amplitude=0.5em}]
         (M-5-6.south east)
@@ -46,7 +46,7 @@
 
     \draw[decorate,decoration = {brace, raise=0.5em, amplitude=0.5em}]
         (M.north east)
-        -- node[midway, right=1.5em] {$e=\frac{1}{k}\sum_{i=0}^k{e_i}$}
+        -- node[midway, right=1.5em] {$\gls{J}_{\text{\gls{KFCV}}}=\sum_{k=1}^K{\gls{J}_k}$}
         (M.south east);
 
 %    \matrix (L)

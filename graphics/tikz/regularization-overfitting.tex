@@ -1,0 +1,168 @@
+% MIT License
+%
+% Copyright (c) 2021 Geoffrey H. Garrett
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGEMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Design and implementation of this diagram was inspired and adapted from:
+% https://tex.stackexchange.com/questions/573127/tikz-plots-are-not-centered
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEPENDENCIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{tikz}
+% \usetikzlibrary{positioning, decorations.text, calc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USER STYLING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%
+
+%\tikzset{declare function={f(\x)=(-0.06*(\x-2)+0.5)*(\x-2)*(\x-2);}}% applied math style
+%\foreach \Z in {1,...,42} {\pgfmathsetmacro{\X}{\Z/10}%
+%\pgfmathsetmacro{\Y}{f(\X)+0.9*rnd}%
+%\ifnum\Z=1
+%\xdef\LstOne{(\X,\Y)}%
+%\xdef\LstTwo{"(\X,\Y)"}%
+%\else
+%\xdef\LstOne{\LstOne (\X,\Y)}%
+%\xdef\LstTwo{\LstTwo,"(\X,\Y)"}%
+%\fi}%
+
+\newcommand{\plotobservations} {
+    \addplot[only marks, draw=blue, fill=blue] coordinates {
+        (0.0, 2.5991314214589614)
+        (0.4444444444444444, 1.3463852235976501)
+        (0.8888888888888888, 1.3558966978583558)
+        (1.3333333333333333, 0.1719351250071693)
+        (1.7777777777777777, 0.0549444514647925)
+        (2.2222222222222223, 0.45130282341732175)
+        (2.6666666666666665, -0.04104830486674099)
+        (3.1111111111111107, 0.3752375262271346)
+        (3.5555555555555554, 1.034685792786699)
+        (4.0, 1.430935111399573)
+    };
+}
+
+\newcommand{\plottruedistribution}{
+    \addplot[domain=-0.5:4.5, dashed, thin, gray!75] {
+        (-0.06 * (x - 2) + 0.5) * (x - 2) * (x - 2)
+    };
+
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-0.5,
+            xmax=4.5,
+            ymin=-0.5,
+            ymax=3.5,
+            ticks=none,
+            xticklabels={\empty},
+            yticklabels={\empty},
+            ymajorgrids=false,
+            xmajorgrids=false,
+            axis line style = semithick,
+            width=1.2\columnwidth]
+            \plotobservations
+            \plottruedistribution
+            \addplot[domain=-0.5:4.5, thick, green!50!black] {
+                1.3645283299815407 - 0.24329387 * x
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \subcaption{Underfitting (Excessive $\alpha$)}
+    \label{fig:ref-underfitting}
+\end{subfigure}\hfil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-0.5,
+            xmax=4.5,
+            ymin=-0.5,
+            ymax=3.5,
+            ticks=none,
+            xticklabels={\empty},
+            yticklabels={\empty},
+            ymajorgrids=false,
+            xmajorgrids=false,
+            axis line style = semithick,
+            width=1.2\columnwidth]
+            \plotobservations
+            \plottruedistribution
+            \addplot[domain=-0.5:4.5, thick, green!50!black] {
+                + 2.5332784046893866
+                - 2.31697944 * x
+                + 0.58870681 * x ^ 2
+                - 0.01887639 * x ^ 3
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \subcaption{Appropriate (Medium $\alpha$)}
+    \label{fig:reg-appropriate-capacity}
+\end{subfigure}\hfil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-0.5,
+            xmax=4.5,
+            ymin=-0.5,
+            ymax=3.5,
+            ticks=none,
+            xticklabels={\empty},
+            yticklabels={\empty},
+            ymajorgrids=false,
+            xmajorgrids=false,
+            samples=200,
+            axis line style = semithick,
+            width=1.2\columnwidth]
+            \plotobservations
+            \plottruedistribution
+            \addplot[domain=-0.5:4.5, thick, green!50!black] {
+                +2.599131312448361
+                -10.588139742958015 * x^1
+                +25.074367329152583 * x^2
+                -12.832852119149837 * x^3
+                -15.29078616509039 * x^4
+                +10.350960340047243 * x^5
+                +10.94777207200677 * x^6
+                -14.543216443491573 * x^7
+                +6.786937457668481 * x^8
+                -1.5968672908165933 * x^9
+                +0.18962693236609746 * x^10
+                -0.009014002246939552 * x^11
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \subcaption{Overfitting ($\alpha\rightarrow{0}$)}
+    \label{fig:overfitting}
+\end{subfigure}
