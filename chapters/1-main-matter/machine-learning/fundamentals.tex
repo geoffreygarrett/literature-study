@@ -445,7 +445,7 @@ training data.
 
 The \gls{NFLT}, sometimes abbreviated as \gls{NFL}, is a simple but important
 concept in \gls{ML} and optimisation~\cite{Wolpert1997}. The theorem suggests
-that an optimisation technique will perform equally well as any other when
+that an optimisation technique will perform equally well as any other, when
 averaging its performance over the set of all possible problems. This implies
 that there is no single best technique for addressing an arbitrary problem. Luke
 states the following in \textit{essentials of
@@ -511,9 +511,9 @@ within \gls{ML} and its subfields, it is outside the scope of this paper to
 exhaustively cover this concept, however the core idea behind regularization
 within \gls{ML} is motivated here through one of its earliest forms.
 
-A fundamental approach to regularization in \gls{ML} originating
-from \textit{statistical learning} is the use of \textbf{parameter norm
-penalties} which aim at guiding the parameter vectors through the addition of a
+A fundamental approach to regularization in \gls{ML} originating from
+\textit{statistical learning} is the use of \textbf{parameter norm penalties}.
+This technique aims at guiding the parameter vectors through the addition of a
 penalty term in the objective (cost/loss) function being minimised. This penalty
 constrains (regularizes) or shrinks the optimal \gls{w_vec} estimate towards
 zero, effectively discouraging a learning algorithm from producing an
@@ -643,14 +643,14 @@ data~\cite[p.~73]{hastie2009elements}.
 \subsection{Hyperparameters and Validation Sets}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Most machine learning algorithms have parameters referred to as hyperparameters.
-These define some algorithm setting which are not adapted by the algorithm
+These define some algorithm's settings which are not adapted by the algorithm
 itself during learning. This however does not mean that the algorithm cannot
 exist in a subroutine during which the hyperparameters are optimised. An example
 of a hyperaparameter is the value of \gls{w_reg} chosen in
 \autoref{eq:norm_penalty_reg}. This parameter is kept constant throughout the
 learning algorithm and heavily influences the resultant model. Optimizing
 hyperparameters on the training set that control capacity is generally not
-appropriated. This is because the hyperparameter would tend to towards
+appropriated. This is because the hyperparameter would tend towards
 overfitting the training data, which would result in the best test score, but
 with high variance and thus poor generalization on unseen data. Therefore as
 mentioned, the training procedure can be used as a subroutine of a larger
@@ -680,7 +680,7 @@ hyperparameters of the model.
 \end{figure}
 
 The importance of optimizing the hyperparameters of a learning algorithm,
-especially relating to capacity, are illustrated in
+especially relating to capacity, is illustrated in
 \autoref{fig:reg-capacity-plots} using the example of regularization weight
 $\gls{w_reg}$.
 
@@ -732,7 +732,7 @@ capacity, underfitting and overfitting as evident in
 \subsubsection{Cross-Validation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Cross-validation is often used for the assessment and optimization of
-hyperparameters which improve a learning algorithm's ability to generalize on
+hyperparameters which improves a learning algorithm's ability to generalize on
 unseen data. This is achieved through the separation of training folds from a
 validation fold. The training fold is then separated into training data and
 test data, while the validation fold is left out of the training procedure
