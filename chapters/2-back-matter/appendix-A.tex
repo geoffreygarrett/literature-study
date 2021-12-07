@@ -1,17 +1,17 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mathematical Expressions\label{app:a}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Rotation transformations\label{appendix:rotational_transformations}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{equation}
     \mathbb{T}_x(\phi_x)=
     \begin{bmatrix}
-        1 & 0 & 0 \\
-        0 & \cos\phi_x & \sin\phi_x \\
+        1 & 0           & 0          \\
+        0 & \cos\phi_x  & \sin\phi_x \\
         0 & -\sin\phi_x & \cos\phi_x \\
     \end{bmatrix}
 \end{equation}
@@ -19,22 +19,23 @@
 \begin{equation}
     \mathbb{T}_y(\phi_y)=
     \begin{bmatrix}
-        \cos\phi_y  & 0 & -\sin\phi_y  \\
-        0           & 1 & 0            \\
-        -\sin\phi_y & 0 & \cos\phi_y   \\
+        \cos\phi_y  & 0 & -\sin\phi_y \\
+        0           & 1 & 0           \\
+        -\sin\phi_y & 0 & \cos\phi_y  \\
     \end{bmatrix}
 \end{equation}
 
 \begin{equation}
     \mathbb{T}_z(\phi_z)=
     \begin{bmatrix}
-         \cos\phi_z & \sin\phi_z & 0 \\
+        \cos\phi_z  & \sin\phi_z & 0 \\
         -\sin\phi_z & \cos\phi_z & 0 \\
         0           & 0          & 1 \\
     \end{bmatrix}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Incomplete integrals\label{appendix:incomplete_integrals}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -55,6 +56,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Vector norms\label{appendix:vector_norms}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Given $x\in\mathbb{R}^n$, the vector norms for $\ell_p(\mathbf{x})$ are defined
@@ -75,9 +77,10 @@ by the following equations:
 \begin{equation}
     \ell_p(\mathbf{x})=||\mathbf{x}||_p=
     \begin{cases}
-      \bigg(\sum_{d=1}^n |x_d|^p\bigg)^{1/p}    &  1\leq{}p\le \infty \\
-      \max_{1\leq{d}\leq{n}}^n |x_d|            &  p=\infty \\
-   \end{cases}
+        \bigg(\sum_{d=1}^n |x_d|^p\bigg)^{1/p}    &  1\leq{}p\le \infty \\
+        \max_{1\leq{d}\leq{n}}^n |x_d|            &  p=\infty \\
+    \end{cases}
+    \label{eq:ell-p}
 \end{equation}
 
 

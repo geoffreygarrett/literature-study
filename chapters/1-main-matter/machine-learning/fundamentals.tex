@@ -579,6 +579,16 @@ largest weight magnitudes in the weight vector. It is defined by,
     \label{eq:l1_reg}
 \end{equation}
 
+The key difference between $L^1$ and $L^2$ regularization is that $L^1$
+regularization tends to better constrain values of $\gls{w_vec}$ to zero,
+effectively performing feature selection on the inputs through their weights. It
+can be less intuitive to interpret the $L^1$ regularization as a feature
+selection method, as it can be unclear whether the weights are truly being
+constrained to zero or their importance for generalization is just less than
+other elements in \gls{w_vec}. This is seen in
+\autoref{fig:l1-l2-regularization}, where the $L^1$ regularization has reduced
+$w_1$ to zero, with a negligible impact on the performance.
+
 \begin{figure}[!htp]
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
@@ -621,11 +631,11 @@ expressed by:
         \eqdesc{b_ela}\text{.} \\
     \end{aligned}
 \end{equation*}
-
 Looking again at \autoref{fig:l1-l2-regularization}, one might wonder if an
-alternative vector norm regularization method would be more appropriate. Hastie
-et al. state that experience suggests that it is not worth the extra variance
-incurred to estimate what vector norm $L^p$ should be used based on the
+alternative vector norm regularization method would be more appropriate, i.e.
+$p\notin\{1,2\}$ for \autoref{eq:ell-p}. Hastie et al. state however, that
+experience suggests that it is not worth the extra variance incurred to estimate
+what vector norm $L^p$ should be used based on the
 data~\cite[p.~73]{hastie2009elements}.
 %Given some function $f(\gls{x_in};\gls{m_theta})$ being learnt
 %by being modelled by a learning algorithm,
