@@ -194,7 +194,7 @@ function in literature) is then a function of \gls{y_true_i} and
     beneficial mathematical property of \gls{MSE} is that gradients can be
     easily calculated.
     \begin{equation}
-        \gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||^2_2
+        \gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||^2_2
         \label{eq:MSE}
     \end{equation}
     \begin{equation*}
@@ -210,7 +210,7 @@ function in literature) is then a function of \gls{y_true_i} and
     predictions and the ground truth. It is the same as \gls{MSE} but without
     the squaring. Like \gls{MSE}, the gradient can be easily calculated.
     \begin{equation}
-        \gls{J}_\text{L2E} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_2
+        \gls{J}_\text{L2E} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_2
     \end{equation}
     \item \textbf{\Gls{MAE}} or \textbf{L1 loss} is the average of the sum of
     absolute differences between predictions and the ground truth. This measure
@@ -220,7 +220,7 @@ function in literature) is then a function of \gls{y_true_i} and
     resilient to large error values as a result of outliers, as it does not make
     use of a square.
     \begin{equation}
-        \gls{J}_\text{MAE} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_1
+        \gls{J}_\text{MAE} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_1
         \label{eq:MAE}
     \end{equation}
     \item \textbf{\Gls{MBE}} is the sum of all differences between predictions
@@ -228,7 +228,7 @@ function in literature) is then a function of \gls{y_true_i} and
     error as high individual errors can produce a low \gls{MBE}. This metric is
     primarily used to measure the average bias of a prediction.
     \begin{equation}
-        \gls{J}_\text{MBE} = \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\sum_{j=0}^{\gls{n_y}}(\gls{y_pred_ij}-\gls{y_true_ij})
+        \gls{J}_\text{MBE} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}(\gls{y_pred_ij}-\gls{y_true_ij})
     \end{equation}
     \begin{equation*}
         \begin{aligned}
@@ -246,8 +246,8 @@ function in literature) is then a function of \gls{y_true_i} and
     similar loss value magnitudes.
     \begin{equation}
         \begin{aligned}
-            \gls{J}_\text{MSLE} &= \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}(\log{(\gls{y_true_ij}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
-            &= \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\sum_{j=0}^{\gls{n_y}}2\log(\frac{\gls{y_true_ij}+1}{\gls{y_pred_ij}+1})
+            \gls{J}_\text{MSLE} &= \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}(\log{(\gls{y_true_ij}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
+            &= \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}2\log(\frac{\gls{y_true_ij}+1}{\gls{y_pred_ij}+1})
         \end{aligned}
     \end{equation}
     \item \textbf{\Gls{CP}} or \textbf{\gls{CS}} is a measure of similarity
@@ -260,31 +260,60 @@ function in literature) is then a function of \gls{y_true_i} and
     bounding the error in the interval $[0,2]$.
     \begin{equation}
         \gls{J}_\text{\gls{CD}} =
-        \frac{1}{\gls{m}}\sum_{i=0}^{\gls{m}}\bigg(1-\frac{\gls{y_true_i}\cdot{}\gls{y_pred_i}}{||\gls{y_true_i}||_2\cdot{}||\gls{y_pred_i}||_2}\bigg)
+        \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\bigg(1-\frac{\gls{y_true_i}\cdot{}\gls{y_pred_i}}{||\gls{y_true_i}||_2\cdot{}||\gls{y_pred_i}||_2}\bigg)
     \end{equation}
 \end{itemize}
 
-\textbf{Binary classification loss functions}
-\begin{itemize}
-    \item \textbf{Binary cross-entropy} i
-    \begin{equation}
-        L=-\sum_{i=1}^N\bigg(y_i\log(\hat{\mathbf{y}}_i)+(1-y_i)\log(1-\hat{\mathbf{y}}_i)\bigg)\label{eq:equation}
-    \end{equation}
-    \item Hinge loss
-    \begin{equation}
+\textbf{Binary classification loss functions}\\
+Binary classification differs from multi-class in that the output is a single
+value (\gls{n_y}$=1$). For multi-class, the dimension of the output is equal to
+the number of classes.
 
+\begin{itemize}
+    \item \textbf{\Gls{BCE}} is a measure which weighs the true output of each
+    class with the log probability of the predicted output. In the case
+    where $\gls{y_true_i1}=1$ and $\gls{y_pred_i1}=0$, the log probability of
+    the predicted output is undefined. For this reason, practitioners often add
+    some small constant on the probability of \gls{y_pred_i1}, e.g. $10^{-5}$,
+    resulting in \gls{J}$\approx{}5$.
+    \begin{equation}
+        \gls{J}_\text{\gls{BCE}}=-\sum_{i=1}^{\gls{m}}\bigg(\gls{y_true_i1}\log(\gls{y_pred_i1})+(1-\gls{y_true_i1})\log(1-\gls{y_pred_i1})\bigg)\label{eq:equation}
     \end{equation}
-    \item Squared hinge loss
+    \item \textbf{\Gls{HL}} is measure which is often used for training binary
+    \gls{SVM} classifiers. The loss function assumes that \gls{y_true_ij} and
+    \gls{y_pred_ij} are in the bounds $[-1,1]$ for the classification task.
+    \begin{equation}
+        \gls{J}_\text{\gls{HL}}=\sum_{i=1}^{\gls{m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})
+    \end{equation}
+    \item \textbf{\Gls{SHL}} addresses the constant gradient present in
+    \gls{HL}, smoothing the loss function across the domain of the loss function
+    ($\gls{y_true_ij}\cdot{}\gls{y_pred_ij}$). This provides better gradient
+    learning properties, as predictions that are more incorrect than others have
+    a heavier associated gradient.
+    \begin{equation}
+        \gls{J}_\text{\gls{SHL}}=\sum_{i=1}^{\gls{m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})^2
+    \end{equation}
 \end{itemize}
 
 \textbf{Multi-class classification loss functions}
+Multi-class classification is formulated such that each possible class ($n_c$)
+is defined by an element of the output vector. The loss functions here are
+adapted from the binary classification loss functions, but adapted for
+$\gls{n_y}=n_c$.
+
 \begin{itemize}
-    \item Multi-class cross-entropy
+    \item \textbf{\Gls{MCE}}:
     \begin{equation}
-        L_{CE}=-\sum_{i=1}^N\sum_{j=1}^{M}y_{ij}\log(\hat{f}_j(\mathbf{x}_i))
+        \gls{J}_\text{\gls{MCE}}=-\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}\gls{y_true_ij}\log(\gls{y_pred_ij})
     \end{equation}
-    \item Hinge loss
-    \item Squared hinge loss
+    \item \textbf{\Gls{MHL}}:
+    \begin{equation}
+        \gls{J}_\text{\gls{MHL}}=\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})
+    \end{equation}
+    \item \textbf{\Gls{MSHL}}:
+    \begin{equation}
+        \gls{J}_\text{\gls{MSHL}}=\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})^2
+    \end{equation}
 \end{itemize}
 
 
@@ -299,7 +328,7 @@ function in literature) is then a function of \gls{y_true_i} and
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Tasks provided to machine learning algorithms have different formulations based
 on the experience made available. Learning algorithms can be broadly categorized
-by the kind of experience that the algorithm has assess to during learning, from
+by the kind of experience that the algorithm has access to during learning, from
 which it is generally expected to learn some pattern of interest.
 
 \begin{itemize}
