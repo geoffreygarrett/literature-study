@@ -1,16 +1,16 @@
 \section{Machine Learning Fundamentals}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 This section aims at providing a non-exhaustive coverage of the basics of
-\gls{ML} which can be applied to all \gls{ML} algorithms. This
-section starts by defining what is meant when it is said that an algorithm
-``learns". The types of datasets that may be encountered in the application of
-these learning algorithms are then briefly covered to provide insight into the
-potential applications which are not covered in this review. The distinction is
-then made between the goal of fitting training data and the goal of finding
-patterns that generalize to new data. This section then covers a very common
-concept in machine learning: \textit{hyperparameters}, which are
-\textit{settings} of a learning algorithm which must be determined outside the
-learning algorithm itself.
+\gls{ML} which can be applied to all \gls{ML} algorithms. This section starts by
+defining what is meant when it is said that an algorithm ``learns". The types of
+datasets that may be encountered in the application of these learning algorithms
+are then briefly covered to provide insight into the potential applications
+which are not covered in this review. This is then followed by making the
+distinction between the goal of fitting training data and the goal of finding
+patterns that generalize to new data. Finally, a very common concept in machine
+learning is covered: \textit{hyperparameters}, which are \textit{settings} of a
+learning algorithm which must be determined outside the learning algorithm
+itself.
 
 \subsection{Learning algorithms\label{ssec:learning_algo}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -35,13 +35,13 @@ will provide practical insight on which the reader can build their knowledge.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 There exists a plethora of tasks which humanity has applied learning algorithms
 to during the timeline of the field. It is common for \gls{ML} practitioners to
-originate from domains outside that of computer science, in order to access the
+originate from domains outside that of computer science, in order to assess the
 feasibility of existing algorithms in their domain. There is however a question
 that often presents itself to specialists in their respective fields when they
 consider applying \gls{ML} to the existing problems in their field. Why should a
 specialist opt for solving problems with \gls{ML} that have been solved using
 tried and true techniques in their domain of expertise? Goodfellow et al.
-\cite{Goodfellow-et-al-2016} provide an insightful response to this:
+\cite{Goodfellow-et-al-2016} provides an insightful response to this:
 
 \begin{fancyquotes}
     Machine learning enables us to tackle tasks that are too difficult
@@ -52,7 +52,7 @@ tried and true techniques in their domain of expertise? Goodfellow et al.
 \end{fancyquotes}
 
 An example of a field which has undergone dramatic changes in a short period of
-time, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et.
+time, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et
 al. discuss this in their paper with a focus on comparing \gls{DL} and \gls{CV}
 \cite{Mahony-et-al-2020}. Their paper concludes that many \gls{CV} techniques
 invented in the 20 years preceding the paper have become irrelevant as a result
@@ -156,7 +156,7 @@ those that underlie the practitioners domain-specific problems.
 
 \subsubsection{The Performance, $P$\label{sec:ML-performance}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to access the performance of our learning algorithm in task $T$,
+In order to assess the performance of our learning algorithm in task $T$,
 we must have some quantitative measure of performance $P$ with which we steer
 the algorithm towards the desired behaviour. $T$ and $P$ in this way are
 coupled, and must $P$ must be chosen according to $T$. In this way it can be
@@ -299,7 +299,7 @@ function in literature) is then a function of \gls{y_true_i} and
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Tasks provided to machine learning algorithms have different formulations based
 on the experience made available. Learning algorithms can be broadly categorized
-by the kind of experience that the algorithm has access to during learning, from
+by the kind of experience that the algorithm has assess to during learning, from
 which it is generally expected to learn some pattern of interest.
 
 \begin{itemize}
@@ -405,7 +405,7 @@ training data.
         between training and generalisation error increases. Eventually, the
         size of this gap outweighs the decrease in training error, and we enter
         the \textbf{overfitting regime}, where capacity is too large, above the
-        \textbf{optimal capacity}. Adapted from Goodfellow et. al.
+        \textbf{optimal capacity}. Adapted from Goodfellow et al.
         \cite{Goodfellow-et-al-2016}.
     }
     \label{fig:capacity}
@@ -448,7 +448,7 @@ Domingos states ~\cite{Domingos15}:
 \end{fancyquotes}
 
 This theorem, in effect, motivates the true goal of machine learning, as worded
-by Goodfellow et. al.~\cite[p.~116]{Goodfellow-et-al-2016}:
+by Goodfellow et al.~\cite[p.~116]{Goodfellow-et-al-2016}:
 
 \begin{fancyquotes}
     This means that the goal of machine learning research is not to seek
@@ -574,8 +574,8 @@ largest weight magnitudes in the weight vector. It is defined by,
         competing objectives reach an equilibrium, determined by the
         minimization of \autoref{eq:norm_penalty_reg}, with each norm's
         regularizer substituted, \autoref{eq:l1_reg} and  \autoref{eq:l2_reg}
-        respectively. Illustration adapted from Goodfellow et. al.~\cite[p.~116]{Goodfellow-et-al-2016}
-        and Hastie et. al.~\cite[p.~71]{hastie2009elements}
+        respectively. Illustration adapted from Goodfellow et al.~\cite[p.~116]{Goodfellow-et-al-2016}
+        and Hastie et al.~\cite[p.~71]{hastie2009elements}
     }
     \label{fig:l1-l2-regularization}
 \end{figure}
