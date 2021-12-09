@@ -37,12 +37,10 @@
 % stop caption being bold with \textmd{medium/regular}
 %\usepackage[font=bf]{caption}
 \makenoidxglossaries
-%\loadglsentries{glossaries/machine-learning}
-%\loadglsentries{glossaries/functions}
-%\loadglsentries{glossaries/probability-information}
-\newacronym{AI}{AI}{
-    artificial intelligence
-}
+\loadglsentries{glossaries/machine-learning}
+\loadglsentries{glossaries/functions}
+\loadglsentries{glossaries/probability-information}
+\loadglsentries{glossaries/sets-graphs}
 % march 14th
 % mathematics
 % CCH ILLLL https://www.youtube.com/watch?v=L075FL5iG_g
@@ -75,38 +73,50 @@
     \newpage
 
     \frontmatter % Use roman page numbering style
-%    \singlespacing
-
+    \onehalfspacing
+%    \begin{longtable}{lp{\glsdescwidth}p{\glspagelistwidth}}
     % abbreviations.
+    \setlength{\glsdescwidth}{0.9\textwidth}
+%    \setlength{\glspagelistwidth}{0.1\textwidth}
     \printnoidxglossary[type=\acronymtype, title=Abbreviations]
 
-    %
+
 %    \printnoidxglossary[type=symbols, title=Notation, style=long]
 %    \chapter*{Notation}
-%    \printnoidxglossary[
-%        type=symbols,
-%        title={Notation},
-%    ]
-%%    \setglossarysection{section}
-%    \printnoidxglossary[
-%        type={notation:orbit},
-%        title={Orbital Mechanics},
-%    ]
-%    \printnoidxglossary[
-%        type={notation:ml},
-%        title={Machine Learning},
-%    ]
-%    \printnoidxglossary[
-%        type={notation:fn},
-%        title={Functions},
-%    ]
-%    \printnoidxglossary[
-%        type={notation:prob},
-%        title={Probability and information theory},
-%    ]
-%    \setglossarysection{chapter}
+    \printnoidxglossary[
+        type=symbols,
+        title={Notation},
+    ]
+    \setglossarysection{section}
+    \printnoidxglossary[
+        type={notation:orbit},
+        title={Orbital Mechanics},
+    ]
+    \printnoidxglossary[
+        type={notation:set},
+        title={Sets and Graphs},
+    ]
+    \printnoidxglossary[
+        type={notation:ml},
+        title={Machine Learning},
+        nonumberlist
+    ]
+    \printnoidxglossary[
+        type={notation:dl},
+        title={Deep Learning},
+        nonumberlist
+    ]
+    \printnoidxglossary[
+        type={notation:fn},
+        title={Functions},
+    ]
+    \printnoidxglossary[
+        type={notation:prob},
+        title={Probability and information theory},
+    ]
+    \setglossarysection{chapter}
 
-%    \doublespacing
+    \doublespacing
     \listoffigures
     \listoftables
 

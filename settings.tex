@@ -3,7 +3,6 @@
     list=false % remove from list of figures
 ]{subcaption}
 \usepackage{parskip}
-
 %\usepackage[%
 %    font={small,sf},
 %    labelfont=bf,
@@ -80,12 +79,15 @@
 %    first-style=short,
 %    make-links = true,
 %}
-\usepackage{longtable}
-\usepackage[acronym, order=letter]{glossaries}
-\usepackage{glossaries-extra}
+%\usepackage{longtable}
+%\usepackage[stylemods=longextra]{glossaries-extra}
+%\usepackage{glossary-longextra}
+\usepackage[acronym, order=letter, style=long, nogroupskip=true]{glossaries}
 %\makeatletter
 %\renewcommand*{\@@glossarysec}{section}%
 %\makeatother
+\usepackage{ifthen}    % condition glossary variables
+\usepackage{xparse}    % "
 %---------------------------
 % Math
 %---------------------------

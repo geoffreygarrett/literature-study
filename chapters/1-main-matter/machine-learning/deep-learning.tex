@@ -1,6 +1,6 @@
-
 \section{Deep Learning\label{sec:DL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \Gls{DL} is a field of \gls{ML} that is primarily concerned with the learning of
 representations of data. The main difference between a \gls{NN} and a
 traditional \gls{ML} algorithm is that the neural network is a function of the
@@ -20,8 +20,8 @@ value of the first weight $w_0$. An alternative notation exists which treats the
 bias as a standalone value $b$. The latter notation will be used, as it is the
 preferred notation in contemporary deep learning research. The notation defining
 the mapping of a perceptron is then: $f(\gls{x_in};\gls{w_vec},
-\gls{b})=\gls{x_in}^T\gls{w_vec}+\gls{b}$; $\gls{x_in}\in\mathbb{R}^{\gls{n_x}}$,
-$\gls{w_vec}\in\mathbb{R}^{\gls{n_x}}$, $\gls{b}\in\mathbb{R}$.
+\gls{b})=\gls{x_in}^T\gls{w_vec}+\gls{b}$; $\gls{x_in}\in\gls{set:R}^{\gls{n_x}}$,
+$\gls{w_vec}\in\gls{set:R}^{\gls{n_x}}$, $\gls{b}\in\gls{set:R}$.
 
 \begin{figure}[htbp]
     \centering
@@ -30,7 +30,7 @@ $\gls{w_vec}\in\mathbb{R}^{\gls{n_x}}$, $\gls{b}\in\mathbb{R}$.
     \label{fig:perceptron}
 \end{figure}
 
-This mathematical mimicry of a biological neuron was first used used proposed by
+This mathematical mimicry of a biological neuron was first used proposed by
 Rosenblatt where a set of inputs $\mathbf{x}$ weighted using $\mathbf{w}$ before
 being summed. If this sum surpassed a threshold, then a binary output of $1$ was
 returned. \autoref{fig:perceptron} shows a more general formulation which
@@ -59,7 +59,7 @@ $\phi$ have been used and improve upon the threshold step function.
 %\end{figure}
 \input{graphics/tikz/activation}
 
-\subsection{\Glsfmtlong{MLPs} (\glsfmtshort{MLPs})}
+\subsection{Multi-layer perceptrons}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Gls{MLPs}, otherwise known as \textbf{artificial neural networks} or
 \textbf{feedforward neural networks}, are the fundamental models of \gls{DL}.
@@ -85,13 +85,16 @@ $f(\gls{x_in}; \gls{theta})$; $\gls{x_in}\in\mathbb{R}^{\gls{n_x}}$
 \end{figure}
 
 
+
 \begin{equation}
-    \mathbf{h}^{[1]} = g^{[1]} \bigg(\mathbf{W}^{{[1]}\;T}\gls{x_in} + \mathbf{b}^{[1]}\bigg);
+    \mathbf{a}^{[1]} = g^{[1]} \bigg(\gls{dl:W:1}^T\gls{x_in} + \mathbf{b}^{[1]}\bigg);
 \end{equation}
 
 \begin{equation}
-    \mathbf{h}^{[2]} = g^{[2]} \bigg(\mathbf{W}^{{[2]}\;T}\mathbf{h}^{[2]} + \mathbf{b}^{[2]}\bigg);
+    \mathbf{a}^{[2]} = g^{[2]} \bigg(\gls{dl:W:2}^T\mathbf{h}^{[2]} + \mathbf{b}^{[2]}\bigg);
 \end{equation}
+
+\gls{dl:W:l}
 
 \subsection{Gradient based learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

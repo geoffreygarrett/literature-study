@@ -24,9 +24,9 @@
 % ACRONYMS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\newacronym{AI}{AI}{
-%    artificial intelligence
-%}
+\newacronym{AI}{AI}{
+    artificial intelligence
+}
 \newacronym{ML}{ML}{
     machine learning
 }
@@ -261,11 +261,128 @@
 }
 
 % deep learning
+
 \newacronym{MLPs}{MLPs}{multi-layer perceptrons}
 \newacronym{ANN}{ANN}{artificial neural networks}
 \newglossaryentry{theta}{type=symbols,name=\ensuremath{\mathbf{\theta}},sort=theta,description={model parameters}}
 \newglossaryentry{L}{type=symbols,name=\ensuremath{L},sort=L,description={number of hidden layers in the network}}
 \newglossaryentry{a_vec}{type=symbols,name=\ensuremath{\mathbf{a}},sort=a,description={hidden layer output}}
+
+\newglossary{notation:dl}{ndl}{sbl}{Deep Learning}
+
+\newglossaryentry{dl:L}{
+    type=notation:dl,
+    name=\ensuremath{L},
+    sort=L,
+    description={number of hidden layers in the network}
+}
+
+\newglossaryentry{dl:l}{
+    type=notation:dl,
+    name=\ensuremath{l},
+    sort=l,
+    description={index referring to the $l^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:nh:l}{
+    type=notation:dl,
+    name=\ensuremath{n_h^{[\gls{dl:l}]}},
+    sort=nhl,
+    description={number of hidden units in the $\gls{dl:l}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:nh:lm1}{
+    type=notation:dl,
+    name=\ensuremath{n_h^{[\gls{dl:l}-1]}},
+    sort=nhlm1,
+    description={number of hidden units in the ${(\gls{dl:l}-1})^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:nh:L}{
+    type=notation:dl,
+    name=\ensuremath{n_h^{[\gls{dl:L}]}},
+    sort=nhL,
+    description={number of hidden units in the ${\gls{dl:L}}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:nh:Lm1}{
+    type=notation:dl,
+    name=\ensuremath{n_h^{[\gls{dl:L}-1]}},
+    sort=nhLm1,
+    description={number of hidden units in the ${(\gls{dl:L}-1)}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:nh:1}{
+    type=notation:dl,
+    name=\ensuremath{n_h^{[1]}},
+    sort=nh1,
+    description={number of hidden units in the 1$^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:nh:2}{
+    type=notation:dl,
+    name=\ensuremath{n_h^{[2]}},
+    sort=nh2,
+    description={number of hidden units in the 2$^\text{nd}$ layer of the network}
+}
+
+
+\newglossaryentry{dl:W:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{W}^{[\gls{dl:l}]}},
+    sort=Wl,
+    description={$\in\gls{set:R}^{\gls{dl:nh:l}\times\gls{dl:nh:lm1}}$, weight matrix of the \gls{dl:l}$^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:W:L}{
+    type=notation:dl,
+    name=\ensuremath{\bm{W}^{[\gls{dl:L}]}},
+    sort=WL,
+    description={$\in\gls{set:R}^{\gls{dl:nh:L}\times\gls{dl:nh:Lm1}}$, weight matrix of the \gls{dl:L} (output) layer of the network}
+}
+
+%\newglossaryentry{dl:W:0}{
+%    type=notation:dl,
+%    name=\ensuremath{\bm{W}^{[0]}},
+%    sort=W0,
+%    description={weight matrix of the 0$^\text{th}$ (input) layer of the network}
+%}
+
+\newglossaryentry{dl:W:1}{
+    type=notation:dl,
+    name=\ensuremath{\bm{W}^{[1]}},
+    sort=W1,
+    description={$\in\gls{set:R}^{\gls{dl:nh:1}\times\gls{n_x}}$, weight matrix of the 1$^\text{st}$ (input) layer of the network}
+}
+
+\newglossaryentry{dl:W:2}{
+    type=notation:dl,
+    name=\ensuremath{\bm{W}^{[2]}},
+    sort=W2,
+    description={$\in\gls{set:R}^{\gls{dl:nh:2}\times\gls{dl:nh:1}}$, weight matrix of the 2$^\text{nd}$ layer of the network}
+}
+
+\newglossaryentry{dl:W:2}{
+    type=notation:dl,
+    name=\ensuremath{\bm{W}^{[2]}},
+    sort=W2,
+    description={weight matrix of the 2$^\text{nd}$ layer of the network}
+}
+
+%\newglossaryentry{dl:a:1}{
+%    type=notation:dl,
+%    name=\ensuremath{\bm{W}^{[2]}},
+%    sort=W2,
+%    description={weight matrix of the 2$^\text{nd}$ layer of the network}
+%}
+%
+%\newglossaryentry{dl:a:2}{
+%    type=notation:dl,
+%    name=\ensuremath{\bm{W}^{[2]}},
+%    sort=W2,
+%    description={weight matrix of the 2$^\text{nd}$ layer of the network}
+%}
+
 
 % reinforcement learning
 \newglossaryentry{value}{type=symbols, name=\ensuremath{V},sort=V, description={value function}}
