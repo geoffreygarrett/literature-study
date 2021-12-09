@@ -37,76 +37,17 @@
 % stop caption being bold with \textmd{medium/regular}
 %\usepackage[font=bf]{caption}
 \makenoidxglossaries
-
-\newacronym{AI}{AI}{artificial intelligence}
-\newacronym{ML}{ML}{machine learning}
-\newacronym{NN}{NN}{neural network}
-\newacronym{ANN}{ANN}{artifical neural network}
-\newacronym{NLP}{NLP}{natural language processing}
-\newacronym{DL}{DL}{deep learning}
-\newacronym{RL}{RL}{reinforcement learning}
-\newacronym{CV}{CV}{computer vision}
-\newacronym{MLP}{MLP}{multilayer perceptron}
-\newacronym{LOOCV}{LOOCV}{leave-one-out cross-validation}
-\newacronym{GPT-3}{GPT-3}{Generative Pre-trained Transformer 3}
-\newacronym{MSE}{MSE}{mean squared error}
-\newacronym{MAE}{MAE}{mean absolute error}
-\newacronym{MBE}{MBE}{mean bias error}
-\newacronym{MSLE}{MSLE}{mean squared logarithmic error}
-\newacronym{NFLT}{NFLT}{No Free Lunch Theorem}
-\newacronym{NFL}{NFL}{No Free Lunch}
-\newacronym{CD}{CD}{cosine distance}
-\newacronym{CP}{CP}{cosine proximity}
-\newacronym{CS}{CS}{cosine similarity}
-\newacronym{BCE}{BCE}{binary cross-entropy}
-\newacronym{SVM}{SVM}{support vector machine}
-\newacronym{MCE}{MCE}{multi-class cross-entropy}
-\newacronym{HL}{HL}{hinge loss}
-\newacronym{MHL}{MHL}{multi-class hinge loss}
-\newacronym{SHL}{SHL}{squared hinge loss}
-\newacronym{MSHL}{MSHL}{multi-class squared hinge loss}
-\newacronym{iid}{i.i.d.}{independent and identically distributed}
-\newacronym{LASSO}{LASSO}{least absolute shrinkage and selection operator}
-\newacronym{RIFE}{RIFE}{real-time intermediate flow estimation for video frame interpolation}
-\newacronym{KFCV}{KFCV}{$k$-fold cross-validation}
+%\loadglsentries{glossaries/machine-learning}
+%\loadglsentries{glossaries/functions}
+%\loadglsentries{glossaries/probability-information}
+\newacronym{AI}{AI}{
+    artificial intelligence
+}
 % march 14th
 % mathematics
-\newglossaryentry{E}{type=symbols, name=\ensuremath{\mathop{\mathbb{E}}},sort=E, description={statistical expectation}}
 % CCH ILLLL https://www.youtube.com/watch?v=L075FL5iG_g
 % general machine learning
-\newglossaryentry{b}{type=symbols,name=\ensuremath{b},sort=b,description={bias}}
-\newglossaryentry{x_in}{type=symbols,name=\ensuremath{\bm{x}},sort=x,description={input vector}}
-\newglossaryentry{n_x}{type=symbols,name=\ensuremath{n_x},sort=n_x,description={input size}}
-\newglossaryentry{m}{type=symbols,name=\ensuremath{m},sort=m,description={number for examples in the dataset}}
-\newglossaryentry{n_y}{type=symbols,name=\ensuremath{n_y},sort=n_y,description={output size}}
-\newglossaryentry{x_in_i}{type=symbols,name=\ensuremath{\bm{x}^{(i)}},sort=x_i,description={input vector for the $i^\text{th}$ example}}
-\newglossaryentry{y_true}{type=symbols,name=\ensuremath{\bm{y}},sort=y_true,description={ground truth/ output vector}}
-\newglossaryentry{y_true_i}{type=symbols,name=\ensuremath{\bm{y}^{(i)}},sort=y_true_i,description={ground truth/ output vector for the $i^\text{th}$ example}}
-\newglossaryentry{y_true_ij}{type=symbols,name=\ensuremath{{y}^{(i)}_j},sort=y_true_ij,description={ground truth/ output vector for the $j^\text{th}$ component of the $i^\text{th}$ example}}
-\newglossaryentry{y_true_i1}{type=symbols,name=\ensuremath{{y}^{(i)}},sort=y_true_i1,description={ground truth/ output value for the $i^\text{th}$ example}}
-\newglossaryentry{w_vec}{type=symbols,name=\ensuremath{\bm{w}},sort=w_vec,description={weight vector}}
-\newglossaryentry{Y}{type=symbols,name=\ensuremath{\bm{Y}},sort=Y,description={ground truth/ output matrix of all \gls{m} examples in the dataset}}
-\newglossaryentry{X}{type=symbols,name=\ensuremath{\bm{X}},sort=X,description={input matrix of all  \gls{m} examples in the dataset}}
-\newglossaryentry{y_pred}{type=symbols,name=\ensuremath{\hat{\bm{y}}},sort=x_pred,description={predicted output vector}}
-\newglossaryentry{y_pred_i}{type=symbols,name=\ensuremath{\hat{\bm{y}}^{(i)}},sort=y_pred_i,description={predicted output vector for the $i^\text{th}$ example}}
-\newglossaryentry{y_pred_ij}{type=symbols,name=\ensuremath{\hat{{y}}^{(i)}_j},sort=y_pred_ij,description={predicted output vector for the $j^\text{th}$ component of the $i^\text{th}$ example}}
-\newglossaryentry{y_pred_i1}{type=symbols,name=\ensuremath{\hat{{y}}^{(i)}},sort=y_pred_i1,description={predicted output value for the $i^\text{th}$ example}}
-\newglossaryentry{m_theta}{type=symbols,name=\ensuremath{{\bm{\theta}}},sort=theta,description={model parameters}}
-\newglossaryentry{o_reg}{type=symbols,name=\ensuremath{{{\Omega}}},sort=Omega,description={regularization function}}
-\newglossaryentry{J}{type=symbols,name=\ensuremath{{{J}}},sort=J,description={objective function}}
-\newglossaryentry{J_reg}{type=symbols,name=\ensuremath{{{\tilde{J}}}},sort=Jtilde,description={regularised objective function}}
-\newglossaryentry{w_reg}{type=symbols,name=\ensuremath{{\alpha}},sort=alpha,description={norm penalty weight}}
-\newglossaryentry{b_ela}{type=symbols,name=\ensuremath{{\beta}},sort=beta,description={mixing parameter between $L^2$ ($\beta=1$) and $L_1$ ($\beta=0$) regularisation}}
 
-% reinforcement learning
-\newglossaryentry{value}{type=symbols, name=\ensuremath{V},sort=V, description={value function}}
-\newglossaryentry{Q}{type=symbols, name=\ensuremath{Q},sort=Q, description={action-value function}}
-\newglossaryentry{state}{type=symbols, name=\ensuremath{s},sort=s, description={state}}
-\newglossaryentry{action}{type=symbols, name=\ensuremath{a},sort=a, description={action}}
-\newglossaryentry{action0}{type=symbols, name=\ensuremath{a_0},sort=a_0, description={initial action}}
-\newglossaryentry{state0}{type=symbols, name=\ensuremath{s_0},sort=s_0, description={initial state}}
-\newglossaryentry{trajectory}{type=symbols, name=\ensuremath{\tau},sort=tau, description={the trajectory, i.e. the sequence of states and actions in the world}}
-\newglossaryentry{policy}{type=symbols, name=\ensuremath{\pi},sort=pi, description={the policy, i.e. a rule used by an agent to decide what action to take}}
 
 \newglossary{symbols}{sym}{sbl}{List of Symbols}
 
@@ -134,9 +75,38 @@
     \newpage
 
     \frontmatter % Use roman page numbering style
+%    \singlespacing
 
+    % abbreviations.
     \printnoidxglossary[type=\acronymtype, title=Abbreviations]
-    \printnoidxglossary[type=symbols, title=Nomenclature]
+
+    %
+%    \printnoidxglossary[type=symbols, title=Notation, style=long]
+%    \chapter*{Notation}
+%    \printnoidxglossary[
+%        type=symbols,
+%        title={Notation},
+%    ]
+%%    \setglossarysection{section}
+%    \printnoidxglossary[
+%        type={notation:orbit},
+%        title={Orbital Mechanics},
+%    ]
+%    \printnoidxglossary[
+%        type={notation:ml},
+%        title={Machine Learning},
+%    ]
+%    \printnoidxglossary[
+%        type={notation:fn},
+%        title={Functions},
+%    ]
+%    \printnoidxglossary[
+%        type={notation:prob},
+%        title={Probability and information theory},
+%    ]
+%    \setglossarysection{chapter}
+
+%    \doublespacing
     \listoffigures
     \listoftables
 
@@ -146,7 +116,7 @@
     \tableofcontents
 
     \mainmatter % Begin numeric (1,2,3...) page numbering
-
+%    \glsreset   % reset glossary first use flag
 %    \input{chapters/0-front-matter/introduction.tex}
 %    \input{chapters/1-main-matter/astrodynamics.tex}
 %    \input{chapters/1-main-matter/dynamic-modelling.tex}

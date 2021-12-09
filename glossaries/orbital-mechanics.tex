@@ -21,40 +21,17 @@
 % SOFTWARE.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DEPENDENCIES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage{tikz}
-%\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
-%\usetikzlibrary{positioning}                  % for TikZ relative positioning
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% USER STYLING
+% ACRONYMS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TikZ node design.
-\tikzset{basic/.style={draw,text width=1em,text badly centered}}
-\tikzset{input/.style={basic, fill=green!25, circle}}
-\tikzset{output/.style={basic, fill=blue!25, circle}}
-\tikzset{weight/.style={basic,circle}}
-\tikzset{hidden/.style={basic,circle}}
-\tikzset{function/.style={basic,circle}}
-
-\def\sep{4em}
-\def\L{\gls{L}}       % number of hidden layers
-\def\y{\gls{y_true}}  % output vector
-\def\x{\gls{x_in}}    % input vector
-\def\h{\gls{a_vec}}   % hidden output
+\newacronym{laan}{LAAN}{
+    longitude ascension of the ascending node
+}
+\newacronym{ra}{RA}{
+    right ascension
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TIKZ PICTURE
+% NOTATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{tikzpicture}
-    \node[input] (X) {$\x$};
-    \node[hidden, right=\sep of X, label={[xshift=-0.0em]center:$\mathbf{a}^{[1]}$}] (H1) {\phantom{$\h^{[1]}$}};
-    \node[hidden, right=\sep of H1, label={[xshift=-0.0em]center:$\mathbf{a}^{[\L]}$}] (H2) {\phantom{$\h^{[\L]}$}};
-    \node[output, right=\sep of H2] (Y) {$\y$};
-    \path[draw,->] (X) -- (H1);
-        \node[right=0.8em of H1] (M) {$\ldots$};
-    \path[draw,->] (H2) -- (Y);
-\end{tikzpicture}
-
+\newglossary{notation:orbit}{orb}{sbl}{Orbital Mechanics}

@@ -1,12 +1,12 @@
 
 \section{Deep Learning\label{sec:DL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Gls{DL} is a field of \gls{ML} that is primarily concerned with
-the learning of representations of data. The main idea is to use a \gls{NN} to learn representations of data. The main difference between a
-\gls{NN} and a traditional \gls{ML} algorithm is that the
-neural network is a function of the data, rather than the data itself.
+\Gls{DL} is a field of \gls{ML} that is primarily concerned with the learning of
+representations of data. The main difference between a \gls{NN} and a
+traditional \gls{ML} algorithm is that the neural network is a function of the
+data, rather than the data itself.
 
-\subsection{The fundamental component: Perceptrons}
+\subsection{Perceptrons}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Proposed by Rosenblatt \cite{Rosenblatt_1957_6098} in his technical
@@ -18,13 +18,13 @@ dealing with the bias of a perceptron. One involves the inclusion of a unit
 constant in the input vector $\mathbf{x}$, with the bias being specified by the
 value of the first weight $w_0$. An alternative notation exists which treats the
 bias as a standalone value $b$. The latter notation will be used, as it is the
-preferred notation in contemporary deep learning papers. The notation defining
+preferred notation in contemporary deep learning research. The notation defining
 the mapping of a perceptron is then: $f(\gls{x_in};\gls{w_vec},
 \gls{b})=\gls{x_in}^T\gls{w_vec}+\gls{b}$; $\gls{x_in}\in\mathbb{R}^{\gls{n_x}}$,
 $\gls{w_vec}\in\mathbb{R}^{\gls{n_x}}$, $\gls{b}\in\mathbb{R}$.
 
 \begin{figure}[htbp]
-    \centeringyy
+    \centering
     \input{graphics/tikz/perceptron}
     \caption{Perceptron}
     \label{fig:perceptron}
@@ -59,10 +59,15 @@ $\phi$ have been used and improve upon the threshold step function.
 %\end{figure}
 \input{graphics/tikz/activation}
 
-\subsection{Multilayer perceptrons, a.k.a feed forward networks}
+\subsection{\Glsfmtlong{MLPs} (\glsfmtshort{MLPs})}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Gls{MLPs}, otherwise known as \textbf{artificial neural networks} or
+\textbf{feedforward neural networks}, are the fundamental models of \gls{DL}.
+They adapt and
 
-$f(\mathbf{x};\mathbf{w}, b)=\mathbf{x}^T\mathbf{w}+b$; $x\in\mathbb{R}^{d_{in}}$, $\mathbf{w}\in\mathbb{R}^{d_{in}\times}$, $b\in\mathbb{R}^1$.
+\textbf{Deep feedforward networks}
+\\
+$f(\gls{x_in}; \gls{theta})$; $\gls{x_in}\in\mathbb{R}^{\gls{n_x}}$
 
 \begin{figure}
     \centering
@@ -81,11 +86,11 @@ $f(\mathbf{x};\mathbf{w}, b)=\mathbf{x}^T\mathbf{w}+b$; $x\in\mathbb{R}^{d_{in}}
 
 
 \begin{equation}
-    \mathbf{h}^{(1)} = g^{(1)} \bigg(\mathbf{W}^{{(1)}\;T}\mathbf{x} + \mathbf{b}^{(1)}\bigg);
+    \mathbf{h}^{[1]} = g^{[1]} \bigg(\mathbf{W}^{{[1]}\;T}\gls{x_in} + \mathbf{b}^{[1]}\bigg);
 \end{equation}
 
 \begin{equation}
-    \mathbf{h}^{(2)} = g^{(2)} \bigg(\mathbf{W}^{{(2)}\;T}\mathbf{h}^{(1)} + \mathbf{b}^{(2)}\bigg);
+    \mathbf{h}^{[2]} = g^{[2]} \bigg(\mathbf{W}^{{[2]}\;T}\mathbf{h}^{[2]} + \mathbf{b}^{[2]}\bigg);
 \end{equation}
 
 \subsection{Gradient based learning}

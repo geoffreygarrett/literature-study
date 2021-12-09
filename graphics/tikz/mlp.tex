@@ -70,13 +70,13 @@
         \ifnum \n=4
             % n layer
             \node[input] at (0, -\n) (X_\n) {};
-            \node[left of=X_\n] (I_\n) {$x_{d_{{in}}}$};
+            \node[left of=X_\n] (I_\n) {$x_{\gls{n_x}}$};
             \path[draw,->] (I_\n) -- (X_\n);
             \node[hidden] at (\hiddenx, -\n) (H1_\n) {}; %{$h_{n, 1}$};
             \node[right of= H1_\n] (M-\n) {$\ldots$};
             \node[hidden, right of= M-\n] (H2_\n) {}; % {$h_{n, m}$};
             \node[output, right= 5em of H2_\n] (Y_\n) {}; % {$h_{n, m}$};
-            \node[right of=Y_\n] (O_\n) {$y_{d_{out}}$};
+            \node[right of=Y_\n] (O_\n) {$y_{\gls{n_y}}$};
             \path[draw,->] (Y_\n) -- (O_\n);
         \else
             \node[input] at (0, -{\n}) (X_\n) {};

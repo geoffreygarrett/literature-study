@@ -1,0 +1,278 @@
+% MIT License
+%
+% Copyright (c) 2021 Geoffrey H. Garrett
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACRONYMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newacronym{AI}{AI}{
+%    artificial intelligence
+%}
+\newacronym{ML}{ML}{
+    machine learning
+}
+\newacronym{NN}{NN}{
+    neural network
+}
+\newacronym{ANN}{ANN}{
+    artificial neural network
+}
+\newacronym{NLP}{NLP}{
+    natural language processing
+}
+\newacronym{DL}{DL}{
+    deep learning
+}
+\newacronym{RL}{RL}{
+    reinforcement learning
+}
+\newacronym{CV}{CV}{
+    computer vision
+}
+\newacronym{MLP}{MLP}{
+    multilayer perceptron
+}
+\newacronym{LOOCV}{LOOCV}{
+    leave-one-out cross-validation
+}
+\newacronym{GPT-3}{GPT-3}{
+    Generative Pre-trained Transformer 3
+}
+\newacronym{MSE}{MSE}{
+    mean squared error
+}
+\newacronym{MAE}{MAE}{
+    mean absolute error
+}
+\newacronym{MBE}{MBE}{
+    mean bias error
+}
+\newacronym{MSLE}{MSLE}{
+    mean squared logarithmic error
+}
+\newacronym{NFLT}{NFLT}{
+    No Free Lunch Theorem
+}
+\newacronym{NFL}{NFL}{
+    No Free Lunch
+}
+\newacronym{CD}{CD}{
+    cosine distance
+}
+\newacronym{CP}{CP}{
+    cosine proximity
+}
+\newacronym{CS}{CS}{
+    cosine similarity
+}
+\newacronym{BCE}{BCE}{
+    binary cross-entropy
+}
+\newacronym{SVM}{SVM}{
+    support vector machine
+}
+\newacronym{MCE}{MCE}{
+    multi-class cross-entropy
+}
+\newacronym{HL}{HL}{
+    hinge loss
+}
+\newacronym{MHL}{MHL}{
+    multi-class hinge loss
+}
+\newacronym{SHL}{SHL}{
+    squared hinge loss
+}
+\newacronym{MSHL}{MSHL}{
+    multi-class squared hinge loss
+}
+
+\newacronym{LASSO}{LASSO}{
+    least absolute shrinkage and selection operator
+}
+\newacronym{RIFE}{RIFE}{
+    real-time intermediate flow estimation for video frame interpolation
+}
+\newacronym{KFCV}{KFCV}{
+    $k$-fold cross-validation
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary{notation:ml}{nml}{sbl}{Machine Learning}
+
+\newglossaryentry{b}{
+    type=notation:ml,
+    name=\ensuremath{b},
+    sort=b,
+    description={bias}
+}
+\newglossaryentry{x_in}{
+    type=notation:ml,
+    name=\ensuremath{\bm{x}},
+    sort=x,
+    description={input vector}
+}
+\newglossaryentry{n_x}{
+    type=notation:ml,
+    name=\ensuremath{n_x},
+    sort=n_x,
+    description={input size}
+}
+\newglossaryentry{m}{
+    type=notation:ml,
+    name=\ensuremath{m},
+    sort=m,
+    description={number for examples in the dataset}
+}
+\newglossaryentry{n_y}{
+    type=notation:ml,
+    name=\ensuremath{n_y},
+    sort=n_y,
+    description={output size}
+}
+\newglossaryentry{x_in_i}{
+    type=notation:ml,
+    name=\ensuremath{\bm{x}^{(i)}},
+    sort=x_i,
+    description={input vector for the $i^\text{th}$ example}
+}
+\newglossaryentry{y_true}{
+    type=notation:ml,
+    name=\ensuremath{\bm{y}},
+    sort=y_true,
+    description={ground truth/ output vector}
+}
+\newglossaryentry{y_true_i}{
+    type=notation:ml,
+    name=\ensuremath{\bm{y}^{(i)}},
+    sort=y_true_i,
+    description={ground truth/ output vector for the $i^\text{th}$ example}
+}
+\newglossaryentry{y_true_ij}{
+    type=notation:ml,
+    name=\ensuremath{{y}^{(i)}_j},
+    sort=y_true_ij,
+    description={ground truth/ output vector for the $j^\text{th}$ component of the $i^\text{th}$ example}
+}
+\newglossaryentry{y_true_i1}{
+    type=notation:ml,
+    name=\ensuremath{{y}^{(i)}},
+    sort=y_true_i1,
+    description={ground truth/ output value for the $i^\text{th}$ example}
+}
+\newglossaryentry{w_vec}{
+    type=notation:ml,
+    name=\ensuremath{\bm{w}},
+    sort=w_vec,
+    description={weight vector}}
+\newglossaryentry{Y}{
+    type=notation:ml,
+    name=\ensuremath{\bm{Y}},
+    sort=Y,
+    description={ground truth/ output matrix of all \gls{m} examples in the dataset}
+}
+\newglossaryentry{X}{
+    type=notation:ml,
+    name=\ensuremath{\bm{X}},
+    sort=X,
+    description={input matrix of all  \gls{m} examples in the dataset}
+}
+\newglossaryentry{y_pred}{
+    type=notation:ml,
+    name=\ensuremath{\hat{\bm{y}}},
+    sort=x_pred,
+    description={predicted output vector}
+}
+\newglossaryentry{y_pred_i}{
+    type=notation:ml,
+    name=\ensuremath{\hat{\bm{y}}^{(i)}},
+    sort=y_pred_i,
+    description={predicted output vector for the $i^\text{th}$ example}
+}
+\newglossaryentry{y_pred_ij}{
+    type=notation:ml,
+    name=\ensuremath{\hat{{y}}^{(i)}_j},
+    sort=y_pred_ij,
+    description={predicted output vector for the $j^\text{th}$ component of the $i^\text{th}$ example}
+}
+\newglossaryentry{y_pred_i1}{
+    type=notation:ml,
+    name=\ensuremath{\hat{{y}}^{(i)}},
+    sort=y_pred_i1,
+    description={predicted output value for the $i^\text{th}$ example}
+}
+\newglossaryentry{m_theta}{
+    type=notation:ml,
+    name=\ensuremath{{\bm{\theta}}},
+    sort=theta,
+    description={model parameters}
+}
+\newglossaryentry{o_reg}{
+    type=notation:ml,
+    name=\ensuremath{{{\Omega}}},
+    sort=Omega,
+    description={regularization function}
+}
+\newglossaryentry{J}{
+    type=notation:ml,
+    name=\ensuremath{{{J}}},
+    sort=J,
+    description={objective function}
+}
+\newglossaryentry{J_reg}{
+    type=notation:ml,
+    name=\ensuremath{{{\tilde{J}}}},
+    sort=Jtilde,
+    description={regularised objective function}
+}
+\newglossaryentry{w_reg}{
+    type=notation:ml,
+    name=\ensuremath{{\alpha}},
+    sort=alpha,
+    description={norm penalty weight}
+}
+\newglossaryentry{b_ela}{
+    type=notation:ml,
+    name=\ensuremath{{\beta}},
+    sort=beta,
+    description={mixing parameter between $L^2$ ($\beta=1$) and $L_1$ ($\beta=0$) regularisation}
+}
+
+% deep learning
+\newacronym{MLPs}{MLPs}{multi-layer perceptrons}
+\newacronym{ANN}{ANN}{artificial neural networks}
+\newglossaryentry{theta}{type=symbols,name=\ensuremath{\mathbf{\theta}},sort=theta,description={model parameters}}
+\newglossaryentry{L}{type=symbols,name=\ensuremath{L},sort=L,description={number of hidden layers in the network}}
+\newglossaryentry{a_vec}{type=symbols,name=\ensuremath{\mathbf{a}},sort=a,description={hidden layer output}}
+
+% reinforcement learning
+\newglossaryentry{value}{type=symbols, name=\ensuremath{V},sort=V, description={value function}}
+\newglossaryentry{Q}{type=symbols, name=\ensuremath{Q},sort=Q, description={action-value function}}
+\newglossaryentry{state}{type=symbols, name=\ensuremath{s},sort=s, description={state}}
+\newglossaryentry{action}{type=symbols, name=\ensuremath{a},sort=a, description={action}}
+\newglossaryentry{action0}{type=symbols, name=\ensuremath{a_0},sort=a_0, description={initial action}}
+\newglossaryentry{state0}{type=symbols, name=\ensuremath{s_0},sort=s_0, description={initial state}}
+\newglossaryentry{trajectory}{type=symbols, name=\ensuremath{\tau},sort=tau, description={the trajectory, i.e. the sequence of states and actions in the world}}
+\newglossaryentry{policy}{type=symbols, name=\ensuremath{\pi},sort=pi, description={the policy, i.e. a rule used by an agent to decide what action to take}}
