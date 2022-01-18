@@ -1,55 +1,471 @@
 \section{Deep Learning\label{sec:DL}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \Gls{DL} is a field of \gls{ML} that is primarily concerned with the learning of
-representations of data. The main difference between a \gls{NN} and a
+representations of data. At the core of \gls{DL} is the use of \glspl{MLP}, used
+to model these representations. \Glspl{MLP} are fully connected layers of
+biologically inspired artifical neurons, also known as \textbf{perceptrons}. A
+brief history are these biologically inspired models are covered in
+\autoref{ssec:perceptrons} with adapted notation from the field of \gls{DL}.
+Although not all practices in \gls{DL}, strictly speaking, make use of
+\glspl{MLP}, they are a fundamental concept which must be understood in the
+stepping stones towards concepts of higher complexity in the field.
+\autoref{ssec:mlps} covers this concept, extending directly on their composite
+component: perceptrons.
+
+\Glspl{MLP} are also called \textbf{feedfoward} as information is propagated in
+only a forward direction, as apposed to exhibiting \textbf{feedback} connections,
+where intermediate computations are fed back into the network. When feedforward
+networks are extended to include feedback connections, they are called
+\textbf{\glspl{RNN}}. These types of networks excel at learning temporal
+features, exhibiting a refined hypothesis space favouring sequenced information,
+such as a series of chronological observations. \autoref{ssec:rnn} covers this
+type of \gls{DNN}, and the prominent sub-type of \glspl{RNN}: \glspl{LSTM}.
+
+One category of neural networks which are similar to \glspl{MLP}, popular in
+contemporary research, are \glspl{CNN}. These \glspl{DNN} are essentially
+\glspl{MLP} which omit the property of being fully connected, in favour of
+refining the hypothesis space towards detection of spatially-related features.
+
+The main difference between a \gls{NN} and a
 traditional \gls{ML} algorithm is that the neural network is a function of the
 data, rather than the data itself.
 
-\subsection{Perceptrons}
+\subsection{Brief History of the Perceptron\label{ssec:perceptrons}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Proposed by Rosenblatt \cite{Rosenblatt_1957_6098} in his technical
-report funded by the United States Office of Naval Research
-\cite{doi:10.1177/030631296026003005} in 1957, the \textit{perceptron} is a
-fundamental component of deep learning, describing a mathematical model of a
-biological neuron. There are two different sets of notation which exist when
-dealing with the bias of a perceptron. One involves the inclusion of a unit
-constant in the input vector $\mathbf{x}$, with the bias being specified by the
-value of the first weight $w_0$. An alternative notation exists which treats the
-bias as a standalone value $b$. The latter notation will be used, as it is the
-preferred notation in contemporary deep learning research. The notation defining
-the mapping of a perceptron is then: $f(\gls{x_in};\gls{w_vec},
-\gls{b})=\gls{x_in}^T\gls{w_vec}+\gls{b}$; $\gls{x_in}\in\gls{set:R}^{\gls{n_x}}$,
-$\gls{w_vec}\in\gls{set:R}^{\gls{n_x}}$, $\gls{b}\in\gls{set:R}$.
+The McCullock-Pitts neuron, an earlier iteration of an artificial neuron, was
+proposed by McCulloch and Pitts in the field of neuroscience in 1943
+\cite{McCulloch1943}. Their work contended that neurons with a binary activation
+function were analogous to first order logic sentences. The perception of
+artifical neurons changed with Hebb's work in 1949, where he proposed an idea
+which has come to be known as Hebb's rule:
 
+\begin{fancyquotes}
+    Let us assume that the persistence or repetition of a reverberatory activity
+    (or ``trace") tends to induce lasting cellular changes that add to its
+    stability. [...] When an axon of cell A is near enough to excite a cell B
+    and repeatedly or persistently takes part in firing it, some growth process
+    or metabolic change takes place in one or both cells such that A’s
+    efficiency, as one of the cells firing B, is increased. \cite{10.1007/978-3-642-70911-1_15}
+\end{fancyquotes}
+
+This theory is often summaraized as \textit{``Cells that fires together, wire
+together"} \cite{doi:10.1126/science.7912852}, which persists today in the
+gradient-based learning at the core of contemporary \gls{DL}. The perceptron was
+proposed by Rosenblatt \cite{Rosenblatt_1957_6098} in his technical report
+funded by the United States Office of Naval Research
+\cite{doi:10.1177/030631296026003005} in 1957. Rosenblatt incorporated Hebb's
+findings into the McCullock-Pitts neuron.
+
+The \textit{perceptron} is arguably the most fundamental concept in deep
+learning, describing a mathematical model of a biological neuron. There are two
+different sets of notation which exist when dealing with the bias of a
+perceptron. One involves the inclusion of a unit constant in the input vector
+$\mathbf{x}$, with the bias being specified by the value of the first weight
+$w_0$. An alternative notation exists which treats the bias as a standalone
+value $b$. The latter notation will be used, as it is the preferred notation in
+contemporary deep learning research. The notation defining the mapping of a
+perceptron is then: $f(\gls{ml:x};\gls{w_vec},
+\gls{b})=\gls{ml:x}^T\gls{w_vec}+\gls{b}$;
+$\gls{ml:x}\in\gls{set:R}^{\gls{ml:n_x}}$,
+$\gls{w_vec}\in\gls{set:R}^{\gls{ml:n_x}}$, $\gls{b}\in\gls{set:R}$. Furthermore
+the model parameters, \gls{ml:theta}, as introduced in
+\autoref{sec:capoverunder}, are defined by the union of the bias and weight
+vectors: $\gls{ml:theta}=\{\gls{w_vec},\gls{b}\}$.
 \begin{figure}[htbp]
     \centering
-    \input{graphics/tikz/perceptron}
-    \caption{Perceptron}
+    \input{graphics/tikz/perceptron_b}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Generalized illustration of a perceptron.} The mapping is
+        defined by $f(\gls{ml:x};\gls{w_vec},
+        \gls{b})=\gls{ml:x}^T\gls{w_vec}+\gls{b}$ where
+        $\{\gls{w_vec},\gls{b}\}=\gls{ml:theta}$. The original formulation of
+        the perceptron \cite{Rosenblatt_1957_6098} was intended to output a
+        binary value, using a threshold step function, for classification
+        purposes. The actual activation function \gls{dl:activation} has been
+        generalized in order to relate the concept to modern deep learning
+        techniques.
+    }
     \label{fig:perceptron}
 \end{figure}
 
-This mathematical mimicry of a biological neuron was first used proposed by
-Rosenblatt where a set of inputs $\mathbf{x}$ weighted using $\mathbf{w}$ before
-being summed. If this sum surpassed a threshold, then a binary output of $1$ was
-returned. \autoref{fig:perceptron} shows a more general formulation which
-applies to the resulting field of deep learning, with any activation function
-$\phi$ analogous for the level of excitation of a biological neuron in response
-to its stimulus $\mathbf{x}$.
+\begin{equation}
+    a=g\bigg(\sum_{k=0}^{\gls{ml:n_x}}{w_k}x_k + b\bigg)=g(z)
+\end{equation}
+
+
+%Rosenblatt's incorporated the model of  Rosenblatt
+%incorporated the findings of Hebb \cite{10.1007/978-3-642-70911-1_15} into the
+%model proposed by A set of inputs \gls{ml:x} would be weighted before being
+%passed through a threshold step activation function \gls{dl:activation}.
+%\autoref{fig:perceptron} shows a more general formulation which applies to the
+%field of deep learning, with any activation function, \gls{dl:activation},
+%mimicking a level of excitation akin to a biological neuron in response to its
+%stimulus \gls{ml:x}.
+
+\begin{figure}[!htp]
+    \centering
+    \begin{subfigure}[b]{0.70\textwidth}
+        \centering
+        \input{graphics/tikz/perceptron_and}
+        \captionsetup{format=hang} % hanging captions
+        \subcaption{Perceptron mapping}
+        \label{fig:perceptron:and:mapping}
+    \end{subfigure}\hfil
+    \begin{subfigure}[b]{0.29\textwidth}
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{C{0.1\linewidth}C{0.1\linewidth}|C{0.1\linewidth}}
+            \hline
+            $x_1$ & $x_2$ & $y$ \\ \hline
+            0     & 0     & 0   \\
+            0     & 1     & 0   \\
+            1     & 0     & 0   \\
+            1     & 1     & 1
+        \end{tabular}
+        \vspace{0.5cm}
+        \subcaption{Truth table}
+        \label{fig:perceptron:and:truth}
+    \end{subfigure}\hfil
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Truth table of the AND logic gate.}
+    }
+    \label{fig:perceptron:and}
+\end{figure}
+
+
+
+Rosenblatt's statements caused an unfortunate controversy in the fledgling field
+of \gls{AI}. According to the New York Times, he reported the perceptron to be
+\textit{``the embryo of an electronic computer that [the Navy] expects will be
+able to walk, talk, see, write, reproduce itself and be conscious of its
+existence."} \cite{Olazaran1996} The backlash from the \gls{AI} community
+
+\subsubsection{Perceptrons and Logic Gates}
+
+
+
+
+In its original form, the perceptron was used as a supervised learning method
+for binary classifiers.
 
 The primary criticism of the perceptron came in 1969 from Minsky and Papert
 \cite{minsky69perceptrons}, where it was shown that the perceptron could only
 solve \textit{linearly separable} functions, and failed to solve the XOR and
-NXOR functions. They went on to claim that the research being done was doomed to
-failure due to these limitations, resulting in little research in the area being
-done until about the 1980's.
+NXOR functions. They claimed that the work being done in this area was doomed to
+failure due to these limitations, resulting in little subsequent research until
+about the 1980's.
+
+
+%
+%\newpage
+\newpage
+
+\subsection{Multi-layer perceptrons\label{ssec:mlps}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Gls{MLPs}, otherwise known as \textbf{artificial neural networks} or
+\textbf{feedforward neural networks}, are the fundamental models of \gls{DL}.
+These models are biologically inspired, and make direct use of the concept of
+the perceptron discussed in \autoref{ssec:perceptrons}. The primary extensions
+involve the use of a variety of activation functions other than the threshold
+step, and multiple layers of fully connected perceptrons, often referred to as
+\textbf{neurons} or \textbf{units}. \gls{MLPs} are characterized as being
+\textbf{fully-connected} which means that all the units in a layer are connected
+to all units in the next. These models are often referred to as \textbf{deep
+feedfoward networks} by virtue of having \textit{several} hidden layers. Note
+that there is no universally accepted definition of what integer values of
+perceptron layers \gls{dl:L} constitute deep and shallow networks, but generally
+speaking: a shallow network will usually have one hidden layer and a deep
+network will have several hidden layers. The mapping of an \gls{MLP} is defined
+by $\gls{y_pred}=f(\gls{ml:x}; \gls{theta})$;
+$\gls{ml:x}\in\gls{set:R}^{\gls{ml:n_x}}$;
+$\gls{y_pred}\in\gls{set:R}^{\gls{ml:n_y}}$.
+
+\begin{figure}[htp]
+    \centering
+    \input{graphics/tikz/mlp}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Generalized form of an \gls{MLP}}. Each layer, \textbf{excluding
+        the input layer}, has associated weights, biases and activation
+        functions. Furthermore, the layers are characterized as being
+        \textbf{fully-connected}.
+    }
+    \label{fig:mlp}
+\end{figure}
+
+\autoref{fig:mlp} depicts the generalized concept of the \gls{MLP}. There are
+three distinct types of layers: hidden, input, and output, for which
+there is only one of each for the latter two. The input layer is simply the
+input vector $\gls{ml:x}$, which does not have any weights, bias or activation
+function associated to it.
+
+\begin{figure}[htp]
+    \centering
+    \input{graphics/tikz/mlp-vec}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Generalized vector form of an \gls{MLP}}. By notation, the
+        input layer is denoted by $\gls{dl:a:vec:0}$ or $\gls{ml:x}$, the
+        output layer is denoted by $\gls{dl:a:vec:L}$ or $\gls{y_pred}$, and the
+        hidden layers as $\gls{dl:a:vec:l}\;\forall{}\;l\in\{1,...,\gls{dl:L}-1\}$.
+    }
+    \label{fig:mlp-vec}
+\end{figure}
+
+\autoref{fig:mlp} and \autoref{fig:mlp-vec} are equivalent and introduce the
+notation used for the variables of the network. The vector form of the
+$l^\text{th}$ layer's activation variable is given by:
+
+\begin{equation}
+    \gls{dl:a:vec:l}
+    = \gls{dl:g:l} \bigg(\gls{dl:w:l}^\text{T} \gls{dl:a:vec:lm1} + \gls{dl:b:l} \bigg)
+    = \gls{dl:g:l}(\gls{dl:z:vec:l});
+    \label{eq:mlp:a:vec}
+\end{equation}
+
+In the next section, where backpropagation is discussed, the following
+scalar form of the activation will be used when deriving the expressions
+used in the backpropagation algorithm:
+
+\begin{equation}
+    \gls{dl:a:l:j}
+    = \gls{dl:g:l} \bigg(\sum_{k=0}^{\gls{dl:nh:lm1}} \gls{dl:w:l:jk} \gls{dl:a:lm1:k} + \gls{dl:b:l:j} \bigg)
+    = \gls{dl:g:l}(\gls{dl:z:l:j});
+    \label{eq:mlp:a}
+\end{equation}
+
+Given an example of a network with two layers of perceptrons
+($\gls{dl:L}=2$), the following set of equations (given by
+\autoref{eq:mlp:a:vec}) define the \textbf{forward pass} or \textbf{forward
+propagation} of information through the network:
+
+\begin{equation}
+    \begin{aligned}
+        \gls{dl:a:vec:0} &= \gls{ml:x}; \\
+        \gls{dl:a:vec:1} &= \gls{dl:g:1} \bigg(\gls{dl:W:1}^\text{T}\gls{dl:a:vec:0}  + \gls{dl:b:vec:1}\bigg); \\
+        \gls{dl:a:vec:2} &= \gls{dl:g:2} \bigg(\gls{dl:W:2}^\text{T}\gls{dl:a:vec:1}  + \gls{dl:b:vec:2}\bigg) = \gls{y_pred}.
+    \end{aligned}
+\end{equation}
+
+The number of model parameters $n_{\theta}$ for an \gls{MLP} can be calculated
+as:
+
+\begin{equation}
+    n_{\theta}=\sum_{l=1}^{\gls{dl:L}} \gls{dl:nh:l} (\gls{dl:nh:lm1} + 1)
+\end{equation}
+
+
+\newcommand\pardiff[2]{
+    \frac{\partial{#1}}{\partial{#2}}
+}
+
+\subsection{Backpropagation\label{ssec:backprop}}
+
+An important variable for the gradient-based optimization commonly used in
+neural architectures is the gradient of the cost function with respect to the
+model parameters $\nabla_{\gls{dl:theta}}$\gls{dl:J}(\gls{dl:theta}). This first
+order partial differential is used to calculate updated estimates of the optimal
+set of model parameters \gls{dl:theta}$^*$. Backpropagation is the technique
+used for this calculation. Using \autoref{eq:mlp:a}, we seek to find expressions
+for the first order partial derivative of the cost function with respect to
+weights and biases of the network. Using the chain rule, we have:
+
+\begin{equation}
+    \pardiff{\gls{ml:J}}{\gls{dl:w:l:jk}} = \pardiff{\gls{ml:J}}{\gls{dl:z:l:j}}\pardiff{\gls{dl:z:l:j}}{\gls{dl:w:l:jk}}.
+    \label{eq:bp:w:0}
+\end{equation}
+
+Following directly from  \autoref{eq:mlp:a}, the derivative of the $j^\text{th}$
+unit's latent variable $z$ with respect to a weight associated to the unit $j$
+in the previous layer is:
+
+\begin{equation}
+    \pardiff{\gls{dl:z:l:j}}{\gls{dl:w:l:jk}} = \gls{dl:a:lm1:k}.
+    \label{eq:bp:w:1}
+\end{equation}
+
+Combining \autoref{eq:bp:w:0} and \autoref{eq:bp:w:1} gives:
+
+\begin{equation}
+    \pardiff{\gls{ml:J}}{\gls{dl:w:l:jk}} = \pardiff{\gls{ml:J}}{\gls{dl:z:l:j}}  \gls{dl:a:lm1:k}
+    \label{eq:bp:w:2}
+\end{equation}
+
+A similar set of equations can be derived for the bias associated to the
+$j^\text{th}$ unit of a layer. Again, from the chain rule we have:
+
+\begin{equation}
+    \pardiff{\gls{ml:J}}{\gls{dl:b:l:j}} = \pardiff{\gls{ml:J}}{\gls{dl:z:l:j}}\pardiff{\gls{dl:z:l:j}}{\gls{dl:b:l:j}}.
+    \label{eq:bp:b:0}
+\end{equation}
+
+The first order partial derivative of the latent variable $z$ with respect to
+the same unit's bias is:
+
+\begin{equation}
+    \pardiff{\gls{dl:z:l:j}}{\gls{dl:b:l:j}} = 1
+    \label{eq:bp:b:1}
+\end{equation}
+
+Combining \autoref{eq:bp:b:0} and \autoref{eq:bp:b:1} gives:
+
+\begin{equation}
+    \pardiff{\gls{ml:J}}{\gls{dl:b:l:j}} = \pardiff{\gls{ml:J}}{\gls{dl:z:l:j}}.
+    \label{eq:bp:b:2}
+\end{equation}
+
+The expression for $\partial\gls{ml:J}/\partial\gls{dl:z:l:j}$ depends on the
+architecture of the network in question, and unless it concerns the output
+layer, it will be comprised of numerous other partials from later layers in the
+network. For this reason, a table filling strategy somtimes called
+\textbf{dynamic programming}, is used \cite[p.~214]{Goodfellow-et-al-2016} to
+avoid redundant calculations (a.k.a. fancy bookkeeping).
+
+\autoref{fig:mlp-example} shows the general way of illustrating an \gls{MLP}
+with 2 perceptron layers with 2 inputs, 2 hidden units and 2 outputs. It can
+be misleading to those unfamiliar with the simplifications made, following
+from the illustration of a perceptron in \autoref{ssec:perceptrons}.
+\autoref{fig:mlp-example-bp} shows the same network with all model parameters
+included for concise illustration of the backpropagation algorithm.
+
+\begin{figure}[htbp]
+    \centering
+    \input{graphics/tikz/perceptron_xor_test2}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Multi-layer perceptron mapping for an arbitrary network}
+        with $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$.
+    }
+    \label{fig:mlp-example}
+\end{figure}
+\newpage
+Deriving the expression for the partial of the cost function with respect to
+$\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$ using \autoref{eq:bp:w:2} gives:
+
+\begin{equation}
+    \begin{aligned}
+        \pardiff{\gls{ml:J}}{\gls{dl:w:1:22}}
+        &=\pardiff{\gls{ml:J}}{\gls{dl:z:1:2}}\cdot{}\gls{dl:a:0:2};\\
+        &=\pardiff{\gls{ml:J}}{\gls{dl:z:1:2}}\cdot{x_2};\\
+        \pardiff{\gls{ml:J}}{\gls{dl:b:1:2}}
+        &=\pardiff{\gls{ml:J}}{\gls{dl:z:1:2}}.
+    \end{aligned}
+\end{equation}
+
+
+\begin{figure}[htbp]
+    \centering
+    \input{graphics/tikz/perceptron_xor_test}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Multi-layer perceptron mapping for an arbitrary network} with
+        $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$ expanded
+        to show all model parameters and model variables. Emphasis has been
+        placed on the backpropagation to determine the expression for
+        $\partial\gls{ml:J}/\partial\gls{dl:z:1:2}$.
+    }
+    \label{fig:mlp-example-bp}
+\end{figure}
+
+The commonality between the updates of $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$
+are immediately clear, motivating the use of the previously mentioned table filling
+strategy. The expression for $\partial\gls{ml:J}/\partial\gls{dl:z:1:2}$ can be determined
+using the chain rule and following the influence of the output layer backwards
+as seen in \autoref{fig:mlp-example-bp}, gives:
+
+\begin{equation}
+    \begin{aligned}
+        \pardiff{\gls{ml:J}}{\gls{dl:z:1:2}}
+        &= \pardiff{\gls{ml:J}}{\gls{dl:a:1:2}}\cdot{}\pardiff{\gls{dl:a:1:2}}{\gls{dl:z:1:2}}\\
+        &= \bigg(\pardiff{\gls{ml:J}}{\gls{dl:z:2:1}}\cdot{}\pardiff{\gls{dl:z:2:1}}{\gls{dl:a:1:2}}
+        +\pardiff{\gls{ml:J}}{\gls{dl:z:2:2}}\cdot{}\pardiff{\gls{dl:z:2:2}}{\gls{dl:a:1:2}}\bigg)
+        \cdot{}g'^{\;[1]}(\gls{dl:z:1:2})\\
+        &= \bigg(\pardiff{\gls{ml:J}}{\gls{dl:a:2:1}}\cdot{}g'^{\;[2]}(\gls{dl:z:2:1})\cdot{}\gls{dl:w:2:21}
+        +\pardiff{\gls{ml:J}}{\gls{dl:a:2:2}}\cdot{}g'^{\;[2]}(\gls{dl:z:2:2})\cdot{}\gls{dl:w:2:22}\bigg)
+        \cdot{}g'^{\;[1]}(\gls{dl:z:1:2})\\
+        &= \bigg(\pardiff{\gls{ml:J}}{\hat{y}_1}\cdot{}g'^{\;[2]}(\gls{dl:z:2:1})\cdot{}\gls{dl:w:2:21}
+        +\pardiff{\gls{ml:J}}{\hat{y}_2}\cdot{}g'^{\;[2]}(\gls{dl:z:2:2})\cdot{}\gls{dl:w:2:22}\bigg)
+        \cdot{}g'^{\;[1]}(\gls{dl:z:1:2})
+    \end{aligned}
+    \label{eq:bp-deriv}
+\end{equation}
+
+
+%\begin{equation}
+%    \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:theta:vec}}} = \bigg[
+%        \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:theta:1}}},
+%        \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:theta:2}}},
+%        \ldots,
+%        \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:theta:p}}}
+%        \bigg]
+%\end{equation}
+%
+%\begin{equation}
+%    \begin{aligned}
+%        \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:w:2:1}}}
+%        =&
+%        \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:a:2:1}}}
+%        \frac{\partial{\gls{dl:a:2:1}}}{\partial{\gls{dl:w:2:1}}} \\
+%        \frac{\partial{\gls{dl:a:2:1}}}{\partial{\gls{dl:w:2:1}}} \\
+%        =&
+%        \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:a:2:1}}}
+%        \frac{\partial{\gls{dl:a:2:1}}}{\partial{\gls{dl:z:2:1}}}
+%        \frac{\partial{\gls{dl:z:2:1}}}{\partial{\gls{dl:w:2:1}}} \\
+%        =&
+%        \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:a:2:1}}}
+%        \frac{\partial{\gls{dl:a:2:1}}}{\partial{\gls{dl:z:2:1}}}
+%        \frac{\partial{\gls{dl:z:2:1}}}{\partial{\gls{dl:w:2:1}}} \\
+%        =&
+%    \end{aligned}
+%\end{equation}
+%
+%\begin{equation}
+%    \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:w:2:2}}} =
+%    \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:a:2:1}}}
+%    \frac{\partial{\gls{dl:a:2:1}}}{\partial{\gls{dl:w:2:2}}}
+%\end{equation}
+%
+%\begin{equation}
+%    \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:b:2}}} =
+%    \frac{\partial{\gls{ml:J}}}{\partial{\gls{dl:a:2:1}}}
+%    \frac{\partial{\gls{dl:a:2:1}}}{\partial{\gls{dl:w:2:2}}}
+%\end{equation}
 
 \subsection{Activation function}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Since the early days of the perceptron, a wide variety of activation functions
-$\phi$ have been used and improve upon the threshold step function.
+A wide variety of activation functions $\phi$ have been used and improve upon
+the threshold step function. The primary concept used in motivating different
+activation functions is the problem of \textbf{vanishing gradient} when using
+deep neural networks. Vanishing gradient is a phenomena that occurs in deep
+neural networks when calculating the partial derivative of the cost function
+with respect to the weights being updated. \autoref{eq:bp-deriv} shows that when
+the gradient of a unit in a layer (e.g. $g'^{\;[2]}$), becomes small
+(learning is nearly complete), the backpropagated gradients to earlier weights
+(e.g. $\gls{dl:w:2:22}$) become increasingly small. This phenomena is worsened
+by activation functions whose gradients are zero in regions of their input
+domain, effectively halting learning.
+
+The Sigmoid function (a.k.a. the logistic function) was introduced to replace
+the step function in the initial design of the perceptron
+(\autoref{ssec:perceptrons}), which has no gradients to be exploited by gradient
+descent methods. The sigmoid exhibits problems with vanishing gradients due to
+the saturation that occurs at 0 and 1 in the output, where gradients are
+extremely close to zero. In addition to vanishing gradients, the derivative is
+computationally expensive when networks become large. A similar activation
+function to the Sigmoid, is the hyperbolic tangent (TanH) function, seen in
+\autoref{}. Tanh suffers from the same problems as the Sigmoid. The main
+difference between the two is that the output of TanH is zero centered in the
+range of -1 to 1, which has been known to improve convergence in learning
+\autoref{}. The problems faced by the Sigmoid and TanH functions motivated a
+simpler activation: the ReLU (\autoref{}), which has become the most commonly
+used in the field of \gls{DL}.
+
+The sigmoid function (seen in \autoref{}) has been one of the most widely
+used activation functions in machine learning
 
 %\begin{figure}[htbp]
 %    \centering
@@ -58,74 +474,308 @@ $\phi$ have been used and improve upon the threshold step function.
 %    \label{fig:activation}
 %\end{figure}
 \input{graphics/tikz/activation}
+%
+\newpage
 
-\subsection{Multi-layer perceptrons}
+\subsection{Optimization of Neural Networks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Gls{MLPs}, otherwise known as \textbf{artificial neural networks} or
-\textbf{feedforward neural networks}, are the fundamental models of \gls{DL}.
-They adapt and
 
-\textbf{Deep feedforward networks}
-\\
-$f(\gls{x_in}; \gls{theta})$; $\gls{x_in}\in\mathbb{R}^{\gls{n_x}}$
 
-\begin{figure}
-    \centering
-    \input{graphics/tikz/mlp}
-    \caption{Multilayer perceptron}
-    \label{fig:mlp}
+It was seen in \autoref{eq:} that the partial differential of \gls{ml:J} can be
+expressed with respect to the model parameters of a \gls{MLP}. These first
+order expressions can therefore be used in gradient optimization of the network.
+This is referred to as \textbf{gradient descent}, of which there are three
+variants which differ in their use of the training dataset.
+
+\begin{itemize}
+    \item \textbf{\Gls{GD}}, a.k.a. batch gradient descent or vanilla gradient
+    descent computes the gradient of the cost function over the entire training
+    dataset and performs a single update:
+    \begin{equation}
+        \gls{dl:theta}_{t+1} = \gls{dl:theta}_t - \gls{dl:lr} \nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_t)
+        \label{eq:dl:opt:gd}
+    \end{equation}
+    This method of gradient descent can be slow and intractable for datasets
+    that do not fit in memory. This method of optimization is also incompatible
+    with \textit{online} learning. \cite{ruder2017overview}
+
+    \item \textbf{\Gls{SGD}} computes the gradient of the cost function for
+    \textit{each} example in the dataset and performs an update for each
+    input-output pair in the dataset:
+    \begin{equation}
+        \gls{dl:theta}_{t+1} = \gls{dl:theta}_t - \gls{dl:lr} \nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_t;\gls{ml:x:i},\gls{ml:y_true:i})
+        \label{eq:dl:opt:sgd}
+    \end{equation}
+    Batch gradient descent often results in redundant gradient calculations for
+    large datasets when encountering similar examples. \Gls{SGD} overcomes this
+    redundancy however exhibits updates with high variance which can cause high
+    fluctuations in the cost function. These high fluctuations result in
+    overshooting of the minima being converged towards, and therefore often
+    requires a lower learning rate than \Gls{GD}. \cite{ruder2017overview}
+
+    \item \textbf{\Gls{MB-SGD}} has the advantages of both \gls{SGD} and \gls{GD},
+    computing the gradient of the cost function for every mini-batch of \gls{ml:m}
+    training examples:
+    \begin{equation}
+        \gls{dl:theta}_{t+1} = \gls{dl:theta}_t - \gls{dl:lr} \nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_t;\gls{ml:x:i:i+m},\gls{ml:y_true:i:i+m})
+        \label{eq:dl:opt:mb_sgd}
+    \end{equation}
+    Memory constraints are no longer encountered (as in \Gls{GD}), and high
+    variance in updates are avoided (as in \Gls{SGD}). Mini-batch gradient
+    descent methods are the typical choice when training a neural architecture
+    \cite{ruder2017overview}. \textbf{Note} that the term \Gls{SGD} is very
+    often used in literature to refer to \Gls{MB-SGD}.
+
+\end{itemize}
+
+Some challenges exist for vanilla gradient descent methods, most of which
+concern the topology of the cost function. Constant learning rates can lead to
+slow convergence, especially when a saddle point in encountered in the cost
+function in non-convex problems, which are notoriously difficult to escape. This
+motivates the need to schedule, adapt or augment the learning rate throughout
+the learning process. This issues are addressed by the specific variants of the
+optimization algorithms used. For the next section, the parameters in the
+notation $\nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_k; \ldots)$ are
+dropped, as it is implicitly defined by the choice of batch size in \Gls{MB-SGD}
+(as mentioned, a.k.a. \gls{SGD}).
+
+\begin{figure}[htp]
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \input{graphics/tikz/vanilla_gd_low_eta}
+        \subcaption{Slow learning rate (Low $\gls{dl:lr}$)}
+        \label{fig:gd-low-eta}
+    \end{subfigure}\hfil
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \input{graphics/tikz/vanilla_gd_med_eta}
+        \subcaption{Medium learning rate (Medium $\gls{dl:lr}$)}
+        \label{fig:gd-medium-eta}
+    \end{subfigure}\hfil
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        An illustration of \gls{SGD} at varied levels of learning rate
+        (\gls{dl:lr}), in the convergence of the cost function optimization
+        (\gls{ml:J}) with a ravine-like topology. \gls{SGD} notoriously has
+        trouble navigating ravines, seen by its oscillation across the slops of
+        the ravine, with hesitant progress towards the minima. a) shows a very
+        slow convergence with a constant low setting of $\gls{dl:lr}$. b) shows
+        an overshooting of the ravine's trough with a constant medium setting of
+        \gls{dl:lr}. There exists a third case where \gls{dl:lr} is set to an
+        excessive value, causing the first update to exit the ravine-like
+        topology entirely.
+    }
+    \label{fig:vanilla-gd-learning}
 \end{figure}
 
+\subsubsection{Gradient descent optimization algorithms}
+%\hline
 
-\begin{figure}
-    \centering
-    \input{graphics/tikz/mlp-vec}
-    \caption{Multilayer perceptron}
-    \label{fig:mlp-vec}
-\end{figure}
+\textbf{Momentum}~\cite{QIAN1999145} was introduced to deal with the problem
+that \gls{SGD} exhibits in ravine-like topology
+(\autoref{fig:vanilla-gd-learning}), accelerating the descent along the relevant
+direction, while dampening it in the other direction~\cite{ruder2017overview}.
+This technique is often compared to that of a ball rolling down a ravine, with
+momentum building up in the relevant direction.
+This is achieved through adding a fraction ($\gamma$) of the previous update to
+the current update:
+\begin{equation}
+    \begin{aligned}
+        \bm{v}_t                  &= \gamma{}\bm{v}_{t-1} + \gls{dl:lr} \nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_t) \\
+        \gls{dl:theta}_{t+1} &= \gls{dl:theta}_t - \bm{v}_t
+        \label{eq:dl:opt:sgd_momentum}
+    \end{aligned}
+\end{equation}
 
+\textbf{\Gls{NAG}}~\cite{Nesterov1983AMF} addresses a shortcoming of momentum.
+This technique adds a mechanism which can be compared to a \textit{smarter} ball
+rolling down the hill, which slows down before the hill slopes up again after
+the lowest point. This is achieved through the use of the momentum term $\gamma
+\bm{v}_{t-1}$, although the gradient of cost function is evaluated at
+$\gls{dl:theta}_t-\gamma \bm{v}_{t-1}$, a rough guess where the parameters are going
+to be, rather than $\gls{dl:theta}_t$:
+\begin{equation}
+    \begin{aligned}
+        \bm{v}_t &= \gamma \bm{v}_{t-1} + \gls{dl:lr} \nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_k - \gamma \bm{v}_{t-1}) \\
+        \gls{dl:theta}_{t+1} &= \gls{dl:theta}_t - \bm{v}_t
+    \end{aligned}
+\end{equation}
 
+\textbf{Adagrad} \cite{JMLR:v12:duchi11a} adapts the learning rate
+according to the historical updates of the parameters. Larger updates are
+carried out for infrequently updated parameters, and smaller for those more
+frequently updated. This property makes this algorithm perform well for sparsely
+distributed data. The following is often set for simplicity in literature:
+\begin{equation}
+    g_{t,i} & = \nabla_{\gls{dl:theta}_i} \gls{dl:J}(\gls{dl:theta}_k)
+\end{equation}
+Adagrad modifies the learning rate $\eta$ at each time step $t$ using the
+past computed gradients for each parameter $\theta_i$ as:
+\begin{equation}
+    \gls{dl:theta}_{t+1,i} &= \gls{dl:theta}_{t,i} -\frac{\gls{dl:lr}}{\sqrt{G_{t,ii}+\epsilon}}\cdot{g_{t,i}}
+\end{equation}
+Where $G_t$ is a diagonal matrix where each element $i,i$ corresponds to the sum
+of the squares of all historical gradients of $g_i$, expressed by:
+\begin{equation}
+    G_t & = \sum_{t=1}^T \bm{g}_{\tau}^2
+\end{equation}
+A smoothing factor $\epsilon$ is used to avoid division by zero, typically set
+as $1e-8$. The primary benefit of Adagrad is the elimination of the need to
+manually tune $\gls{dl:lr}$, its is typically set and left at
+$0.01$~\cite{ruder2017overview}. The primary weakness of Adagrad is that the
+accumulated sum of squares of the gradient continuously grows during training,
+causing the learning rate to asymptotically approach zero.
+
+\textbf{Adadelta}~\cite{zeiler2012adadelta} is an extension of Adagrad
+which aims to reduce its aggressive, monotomically decreasing learning rate.
+Adadelta achieves this by storing a running average of the squared gradient
+updates within a window, defined by a fraction $\gamma$ (similar to that seen in
+momentum):
+\begin{equation}
+    \gls{E} [g^2]_t = \gamma{}\gls{E} [g^2]_{t-1} + (1-\gamma) g_t^2
+\end{equation}
+The fraction $\gamma$ is typically set at $0.9$ giving an effective window width
+of 10 for the running average. The original authors introduce a second exponentially
+decaying average, the running average of the squared gradient updates:
+\begin{equation}
+    \gls{E} [\Delta{\theta}^2]_t = \gamma{}\gls{E} [\Delta{\theta}^2]_{t-1} +
+    (1-\gamma)\Delta{\theta}^2_{t}
+\end{equation}b
+From these expectations, the author approximates the RMS of the gradients and
+parameter updates as:
+\begin{equation}
+    \begin{aligned}
+        \text{RMS}[g]              & = \sqrt{\gls{E} [g^2] + \epsilon} \\
+        \text{RMS}[\Delta{\theta}] & = \sqrt{\gls{E} [\Delta{\theta}^2] + \epsilon} \\
+    \end{aligned}
+\end{equation}
+From which the final expression for the parameter updates are expressed:
+\begin{equation}
+    \begin{aligned}
+        \Delta{\gls{dl:theta}_t} &= - \frac{\text{RMS}[\Delta{\gls{dl:theta}}]_{t-1}}{\text{RMS}[\bm{g}]_t}\cdot{}\bm{g}_t \\
+        \gls{dl:theta}_{t+1} &= \gls{dl:theta}_t + \Delta{\gls{dl:theta}_t}
+    \end{aligned}
+\end{equation}
+The motivation and derivation of the implementation are omitted here but can be
+found in literature \cite{zeiler2012adadelta,ruder2017overview}. The key
+takeaway is that there is no need to set the learning rate $\gls{dl:lr}$ to a
+fixed value. \textcolor{red}{(Include personal experience on initial expectation
+of parameter update?)}.
+
+\textbf{RMSProp}~\cite{JMLR:v12:duchi11a}
 
 \begin{equation}
-    \mathbf{a}^{[1]} = g^{[1]} \bigg(\gls{dl:W:1}^T\gls{x_in} + \mathbf{b}^{[1]}\bigg);
+    \begin{aligned}
+        \gls{E} [\Delta{\theta}^2] &= \gamma{}\gls{E} [\Delta{\theta}^2]_{t-1} + (1-\gamma)\Delta{\theta}^2_{t} \\
+        \gls{dl:theta}_{t+1}       &= \gls{dl:theta}_t + \frac{\gls{dl:lr}}{\sqrt{\gls{E} [\Delta{\theta}^2]_t+\epsilon}}\bm{g}_t
+    \end{aligned}
+\end{equation}
+
+\textbf{Adam}~\cite{JMLR:v12:duchi11a}
+
+\begin{equation}
+    \begin{aligned}
+        m_t &= \beta_1 m_{t-1} + (1-\beta_1)\bm{g}_t \\
+        v_t &= \beta_2 v_{t-1} + (1-\beta_2)\bm{g}_t^2 \\
+    \end{aligned}
 \end{equation}
 
 \begin{equation}
-    \mathbf{a}^{[2]} = g^{[2]} \bigg(\gls{dl:W:2}^T\mathbf{h}^{[2]} + \mathbf{b}^{[2]}\bigg);
+    \begin{aligned}
+        \hat{m}_t &= \frac{m_t}{1-\beta_1^t} \\
+        \hat{v}_t &= \frac{v_t}{1-\beta_2^t} \\
+    \end{aligned}
 \end{equation}
 
-\gls{dl:W:l}
-
-\subsection{Gradient based learning}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Backpropagation, short for "backward propagation of errors," is a
-\textit{supervised learning} algorithm for artificial neural networks using
-\textit{gradient descent}.
+\begin{equation}
+    \begin{aligned}
+        \Delta{\gls{dl:theta}_t} &= - \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} \bm{g}_t \\
+        \gls{dl:theta}_{t+1}       &= \gls{dl:theta}_t + \Delta{\gls{dl:theta}_t}
+    \end{aligned}
+\end{equation}
 
 \begin{figure}[htp]
     \centering
-    \input{graphics/tikz/gradient-descent}
-    \caption{Gradient based learning}
-    \label{fig:gradient-descent}
+    \input{graphics/tikz/adam}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        Vanilla gradient descent methods with an illustration of the effect of
+        varied levels of learning rate (\gls{dl:lr}), in the convergence of the
+        cost function optimization (\gls{ml:J}) with a ravine-like topology. a)
+        shows a very slow convergence with a constant low setting of
+        $\gls{dl:lr}$. b) shows an overshooting of the minimum with a constant
+        medium setting of \gls{dl:lr}. There exists a third case where
+        \gls{dl:lr} is set to an excessive value, causing the first update to
+        exit the ravine-like topology entirely.
+    }
+    \label{fig:vanilla-gd-learning}
 \end{figure}
+It should be noted that in addition to these, there are the popular
+\textbf{AdaMax} and \textbf{Nadam} \cite{ruder2017overview} methods. The AdaMax
+algorithm is a generalization of the Adam algorithm, which uses $\ell_2$ norms,
+allowing formulation with any $\ell_p$ norm. The Nadam algorithm incorporates a
+combination of the elements used in the \gls{NAG} and Adam algorithms. These
+algorithms are not included here as their use is sparse throughout literature,
+rather the RMSProp and Adam algorithms are most commonly used.
+\textcolor{red}{More motivation here}
 
 
-\begin{figure}[htp]
-    \centering
-    \input{graphics/tikz/gradient-descent-3d}
-    \caption{Gradient based learning}
-    \label{fig:gradient-descent}
-\end{figure}
-
-\subsection{Universal Approximation Properties and Depth}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A linear model by definition, may only optimised to represent linear functions.
-It has advantages in its simplicity to optimise however we often require our
-estimator models to learn nonlinear functions.
-
-%\subsection{Backpropagation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\item \textbf{\Gls{Learning to Optimize}}: \cite{ruder2017overview,Li2017}
+
+%
+%\subsection{Gradient based learning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+%
+%\begin{equation}
+%    \pardiff{\gls{ml:J}}{\gls{dl:w:l:jk}}
+%    =
+%    \pardiff{\gls{ml:J}}{\gls{dl:z:l:j}}
+%    \pardiff{\gls{dl:z:l:j}}{\gls{dl:w:l:jk}}
+%\end{equation}
+%
+%\begin{equation}
+%    \gls{dl:z:l:j} = \sum_{k=1}^{\gls{dl:n:h:l}}\gls{dl:w:l:jk}\gls{dl:a:lm1:k}+\gls{dl:b:l:j}
+%\end{equation}
+%
+%%\begin{equation}
+%%    \frac{\partial{u^{(n)}}}{\partial{u^{(j)}}} = \sum_{\text{path($u^{(\pi_1)}, u^{(\pi_2)}, \ldots, u^{(\pi_t)}$), \\ from $\pi_1=j$ to $\pi_t=n$}}
+%%\end{equation}
+%
+%Backpropagation, short for "backward propagation of errors," is a
+%\textit{supervised learning} algorithm for artificial neural networks using
+%\textit{gradient descent}.
+%
+%\begin{figure}[htp]
+%    \centering
+%    \input{graphics/tikz/gradient-descent}
+%    \caption{Gradient based learning}
+%    \label{fig:gradient-descent}
+%\end{figure}
+%
+%
+%\begin{figure}[htp]
+%    \centering
+%    \input{graphics/tikz/gradient-descent-3d}
+%    \caption{Gradient based learning}
+%    \label{fig:gradient-descent}
+%\end{figure}
+%
+%\subsection{Universal Approximation Properties and Depth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%A linear model by definition, may only optimised to represent linear functions.
+%It has advantages in its simplicity to optimise however we often require our
+%estimator models to learn nonlinear functions.
+%
+%%\subsection{Backpropagation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%

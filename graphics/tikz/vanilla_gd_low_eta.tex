@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \begin{axis}
+        [samples=20,
+        ylabel=$\theta_2$,
+        xlabel=$\theta_1$,
+        zlabel=$\gls{ml:J}(\gls{dl:theta})$,
+        ticks=none,
+        xticklabels={\empty},
+        yticklabels={\empty},
+        ]
+        \addplot3[
+        surf,
+        domain y=0:15,
+        domain=-3.141:3.141,
+        ] {-125*(cos(deg(x)))+y^2};
+        \addplot3[color=black,mark=o] table[col sep=comma] {code/output/vanilla_lr0.015.csv};
+    \end{axis}
+\end{tikzpicture}

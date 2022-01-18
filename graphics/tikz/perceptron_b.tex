@@ -67,6 +67,8 @@
 \def\h{\gls{a_vec}}   % hidden output
 \def\nx{\gls{ml:n_x}}   % hidden output
 \def\ny{\gls{ml:n_y}}   % hidden output
+\def\a{\gls{dl:a}}   % hidden output
+\def\z{\gls{dl:z}}   % hidden output
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TIKZ PICTURE
@@ -78,8 +80,9 @@
     \node[below of=activation,font=\scriptsize,text width=3em] {\activationlabel};
     \node[below of=transfer,font=\scriptsize,text width=3em] {\transferlabel};
     \node[output, right=\layersep of activation] (output) {\outputsymbol};
-    \path[draw,->] (transfer) -- (activation);
-    \path[draw,->] (activation) -- (output);
+    \path[draw,->] (transfer) -- node[above] {\z} (activation);
+    \path[draw,->] (activation) -- node[above] {\a} (output);
+%    \path[draw,->] (activation)(output);
 
     % Iterate through each row of units.
     \foreach \n [evaluate=\n as \p using {int(\n-1)}] in {0,1,2,3,4} {

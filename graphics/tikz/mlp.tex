@@ -49,6 +49,16 @@
 \def\hiddenx{7em}
 \def\hiddenxn{12em}
 
+
+\def\sep{4em}
+\def\L{\gls{L}}       % number of hidden layers
+\def\y{\gls{y_true}}  % output vector
+\def\x{\gls{ml:x}}    % input vector
+\def\h{\gls{a_vec}}   % hidden output
+\def\nx{\gls{ml:n_x}}   % hidden output
+\def\ny{\gls{ml:n_y}}   % hidden output
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TIKZ PICTURE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,13 +80,13 @@
         \ifnum \n=4
             % n layer
             \node[input] at (0, -\n) (X_\n) {};
-            \node[left of=X_\n] (I_\n) {$x_{\gls{n_x}}$};
+            \node[left of=X_\n] (I_\n) {$x_{\nx}$};
             \path[draw,->] (I_\n) -- (X_\n);
             \node[hidden] at (\hiddenx, -\n) (H1_\n) {}; %{$h_{n, 1}$};
             \node[right of= H1_\n] (M-\n) {$\ldots$};
             \node[hidden, right of= M-\n] (H2_\n) {}; % {$h_{n, m}$};
             \node[output, right= 5em of H2_\n] (Y_\n) {}; % {$h_{n, m}$};
-            \node[right of=Y_\n] (O_\n) {$y_{\gls{n_y}}$};
+            \node[right of=Y_\n] (O_\n) {$y_{\ny}$};
             \path[draw,->] (Y_\n) -- (O_\n);
         \else
             \node[input] at (0, -{\n}) (X_\n) {};

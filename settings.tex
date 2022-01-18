@@ -88,6 +88,17 @@
 %\makeatother
 \usepackage{ifthen}    % condition glossary variables
 \usepackage{xparse}    % "
+
+% make glossary entry red if not found
+\let\originalgls\gls
+\renewcommand{\gls}[1]{\ifglsentryexists{#1}{\originalgls{#1}}{\textcolor{red}{\underline{#1}}}}
+
+% Tables
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+% \begin{tabular}{lcccC{2.0cm}C{2.0cm}C{2.0cm}C{2.0cm}}
+
 %---------------------------
 % Math
 %---------------------------

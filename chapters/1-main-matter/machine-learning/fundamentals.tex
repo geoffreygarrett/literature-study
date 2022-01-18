@@ -194,7 +194,7 @@ function in literature) is then a function of \gls{y_true_i} and
     beneficial mathematical property of \gls{MSE} is that gradients can be
     easily calculated.
     \begin{equation}
-        \gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||^2_2
+        \gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\gls{y_true_i}||^2_2
         \label{eq:MSE}
     \end{equation}
     \begin{equation*}
@@ -210,7 +210,7 @@ function in literature) is then a function of \gls{y_true_i} and
     predictions and the ground truth. It is the same as \gls{MSE} but without
     the squaring. Like \gls{MSE}, the gradient can be easily calculated.
     \begin{equation}
-        \gls{J}_\text{L2E} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_2
+        \gls{J}_\text{L2E} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\gls{y_true_i}||_2
     \end{equation}
     \item \textbf{\Gls{MAE}} or \textbf{L1 loss} is the average of the sum of
     absolute differences between predictions and the ground truth. This measure
@@ -220,7 +220,7 @@ function in literature) is then a function of \gls{y_true_i} and
     resilient to large error values as a result of outliers, as it does not make
     use of a square.
     \begin{equation}
-        \gls{J}_\text{MAE} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}||\gls{y_pred_i}-\gls{y_true_i}||_1
+        \gls{J}_\text{MAE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\gls{y_true_i}||_1
         \label{eq:MAE}
     \end{equation}
     \item \textbf{\Gls{MBE}} is the sum of all differences between predictions
@@ -228,7 +228,7 @@ function in literature) is then a function of \gls{y_true_i} and
     error as high individual errors can produce a low \gls{MBE}. This metric is
     primarily used to measure the average bias of a prediction.
     \begin{equation}
-        \gls{J}_\text{MBE} = \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}(\gls{y_pred_ij}-\gls{y_true_ij})
+        \gls{J}_\text{MBE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}(\gls{y_pred_ij}-\gls{y_true_ij})
     \end{equation}
     \begin{equation*}
         \begin{aligned}
@@ -246,8 +246,8 @@ function in literature) is then a function of \gls{y_true_i} and
     similar loss value magnitudes.
     \begin{equation}
         \begin{aligned}
-            \gls{J}_\text{MSLE} &= \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}(\log{(\gls{y_true_ij}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
-            &= \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}2\log(\frac{\gls{y_true_ij}+1}{\gls{y_pred_ij}+1})
+            \gls{J}_\text{MSLE} &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}(\log{(\gls{y_true_ij}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
+            &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}2\log(\frac{\gls{y_true_ij}+1}{\gls{y_pred_ij}+1})
         \end{aligned}
     \end{equation}
     \item \textbf{\Gls{CP}} or \textbf{\gls{CS}} is a measure of similarity
@@ -260,30 +260,31 @@ function in literature) is then a function of \gls{y_true_i} and
     bounding the error in the interval $[0,2]$.
     \begin{equation}
         \gls{J}_\text{\gls{CD}} =
-        \frac{1}{\gls{m}}\sum_{i=1}^{\gls{m}}\bigg(1-\frac{\gls{y_true_i}\cdot{}\gls{y_pred_i}}{||\gls{y_true_i}||_2\cdot{}||\gls{y_pred_i}||_2}\bigg)
+        \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\bigg(1-\frac{\gls{y_true_i}\cdot{}\gls{y_pred_i}}{||\gls{y_true_i}||_2\cdot{}||\gls{y_pred_i}||_2}\bigg)
     \end{equation}
 \end{itemize}
 
 \textbf{Binary classification loss functions}\\
 Binary classification differs from multi-class in that the output is a single
-value (\gls{n_y}$=1$). For multi-class, the dimension of the output is equal to
+value (\gls{ml:n_y}$=1$). For multi-class, the dimension of the output is equal to
 the number of classes.
 
 \begin{itemize}
-    \item \textbf{\Gls{BCE}} is a measure which weighs the true output of each
-    class with the log probability of the predicted output. In the case
-    where $\gls{y_true_i1}=1$ and $\gls{y_pred_i1}=0$, the log probability of
-    the predicted output is undefined. For this reason, practitioners often add
-    some small constant on the probability of \gls{y_pred_i1}, e.g. $10^{-5}$,
-    resulting in \gls{J}$\approx{}5$.
+    \item \textbf{\Gls{BCE}}, also known as \textbf{maximum likelihood}, is a
+    measure defined simply by the negative log-likelihood between the training
+    data and model distribution. In the case where $\gls{y_true_i1}=1$ and
+    $\gls{y_pred_i1}=0$, the log probability of the predicted output is
+    undefined. For this reason, practitioners often add some small constant on
+    the probability of \gls{y_pred_i1}, e.g. $10^{-5}$, resulting in
+    \gls{J}$\approx{}5$.
     \begin{equation}
-        \gls{J}_\text{\gls{BCE}}=-\sum_{i=1}^{\gls{m}}\bigg(\gls{y_true_i1}\log(\gls{y_pred_i1})+(1-\gls{y_true_i1})\log(1-\gls{y_pred_i1})\bigg)\label{eq:equation}
+        \gls{J}_\text{\gls{BCE}}=-\sum_{i=1}^{\gls{ml:m}}\bigg(\gls{y_true_i1}\log(\gls{y_pred_i1})+(1-\gls{y_true_i1})\log(1-\gls{y_pred_i1})\bigg)\label{eq:equation}
     \end{equation}
     \item \textbf{\Gls{HL}} is measure which is often used for training binary
     \gls{SVM} classifiers. The loss function assumes that \gls{y_true_ij} and
     \gls{y_pred_ij} are in the bounds $[-1,1]$ for the classification task.
     \begin{equation}
-        \gls{J}_\text{\gls{HL}}=\sum_{i=1}^{\gls{m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})
+        \gls{J}_\text{\gls{HL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})
     \end{equation}
     \item \textbf{\Gls{SHL}} addresses the constant gradient present in
     \gls{HL}, smoothing the loss function across the domain of the loss function
@@ -291,7 +292,7 @@ the number of classes.
     learning properties, as predictions that are more incorrect than others have
     a heavier associated gradient.
     \begin{equation}
-        \gls{J}_\text{\gls{SHL}}=\sum_{i=1}^{\gls{m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})^2
+        \gls{J}_\text{\gls{SHL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})^2
     \end{equation}
 \end{itemize}
 
@@ -299,20 +300,20 @@ the number of classes.
 Multi-class classification is formulated such that each possible class ($n_c$)
 is defined by an element of the output vector. The loss functions here are
 similar to the binary classification loss functions, but adapted for
-$\gls{n_y}=n_c$.
+$\gls{ml:n_y}=n_c$.
 
 \begin{itemize}
     \item \textbf{\Gls{MCE}}:
     \begin{equation}
-        \gls{J}_\text{\gls{MCE}}=-\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}\gls{y_true_ij}\log(\gls{y_pred_ij})
+        \gls{J}_\text{\gls{MCE}}=-\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}\gls{y_true_ij}\log(\gls{y_pred_ij})
     \end{equation}
     \item \textbf{\Gls{MHL}}:
     \begin{equation}
-        \gls{J}_\text{\gls{MHL}}=\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})
+        \gls{J}_\text{\gls{MHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})
     \end{equation}
     \item \textbf{\Gls{MSHL}}:
     \begin{equation}
-        \gls{J}_\text{\gls{MSHL}}=\sum_{i=1}^{\gls{m}}\sum_{j=1}^{\gls{n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})^2
+        \gls{J}_\text{\gls{MSHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})^2
     \end{equation}
 \end{itemize}
 
@@ -371,7 +372,7 @@ which it is generally expected to learn some pattern of interest.
     category is discussed further in \autoref{ssec:RL}.
 \end{itemize}
 
-\subsection{Capacity, Overfitting and Underfitting}
+\subsection{Capacity, Overfitting and Underfitting\label{sec:capoverunder}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The primary objective in \gls{ML} is to find a model which performs well on
 previously \textit{unseen data}, which has not been used during the training or
@@ -521,22 +522,22 @@ excessively complex model, to avoid overfitting. Norm penalty methods can be
 generalized as:
 
 \begin{equation}
-    \gls{J_reg}(\gls{m_theta}; \gls{X}, \gls{Y})
+    \gls{J_reg}(\gls{ml:theta}; \gls{X}, \gls{Y})
     =
-    \gls{J}(\gls{m_theta}; \gls{X}, \gls{Y})_\text{train}
+    \gls{J}(\gls{ml:theta}; \gls{X}, \gls{Y})_\text{train}
     +
-    \gls{w_reg}\gls{o_reg}({\gls{m_theta}}),
+    \gls{ml:w_reg}\gls{o_reg}({\gls{ml:theta}}),
     \label{eq:norm_penalty_reg}
 \end{equation}
 \begin{equation*}
     \begin{aligned}
         \textrm{where, }
         \eqdesc{J_reg}\text{,} \\
-        \eqdesc{m_theta}\text{,} \\
+        \eqdesc{ml:theta}\text{,} \\
         \eqdesc{X}\text{,} \\
         \eqdesc{Y}\text{,} \\
         \eqdesc{J}\text{,} \\
-        \eqdesc{w_reg}\text{,} \\
+        \eqdesc{ml:w_reg}\text{,} \\
         \eqdesc{o_reg}\text{.} \\
     \end{aligned}
 \end{equation*}
@@ -552,7 +553,7 @@ cost function is given by,
     =
     \nabla_{\gls{w_vec}}\gls{J}(\gls{w_vec};\gls{X},\gls{Y})
     +
-    \gls{w_reg}\nabla_{\gls{w_vec}}\gls{o_reg}(\gls{m_theta})\text{.}
+    \gls{ml:w_reg}\nabla_{\gls{w_vec}}\gls{o_reg}(\gls{ml:theta})\text{.}
     \label{eq:norm_penalty_reg_graident}
 \end{equation}
 
@@ -562,7 +563,7 @@ regression}, \textbf{weight decay} or \textbf{Tikhonov regularization}
 which drives the weights of a model towards the origin in the weight space and
 contributes to \autoref{eq:norm_penalty_reg} as,
 \begin{equation}
-    \gls{o_reg}(\gls{m_theta})=\frac{1}{2}||\gls{w_vec}||^2_2.
+    \gls{o_reg}(\gls{ml:theta})=\frac{1}{2}||\gls{w_vec}||^2_2.
     \label{eq:l2_reg}
 \end{equation}
 
@@ -575,19 +576,20 @@ $\bm{\text{L}^1}$ \textbf{regularization}, also known as \textbf{\gls{LASSO}
 regression} is a parameter norm regularization method which penalizes the
 largest weight magnitudes in the weight vector. It is defined by,
 \begin{equation}
-    \gls{o_reg}(\gls{m_theta})=||\gls{w_vec}||_1.
+    \gls{o_reg}(\gls{ml:theta})=||\gls{w_vec}||_1.
     \label{eq:l1_reg}
 \end{equation}
 
 The key difference between $L^1$ and $L^2$ regularization is that $L^1$
 regularization tends to better constrain values of $\gls{w_vec}$ to zero,
 effectively performing feature selection on the inputs through their weights. It
-can be less intuitive to interpret the $L^1$ regularization as a feature
+can be less intuitive to interpret the $L^2$ regularization as a feature
 selection method, as it can be unclear whether the weights are truly being
 constrained to zero or their importance for generalization is just less than
 other elements in \gls{w_vec}. This is seen in
 \autoref{fig:l1-l2-regularization}, where the $L^1$ regularization has reduced
-$w_1$ to zero, with a negligible impact on the performance.
+$w_1$ to zero, with a negligible impact on the performance, whereas the $L^2$
+variant has not.
 
 \begin{figure}[!htp]
     \centering
@@ -613,8 +615,9 @@ $w_1$ to zero, with a negligible impact on the performance.
         competing objectives reach an equilibrium, determined by the
         minimization of \autoref{eq:norm_penalty_reg}, with each norm's
         regularizer substituted, \autoref{eq:l1_reg} and  \autoref{eq:l2_reg}
-        respectively. Illustration adapted from Goodfellow et al.~\cite[p.~116]{Goodfellow-et-al-2016}
-        and Hastie et al.~\cite[p.~71]{hastie2009elements}
+        respectively. Illustration adapted from Goodfellow et
+        al.~\cite[p.~116]{Goodfellow-et-al-2016} and Hastie et
+        al.~\cite[p.~71]{hastie2009elements}
     }
     \label{fig:l1-l2-regularization}
 \end{figure}
@@ -623,7 +626,7 @@ $w_1$ to zero, with a negligible impact on the performance.
 regularization was introduced by Zou and Hastie \cite{ZouHastie2005} and is
 expressed by:
 \begin{equation}
-    \gls{o_reg}(\gls{m_theta})=\frac{1-\gls{b_ela}}{2}||\gls{w_vec}||^2_2 + \gls{b_ela}||\gls{w_vec}||_1\text{,}
+    \gls{o_reg}(\gls{ml:theta})=\frac{1-\gls{b_ela}}{2}||\gls{w_vec}||^2_2 + \gls{b_ela}||\gls{w_vec}||_1\text{,}
 \end{equation}
 \begin{equation*}
     \begin{aligned}
@@ -637,7 +640,7 @@ $p\notin\{1,2\}$ for \autoref{eq:ell-p}. Hastie et al. state however, that
 experience suggests that it is not worth the extra variance incurred to estimate
 what vector norm $L^p$ should be used based on the
 data~\cite[p.~73]{hastie2009elements}.
-%Given some function $f(\gls{x_in};\gls{m_theta})$ being learnt
+%Given some function $f(\gls{x_in};\gls{ml:theta})$ being learnt
 %by being modelled by a learning algorithm,
 
 \subsection{Hyperparameters and Validation Sets}
@@ -646,7 +649,7 @@ Most machine learning algorithms have parameters referred to as hyperparameters.
 These define some algorithm's settings which are not adapted by the algorithm
 itself during learning. This however does not mean that the algorithm cannot
 exist in a subroutine during which the hyperparameters are optimised. An example
-of a hyperaparameter is the value of \gls{w_reg} chosen in
+of a hyperaparameter is the value of \gls{ml:w_reg} chosen in
 \autoref{eq:norm_penalty_reg}. This parameter is kept constant throughout the
 learning algorithm and heavily influences the resultant model. Optimizing
 hyperparameters on the training set that control capacity is generally not
@@ -663,15 +666,15 @@ hyperparameters of the model.
     \captionsetup{format=hang} % hanging captions
     \caption{
         Regression modelling, as performed in \autoref{fig:capacity-plots}. The
-        effect of varying the regularization coefficient \gls{w_reg} in
+        effect of varying the regularization coefficient \gls{ml:w_reg} in
         \autoref{eq:norm_penalty_reg} is shown in the left panel. The effect of
-        varying the regularization coefficient \gls{w_reg} in
+        varying the regularization coefficient \gls{ml:w_reg} in
         \autoref{eq:l1_reg} is shown in the right panel. The effect of varying
-        the regularization coefficient \gls{w_reg} in \autoref{eq:l2_reg} is
+        the regularization coefficient \gls{ml:w_reg} in \autoref{eq:l2_reg} is
         depicted in relation to its effect on the capacity of the model. (a)
-        shows that \gls{w_ref} has been chosen excessively, causing the
+        shows that \gls{ml:w_reg} has been chosen excessively, causing the
         hypothesis space available to the learner to be insufficient. (b) shows
-        that \gls{w_ref} has been chosen appropriately, resulting in a model
+        that \gls{ml:w_reg} has been chosen appropriately, resulting in a model
         that generalizes well, and captures the true distribution being learnt.
         (c) shows that no regularization has occurred, resulting in a model that
         overfits the noisy data.
@@ -682,7 +685,7 @@ hyperparameters of the model.
 The importance of optimizing the hyperparameters of a learning algorithm,
 especially relating to capacity, is illustrated in
 \autoref{fig:reg-capacity-plots} using the example of regularization weight
-$\gls{w_reg}$.
+$\gls{ml:w_reg}$.
 
 \subsubsection{The bias-variance tradeoff}
 Bias and variance measure two different sources in an estimator (model).
@@ -711,14 +714,14 @@ capacity, underfitting and overfitting as evident in
     \input{graphics/tikz/bias-variance-tradeoff.tex}
     \captionsetup{format=hang} % hanging captions
     \caption{
-        The error source of a model evaluated using \gls{MSE}. As the capacity of
-        a model increases, the error source of the model transitions from bias
-        dominated to variance dominated. The sum of both error sources yields
-        the generalization error which is U-shaped. The optimal capacity of the
-        model is exactly at this transition, where the bias error intersects the
-        variance error. To the right of the transition, the model is overfitting
-        and to the left, underfitting. This relationship is similar to that seen
-        in \autoref{fig:capacity}.
+        \textbf{The error source of a model evaluated using \gls{MSE}}. As the
+        capacity of a model increases, the error source of the model transitions
+        from bias dominated to variance dominated. The sum of both error sources
+        yields the generalization error which is U-shaped. The optimal capacity
+        of the model is exactly at this transition, where the bias error
+        intersects the variance error. To the right of the transition, the model
+        is overfitting and to the left, underfitting. This relationship is
+        similar to that seen in \autoref{fig:capacity}.
     }
     \label{fig:bias-variance}
 \end{figure}
@@ -752,7 +755,7 @@ averaging the errors of all iterations. This is depicted in
     \input{graphics/tikz/kfold-cv}
     \captionsetup{format=hang} % hanging captions
     \caption{
-        $k$-fold cross-validation procedure: (1) Dataset is divided into
+        $\bm{k}$\textbf{-fold cross-validation procedure:} (1) Dataset is divided into
         $k$-folds of roughly equal size. (2) Choose one fold randomly to be the
         holdout set then fit model on the remaining $k-1$ folds. (3) Iterate
         through the remaining $k-1$ folds, using each as the holdout set and

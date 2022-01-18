@@ -32,29 +32,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % TikZ node design.
-\tikzset{basic/.style={draw,text width=1em,text badly centered}}
-\tikzset{input/.style={basic, fill=green!25, circle}}
-\tikzset{output/.style={basic, fill=blue!25, circle}}
+\tikzset{basic/.style={draw,text badly centered}}
+\tikzset{input/.style={basic,minimum width=1.2cm, fill=green!25, circle}}
+\tikzset{output/.style={basic,minimum width=1.2cm, fill=blue!25, circle}}
 \tikzset{weight/.style={basic,circle}}
-\tikzset{hidden/.style={basic,circle}}
+\tikzset{hidden/.style={basic,circle, minimum width=1.2cm}}
 \tikzset{function/.style={basic,circle}}
 
 \def\sep{4em}
 \def\L{\gls{L}}       % number of hidden layers
-\def\y{\gls{y_true}}  % output vector
-\def\x{\gls{x_in}}    % input vector
+\def\y{\gls{y_pred}}  % output vector
+\def\x{\gls{ml:x}}    % input vector
 \def\h{\gls{a_vec}}   % hidden output
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TIKZ PICTURE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
-    \node[input] (X) {$\x$};
-    \node[hidden, right=\sep of X, label={[xshift=-0.0em]center:$\mathbf{a}^{[1]}$}] (H1) {\phantom{$\h^{[1]}$}};
-    \node[hidden, right=\sep of H1, label={[xshift=-0.0em]center:$\mathbf{a}^{[\L]}$}] (H2) {\phantom{$\h^{[\L]}$}};
-    \node[output, right=\sep of H2] (Y) {$\y$};
+    \node[input, label={[xshift=-0.0em]center:\gls{dl:a:vec:0}}] (X) {\phantom{\gls{dl:a:vec:1}}};
+    \node[, left=1.5em of X] (in) {$\bm{x}$};
+
+    \node[hidden, right=\sep of X, label={[xshift=-0.0em]center:\gls{dl:a:vec:1}}] (H1) {\phantom{\gls{dl:a:vec:1}}};
+    \node[hidden, right=\sep of H1, label={[xshift=-0.0em]center:\gls{dl:a:vec:Lm1}}] (H2) {\phantom{\gls{dl:a:vec:Lm1}}};
+    \node[output, right=\sep of H2,  label={[xshift=-0.0em]center:\gls{dl:a:vec:L}}] (Y) {\phantom{\gls{dl:a:vec:L}}};
+    \node[, right=1.5em of Y] (out) {$\bm{\hat{y}}$};
+
+    \path[draw,->] (in) -- (X);
     \path[draw,->] (X) -- (H1);
-        \node[right=0.8em of H1] (M) {$\ldots$};
+    \node[right=0.8em of H1] (M) {$\ldots$};
     \path[draw,->] (H2) -- (Y);
+    \path[draw,->] (Y) -- (out);
 \end{tikzpicture}
 

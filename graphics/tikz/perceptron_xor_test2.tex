@@ -31,7 +31,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{tikz}
 %\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
-%\usetikzlibrary{positioning}                  % for TikZ relative positioning
+\usetikzlibrary{positioning}                  % for TikZ relative positioning
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % USER STYLING
@@ -39,22 +39,24 @@
 
 % TikZ node design.
 \tikzset{basic/.style={draw,text width=1em,text badly centered}}
-\tikzset{input/.style={}}
-\tikzset{output/.style={}}
+\tikzset{input/.style={basic, fill=green!25, circle}}
+\tikzset{output/.style={basic, fill=blue!25, circle}}
 \tikzset{weight/.style={basic,circle}}
 \tikzset{hidden/.style={basic,circle}}
 \tikzset{function/.style={basic,circle}}
-\def\layersep{3em}
+
+\def\layersep{3.0em}
+\def\layerseg{0.9em}
 \def\transferx{9em}
 \def\hiddenx{7em}
 \def\hiddenxn{12em}
 
 % Labels and symbols.
-\def\activationlabel{activation function}  % activation function label
-\def\activationsymbol{$\phi$}              % activation function symbol
-\def\transferlabel{transfer function}      % transfer function label
-\def\transfersymbol{$\sum$}                % transfer function symbol
-\def\outputsymbol{$y$}                     % output symbol
+\def\activationlabel{threshold step}       % activation function label
+\def\activationsymbol{$H$}                 % activation function symbol
+\def\transferlabel{sum}                    % transfer function label
+\def\transfersymbol{$\sum$}                   % transfer function symbol
+\def\outputsymbol{$\text{OR}(x_1, x_2)$}   % output symbol
 \def\inputsymbol{$x$}                      % input symbol
 \def\inputvecsymbol{$\mathbf{x}$}          % input vector symbol
 \def\weightslabel{weights}                 % input vector symbol
@@ -67,61 +69,53 @@
 \def\h{\gls{a_vec}}   % hidden output
 \def\nx{\gls{ml:n_x}}   % hidden output
 \def\ny{\gls{ml:n_y}}   % hidden output
+\def\z{\gls{dl:z}}   % hidden output
+\def\a{\gls{dl:a}}   % hidden output
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TIKZ PICTURE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
 
-    \node[function] at ({\transferx}, -{int(2)})  (transfer) {\transfersymbol};
-    \node[function, right=3em of transfer] (activation) {\activationsymbol};
-    \node[below of=activation,font=\scriptsize,text width=3em] {\activationlabel};
-    \node[below of=transfer,font=\scriptsize,text width=3em] {\transferlabel};
-    \node[output, right=\layersep of activation] (output) {\outputsymbol};
-    \path[draw,->] (transfer) -- (activation);
-    \path[draw,->] (activation) -- (output);
+    \node[] at ({\transferx}, 0)                                                               (a1-center)   {};
+    \node[left=\layersep of a1-center]                                                         (x-center)    {};
 
-    % Iterate through each row of units.
-    \foreach \n [evaluate=\n as \p using {int(\n-1)}] in {0,1,2,3,4} {
-        \ifnum \n=0
-            \node[input] at (0, -\n) (X-\n) {$1$};
-            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
-        \else \ifnum \n=3
-            \node[] at (0, -\n) (X-\n) {$\vdots$};
-            \node[] at (\layersep, -\n) (W-\n) {$\vdots$};
-        \else \ifnum \n=4
-            \node[input] at (0, -\n) (X-\n) {$x_{\nx}$};
-            \node[weight,label={[xshift=-0.0em]center:$w_{\nx}$}] at (\layersep, -\n) (W-\n) {\phantom{$w_{\nx}$}};
-        \else
-            \node[input] at (0, -\n) (X-\n) {$x_\n$};
-            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
-        \fi
-        \fi
-        \fi
+    \node[input, above of=x-center, label={[xshift=-0.0em]center:\gls{dl:a:0:1}}]              (a01)         {\phantom{\gls{dl:a:0:1}}};
+    \node[input, below of=x-center, label={[xshift=-0.0em]center:\gls{dl:a:0:2}}]              (a02)         {\phantom{\gls{dl:a:0:2}}};
 
-        % Arrow from input to weight.
-        \ifnum \n=3
-        \else
-            \path[draw,->] (X-\n) -- (W-\n);
-                        \path[draw,->] (W-\n) -- (transfer);
-        \fi
+    \node[hidden, right=\layersep of a01, label={[xshift=-0.0em]center:\gls{dl:a:1:1}}]        (a11)         {\phantom{\gls{dl:a:1:1}}};
+    \node[hidden, right=\layersep of a02, label={[xshift=-0.0em]center:\gls{dl:a:1:2}}]        (a12)         {\phantom{\gls{dl:a:1:2}}};
 
-    }
+    \node[output, right=\layersep of a11, label={[xshift=-0.0em]center:\gls{dl:a:2:1}}]        (a21)         {\phantom{\gls{dl:a:2:1}}};
+    \node[output, right=\layersep of a12, label={[xshift=-0.0em]center:\gls{dl:a:2:2}}]        (a22)         {\phantom{\gls{dl:a:2:2}}};
 
-    % Brace for bias.
-    \node[left=1em of X-0] (bias-brace) {};
-    \node[above=1em of bias-brace] (bias-brace-up) {};
-    \node[below=1em of bias-brace] (bias-brace-down) {};
-    \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);
-    \node[left of=bias-brace,font=\scriptsize] {bias, \biassymbol};
+    \node[right=2em of a21]                                                                    (out1)         {$\hat{y}_1$};
+    \node[right=2em of a22]                                                                    (out2)         {$\hat{y}_2$};
+%
 
-    % Brace for input.
-    \node[below=10em of bias-brace-down] (input-brace-down) {};
-    \node[below=5em of bias-brace-down] (input-brace) {};
-    \draw[decorate,decoration = {brace}] (input-brace-down) --  (bias-brace-down);
-    \node[left of=input-brace,font=\scriptsize] {inputs, \inputvecsymbol};
+%    \node[input, below of=x-center] (a02) {};
+    \node[, left=1em of a01]          (x-1) {$x_1$};
+    \node[, left=1em of a02]          (x-2) {$x_2$};
 
-    % Weights label.
-    \node[below of=W-4,font=\scriptsize] {\weightslabel};
+    \path[draw,->] (x-1) -- (a01);
+    \path[draw,->] (x-2) -- (a02);
+
+    \path[draw,->] (a01) -- (a12);
+    \path[draw,->] (a02) -- (a12);
+%    \path[draw,->] (z12) -- (a12);
+
+    \path[draw,->] (a01) -- (a11);
+    \path[draw,->] (a02) -- (a11);
+%    \path[draw,->] (z11) -- (a11);
+
+    \path[draw,->] (a12) -- (a21);
+    \path[draw,->] (a11) -- (a21);
+    \path[draw,->] (a12) -- (a22);
+    \path[draw,->] (a11) -- (a22);
+%    \path[draw,->] (z21) -- (a21);
+
+    \path[draw,->] (a21) -- (out1);
+    \path[draw,->] (a22) -- (out2);
+
 
 \end{tikzpicture}

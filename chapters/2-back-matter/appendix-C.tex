@@ -1,7 +1,131 @@
-\newpage\section*{Appendix C: Code listings\label{appendix:c}}
+\newpage\section{Machine Learning}
 
-\linespread{1.1}
-\subsection*{example\_1.py}
-\lstinputlisting[language=python]{[3]-appendices/example_1.py}
+\subsection{Perceptron logic gates}
+
+
+\begin{figure}[!htp]
+    \centering
+    \begin{subfigure}[b]{0.70\textwidth}
+        \centering
+        \input{graphics/tikz/perceptron_not}
+        \captionsetup{format=hang} % hanging captions
+        \subcaption{Perceptron mapping}
+        \label{fig:perceptron:not:mapping}
+    \end{subfigure}\hfil
+    \begin{subfigure}[b]{0.29\textwidth}
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{C{0.1\linewidth}|C{0.1\linewidth}}
+            \hline
+            $x_1$ & $y$ \\ \hline
+            0     & 1   \\
+            1     & 0
+        \end{tabular}
+        \vspace{0.5cm}
+        \subcaption{Truth table}
+        \label{fig:perceptron:not:truth}
+    \end{subfigure}\hfil
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+            \textbf{Perceptron mapping for the NOT logic gate.}
+
+    }
+    \label{fig:perceptron:not}
+\end{figure}
+
+\begin{figure}[!htp]
+    \centering
+    \begin{subfigure}[b]{0.70\textwidth}
+        \centering
+        \input{graphics/tikz/perceptron_nor}
+        \captionsetup{format=hang} % hanging captions
+        \subcaption{Perceptron mapping}
+        \label{fig:perceptron:nor:mapping}
+    \end{subfigure}\hfil
+    \begin{subfigure}[b]{0.29\textwidth}
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{C{0.1\linewidth}C{0.1\linewidth}|C{0.1\linewidth}}
+            \hline
+            $x_1$ & $x_1$ & $y$ \\ \hline
+            0     & 0     & 1   \\
+            0     & 1     & 0   \\
+            1     & 0     & 0   \\
+            1     & 1     & 0
+        \end{tabular}
+        \vspace{0.5cm}
+        \subcaption{Truth table}
+        \label{fig:perceptron:nor:truth}
+    \end{subfigure}\hfil
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Perceptron mapping for the logical NOR gate.}
+    }
+    \label{fig:perceptron:nor}
+\end{figure}
+
+\begin{figure}[!htp]
+    \centering
+    \begin{subfigure}[b]{0.70\textwidth}
+        \centering
+        \input{graphics/tikz/perceptron_or}
+        \captionsetup{format=hang} % hanging captions
+        \subcaption{Perceptron mapping}
+        \label{fig:perceptron:or:mapping}
+    \end{subfigure}\hfil
+    \begin{subfigure}[b]{0.29\textwidth}
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{C{0.1\linewidth}C{0.1\linewidth}|C{0.1\linewidth}}
+            \hline
+            $x_1$ & $x_1$ & $y$ \\ \hline
+            0     & 0     & 0   \\
+            0     & 1     & 1   \\
+            1     & 0     & 1   \\
+            1     & 1     & 1
+        \end{tabular}
+        \vspace{0.5cm}
+        \subcaption{Truth table}
+        \label{fig:perceptron:or:truth}
+    \end{subfigure}\hfil
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Perceptron mapping for the logical OR gate.}
+    }
+    \label{fig:perceptron:or}
+\end{figure}
+
+\begin{figure}[!htp]
+    \centering
+    \begin{subfigure}[b]{0.70\textwidth}
+        \centering
+        \input{graphics/tikz/perceptron_nand}
+        \captionsetup{format=hang} % hanging captions
+        \subcaption{Perceptron mapping}
+        \label{fig:perceptron:nand:mapping}
+    \end{subfigure}\hfil
+    \begin{subfigure}[b]{0.29\textwidth}
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{C{0.1\linewidth}C{0.1\linewidth}|C{0.1\linewidth}}
+            \hline
+            $x_1$ & $x_1$ & $y$ \\ \hline
+            0     & 0     & 1   \\
+            0     & 1     & 1   \\
+            1     & 0     & 1   \\
+            1     & 1     & 0
+        \end{tabular}
+        \vspace{0.5cm}
+        \subcaption{Truth table}
+        \label{fig:perceptron:nand:truth}
+    \end{subfigure}\hfil
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Perceptron mapping for the logical NAND gate.}
+    }
+    \label{fig:perceptron:nand}
+\end{figure}
+
+
 
 

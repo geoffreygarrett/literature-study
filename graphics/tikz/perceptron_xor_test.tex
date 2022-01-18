@@ -1,0 +1,150 @@
+% MIT License
+%
+% Copyright (c) 2021 Geoffrey H. Garrett
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGEMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Design and implementation of this diagram was inspired and adapted from:
+% https://tex.stackexchange.com/questions/104334/tikz-diagram-of-a-perceptron
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEPENDENCIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
+\usetikzlibrary{positioning}                  % for TikZ relative positioning
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USER STYLING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TikZ node design.
+\tikzset{basic/.style={draw,text width=1em,text badly centered}}
+\tikzset{input/.style={basic, fill=green!25, circle}}
+\tikzset{output/.style={basic, fill=blue!25, circle}}
+\tikzset{weight/.style={basic,circle}}
+\tikzset{hidden/.style={basic,circle}}
+\tikzset{function/.style={basic,circle}}
+
+\def\layersep{4.5em}
+\def\layerseg{0.9em}
+\def\transferx{9em}
+\def\hiddenx{7em}
+\def\hiddenxn{12em}
+\def\hh{2.5em}
+\def\hv{3em}
+\def\hvd{6em}
+\def\zsep{6em}
+\def\asep{4em}
+
+% Labels and symbols.
+\def\activationlabel{threshold step}       % activation function label
+\def\activationsymbol{$H$}                 % activation function symbol
+\def\transferlabel{sum}                    % transfer function label
+\def\transfersymbol{$\sum$}                   % transfer function symbol
+\def\outputsymbol{$\text{OR}(x_1, x_2)$}   % output symbol
+\def\inputsymbol{$x$}                      % input symbol
+\def\inputvecsymbol{$\mathbf{x}$}          % input vector symbol
+\def\weightslabel{weights}                 % input vector symbol
+\def\biassymbol{$b$}                       % bias symbol
+
+\def\sep{4em}
+\def\L{\gls{L}}       % number of hidden layers
+\def\y{\gls{y_true}}  % output vector
+\def\x{\gls{ml:x}}    % input vector
+\def\h{\gls{a_vec}}   % hidden output
+\def\nx{\gls{ml:n_x}}   % hidden output
+\def\ny{\gls{ml:n_y}}   % hidden output
+\def\z{\gls{dl:z}}   % hidden output
+\def\a{\gls{dl:a}}   % hidden output
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TIKZ PICTURE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+
+    \node[] at ({\transferx}, 0)                                                               (a0-center)   {};
+    \node[input, above=\hv of a0-center, label={[xshift=-0.0em]center:\gls{dl:a:0:1}}]         (a01)         {\phantom{\gls{dl:a:0:1}}};
+    \node[input, below=\hv of a0-center, label={[xshift=-0.0em]center:\gls{dl:a:0:2}}]         (a02)         {\phantom{\gls{dl:a:0:2}}};
+
+    \node[, left=1em of a01]          (x-1) {$x_1$};
+    \node[, left=1em of a02]          (x-2) {$x_2$};
+
+    \node[right=\zsep of a0-center]                                                            (z1-center)   {};
+    \node[hidden, above=\hv of z1-center, label={[xshift=-0.0em]center:\gls{dl:z:1:1}}]        (z11)         {\phantom{\gls{dl:z:1:1}}};
+    \node[hidden, below=\hv of z1-center, label={[xshift=-0.0em]center:\gls{dl:z:1:2}}]        (z12)         {\phantom{\gls{dl:z:1:2}}};
+    \node[, above of =z11, label={[xshift=-0.0em]center:\gls{dl:b:1:1}}]                       (b11)         {\phantom{\gls{dl:b:1:1}}};
+    \node[, below of=z12, label={[xshift=-0.0em]center:\gls{dl:b:1:2}}]                        (b12)         {\phantom{\gls{dl:b:1:2}}};
+
+
+    \node[right=\asep of z1-center]                                                            (a1-center)   {};
+    \node[hidden, above=\hv of a1-center, label={[xshift=-0.0em]center:\gls{dl:a:1:1}}]        (a11)         {\phantom{\gls{dl:a:1:1}}};
+    \node[hidden, below=\hv of a1-center, label={[xshift=-0.0em]center:\gls{dl:a:1:2}}]        (a12)         {\phantom{\gls{dl:a:1:2}}};
+
+    \node[right=\zsep of a1-center]                                                            (z2-center)   {};
+    \node[output, above=\hv of z2-center, label={[xshift=-0.0em]center:\gls{dl:z:2:1}}]        (z21)         {\phantom{\gls{dl:z:2:1}}};
+    \node[output, below=\hv of z2-center, label={[xshift=-0.0em]center:\gls{dl:z:2:2}}]        (z22)         {\phantom{\gls{dl:z:2:2}}};
+    \node[, above of =z21, label={[xshift=-0.0em]center:\gls{dl:b:2:1}}]                       (b21)         {\phantom{\gls{dl:b:2:1}}};
+    \node[, below of=z22, label={[xshift=-0.0em]center:\gls{dl:b:2:2}}]                        (b22)         {\phantom{\gls{dl:b:2:2}}};
+
+    \node[right=\asep of z2-center]                                                            (a2-center)   {};
+    \node[output, above=\hv of a2-center, label={[xshift=-0.0em]center:\gls{dl:a:2:1}}]        (a21)         {\phantom{\gls{dl:a:2:1}}};
+    \node[output, below=\hv of a2-center, label={[xshift=-0.0em]center:\gls{dl:a:2:2}}]        (a22)         {\phantom{\gls{dl:a:2:2}}};
+    \node[right=2em of a21]                                                                    (out1)         {$\hat{y}_1$};
+    \node[right=2em of a22]                                                                    (out2)         {$\hat{y}_2$};
+
+    \path[draw,->] (x-1) -- (a01);
+    \path[draw,->] (x-2) -- (a02);
+
+    \path[draw,->] (a01) to [] node[above right, near end]{\gls{dl:w:1:12}}  (z12);
+    \path[draw,->] (a02) to [] node[above, end]{\gls{dl:w:1:22}}  (z12);
+    \path[draw,->] (b12) -- (z12);
+    \path[draw,->] (z12) -- (a12);
+
+    \path[draw,->] (a01) to [] node[above, end]{\gls{dl:w:1:11}}  (z11);
+    \path[draw,->] (a02) to [] node[above left, near end]{\gls{dl:w:1:21}}  (z11);
+    \path[draw,->] (b11) -- (z11);
+    \path[draw,->] (z11) -- (a11);
+
+    \path[draw,->] (a12) to [] node[above left, near end]{\gls{dl:w:2:21}}  (z21);
+    \path[draw,->] (a12) to [] node[above, middle]{\gls{dl:w:2:22}}    (z22);
+    \path[draw,->] (a11) to [] node[above, middle]{\gls{dl:w:2:11}}    (z21);
+    \path[draw,->] (a11) to [] node[above right, near end]{\gls{dl:w:2:12}}  (z22);
+    \path[draw,->] (z21) -- (a21);
+    \path[draw,->] (b21) -- (z21);
+
+    \path[draw,->] (z22) -- (a22);
+    \path[draw,->] (b22) -- (z22);
+
+
+    \path[draw,->] (a21) -- (out1);
+    \path[draw,->] (a22) -- (out2);
+
+    \def\bplinewidth{0.45mm}
+    \path[draw, red, line width=\bplinewidth, dashed, ->]  (a12) -- (z12);
+    \path[draw, red, line width=\bplinewidth, dashed, ->]  (z21) -- (a12);
+    \path[draw, red, line width=\bplinewidth, dashed, ->]  (z22) -- (a12);
+    \path[draw, red, line width=\bplinewidth, dashed, ->]  (a21) -- (z21);
+    \path[draw, red, line width=\bplinewidth, dashed, ->]  (a22) -- (z22);
+
+
+\end{tikzpicture}

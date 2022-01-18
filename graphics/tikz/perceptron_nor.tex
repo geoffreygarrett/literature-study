@@ -50,11 +50,11 @@
 \def\hiddenxn{12em}
 
 % Labels and symbols.
-\def\activationlabel{activation function}  % activation function label
-\def\activationsymbol{$\phi$}              % activation function symbol
-\def\transferlabel{transfer function}      % transfer function label
+\def\activationlabel{threshold step}  % activation function label
+\def\activationsymbol{$H$}              % activation function symbol
+\def\transferlabel{sum}      % transfer function label
 \def\transfersymbol{$\sum$}                % transfer function symbol
-\def\outputsymbol{$y$}                     % output symbol
+\def\outputsymbol{$\text{NOR}(x_1, x_2)$}                     % output symbol
 \def\inputsymbol{$x$}                      % input symbol
 \def\inputvecsymbol{$\mathbf{x}$}          % input vector symbol
 \def\weightslabel{weights}                 % input vector symbol
@@ -67,6 +67,8 @@
 \def\h{\gls{a_vec}}   % hidden output
 \def\nx{\gls{ml:n_x}}   % hidden output
 \def\ny{\gls{ml:n_y}}   % hidden output
+\def\z{\gls{dl:z}}   % hidden output
+\def\a{\gls{dl:a}}   % hidden output
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TIKZ PICTURE
@@ -78,50 +80,42 @@
     \node[below of=activation,font=\scriptsize,text width=3em] {\activationlabel};
     \node[below of=transfer,font=\scriptsize,text width=3em] {\transferlabel};
     \node[output, right=\layersep of activation] (output) {\outputsymbol};
-    \path[draw,->] (transfer) -- (activation);
-    \path[draw,->] (activation) -- (output);
+    \path[draw,->] (transfer) -- node[above] {\z} (activation);
+    \path[draw,->] (activation) -- node[above] {\a} (output);
 
-    % Iterate through each row of units.
-    \foreach \n [evaluate=\n as \p using {int(\n-1)}] in {0,1,2,3,4} {
-        \ifnum \n=0
-            \node[input] at (0, -\n) (X-\n) {$1$};
-            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
-        \else \ifnum \n=3
-            \node[] at (0, -\n) (X-\n) {$\vdots$};
-            \node[] at (\layersep, -\n) (W-\n) {$\vdots$};
-        \else \ifnum \n=4
-            \node[input] at (0, -\n) (X-\n) {$x_{\nx}$};
-            \node[weight,label={[xshift=-0.0em]center:$w_{\nx}$}] at (\layersep, -\n) (W-\n) {\phantom{$w_{\nx}$}};
-        \else
-            \node[input] at (0, -\n) (X-\n) {$x_\n$};
-            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
-        \fi
-        \fi
-        \fi
+    \node[input] at (0, -1) (X-1) {$1$};
+    \def\wone{$1$}
+    \node[weight, label={[xshift=-0.0em]center:\wone}] at (\layersep, -1) (W-1) {\phantom{\wone}};
 
-        % Arrow from input to weight.
-        \ifnum \n=3
-        \else
-            \path[draw,->] (X-\n) -- (W-\n);
-                        \path[draw,->] (W-\n) -- (transfer);
-        \fi
+    \node[input] at (0, -2) (X-2) {$x_1$};
+    \def\wtwo{$-1$}
+    \node[weight, label={[xshift=-0.0em]center:\wtwo}] at (\layersep, -2) (W-2) {\phantom{\wtwo}};
 
-    }
+    \node[input] at (0, -3) (X-3) {$x_2$};
+    \def\wthree{$-1$}
+    \node[weight, label={[xshift=-0.0em]center:\wthree}] at (\layersep, -3) (W-3) {\phantom{\wthree}};
+
+    \path[draw,->] (X-1) -- (W-1);
+    \path[draw,->] (X-2) -- (W-2);
+    \path[draw,->] (X-3) -- (W-3);
+    \path[draw,->] (W-1) -- (transfer);
+    \path[draw,->] (W-2) -- (transfer);
+    \path[draw,->] (W-3) -- (transfer);
 
     % Brace for bias.
-    \node[left=1em of X-0] (bias-brace) {};
+    \node[left=1em of X-1] (bias-brace) {};
     \node[above=1em of bias-brace] (bias-brace-up) {};
     \node[below=1em of bias-brace] (bias-brace-down) {};
     \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);
     \node[left of=bias-brace,font=\scriptsize] {bias, \biassymbol};
 
     % Brace for input.
-    \node[below=10em of bias-brace-down] (input-brace-down) {};
-    \node[below=5em of bias-brace-down] (input-brace) {};
+    \node[below=4.5em of bias-brace-down] (input-brace-down) {};
+    \node[below=2.25em of bias-brace-down] (input-brace) {};
     \draw[decorate,decoration = {brace}] (input-brace-down) --  (bias-brace-down);
     \node[left of=input-brace,font=\scriptsize] {inputs, \inputvecsymbol};
 
     % Weights label.
-    \node[below of=W-4,font=\scriptsize] {\weightslabel};
+    \node[below of=W-3,font=\scriptsize] {\weightslabel};
 
 \end{tikzpicture}

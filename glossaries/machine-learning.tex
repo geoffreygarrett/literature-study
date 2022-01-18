@@ -48,8 +48,14 @@
 \newacronym{CV}{CV}{
     computer vision
 }
-\newacronym{MLP}{MLP}{
+\newacronym[plural=MLPs, firstplural=multilayer perceptrons (CNNs)]{MLP}{MLP}{
     multilayer perceptron
+}
+\newacronym[plural=CNNs, firstplural=convolutional neural networks (CNNs)]{CNN}{CNN}{
+    convolutional neural network
+}
+\newacronym[plural=RNNs, firstplural=recurrent neural networks (RNNs)]{RNN}{RNN}{
+    recurrent neural network
 }
 \newacronym{LOOCV}{LOOCV}{
     leave-one-out cross-validation
@@ -128,31 +134,31 @@
     sort=b,
     description={bias}
 }
-\newglossaryentry{x_in}{
+\newglossaryentry{ml:x}{
     type=notation:ml,
     name=\ensuremath{\bm{x}},
     sort=x,
     description={input vector}
 }
-\newglossaryentry{n_x}{
+\newglossaryentry{ml:n_x}{
     type=notation:ml,
     name=\ensuremath{n_x},
     sort=n_x,
     description={input size}
 }
-\newglossaryentry{m}{
+\newglossaryentry{ml:m}{
     type=notation:ml,
     name=\ensuremath{m},
     sort=m,
     description={number for examples in the dataset}
 }
-\newglossaryentry{n_y}{
+\newglossaryentry{ml:n_y}{
     type=notation:ml,
     name=\ensuremath{n_y},
     sort=n_y,
     description={output size}
 }
-\newglossaryentry{x_in_i}{
+\newglossaryentry{ml:x_i}{
     type=notation:ml,
     name=\ensuremath{\bm{x}^{(i)}},
     sort=x_i,
@@ -191,14 +197,43 @@
     type=notation:ml,
     name=\ensuremath{\bm{Y}},
     sort=Y,
-    description={ground truth/ output matrix of all \gls{m} examples in the dataset}
+    description={ground truth/ output matrix of all \gls{ml:m} examples in the dataset}
 }
 \newglossaryentry{X}{
     type=notation:ml,
     name=\ensuremath{\bm{X}},
     sort=X,
-    description={input matrix of all  \gls{m} examples in the dataset}
+    description={input matrix of all  \gls{ml:m} examples in the dataset}
 }
+
+\newglossaryentry{ml:y_true:i:i+m}{
+    type=notation:ml,
+    name=\ensuremath{\bm{y}^{(i:i+m)}},
+    sort=y_pred_i_i_m,
+    description={matrix of true output vectors for the $i^\text{th}$ example to the $i+m^\text{th}$ example}
+}
+
+\newglossaryentry{ml:y_true:i}{
+    type=notation:ml,
+    name=\ensuremath{\bm{y}^{(i)}},
+    sort=y_pred_i,
+    description={ground truth output vector for the $i^\text{th}$ example}
+}
+
+\newglossaryentry{ml:x:i}{
+    type=notation:ml,
+    name=\ensuremath{\bm{x}^{(i)}},
+    sort=x_i,
+    description={input vector for the $i^\text{th}$ example}
+}
+
+\newglossaryentry{ml:x:i:i+m}{
+    type=notation:ml,
+    name=\ensuremath{\bm{x}^{(i:i+m)}},
+    sort=x_i_i_m,
+    description={matrix of input vectors for the $i^\text{th}$ example to the $i+m^\text{th}$ example}
+}
+
 \newglossaryentry{y_pred}{
     type=notation:ml,
     name=\ensuremath{\hat{\bm{y}}},
@@ -223,7 +258,7 @@
     sort=y_pred_i1,
     description={predicted output value for the $i^\text{th}$ example}
 }
-\newglossaryentry{m_theta}{
+\newglossaryentry{ml:theta}{
     type=notation:ml,
     name=\ensuremath{{\bm{\theta}}},
     sort=theta,
@@ -241,13 +276,20 @@
     sort=J,
     description={objective function}
 }
+
+\newglossaryentry{ml:J}{
+    type=notation:ml,
+    name=\ensuremath{{{J}}},
+    sort=J,
+    description={objective function}
+}
 \newglossaryentry{J_reg}{
     type=notation:ml,
     name=\ensuremath{{{\tilde{J}}}},
     sort=Jtilde,
     description={regularised objective function}
 }
-\newglossaryentry{w_reg}{
+\newglossaryentry{ml:w_reg}{
     type=notation:ml,
     name=\ensuremath{{\alpha}},
     sort=alpha,
@@ -257,13 +299,19 @@
     type=notation:ml,
     name=\ensuremath{{\beta}},
     sort=beta,
-    description={mixing parameter between $L^2$ ($\beta=1$) and $L_1$ ($\beta=0$) regularisation}
+    description={mixing parameter between $L^2$ ($\beta=1$) and $L^1$ ($\beta=0$) regularization}
 }
 
 % deep learning
 
 \newacronym{MLPs}{MLPs}{multi-layer perceptrons}
 \newacronym{ANN}{ANN}{artificial neural networks}
+\newacronym{GD}{GD}{gradient descent}
+\newacronym{SGD}{SGD}{stochastic gradient descent}
+\newacronym{NAG}{NAG}{Nesterov accelerated gradient}
+\newacronym{MB-SGD}{MB-SGD}{mini-batch stochastic gradient descent}
+\newacronym{adagrad}{AdaGrad}{adaptive gradient}
+\newacronym{adam}{Adam}{adaptive moment estimation}
 \newglossaryentry{theta}{type=symbols,name=\ensuremath{\mathbf{\theta}},sort=theta,description={model parameters}}
 \newglossaryentry{L}{type=symbols,name=\ensuremath{L},sort=L,description={number of hidden layers in the network}}
 \newglossaryentry{a_vec}{type=symbols,name=\ensuremath{\mathbf{a}},sort=a,description={hidden layer output}}
@@ -277,18 +325,52 @@
     description={number of hidden layers in the network}
 }
 
-\newglossaryentry{dl:l}{
+\newglossaryentry{dl:activation}{
     type=notation:dl,
-    name=\ensuremath{l},
-    sort=l,
-    description={index referring to the $l^\text{th}$ layer of the network}
+    name=\ensuremath{\phi},
+    sort=phi,
+    description={activation function}
+}
+
+\newglossaryentry{dl:J}{
+    type=notation:dl,
+    name=\ensuremath{{{J}}},
+    sort=J,
+    description={objective function}
+}
+
+\newglossaryentry{dl:J}{
+    type=notation:dl,
+    name=\ensuremath{{{J}}},
+    sort=J,
+    description={objective function}
+}
+
+\newglossaryentry{dl:theta}{
+    type=notation:dl,
+    name=\ensuremath{\bm{\theta}},
+    sort=theta,
+    description={vector of model parameters}
+}
+
+\newglossaryentry{dl:theta:j}{
+    type=notation:dl,
+    name=\ensuremath{\theta_j},
+    sort=theta:j,
+    description={$j^{\text{th}}$ model parameter}
 }
 
 \newglossaryentry{dl:nh:l}{
     type=notation:dl,
-    name=\ensuremath{n_h^{[\gls{dl:l}]}},
+    name=\ensuremath{n_h^{[l]}},
     sort=nhl,
     description={number of hidden units in the $\gls{dl:l}^\text{th}$ layer of the network}
+}
+\newglossaryentry{dl:nh:lm1}{
+    type=notation:dl,
+    name=\ensuremath{n_h^{[l-1]}},
+    sort=nhlm1,
+    description={number of hidden units in the $(\gls{dl:l}-1)^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:nh:lm1}{
@@ -326,12 +408,45 @@
     description={number of hidden units in the 2$^\text{nd}$ layer of the network}
 }
 
-
 \newglossaryentry{dl:W:l}{
     type=notation:dl,
-    name=\ensuremath{\bm{W}^{[\gls{dl:l}]}},
+    name=\ensuremath{\bm{W}^{[l]}},
     sort=Wl,
     description={$\in\gls{set:R}^{\gls{dl:nh:l}\times\gls{dl:nh:lm1}}$, weight matrix of the \gls{dl:l}$^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:lr}{
+    type=notation:dl,
+    name=\ensuremath{\eta},
+    sort=\alpha,
+    description={learning rate, a.k.a. \textit{step-size}, of the network update}
+}
+
+\newglossaryentry{dl:J}{
+    type=notation:dl,
+    name=\ensuremath{\alpha},
+    sort=\alpha,
+    description={learning rate, a.k.a. \textit{step-size}, of the network update}
+}
+
+
+\newglossaryentry{dl:a:l:j}{
+    type=notation:dl,
+    name=\ensuremath{a^{[l]}_j},
+    sort=al,
+    description={}
+}
+\newglossaryentry{dl:a:lm1:k}{
+    type=notation:dl,
+    name=\ensuremath{a^{[l-1]}_k},
+    sort=alm1,
+    description={}
+}
+\newglossaryentry{dl:a:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[\gls{dl:l}]}},
+    sort=al,
+    description={}
 }
 
 \newglossaryentry{dl:W:L}{
@@ -352,7 +467,7 @@
     type=notation:dl,
     name=\ensuremath{\bm{W}^{[1]}},
     sort=W1,
-    description={$\in\gls{set:R}^{\gls{dl:nh:1}\times\gls{n_x}}$, weight matrix of the 1$^\text{st}$ (input) layer of the network}
+    description={$\in\gls{set:R}^{\gls{dl:nh:1}\times\gls{ml:n_x}}$, weight matrix of the 1$^\text{st}$ (input) layer of the network}
 }
 
 \newglossaryentry{dl:W:2}{
@@ -368,6 +483,327 @@
     sort=W2,
     description={weight matrix of the 2$^\text{nd}$ layer of the network}
 }
+
+\newglossaryentry{dl:z}{
+    type=notation:dl,
+    name=\ensuremath{z},
+    sort=z,
+    description={latent variable}
+}
+
+\newglossaryentry{dl:a}{
+    type=notation:dl,
+    name=\ensuremath{a},
+    sort=a,
+    description={activation variable}
+}
+\newglossaryentry{dl:l}{
+    type=notation:dl,
+    name=\ensuremath{l},
+    sort=l,
+    description={l$^{th}$ layer of the network}
+}
+\newglossaryentry{dl:w:l:jk}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[\gls{dl:l}]}_{jk}},
+    sort=wljk,
+    description={}
+}
+\newglossaryentry{dl:w:l}{
+    type=notation:dl,
+    name=\ensuremath{{\bm{W}}^{[l]}},
+    sort=Wl,
+    description={}
+}
+\newglossaryentry{dl:w:1:22}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[1]}_{22}},
+    sort=w122,
+    description={}
+}
+\newglossaryentry{dl:w:2:11}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[2]}_{11}},
+    sort=a,
+    description={}
+}
+\newglossaryentry{dl:w:2:21}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[2]}_{21}},
+    sort=a,
+    description={}
+}
+\newglossaryentry{dl:w:1:11}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[1]}_{11}},
+    sort=a,
+    description={}
+}
+\newglossaryentry{dl:w:1:12}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[1]}_{12}},
+    sort=a,
+    description={}
+}
+\newglossaryentry{dl:w:1:21}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[1]}_{21}},
+    sort=a,
+    description={}
+}
+\newglossaryentry{dl:w:2:12}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[2]}_{12}},
+    sort=a,
+    description={}
+}
+\newglossaryentry{dl:w:2:22}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[2]}_{22}},
+    sort=a,
+    description={}
+}
+\newglossaryentry{dl:w:2:1}{
+    type=notation:dl,
+    name=\ensuremath{{w}^{[1]}_2},
+    sort=a,
+    description={weight of 2$^\text{nd}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_1$)}
+}
+
+\newglossaryentry{dl:z:2:1}{
+    type=notation:dl,
+    name=\ensuremath{{z}^{[2]}_1},
+    sort=a,
+    description={}
+}
+
+\newglossaryentry{dl:z:vec:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{z}^{[l]}},
+    sort=a,
+    description={}
+}
+
+\newglossaryentry{dl:z:1:1}{
+    type=notation:dl,
+    name=\ensuremath{{z}^{[1]}_1},
+    sort=z11,
+    description={latent variable of 1$^\text{st}$ node of the 1$^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:z:1:2}{
+    type=notation:dl,
+    name=\ensuremath{{z}^{[1]}_2},
+    sort=z12,
+    description={latent variable of 2$^\text{nd}$ node of the 1$^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:z:l:j}{
+    type=notation:dl,
+    name=\ensuremath{{z}^{[\gls{dl:l}]}_j},
+    sort=a,
+    description={weight of j$^\text{th}$ node of the \gls{dl:l}$^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:0:1}{
+    type=notation:dl,
+    name=\ensuremath{{a}^{[0]}_1},
+    sort=a,
+    description={activation output of 1$^\text{st}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_1$)}
+}
+
+\newglossaryentry{dl:a:0:2}{
+    type=notation:dl,
+    name=\ensuremath{{a}^{[0]}_2},
+    sort=a,
+    description={activation output of 2$^\text{nd}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_2$)}
+}
+
+\newglossaryentry{dl:a:1:1}{
+    type=notation:dl,
+    name=\ensuremath{{a}^{[1]}_1},
+    sort=a,
+    description={activation output of 1$^\text{st}$ node of the 1$^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:1:2}{
+    type=notation:dl,
+    name=\ensuremath{{a}^{[1]}_2},
+    sort=a,
+    description={activation output of 2$^\text{nd}$ node of the 1$^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:2:1}{
+    type=notation:dl,
+    name=\ensuremath{{a}^{[2]}_1},
+    sort=a,
+    description={activation output of 1$^\text{st}$ node of the 2$^\text{nd}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:2:2}{
+    type=notation:dl,
+    name=\ensuremath{{a}^{[2]}_2},
+    sort=a,
+    description={}
+}
+
+\newglossaryentry{dl:z:2:2}{
+    type=notation:dl,
+    name=\ensuremath{{z}^{[2]}_2},
+    sort=z,
+    description={}
+}
+
+\newglossaryentry{dl:a:vec:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[l]}},
+    sort=a1,
+    description={activation output vector of the $l^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:vec:0}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[0]}},
+    sort=a1,
+    description={}
+}
+
+\newglossaryentry{dl:a:vec:lm1}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[l-1]}},
+    sort=am1,
+    description={activation output vector of the $(l-1)^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:vec:1}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[1]}},
+    sort=a1,
+    description={activation output vector of the $1^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:vec:2}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[2]}},
+    sort=a2,
+    description={activation output vector of the $2^\text{nd}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:vec:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[\gls{dl:l}]}},
+    sort=al,
+    description={activation output vector of the $\gls{dl:l}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:vec:L}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[\gls{dl:L}]}},
+    sort=aL,
+    description={activation output vector of the $\gls{dl:L}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:a:vec:Lm1}{
+    type=notation:dl,
+    name=\ensuremath{\bm{a}^{[\gls{dl:L}-1]}},
+    sort=aLm1,
+    description={activation output vector of the $(\gls{dl:L}-1)^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:b:l:j}{
+    type=notation:dl,
+    name=\ensuremath{b^{[\gls{dl:l}]}_j},
+    sort=blj,
+    description={bias value of the $j^\text{th}$ node of the $\gls{dl:l}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:b:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{b}^{[l]}},
+    sort=bl,
+    description={bias parameter vector of the $l^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:b:1:1}{
+    type=notation:dl,
+    name=\ensuremath{b^{[1]}_1},
+    sort=b11,
+    description={}
+}
+\newglossaryentry{dl:b:1:2}{
+    type=notation:dl,
+    name=\ensuremath{b^{[1]}_2},
+    sort=b12,
+    description={}
+}
+\newglossaryentry{dl:b:2:1}{
+    type=notation:dl,
+    name=\ensuremath{b^{[2]}_1},
+    sort=b21,
+    description={}
+}
+\newglossaryentry{dl:b:2:2}{
+    type=notation:dl,
+    name=\ensuremath{b^{[2]}_2},
+    sort=b22,
+    description={}
+}
+\newglossaryentry{dl:b:vec:1}{
+    type=notation:dl,
+    name=\ensuremath{\bm{b}^{[1]}},
+    sort=b1,
+    description={bias vector of the $1^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:b:vec:2}{
+    type=notation:dl,
+    name=\ensuremath{\bm{b}^{[2]}},
+    sort=b2,
+    description={bias vector of the $2^\text{nd}$ layer of the network}
+}
+
+\newglossaryentry{dl:b:vec:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{b}^{[\gls{dl:l}]}},
+    sort=bl,
+    description={bias vector of the $\gls{dl:l}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:g:1}{
+    type=notation:dl,
+    name=\ensuremath{g^{[1]}},
+    sort=g1,
+    description={activation function of the $1^\text{st}$ layer of the network}
+}
+
+\newglossaryentry{dl:g:2}{
+    type=notation:dl,
+    name=\ensuremath{g^{[2]}},
+    sort=g2,
+    description={activation function of the $2^\text{nd}$ layer of the network}
+}
+
+\newglossaryentry{dl:g:l}{
+    type=notation:dl,
+    name=\ensuremath{g^{[\gls{dl:l}]}},
+    sort=gl,
+    description={activation function of the $\gls{dl:l}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:b:vec:l}{
+    type=notation:dl,
+    name=\ensuremath{\bm{b}^{[\gls{dl:l}]}},
+    sort=bl,
+    description={bias vector of the $\gls{dl:l}^\text{th}$ layer of the network}
+}
+
+\newglossaryentry{dl:theta:j}{
+    type=notation:dl,
+    name=\ensuremath{\theta_j},
+    sort=i,   % is this
+    description={model parameters at state $j$}
+}
+
 
 %\newglossaryentry{dl:a:1}{
 %    type=notation:dl,

@@ -31,7 +31,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{tikz}
 %\usetikzlibrary{decorations.pathreplacing}    % for TikZ braces
-%\usetikzlibrary{positioning}                  % for TikZ relative positioning
+\usetikzlibrary{positioning}                  % for TikZ relative positioning
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % USER STYLING
@@ -39,22 +39,23 @@
 
 % TikZ node design.
 \tikzset{basic/.style={draw,text width=1em,text badly centered}}
-\tikzset{input/.style={}}
-\tikzset{output/.style={}}
+\tikzset{input/.style={basic, fill=green!25, circle}}
+\tikzset{output/.style={basic, fill=blue!25, circle, minimum size=1.2cm}}
 \tikzset{weight/.style={basic,circle}}
-\tikzset{hidden/.style={basic,circle}}
+\tikzset{hidden/.style={basic,circle, minimum size=1.2cm}}
 \tikzset{function/.style={basic,circle}}
-\def\layersep{3em}
+
+\def\layersep{4.5em}
 \def\transferx{9em}
 \def\hiddenx{7em}
 \def\hiddenxn{12em}
 
 % Labels and symbols.
-\def\activationlabel{activation function}  % activation function label
-\def\activationsymbol{$\phi$}              % activation function symbol
-\def\transferlabel{transfer function}      % transfer function label
+\def\activationlabel{threshold step}  % activation function label
+\def\activationsymbol{$H$}              % activation function symbol
+\def\transferlabel{sum}      % transfer function label
 \def\transfersymbol{$\sum$}                % transfer function symbol
-\def\outputsymbol{$y$}                     % output symbol
+\def\outputsymbol{$\text{OR}(x_1, x_2)$}                     % output symbol
 \def\inputsymbol{$x$}                      % input symbol
 \def\inputvecsymbol{$\mathbf{x}$}          % input vector symbol
 \def\weightslabel{weights}                 % input vector symbol
@@ -67,61 +68,35 @@
 \def\h{\gls{a_vec}}   % hidden output
 \def\nx{\gls{ml:n_x}}   % hidden output
 \def\ny{\gls{ml:n_y}}   % hidden output
+\def\z{\gls{dl:z}}   % hidden output
+\def\a{\gls{dl:a}}   % hidden output
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TIKZ PICTURE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
 
-    \node[function] at ({\transferx}, -{int(2)})  (transfer) {\transfersymbol};
-    \node[function, right=3em of transfer] (activation) {\activationsymbol};
-    \node[below of=activation,font=\scriptsize,text width=3em] {\activationlabel};
-    \node[below of=transfer,font=\scriptsize,text width=3em] {\transferlabel};
-    \node[output, right=\layersep of activation] (output) {\outputsymbol};
-    \path[draw,->] (transfer) -- (activation);
-    \path[draw,->] (activation) -- (output);
+    \node[] at ({\transferx}, 0)                                                   (h1-center)     {};
+    \node[left=\layersep of h1-center]                                             (x-center)      {};
+    \node[hidden, above of=h1-center, label={[xshift=-0.0em]center:OR}]            (h1-or)         {\phantom{OR}};
+    \node[hidden, below of=h1-center, label={[xshift=-0.0em]center:NAND}]          (h1-nand)       {\phantom{NAND}};
+    \node[output, right=\layersep of h1-center, label={[xshift=-0.0em]center:AND}] (h2-and)        {\phantom{AND}};
+    \node[right=\layersep of h2-and]                                               (y-center)      {XOR($x_1, x_2$)};
+%
+    \node[input, above of=x-center] (h0-x1) {};
+    \node[input, below of=x-center] (h0-x2) {};
+    \node[, left=1em of h0-x1]          (x-1) {$x_1$};
+    \node[, left=1em of h0-x2]          (x-2) {$x_2$};
 
-    % Iterate through each row of units.
-    \foreach \n [evaluate=\n as \p using {int(\n-1)}] in {0,1,2,3,4} {
-        \ifnum \n=0
-            \node[input] at (0, -\n) (X-\n) {$1$};
-            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
-        \else \ifnum \n=3
-            \node[] at (0, -\n) (X-\n) {$\vdots$};
-            \node[] at (\layersep, -\n) (W-\n) {$\vdots$};
-        \else \ifnum \n=4
-            \node[input] at (0, -\n) (X-\n) {$x_{\nx}$};
-            \node[weight,label={[xshift=-0.0em]center:$w_{\nx}$}] at (\layersep, -\n) (W-\n) {\phantom{$w_{\nx}$}};
-        \else
-            \node[input] at (0, -\n) (X-\n) {$x_\n$};
-            \node[weight] at (\layersep, -\n) (W-\n) {$w_\n$};
-        \fi
-        \fi
-        \fi
+    \path[draw,->] (x-1) -- (h0-x1);
+    \path[draw,->] (x-2) -- (h0-x2);
+    \path[draw,->] (h0-x1) -- (h1-nand);
+    \path[draw,->] (h0-x2) -- (h1-nand);
+    \path[draw,->] (h0-x1) -- (h1-or);
+    \path[draw,->] (h0-x2) -- (h1-or);
+    \path[draw,->] (h2-and) -- (y-center);
+    \path[draw,->] (h1-nand) -- (h2-and);
+    \path[draw,->] (h1-or) -- (h2-and);
 
-        % Arrow from input to weight.
-        \ifnum \n=3
-        \else
-            \path[draw,->] (X-\n) -- (W-\n);
-                        \path[draw,->] (W-\n) -- (transfer);
-        \fi
-
-    }
-
-    % Brace for bias.
-    \node[left=1em of X-0] (bias-brace) {};
-    \node[above=1em of bias-brace] (bias-brace-up) {};
-    \node[below=1em of bias-brace] (bias-brace-down) {};
-    \draw[decorate,decoration = {brace}] (bias-brace-down) --  (bias-brace-up);
-    \node[left of=bias-brace,font=\scriptsize] {bias, \biassymbol};
-
-    % Brace for input.
-    \node[below=10em of bias-brace-down] (input-brace-down) {};
-    \node[below=5em of bias-brace-down] (input-brace) {};
-    \draw[decorate,decoration = {brace}] (input-brace-down) --  (bias-brace-down);
-    \node[left of=input-brace,font=\scriptsize] {inputs, \inputvecsymbol};
-
-    % Weights label.
-    \node[below of=W-4,font=\scriptsize] {\weightslabel};
 
 \end{tikzpicture}
