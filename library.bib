@@ -844,3 +844,79 @@ and Aertsen, Ad",
     year = {2014}
 }
 
+@inproceedings{Kothari2020,
+    abstract = {Machine learning, particularly deep learning, is being increasing utilised in space applications, mirroring the groundbreaking success in many earthbound problems. Deploying a space device, e.g. a satellite, is becoming more accessible to small actors due to the development of modular satellites and commercial space launches, which fuels further growth of this area. Deep learning's ability to deliver sophisticated computational intelligence makes it an attractive option to facilitate various tasks on space devices and reduce operational costs. In thiswork,we identify deep learning in space as one of development directions for mobile and embedded machine learning. We collate various applications of machine learning to space data, such as satellite imaging, and describe how on-device deep learning can meaningfully improve the operation of a spacecraft, such as by reducing communication costs or facilitating navigation.We detail and contextualise compute platform of satellites and draw parallels with embedded systems and current research in deep learning for resource-constrained environments.},
+    author = {Vivek Kothari and Edgar Liberis and Nicholas D. Lane},
+    doi = {10.1145/3376897.3377864},
+    isbn = {9781450371162},
+    journal = {HotMobile 2020 - Proceedings of the 21st International Workshop on Mobile Computing Systems and Applications},
+    keywords = {Autonomy,Deep Learning,Hardware in Space},
+    month = {3},
+    pages = {45-49},
+    publisher = {Association for Computing Machinery, Inc},
+    title = {The final frontier: Deep learning in space},
+    year = {2020},
+}
+
+@misc{esa_ai, title = {Artificial Intelligence in space}, url = {https://www.esa.int/Enabling_Support/Preparing_for_the_Future/Discovery_and_Preparation/Artificial_intelligence_in_space}, journal = {ESA} }
+
+
+@generic{Montavon2018,
+    abstract = {This paper provides an entry point to the problem of interpreting a deep neural network model and explaining its predictions. It is based on a tutorial given at ICASSP 2017. As a tutorial paper, the set of methods covered here is not exhaustive, but sufficiently representative to discuss a number of questions in interpretability, technical challenges, and possible applications. The second part of the tutorial focuses on the recently proposed layer-wise relevance propagation (LRP) technique, for which we provide theory, recommendations, and tricks, to make most efficient use of it on real data.},
+    author = {Grégoire Montavon and Wojciech Samek and Klaus Robert Müller},
+    doi = {10.1016/j.dsp.2017.10.011},
+    issn = {10512004},
+    journal = {Digital Signal Processing: A Review Journal},
+    keywords = {Activation maximization,Deep neural networks,Layer-wise relevance propagation,Sensitivity analysis,Taylor decomposition},
+    month = {2},
+    pages = {1-15},
+    publisher = {Elsevier Inc.},
+    title = {Methods for interpreting and understanding deep neural networks},
+    volume = {73},
+    year = {2018},
+}
+
+@generic{Sheu2020,
+    abstract = {Psychiatric research is often confronted with complex abstractions and dynamics that are not readily accessible or well-defined to our perception and measurements, making data-driven methods an appealing approach. Deep neural networks (DNNs) are capable of automatically learning abstractions in the data that can be entirely novel and have demonstrated superior performance over classical machine learning models across a range of tasks and, therefore, serve as a promising tool for making new discoveries in psychiatry. A key concern for the wider application of DNNs is their reputation as a “black box” approach—i.e., they are said to lack transparency or interpretability of how input data are transformed to model outputs. In fact, several existing and emerging tools are providing improvements in interpretability. However, most reviews of interpretability for DNNs focus on theoretical and/or engineering perspectives. This article reviews approaches to DNN interpretability issues that may be relevant to their application in psychiatric research and practice. It describes a framework for understanding these methods, reviews the conceptual basis of specific methods and their potential limitations, and discusses prospects for their implementation and future directions.},
+    author = {Yi Han Sheu},
+    doi = {10.3389/fpsyt.2020.551299},
+    issn = {16640640},
+    journal = {Frontiers in Psychiatry},
+    keywords = {deep learning,deep neural networks,explainable AI,machine learning,model interpretability,psychiatry},
+    month = {10},
+    publisher = {Frontiers Media S.A.},
+    title = {Illuminating the Black Box: Interpreting Deep Neural Network Models for Psychiatric Research},
+    volume = {11},
+    year = {2020},
+}
+
+@article{goh2021multimodal,
+    author = {Goh, Gabriel and †, Nick Cammarata and †, Chelsea Voss and Carter, Shan and Petrov, Michael and Schubert, Ludwig and Radford, Alec and Olah, Chris},
+    title = {Multimodal Neurons in Artificial Neural Networks},
+    journal = {Distill},
+    year = {2021},
+    note = {https://distill.pub/2021/multimodal-neurons},
+    doi = {10.23915/distill.00030}
+}
+
+@misc{molnar_2022, title = {Interpretable machine learning}, url = {https://christophm.github.io/interpretable-ml-book/neural-networks.html}, journal = {Chapter 10 Neural Network Interpretation}, author = {Molnar, Christoph}, year = {2022}, month = {Jan} }
+
+
+@article{IzzoGeodesyNet2021,
+   abstract = {We present a novel approach based on artificial neural networks, so-called geodesyNets, and present compelling evidence of their ability to serve as accurate geodetic models of highly irregular bodies using minimal prior information on the body. The approach does not rely on the body shape information but, if available, can harness it. GeodesyNets learn a three-dimensional, differentiable, function representing the body density, which we call neural density field. The body shape, as well as other geodetic properties, can easily be recovered. We investigate six different shapes including the bodies 101955 Bennu, 67P Churyumov-Gerasimenko, 433 Eros and 25143 Itokawa for which shape models developed during close proximity surveys are available. Both heterogeneous and homogeneous mass distributions are considered. The gravitational acceleration computed from the trained geodesyNets models, as well as the inferred body shape, show great accuracy in all cases with a relative error on the predicted acceleration smaller than 1\% even close to the asteroid surface. When the body shape information is available, geodesyNets can seamlessly exploit it and be trained to represent a high-fidelity neural density field able to give insights into the internal structure of the body. This work introduces a new unexplored approach to geodesy, adding a powerful tool to consolidated ones based on spherical harmonics, mascon models and polyhedral gravity.},
+   author = {Dario Izzo and Pablo Gómez},
+   month = {5},
+   title = {Geodesy of irregular small bodies via neural density fields: geodesyNets},
+   url = {http://arxiv.org/abs/2105.13031},
+   year = {2021},
+}
+
+@article{IzzoBennu2021,
+   abstract = {Asteroids and other small bodies in the solar system tend to have irregular shapes, owing to their low gravity. This irregularity does not only apply to the topology, but also to the underlying geology, potentially containing regions of different densities and materials. The topology can be derived from optical observations, while the mass density distribution of an object is only observable, to some extent, in its gravitational field. In a companion paper, we presented geodesyNets, a neural network approach to infer the mass density distribution of an object from measurements of its gravitational field. In the present work, we apply this approach to the asteroid Bennu using real data from the Osiris Rex mission. The mission measured the trajectories of not only the Osiris Rex spacecraft itself, but also of numerous pebble-sized rock particles which temporarily orbited Bennu. From these trajectory data, we obtain a representation of Bennu's mass density and validate it by propagating, in the resulting gravity field, multiple pebbles not used in the training process. The performance is comparable to that of a polyhedral gravity model of uniform density, but does not require a shape model. As little additional information is needed, we see this as a step towards autonomous on-board inversion of gravitational fields.},
+   author = {Moritz von Looz and Pablo Gomez and Dario Izzo},
+   month = {9},
+   title = {Study of the asteroid Bennu using geodesyANNs and Osiris-Rex data},
+   url = {http://arxiv.org/abs/2109.14427},
+   year = {2021},
+}
+
