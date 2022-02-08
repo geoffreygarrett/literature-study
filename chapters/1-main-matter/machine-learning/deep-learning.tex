@@ -787,31 +787,77 @@ Disregarding the disagreements of whether space should be privatised or remain
 only in the public sector, the uncertain economic returns of space exploration
 are well known to be a key hindrance to progress in the field. Space
 exploration is expensive, and this uncertainty of return is unattractive to
-profit-seeking companies, making stakeholders far and few between. As a result,
+profit-seeking companies, leaving stakeholders far and few between. As a result,
 the most successful results from \gls{DL} are rarely used in space exploration
 due to neural networks not being human readable~\cite{esa_ai}. Interpretation of
 neural networks have come a far way however, but require a deep understanding
 of the problem domain for effective understanding of the way in which the
 network is approaching its given task~\cite{Montavon2018, Sheu2020,
 goh2021multimodal, molnar_2022}. The tasks most interpretable tend to be those
-that are relatable learning tasks to the human mind, such as language
-understanding, vision, and speech recognition.
+most relatable to the human mind, such as language
+processing
+\cite{belinkov-etal-2020-interpretability, DBLP:journals/corr/abs-2108-04840},
+and visual pattern recognition \cite{DBLP:journals/corr/abs-1802-00121}.
 
-\gls{DL} in space exploration has been a hot topic of research in recent years,
-some examples of the learning tasks have been toward autonomy in docking
+\gls{DL} in space exploration has been a popular topic of research in recent
+years, some examples of the learning tasks have followed directly from
+promising methods in the following areas:
+
+\begin{itemize}
+    \item \textbf{Search for celestial patterns}: The detection of bodies in
+          the solar system is dependent upon the size, distance from Earth, and
+          albedo of the body in question. For asteroids, their albedos range
+          from 0.03, for C-type asteroids, to 0.22 for S-type
+          \cite{planetary_data}. These conditions result in a situation where
+          expensive manual surveys are required to sift through large amounts of
+          data in order to find potential detections. A recent trend in this
+          area is the use of deep learning to find patterns in the data
+          indicating the presence of these bodies. \glspl{CNN} have been used to
+          detect asteroid trails in Hubble Space Telescope data
+          \cite{parfeni2020detection}, and a two-stage detection-classification
+          framework in the Asteroid Terrestial-impact Last Alert System (ATLAS)
+          survey \cite{Chyba_Rabeendran_2021}. The reported accuracies on
+          test data is promising, bringing humanity one step closer to
+          autonomous detection of potentially hazardous (or opportunistic)
+          asteroids. The applications of \gls{DL} have not been strictly limited
+          to our Solar System, with exoplanet detection also showing promising
+          results with limited datasets \cite{bird2020model}.
+
+    \item \textbf{Uncooperative space objects}: A big threat to our future in
+          space is the abundant presence of space debris trapped in orbit around
+          Earth, which grows steadily as time passes, increasing the risk of a
+          cascading series of collisions resulting in the Kessler Syndrome
+          \cite{https://doi.org/10.1029/JA083iA06p02637}. This condition would
+          have devastating consequences on our future presence in space. One of
+          many required potential measures is the de-orbiting of larger space
+          debris to avoid the risk of collision leading to smaller and less
+          predictable debris. The use of deep learning to detect, classify, and
+          track decommissioned spacecraft is a promising approach to the series
+          of challenges in de-orbiting an uncooperative object. Space object
+          classification \cite{doi:10.1177/0954410021996129, 8009786}, and
+          pose estimation \cite{Afshar2020, Ren2020} are key learning tasks in this
+          area of ongoing research, making extensive use of \glspl{CNN}.
+
+    \item \textbf{Small body dynamics}
+    \item \textbf{Low-thrust trajectory optimization}
+    \item \textbf{Trajectory sequence planning}
+    \item \textbf{Spacecraft autonomous control}
+\end{itemize}
+
+been toward autonomy in docking
 \cite{}, navigation, and environment modelling~\cite{IzzoGeodesyNet2021,
 IzzoBennu2021}. The former two are tasks coupled within a joint
 \gls{DL}-\gls{RL} framework, which are covered in \autoref{chap:DL}. The results
 of Izzo et al. in the latter task are particularly promising, as they have
-demonstrated that artificial neural networks can be used accurate geodetic models
-of highly irregular bodies given minimal prior information on the body. Their
-novel method is referred to as using a geodesyNet, which is a neural network
-that learns a three-dimensional, differentiable mapping of the body's density,
-that the authors refer to as a neural density field~\cite{IzzoGeodesyNet2021}.
-The authors use a modified \gls{MAE} loss function to train the network, which
-allows the network to focus on learning the deviation from a homogeneously
-filled volume $V$, and not concurrently the absolute value of the body mass.
-This is achieved using the factor $\kappa$:
+demonstrated that artificial neural networks can be used accurate geodetic
+models of highly irregular bodies given minimal prior information on the body.
+Their novel method is referred to as using a geodesyNet, which is a neural
+network that learns a three-dimensional, differentiable mapping of the body's
+density, that the authors refer to as a neural density
+field~\cite{IzzoGeodesyNet2021}. The authors use a modified \gls{MAE} loss
+function to train the network, which allows the network to focus on learning the
+deviation from a homogeneously filled volume $V$, and not concurrently the
+absolute value of the body mass. This is achieved using the factor $\kappa$:
 
 \begin{equation}
     \kappa = \frac{\sum^n_{i=1}\hat{y}_i{}y_i}{\sum^m_{i=1}y_i^2},
