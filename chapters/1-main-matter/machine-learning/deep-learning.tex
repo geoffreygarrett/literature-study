@@ -434,7 +434,7 @@ as seen in \autoref{fig:mlp-example-bp}, gives:
 %    \frac{\partial{\gls{dl:a:2:1}}}{\partial{\gls{dl:w:2:2}}}
 %\end{equation}
 
-\subsection{Activation function}
+\subsection{Activation function\label{activation_fn}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A wide variety of activation functions $\phi$ have been used and improve upon
@@ -781,6 +781,16 @@ rather the RMSProp and Adam algorithms are most commonly used.
 %
 \subsection{Common Frameworks and Techniques}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graphics/cnn_banner.png}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/RNN-unrolled.png}
+\end{figure}
+
 \newpage\subsection{Deep Learning in Space Exploration}
 
 Disregarding the disagreements of whether space should be privatised or remain
@@ -838,8 +848,65 @@ promising methods in the following areas:
           pose estimation \cite{Afshar2020, Ren2020} are key learning tasks in this
           area of ongoing research, making extensive use of \glspl{CNN}.
 
-    \item \textbf{Small body dynamics}
-    \item \textbf{Low-thrust trajectory optimization}
+    \item \textbf{Small body dynamics}: The mass distribution of asteroids are
+           often heterogeneous and their shape far-off from spherical,
+           spheroidal and ellipsoidal, presenting challenges when applying the
+           trick of the trade in gravitational potential modelling, namely:
+           spherical/spheroidal harmonics, and ellipsoidal harmonics. This
+           was mentioned and discussed briefly in \autoref{sec:dynamic_modelling}
+           \textcolor{(section on environment models)}. \gls{DL} shows promise
+           in the area of asteroid dynamics, steadily progressing in the
+           research community \cite{carruba2022machine}. One promising new
+           alternative in gravitational potential modelling is the use of
+           neural networks to model the mass density of a body, using neural
+           density networks \cite{DBLP:journals/corr/abs-1802-00121}. The
+           results of Izzo et al. in the latter task are particularly promising,
+           as they have demonstrated that artificial neural networks can be used
+           accurate geodetic models of highly irregular bodies given minimal
+           prior information on the body. Their novel method is referred to as
+           using a geodesyNet, which is a neural network that learns a
+           three-dimensional, differentiable mapping of the body's density, that
+           the authors refer to as a neural density
+           field~\cite{IzzoGeodesyNet2021}. An interesting design choice in
+           geodesyNet is the use of sine waves as activation functions, which
+           had been notoriously difficult to train due to their periodic, and
+           non monoticity (See \autoref{activation_fn}).
+
+%    \item This novel approach is generic and can be used to
+%           analyze geodetic properties of the body and even infer its body shape.
+%           If provided with a body shape, the accuracy of the model improves
+%           as well as reducing training times of the neural network.
+%
+%            \begin{equation}
+%                \kappa = \frac{\sum^n_{i=1}\hat{y}_i{}y_i}{\sum^m_{i=1}y_i^2},
+%            \end{equation}
+
+%            which modifies the original \gls{MAE} (see \autoref{chap:ML}) loss
+%            function to the following form:
+%
+%            \begin{equation}
+%                \gls{J}_{\kappa\text{MAE}} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||{y}^{(i)}-\kappa{}\hat{y}^{(i)}||_1.
+%                \label{eq:MAE}
+%            \end{equation}
+
+%            \begin{equation}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\linewidth]{graphics/geodesynet-example}
+                \caption{GeodesyNet~\cite{IzzoGeodesyNet2021}}
+                \label{fig:geodesy-net}
+            \end{figure}
+
+
+%    \item \cite{Takahashi2014}
+%    \item and as a result of their shapes, they require two sets
+%    of spherical harmonics expansions to describe their gravitational potential
+%    outside of the body. One set is used to model the gravitational potential
+%    outside the Brillouin (i.e., circumscribing) sphere of the body.
+
+    \item \textbf{Low-thrust trajectory optimization}:
+
     \item \textbf{Trajectory sequence planning}
     \item \textbf{Spacecraft autonomous control}
 \end{itemize}
@@ -847,38 +914,13 @@ promising methods in the following areas:
 been toward autonomy in docking
 \cite{}, navigation, and environment modelling~\cite{IzzoGeodesyNet2021,
 IzzoBennu2021}. The former two are tasks coupled within a joint
-\gls{DL}-\gls{RL} framework, which are covered in \autoref{chap:DL}. The results
-of Izzo et al. in the latter task are particularly promising, as they have
-demonstrated that artificial neural networks can be used accurate geodetic
-models of highly irregular bodies given minimal prior information on the body.
-Their novel method is referred to as using a geodesyNet, which is a neural
-network that learns a three-dimensional, differentiable mapping of the body's
-density, that the authors refer to as a neural density
-field~\cite{IzzoGeodesyNet2021}. The authors use a modified \gls{MAE} loss
+\gls{DL}-\gls{RL} framework, which are covered in \autoref{chap:RL}.
+
+The authors use a modified \gls{MAE} loss
 function to train the network, which allows the network to focus on learning the
 deviation from a homogeneously filled volume $V$, and not concurrently the
 absolute value of the body mass. This is achieved using the factor $\kappa$:
 
-\begin{equation}
-    \kappa = \frac{\sum^n_{i=1}\hat{y}_i{}y_i}{\sum^m_{i=1}y_i^2},
-\end{equation}
-
-which modifies the original \gls{MAE} (see \autoref{chap:ML}) loss function to
-the following form:
-
-\begin{equation}
-    \gls{J}_{\kappa\text{MAE}} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||{y}^{(i)}-\kappa{}\hat{y}^{(i)}||_1.
-    \label{eq:MAE}
-\end{equation}
-
-\begin{equation}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{graphics/geodesynet-example}
-    \caption{GeodesyNet~\cite{IzzoGeodesyNet2021}}
-    \label{fig:geodesy-net}
-\end{figure}
 
 
 
