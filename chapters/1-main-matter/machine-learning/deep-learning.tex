@@ -13,7 +13,7 @@ stepping stones towards concepts of higher complexity in the field.
 component: perceptrons.
 
 \Glspl{MLP} are also called \textbf{feedfoward} as information is propagated in
-only a forward direction, as apposed to exhibiting \textbf{feedback} connections,
+only a forward direction, as opposed to exhibiting \textbf{feedback} connections,
 where intermediate computations are fed back into the network. When feedforward
 networks are extended to include feedback connections, they are called
 \textbf{\glspl{RNN}}. These types of networks excel at learning temporal
@@ -21,14 +21,13 @@ features, exhibiting a refined hypothesis space favouring sequenced information,
 such as a series of chronological observations. \autoref{ssec:rnn} covers this
 type of \gls{DNN}, and the prominent sub-type of \glspl{RNN}: \glspl{LSTM}.
 
-One category of neural networks which are similar to \glspl{MLP}, popular in
-contemporary research, are \glspl{CNN}. These \glspl{DNN} are essentially
+One type of neural networks which is similar to \glspl{MLP} and popular in
+contemporary research, is the \gls{CNN}. These deep \glspl{NN} are essentially
 \glspl{MLP} which omit the property of being fully connected, in favour of
 refining the hypothesis space towards detection of spatially-related features.
 
-The main difference between a \gls{NN} and a
-traditional \gls{ML} algorithm is that the neural network is a function of the
-data, rather than the data itself.
+%The main difference between a \gls{NN} and a traditional \gls{ML} algorithm is
+%that the neural network is a function of the data, rather than the data itself.
 
 \subsection{Brief History of the Perceptron\label{ssec:perceptrons}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,27 +140,21 @@ Rosenblatt's statements caused an unfortunate controversy in the fledgling field
 of \gls{AI}. According to the New York Times, he reported the perceptron to be
 \textit{``the embryo of an electronic computer that [the Navy] expects will be
 able to walk, talk, see, write, reproduce itself and be conscious of its
-existence."} \cite{Olazaran1996} The backlash from the \gls{AI} community
+existence."} \cite{Olazaran1996} The backlash from the \gls{AI} community was
+immense when results came nowhere close to this description, slowing progress
+in the field overall.
 
 \subsubsection{Perceptrons and Logic Gates}
 
-
-
-
 In its original form, the perceptron was used as a supervised learning method
-for binary classifiers.
+for binary classifiers. The primary criticism of the perceptron came in 1969
+from Minsky and Papert \cite{minsky69perceptrons}, where it was shown that the
+perceptron could only solve \textit{linearly separable} functions, and failed to
+solve the XOR and NXOR functions. They claimed that the work being done in this
+area was doomed to failure due to these limitations, resulting in little
+subsequent research until about the 1980's.
 
-The primary criticism of the perceptron came in 1969 from Minsky and Papert
-\cite{minsky69perceptrons}, where it was shown that the perceptron could only
-solve \textit{linearly separable} functions, and failed to solve the XOR and
-NXOR functions. They claimed that the work being done in this area was doomed to
-failure due to these limitations, resulting in little subsequent research until
-about the 1980's.
-
-
-%
 %\newpage
-\newpage
 
 \subsection{Multi-layer perceptrons\label{ssec:mlps}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -320,7 +313,7 @@ Combining \autoref{eq:bp:b:0} and \autoref{eq:bp:b:1} gives:
 The expression for $\partial\gls{ml:J}/\partial\gls{dl:z:l:j}$ depends on the
 architecture of the network in question, and unless it concerns the output
 layer, it will be comprised of numerous other partials from later layers in the
-network. For this reason, a table filling strategy somtimes called
+network. For this reason, a table filling strategy sometimes called
 \textbf{dynamic programming}, is used \cite[p.~214]{Goodfellow-et-al-2016} to
 avoid redundant calculations (a.k.a. fancy bookkeeping).
 
@@ -341,7 +334,7 @@ included for concise illustration of the backpropagation algorithm.
     }
     \label{fig:mlp-example}
 \end{figure}
-\newpage
+%\newpage
 Deriving the expression for the partial of the cost function with respect to
 $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$ using \autoref{eq:bp:w:2} gives:
 
@@ -437,6 +430,9 @@ as seen in \autoref{fig:mlp-example-bp}, gives:
 \subsection{Activation function\label{activation_fn}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\textcolor{red}{(References to the papers presenting the activation functions
+    are missing)}
+
 A wide variety of activation functions $\phi$ have been used and improve upon
 the threshold step function. The primary concept used in motivating different
 activation functions is the problem of \textbf{vanishing gradient} when using
@@ -474,6 +470,7 @@ used activation functions in machine learning
 %    \label{fig:activation}
 %\end{figure}
 \input{graphics/tikz/activation}
+\textcolor{red}{(Caption needs further elaboration, and the bottom right graph must be removed)}
 %
 \newpage
 
@@ -508,8 +505,8 @@ variants which differ in their use of the training dataset.
     \end{equation}
     Batch gradient descent often results in redundant gradient calculations for
     large datasets when encountering similar examples. \Gls{SGD} overcomes this
-    redundancy however exhibits updates with high variance which can cause high
-    fluctuations in the cost function. These high fluctuations result in
+    redundancy, however, it exhibits updates with high variance which can cause
+    high fluctuations in the cost function. These high fluctuations result in
     overshooting of the minima being converged towards, and therefore often
     requires a lower learning rate than \Gls{GD}. \cite{ruder2017overview}
 
@@ -530,10 +527,10 @@ variants which differ in their use of the training dataset.
 
 Some challenges exist for vanilla gradient descent methods, most of which
 concern the topology of the cost function. Constant learning rates can lead to
-slow convergence, especially when a saddle point in encountered in the cost
+slow convergence, especially when a saddle point is encountered in the cost
 function in non-convex problems, which are notoriously difficult to escape. This
 motivates the need to schedule, adapt or augment the learning rate throughout
-the learning process. This issues are addressed by the specific variants of the
+the learning process. These issues are addressed by the specific variants of the
 optimization algorithms used. For the next section, the parameters in the
 notation $\nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_k; \ldots)$ are
 dropped, as it is implicitly defined by the choice of batch size in \Gls{MB-SGD}
@@ -643,7 +640,7 @@ decaying average, the running average of the squared gradient updates:
 \begin{equation}
     \gls{E} [\Delta{\theta}^2]_t = \gamma{}\gls{E} [\Delta{\theta}^2]_{t-1} +
     (1-\gamma)\Delta{\theta}^2_{t}
-\end{equation}b
+\end{equation}
 From these expectations, the author approximates the RMS of the gradients and
 parameter updates as:
 \begin{equation}
@@ -667,6 +664,9 @@ of parameter update?)}.
 
 \textbf{RMSProp}~\cite{JMLR:v12:duchi11a}
 
+\textcolor{red}{(The short paragraph describing RMSProp and its relative
+pros and cons hasn't been written yet.)}
+
 \begin{equation}
     \begin{aligned}
         \gls{E} [\Delta{\theta}^2] &= \gamma{}\gls{E} [\Delta{\theta}^2]_{t-1} + (1-\gamma)\Delta{\theta}^2_{t} \\
@@ -675,6 +675,9 @@ of parameter update?)}.
 \end{equation}
 
 \textbf{Adam}~\cite{JMLR:v12:duchi11a}
+
+\textcolor{red}{(The description of Adam, and the moment equations haven't
+been written yet.)}
 
 \begin{equation}
     \begin{aligned}
@@ -721,10 +724,7 @@ allowing formulation with any $\ell_p$ norm. The Nadam algorithm incorporates a
 combination of the elements used in the \gls{NAG} and Adam algorithms. These
 algorithms are not included here as their use is sparse throughout literature,
 rather the RMSProp and Adam algorithms are most commonly used.
-\textcolor{red}{More motivation here}
-
-
-
+%\textcolor{red}{More motivation here}
 
 \item \textbf{\Gls{Learning to Optimize}}: \cite{ruder2017overview,Li2017}
 
@@ -781,15 +781,37 @@ rather the RMSProp and Adam algorithms are most commonly used.
 %
 \subsection{Common Frameworks and Techniques}
 
-\begin{figure}
+
+\subsubsection{Convolutional Neural Networks (CNNs)\label{ssec:cnn}}
+
+\textcolor{red}{(Short section on how CNNs refine the hypothesis of the
+    mapping towards spacial features.)}
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphics/cnn_banner.png}
+    \caption{\textcolor{red}{(Need to get add reference for diagram and add caption)}}
 \end{figure}
 
-\begin{figure}
+\subsubsection{Recurrent Neural Networks (RNNs)\label{ssec:rnn}}
+
+\textcolor{red}{(Short section on how RNNs refine the hypothesis of the
+    mapping towards sequential features.)}
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{graphics/RNN-unrolled.png}
+    \caption{\textcolor{red}{(Need to get add reference for diagram and add caption)}}
 \end{figure}
+
+\textcolor{red}{(Short section on LSTMs and how they excel in long term
+    sequential features compared to vanilla RNNs.)}
+
+\subsubsection{Generative Adversarial Networks (GANs)\label{ssec:gan}}
+
+\textcolor{red}{(Short section how GANs learn to model a probability
+    distribution such that one can draw synthetically generated samples
+    from said distribution.)}
 
 \newpage\subsection{Deep Learning in Space Exploration}
 
@@ -906,23 +928,23 @@ promising methods in the following areas:
 %    outside the Brillouin (i.e., circumscribing) sphere of the body.
 
     \item \textbf{Low-thrust trajectory optimization}:
-
+    \textcolor{red}{(Majority of these applications are RL, short description will be here, with most in next chapter, this applies to varying degrees, to the following two points as well)}
     \item \textbf{Trajectory sequence planning}
     \item \textbf{Spacecraft autonomous control}
 \end{itemize}
-
-been toward autonomy in docking
-\cite{}, navigation, and environment modelling~\cite{IzzoGeodesyNet2021,
-IzzoBennu2021}. The former two are tasks coupled within a joint
-\gls{DL}-\gls{RL} framework, which are covered in \autoref{chap:RL}.
-
-The authors use a modified \gls{MAE} loss
-function to train the network, which allows the network to focus on learning the
-deviation from a homogeneously filled volume $V$, and not concurrently the
-absolute value of the body mass. This is achieved using the factor $\kappa$:
-
-
+%
+%been toward autonomy in docking
+%\cite{}, navigation, and environment modelling~\cite{IzzoGeodesyNet2021,
+%IzzoBennu2021}. The former two are tasks coupled within a joint
+%\gls{DL}-\gls{RL} framework, which are covered in \autoref{chap:RL}.
+%
+%The authors use a modified \gls{MAE} loss
+%function to train the network, which allows the network to focus on learning the
+%deviation from a homogeneously filled volume $V$, and not concurrently the
+%absolute value of the body mass. This is achieved using the factor $\kappa$:
 
 
 
-\cite{Kothari2020}
+
+
+%\cite{Kothari2020}
