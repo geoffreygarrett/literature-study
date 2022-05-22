@@ -1,13 +1,7 @@
-\section{Linearization}
 
-Given the complexity of the models which depend on a variety of
-parameters which are used in the description of the dynamic motion or
-measurement process, it is customary to linearize the relations between
-observables and the independent parameters in order to obtain expressions which
-are more easily handled.
+\section{Taxonomy of Partials}
 
-\subsection{Taxonomy of Partials}
-\subsubsection{The State Transition Matrix}
+\subsection{The State Transition Matrix}
 
 Let the state vector $\mathbf{y(t)}$ of the dynamic system at an arbitrary epoch
 $t$ be the concatenation of the position $\mathbf{r}(t)$ and velocity vector
@@ -21,7 +15,7 @@ vector at time $t_0$
     \label{eq:linear_stm}
 \end{equation}
 
-\subsubsection{The Sensitivity Matrix}
+\subsection{The Sensitivity Matrix}
 
 For a given set of $n_p$ parameters which are dependent variables in
 the calculation of acceleration acting on on the system of bodies $\mathbf{p}$,
@@ -36,10 +30,10 @@ with respect to the force model parameters. The parameters $p$ often include
 coefficients which are empirical in nature, these include but are not limited to
 the coefficients of lift, drag, and radiation pressure.
 
-\subsubsection{Partials of measurements with respect to the state vector}
-The linearized dependence of 
+\subsection{Partials of measurements with respect to the state vector}
+The linearized dependence of
 
-\subsection{Solar Radiation Pressure}
+\subsubsection{Solar Radiation Pressure}
 
 \subsubsection{Partial derivative with respect to state}
 
@@ -98,9 +92,9 @@ The linearized dependence of
 \subsubsection{Partial derivative with respect to state}
 \begin{equation}
     \frac{\partial{\bm{a}_{g}}}{\partial{\mathbf{r}}} =
-    \mu 
+    \mu
     \begin{bmatrix}
-    
+
     \end{bmatrix}
     \label{eq:partial_triaxial_wrt_state}
 \end{equation}
@@ -118,7 +112,7 @@ The linearized dependence of
 \end{equation}
 
 \begin{equation}
-    \frac{\partial{\bm{a}}_g}{\partial{\rho}} = 
+    \frac{\partial{\bm{a}}_g}{\partial{\rho}} =
     G\frac{4}{3}\pi
     \begin{bmatrix}
     {abc}{r_x}{R_D(b^2 + \kappa_0, c^2 + \kappa_0, a^2 + \kappa_0)}\\
@@ -128,7 +122,7 @@ The linearized dependence of
 \end{equation}
 
 \begin{equation}
-    \frac{\partial{\bm{a}}_g}{\partial{\mathbf{p}_g}} = 
+    \frac{\partial{\bm{a}}_g}{\partial{\mathbf{p}_g}} =
     G\frac{4}{3}\pi
     \begin{bmatrix}
     {abc}{r_x}{R_{D_x}} & \rho bc({r_x}{R_{D_x}} + a\frac{\partial{R_{D_x}}}{\partial{a}}) & \rho ac({r_x}{R_{D_x}} + b\frac{\partial{R_{D_x}}}{\partial{b}}) & \rho ab({r_x}{R_{D_x}} + c\frac{\partial{R_{D_x}}}{\partial{c}})\\

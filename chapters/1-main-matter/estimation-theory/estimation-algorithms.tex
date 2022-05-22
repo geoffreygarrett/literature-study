@@ -1,44 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Orbit Determination and Parameter Estimation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage{}
-\section{Observation Models}
-
-\subsection{Landmark Tracking}
-\textcolor{red}{Marie's Thesis + Michael. Model is similar to VLBI model.}
-
-\textcolor{red}{2.1.1 In D.Dirkx for better notation.}
-
-\textcolor{red}{Moyer, formulation for observed and computed quantities in DSN types.}
-\subsection{Range Measurements/ Pseudorange}
-
-
-\subsection{Doppler Measurements}
-
-\subsubsection{Two-way Range Rate}
-\begin{equation}
-    \overline{\dot{\rho}}(t) = \frac{c}{2}\frac{(\tau_{2u}+\tau_{2d})-(\tau_{1u}+\tau_{2d})}{t_c} = \frac{1}{2}\frac{(\rho_{2u}+\rho_{2d})-(\rho_{1u} + \rho_{1d})}{t_c},
-\end{equation}
-
-\subsubsection{Range}
-
-\subsubsection{One-Way Range Rate}
-\begin{equation}
-    \overline{\dot{\rho}} = c\frac{(\tau_2-\tau_1)}{t_c}=\frac{(\rho_2-\rho_1)}{t_c} 
-\end{equation}
-
-\subsubsection{Rational Doppler Bias}
-\textcolor{red}{No real need to discuss, cut out in post processing.}
-\begin{equation}
-    \delta\overline{\dot{\rho}} = \frac{1}{t_c}\int_{t-t_c}^{t}d\cdot{\omega\sin{\alpha}\sin{\omega{t}}\;dt}
-\end{equation}
-
-\begin{equation}
-    \Delta{\overline{\dot{\rho}}} = \frac{\lambda\omega}{2\pi}\frac{s_R+s_T/T_{1,2}}{2}
-\end{equation}
-
-
-\newpage{}
-
-\section{Parameter Estimation}
+Predicting the state of a satellite given an initial condition, $\mathbf{x}_0$,
+and models which constitute the equations of motion of the satellite,
+$\dot{\mathbf{x}}=f(t,\mathbf{x})$, is a straightforward task involving the
+solution of an initial value problem (IVP) in the form of an ordinary
+differential equation (ODE). Furthermore, the accuracy of this solution can be
+traded off against the computational expense of the prediction. However the
+inverse problem  is more involved, that is, given a set of observations in the
+dynamical system, we would like to estimate the trajectory of the satellite and
+the parameters describing the dynamical models.
 
 \begin{itemize}
     \item Orbit of asteroid
@@ -47,12 +19,14 @@
     \item Gravitational potential of asteroid
 \end{itemize}
 
-\subsection{Orbit Determination}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Weighted Least-Squares Estimation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{equation}
-    H=\frac{\partial{\mathbf{h}}}{\partial{\mathbf{q}}}
+    H=\frac{\partial{\mathbf{h}(x_0)}}{\partial{\mathbf{q}}}\bigg|_{\mathbf{x}_0}
 \end{equation}
 
 \begin{equation}
@@ -69,7 +43,7 @@
 
 
  \noindent{}A CEKF consists of 3 main steps, namely: \textit{Initialisation (0)}, \textit{Prediction (1)} and \textit{Correction (2)}, where steps 1 \& 2 are iterated through $K-1$ times, where $K$ ($K\in\mathbb{Z}^+$) quantifies the number of Epochs.
- 
+
  \begin{itemize}
      \item \textbf{Step (0) Initialisation}: The \textit{a posteriori} estimate of the initial state ($\hat{x}_0^+$) is determined according to the expectation of the true value $x_0$. The initial state error co-variance matrix is calculated according to the expectation of the co-variance between $\hat{x}_0^+$ and $x_0$. Within the context of satellite tracking, a predefined $\hat{x}_0^+$ will be used throughout the CEKF analysis to analyse the performance as a result of the selection of hyper-parameters: $\bm{Q}_{k-1}$ and $\bm{R}_k$.
      \item \textbf{Step (1) Prediction}: Project the state and its co-variance matrix at $k-1$ one step forward in order to obtain the \textit{a priori} estimates at $k$ according to the system dynamics. $\bm{Q}_{k-1}$ is implemented, then this contributes to the \textit{a priori} estimate of $P_k^{}$.
@@ -90,27 +64,3 @@
     \caption{Orbit determination of asteroid using range observations from Earth ($\rho$).}
     \label{fig:my_label}
 \end{figure}
-
-\begin{equation}
-    \rho = ||\mathbf{r}_\Sun - \mathbf{R}_\Earth||
-\end{equation}
-
-
-\begin{equation}
-    \rho = ||\mathbf{r}_\Sun - \mathbf{R}_\Earth||
-\end{equation}
-
-\begin{itemize}
-    \item \textbf{Orbit Determination}
-    \item 
-\end{itemize}
-
-\subsection{Rotational State}
-
-\subsection{Gravitational Potential}
-
-\subsection{Shape}
-
-\begin{itemize}
-    \item \textbf{Rotation Model}: 
-\end{itemize}
