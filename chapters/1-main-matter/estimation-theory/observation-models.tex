@@ -1,9 +1,91 @@
-\section{Satellite Tracking \& Observation Models}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Spacecraft Tracking \& Observation Models}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+It should be noted that significant work towards the incorporation of laser
+tracking for Lunar~\cite{Bauer2016, Bauer2017} and planetary science missions
+have been carried out, and has demonstrated that range observations may be
+improved by 2 orders of magnitude~\cite{Dirkx2019}. However, the primary purpose
+of this research is the autonomous planning for the safe exploration of small
+bodies, therefore the use of Interplanetary Laser Ranging (ILR) is considered
+beyond the current scope, and is not covered by this work.
+
+%In order to provide a fundamental view of estimation in the context of space
+%missions, we generalize across what is implied by tracking, observation, and
+%characterization of the space environment. Information is transmitted to an
+%observer in the form of a signal, which has some identity associated to it.
+%This signal is then
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Radar Tracking}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Deep Space Network (DSN) developed S-band capabilities for spacecraft during
-the 1960s.
+Radar tracking facilitates the determination of specific physical information of
+a spacecraft, with respect to the path of signals taken though the defining
+link-ends: transmitter and receiver, and in some configurations, transponders
+(transmission of a signal in response to a received signal). The components of
+physical information determinable between link-ends are:
+
+\begin{enumerate}
+    \item \textit{pointing angles}: determined by either (a) measuring the
+    direction of the maximum signal amplitude of the spacecraft with respect to
+    a single observer, or (b) Very Long Baseline Interferometry (VLBI) using
+    multiple observers, given accurate relative fixed positions of the
+    observers.
+    \item \textit{range}: \textit{a.k.a. line-of-sight distance}, determined by
+    the measuring the light trip time between A and B. This is most configured
+    such that round-trip light time is measured, the duration between the
+    emission of a signal from A, reflected at B, and received again by A.
+    One-way configuration is also possible, with more stringent requirements on
+    time precision.
+    \item \textit{range rate}: \textit{a.k.a. line-of-sight velocity}, of
+    a B with respect to an observer A can be derived from the Doppler shift
+    of a radar wave. The most common configurations for these measurements are
+    one-way, two-way and three-way.
+\end{enumerate}
+
+Radar tracking is the most used widely used form deep space spacecraft tracking
+and is facilitated by a network of dedicated ground stations. Two popular
+networks used in contemporary deep space spacecraft tracking are ESA's tracking
+station network (ESTRACK) \cite{Doat2018} and NASA's Deep Space Network (DSN)
+\cite{Dsn2015}. These networks generally operate in the X-band or Ka-band, or
+both to account for dispersive propagation media \cite{Bertotti1993}. These
+bands are designated by the International Telecommunication Union (ITU)
+\cite{Berner2020}, and given in \autoref{tab:itu-bands}.
+
+\begin{table}[htp]
+\renewcommand{\arraystretch}{1.5}
+\centering
+\caption{
+    \textbf{Frequency Bands Allocated by the International Telecommunication
+    Union (ITU)}. Near space bands are used for spacecrafts less than 2 million
+    km from Earth, and deep space bands for any distance greater. *Deep Space
+    S-band is not available at Madrid tracking stations due to a conflict with
+    IMT- 2000 users, per agreement between NASA and Secretaria de Estado de
+    Telecomunicaciones para la Sociedad de la Informacion (SETSI), January 2001
+    ~\cite{Berner2020}.
+}
+\label{tab:itu-bands}
+\begin{tabular}{lllll}
+\hline
+Band             & \multicolumn{2}{l}{Deep Space Bands} (MHz) & \multicolumn{2}{l}{Near Space Bands} (MHz)\\
+                 &                                              Uplink & Downlink &                                             Uplink & Downlink  \\
+\hline\hline
+          S      &                                        2110–2120* &                    2290–2300 &                                        2025–2110 &                2200–2290 \\
+          X      &                                        7145–7190  &                    8400–8450 &                                        7190–7235 &                8450–8500 \\
+          K      &                                              N/A  &                          N/A &                                      22550-23150 &              25500–27000 \\
+         Ka      &                                      34200–34700  &                  31800–32300 &                                              N/A &                       N/A \\
+\hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Deep Space Network (DSN)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Deep Space Network (DSN) first developed the unified S-band (USB) system for
+spacecrafts during the 1960s, during the Apollo missions~\cite{Peltzer1966}. It
+has since been accompanied by the X-band, K-band and most recently, the Ka-band.
 
 \begin{itemize}
     \item One-way: The spacecraft generates the downlink signal(s) from an
@@ -24,72 +106,47 @@ the 1960s.
     complex share the same frequency reference.
 \end{itemize}
 
-To measure two-way or three-way Doppler shift, the spacecraft must transmit a
-downlink signal that is phase coherent with the uplink signal. Table 1 provides the recommended
-spacecraft transponder turnaround ratios for various uplink and downlink frequency bands. The
-tracking equipment at the DSN 34-m and 70-m stations can accommodate other turnaround
-ratios but this support must be negotiated through the JPL Frequency Manager
 
 \begin{table}[htp]
 \renewcommand{\arraystretch}{1.5}
 \centering
 \caption{
-    \textbf{Spacecraft Transponder Turnaround Ratios.} K-band (25500-27000 MHz)
-    is not listed because the DSN does not support radiometric measurements in
-    this band. *Specific integer turnaround ratios must be negotiated through
-    the JPL Frequency Manager and must be evaluated within the stated
-    range~\cite{Shin2014}.
+    \textbf{Spacecraft Transponder Turnaround Ratios.} *K-band uplink
+    implementation, at two 34-meter BWG antennas per complex, will start
+    November 2021 and complete July 2024. **K-band Doppler and ranging data are
+    not supported by the DSN. ***Due to the bandwidth difference between 600 MHz
+    uplink and 1500 MHz downlink, the coherency between uplink and downlink
+    using these transponder ratios does not apply to the entire allocated
+    bandwidth~\cite{Berner2020}.
 }
 \begin{tabular}{lll}
 \hline
-\textbf{Uplink} & \textbf{Downlink} & \textbf{Ratio (downlink/uplink)} \\
+\textbf{Uplink} & \textbf{Downlink} & \textbf{Ratio (downlink/uplink)}  \\
 \hline\hline
-S               & S                 & 240/221                          \\
-S               & X                 & 880/221                          \\
-S               & Ka                & 15.071-15.235*                   \\
-X               & S                 & 240/749                          \\
-X               & X                 & 880/749                          \\
-X               & Ka                & 4.4506-4.4923*                   \\
-Ka              & S                 & 0.066959-0.066282*               \\
-Ka              & X                 & 0.24561-0.24352*                 \\
-Ka              & Ka                & 0.92982-0.93084*                 \\
+S               & S                 & 240/221                           \\
+S               & X                 & 880/221                           \\
+S               & Ka                & 3328/221, 3344/221, 3360/221      \\
+X               & S                 & 240/749                           \\
+X               & X                 & 880/749                           \\
+X               & $K_a$             & 3328/749, 3344/749, 3360/749      \\
+K*              & K**               & 2407/2720, 2407/2760, 2407/2816***\\
+$K_a$           & $K_a$             & 3344/3599, 3360/3599              \\
 \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[htp]
-\renewcommand{\arraystretch}{1.5}
-\centering
-\caption{
-    Frequency Bands Allocated by the International Telecommunication Union
-    (ITU). Near space bands are used for spacecrafts less than 2 million km from
-    Earth, and deep space bands for any distance greater. *Deep Space S-band is
-    not available at Madrid tracking stations due to a conflict with IMT- 2000
-    users, per agreement between NASA and Secretaria de Estado de
-    Telecomunicaciones para la Sociedad de la Informacion (SETSI), January 2001.
-    No allocation or not supported by the DSN~\cite{Shin2014}.
-}
-\begin{tabular}{lllll}
-\hline
-Band             & \multicolumn{2}{l}{Deep Space Bands} (MHz) & \multicolumn{2}{l}{Near Space Bands} (MHz)\\
-                 &                                              Uplink & Downlink &                                             Uplink & Downlink  \\
-\hline\hline
-          S      &                                        2110–2120* &                    2290–2300 &                                        2025–2110 &                2200–2290 \\
-          X      &                                        7145–7190  &                    8400–8450 &                                        7190–7235 &                8450–8500 \\
-          K      &                                               **  &                           ** &                                      22550-23150 &              25500–27000 \\
-         Ka      &                                      34200–34700  &                  31800–32300 &                                               ** &                       ** \\
-\hline
-\end{tabular}
-\end{table}
-\subsubsection{Angle Measurements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Doppler Measurements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Ranging}
+To measure two-way or three-way Doppler shift, the spacecraft must transmit a
+downlink signal that is phase coherent with the uplink signal. Table 1 provides
+the recommended spacecraft transponder turnaround ratios for various uplink and
+downlink frequency bands.
 
-\subsubsection{Doppler Tracking}
-
-$t_c = t_2 - t_1$
-
-\subsection{Doppler Measurements}
+Doppler measurements are typically integrated of a period of about 60 seconds \cite{},
+however periods in the lower range of 1-10 seconds \cite{}, or larger periods such as
+1000 seconds may also be chosen \cite{}.
 
 \begin{equation}
     \frac{f_r}{f_t} = \frac{
@@ -109,8 +166,51 @@ $t_c = t_2 - t_1$
     \end{aligned}
 \end{equation*}
 
-The frequency shift, $f_r/f_t$ cannot be measured instantaneously and must be time averages over
-a counting period, $t_c$
+The frequency shift, $f_r/f_t$ cannot be measured instantaneously and must be
+time averaged over a counting period, $t_c$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Two-way Doppler Measurements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+    N = \int_{t_1}^{t_2}(f_r-f_{ref})dt
+\end{equation}
+\begin{equation*}
+    \begin{aligned}
+        \textrm{where  }
+        \mathbf{f}_t, \mathbf{f}_r &= \textrm{the transmitted and received signal frequencies,}\\
+        \mathbf{v}_t, \mathbf{v}_t &= \textrm{the transmitters and receivers inertial velocity vectors,}\\
+        \mathbf{e} &= \textrm{the unit vector in the direction of the signal propagation,}\\
+        c &= \textrm{the speed of light,}\\
+        \mathbf{U}_t, \mathbf{U}_r &= \textrm{the Newtonian potential at the trasmitter and receiver.}\\
+    \end{aligned}
+\end{equation*}
+
+\begin{equation}
+    N = \int_{t_1}^{t_2}(f_r)dt-f_{ref}(t_2-t_1)
+\end{equation}
+
+\begin{equation}
+    N = \int_{t_1}^{t_2}(f_r)dt = T_{1,2}\int_{t_1-\tau_1}^{t_2-\tau_2}
+\end{equation}
+
+\begin{equation}
+    \dot{\rho} = \int_{t_1}^{t_2}(f_r)dt = T_{1,2}\int_{t_1-\tau_1}^{t_2-\tau_2}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Angle Measurements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Ranging}
+
+\subsubsection{Doppler Tracking}
+
+$t_c = t_2 - t_1$
+
+\subsection{Doppler Measurements}
+
 
 \subsubsection{Two-way Range Rate}
 \begin{equation}

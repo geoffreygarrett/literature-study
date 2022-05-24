@@ -1,36 +1,100 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Orbit Determination and Parameter Estimation}
+\newpage\section{Orbit Determination and Parameter Estimation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Predicting the state of a satellite given an initial condition, $\mathbf{x}_0$,
-and models which constitute the equations of motion of the satellite,
-$\dot{\mathbf{x}}=f(t,\mathbf{x})$, is a straightforward task involving the
-solution of an initial value problem (IVP) in the form of an ordinary
-differential equation (ODE). Furthermore, the accuracy of this solution can be
-traded off against the computational expense of the prediction. However the
-inverse problem  is more involved, that is, given a set of observations in the
-dynamical system, we would like to estimate the trajectory of the satellite and
-the parameters describing the dynamical models.
+Predicting the state ($\bm{x}_t$) of a spacecraft given an initial condition
+($\bm{x}_0$), and models which form the equations of motion of the satellite,
+($\dot{\bm{x}}=f(t,\bm{x})$), is a straightforward task involving the solution
+of an initial value problem (IVP) in the form of an ordinary differential
+equation (ODE). However the inverse problem  is more involved, that is, given a
+set of measurements ($\bm{z}$) resulting from the dynamical system, we would
+like to estimate the trajectory of the satellite and the parameters describing
+the dynamical models, described mathematically as:
+\begin{equation}
+    \bm{x}(t) =
+    \begin{bmatrix}
+        \bm{r}(t) \\
+        \bm{v}(t) \\
+        \bm{p} \\
+        \bm{q} \\
+    \end{bmatrix}.
+\end{equation}
+\begin{equation*}
+    \begin{aligned}
+        \textrm{where  }
+            \bm{r}(t), \bm{v}(t) &= \text{the position and velocity of the spacecraft as a function of time,} \\
+            \bm{p}               &= \text{the parameters describing the force models,} \\
+            \bm{q}               &= \text{the parameters describing the measurement models.} \\
+    \end{aligned}
+\end{equation*}
 
-\begin{itemize}
-    \item Orbit of asteroid
-    \item Orbit of spacecraft
-    \item Rotation of asteroid (rate + principle axes)
-    \item Gravitational potential of asteroid
-\end{itemize}
+The measurements made throughout the trajectory of the spacecraft at times
+$t_1,...,t_n$ are described by $\bm{z}=[z_1,...,z_n]$:
+\begin{equation}
+    z_i(t_i) = g_i(t_i, \bm{x}(t_i))+\epsilon_i = h_i(t_i, \bm{x}_0)+\epsilon_i
+\end{equation}
+\begin{equation*}
+    \begin{aligned}
+        \textrm{where  }
+            z_i &= \text{the i$^{th}$ empirical measurement, assumed to be a random variable,} \\
+            g_i &= \text{the i$^{th}$ modelled measurement as a function time and instantaneous state,} \\
+            h_i &= \text{the i$^{th}$ modelled measurement as a function time and initial state,} \\
+            \epsilon_i &= \text{the i$^{th}$ residual, accounting for measurement errors.} \\
+    \end{aligned}
+\end{equation*}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Weighted Least-Squares Estimation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{0.95\linewidth}
+    % \input{graphics/drawing2.pdf_tex}
+    \import{graphics/}{trajectory_estimation.pdf_tex}
+    \caption{Definition of a general Body-centered inertial (BCI) reference frame.}
+    \label{fig:as}
+\end{figure}
+
+
+%Furthermore, the accuracy of this solution can be
+%traded off against the computational expense of the prediction.
+
+%
+%\begin{itemize}
+%    \item Orbit of asteroid
+%    \item Orbit of spacecraft
+%    \item Rotation of asteroid (rate + principle axes)
+%    \item Gravitational potential of asteroid
+%\end{itemize}
+
 
 
 
 \begin{equation}
-    H=\frac{\partial{\mathbf{h}(x_0)}}{\partial{\mathbf{q}}}\bigg|_{\mathbf{x}_0}
+    z = \mathbf{h}(\mathbf{x}_0) + \mathbf{\epsilon}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage\subsubsection{Weighted Least-Squares Estimation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Weighted Least-Squares Estimation method is an application of the
+Generalized Least-Squares (GLS) algorithm~\cite{Aitken1936}, which aims at
+estimating unknown parameters ($\bm{x}$) in a linear regression model, given a
+set of observations ($\bm{y}$), where there is a certain degree of correlation
+($\bm{W}$) between the residuals ($\bm{\epsilon}$) in the regression model:
+\begin{equation}
+\bm{y}=\bm{A}\bm{x}+\bm{\epsilon},\;\;\;\gls{E}{}[\bm{\epsilon}]=\bm{0},\;\;\;\text{Cov}(\bm{\epsilon}|
+\bm{A})=\bm{W}. \label{eq:linear-regression} \end{equation}
+
+The problem arises when considering the non-linear dynamics experienced by the
+spacecraft throughout its trajectory, which is not entirely described by
+\autoref{eq:linear-regression}. The
+
+
+\begin{equation}
+    H=\frac{\partial{\bm{h}(x_0)}}{\partial{\bm{x}_0}}\bigg|_{\mathbf{x}_0}
 \end{equation}
 
 \begin{equation}
-    \Delta{\mathbf{q}}=K(H^{T}W\Delta{\mathbf{h}})
+    \Delta{\bm{q}}=K(H^{T}W\Delta{\bm{h}})
 \end{equation}
 
 \begin{equation}
