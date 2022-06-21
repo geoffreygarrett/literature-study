@@ -1,21 +1,29 @@
 
-\section{Taxonomy of Partials}
+\subsection{Taxonomy of Partials (Linearization)}
 
-\subsection{The State Transition Matrix}
+\subsubsection{The State Transition Matrix}
 
 Let the state vector $\mathbf{y(t)}$ of the dynamic system at an arbitrary epoch
 $t$ be the concatenation of the position $\mathbf{r}(t)$ and velocity vector
 $\mathbf{v}(t)$. A state vector at a specified epoch is given by
 $\mathbf{y}(t_0)$. The state transition matrix $\bm{\Phi}(t,t_0)$ describes the
 change of the state vector at a time $t$ due to a change in the initial state
-vector at time $t_0$
+vector at time $t_0$. $\bm{y}(t)=[\bm{r}^T(t)\;\;\bm{v}^T(t)]^T$
 
 \begin{equation}
     \bigg(\frac{\partial\mathbf{y}(t)}{\partial{\mathbf{y}(t_0)}}\bigg)_{6\times{6}}=\bm{\Phi}(t, t_0).
     \label{eq:linear_stm}
 \end{equation}
 
-\subsection{The Sensitivity Matrix}
+\begin{equation}
+    \bm{\Phi}(t, t_0) =
+    \begin{bmatrix}
+        \bm{\Phi}_{\bm{rr}} & \bm{\Phi}_{\bm{rv}} \\
+        \bm{\Phi}_{\bm{vr}} & \bm{\Phi}_{\bm{vv}} \\
+    \end{bmatrix}.
+\end{equation}
+
+\subsubsection{The Sensitivity Matrix}
 
 For a given set of $n_p$ parameters which are dependent variables in
 the calculation of acceleration acting on on the system of bodies $\mathbf{p}$,
@@ -30,105 +38,105 @@ with respect to the force model parameters. The parameters $p$ often include
 coefficients which are empirical in nature, these include but are not limited to
 the coefficients of lift, drag, and radiation pressure.
 
-\subsection{Partials of measurements with respect to the state vector}
-The linearized dependence of
-
-\subsubsection{Solar Radiation Pressure}
-
-\subsubsection{Partial derivative with respect to state}
-
-\begin{equation}
-    \frac{\partial{\bm{a}_{s}}}{\partial{\mathbf{r}}} =
-    -P_\Sun\frac{A}{m}\frac{AU^2}{r^5}
-    \begin{bmatrix}
-    3r_x^2-r^2 & 3r_xr_y    & 3r_xr_z \\
-    3r_yr_x    & 3r_y^2-r^2 & 3r_yr_z \\
-    3r_zr_x    & 3r_zr_y    & 3r_z^2-r^2 \\
-    \end{bmatrix}
-    \label{eq:partial_srp_state}
-\end{equation}
-
-\subsubsection{Partial derivative with respect to coefficient of radiation pressure}
-
-\begin{equation}
-    \frac{\partial\bm{a}_{s}}{\partial{C_r}}
-    =
-    \frac{1}{C_R}\bm{a}_s
-    =
-    -P_\Sun\frac{A}{m}\frac{\mathbf{r}}{r^3}AU^2
-    \label{eq:partial_srp_cr}
-\end{equation}
-
-\subsection{Thrust}
-
-\begin{equation}
-    \frac{\bm{a}_T}{\partial{}}
-\end{equation}
-
-\subsection{Gravitational Potential: Point Mass}
-
-\subsubsection{Partial derivative with respect to state}
-\begin{equation}
-    \frac{\partial{\bm{a}_{g}}}{\partial{\mathbf{r}}}  =
-    \frac{\mu}{r^5}
-    \begin{bmatrix}
-    3r_x^2-r^2 & 3r_xr_y    & 3r_xr_z \\
-    3r_yr_x    & 3r_y^2-r^2 & 3r_yr_z \\
-    3r_zr_x    & 3r_zr_y    & 3r_z^2-r^2 \\
-    \end{bmatrix}
-    \label{eq:partial_point_mass_wrt_state}
-\end{equation}
-
-\subsubsection{Partial derivative with respect to gravitational parameter}
-\begin{equation}
-    \frac{\partial{\bm{a}_{g}}}{\partial{\mu}} =
-    \frac{1}{\mu}\bm{a}_g =
-    -\frac{\mathbf{r}}{r^3}
-    \label{eq:partial_point_mass_wrt_G}
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Gravitational Potential: Tri-axial ellipsoid}
-\subsubsection{Partial derivative with respect to state}
-\begin{equation}
-    \frac{\partial{\bm{a}_{g}}}{\partial{\mathbf{r}}} =
-    \mu
-    \begin{bmatrix}
-
-    \end{bmatrix}
-    \label{eq:partial_triaxial_wrt_state}
-\end{equation}
-
-\subsubsection{Partial derivative with respect to characteristic parameters}
-\begin{equation}
-    \mathbf{p}_{g}=
-    \begin{bmatrix}
-    \rho & a & b & c \\
-    \end{bmatrix}^T
-\end{equation}
-
-\begin{equation}
-    j_1=
-\end{equation}
-
-\begin{equation}
-    \frac{\partial{\bm{a}}_g}{\partial{\rho}} =
-    G\frac{4}{3}\pi
-    \begin{bmatrix}
-    {abc}{r_x}{R_D(b^2 + \kappa_0, c^2 + \kappa_0, a^2 + \kappa_0)}\\
-    {abc}{r_y}{R_D(a^2 + \kappa_0, c^2 + \kappa_0, b^2 + \kappa_0)}\\
-    {abc}{r_z}{R_D(a^2 + \kappa_0, b^2 + \kappa_0, c^2 + \kappa_0)}\\
-    \end{bmatrix}
-\end{equation}
-
-\begin{equation}
-    \frac{\partial{\bm{a}}_g}{\partial{\mathbf{p}_g}} =
-    G\frac{4}{3}\pi
-    \begin{bmatrix}
-    {abc}{r_x}{R_{D_x}} & \rho bc({r_x}{R_{D_x}} + a\frac{\partial{R_{D_x}}}{\partial{a}}) & \rho ac({r_x}{R_{D_x}} + b\frac{\partial{R_{D_x}}}{\partial{b}}) & \rho ab({r_x}{R_{D_x}} + c\frac{\partial{R_{D_x}}}{\partial{c}})\\
-    {abc}{r_y}{R_{D_y}} & \rho bc({r_y}{R_{D_y}} + a\frac{\partial{R_{D_y}}}{\partial{a}}) & \rho ac({r_y}{R_{D_y}} + b\frac{\partial{R_{D_y}}}{\partial{b}}) & \rho ab({r_y}{R_{D_y}} + c\frac{\partial{R_{D_y}}}{\partial{c}})\\
-    {abc}{r_z}{R_{D_z}} & \rho bc({r_z}{R_{D_z}} + a\frac{\partial{R_{D_z}}}{\partial{a}}) & \rho ac({r_z}{R_{D_z}} + b\frac{\partial{R_{D_z}}}{\partial{b}}) & \rho ab({r_z}{R_{D_z}} + c\frac{\partial{R_{D_z}}}{\partial{c}})\\
-    \end{bmatrix}
-\end{equation}
-
-\subsection{Gravitational Potential: Expansion in spherical harmonics}
+%\subsubsection{Partials of measurements with respect to the state vector}
+%The linearized dependence of
+%
+%\subsubsection{Solar Radiation Pressure}
+%
+%\subsubsection{Partial derivative with respect to state}
+%
+%\begin{equation}
+%    \frac{\partial{\bm{a}_{s}}}{\partial{\mathbf{r}}} =
+%    -P_\Sun\frac{A}{m}\frac{AU^2}{r^5}
+%    \begin{bmatrix}
+%    3r_x^2-r^2 & 3r_xr_y    & 3r_xr_z \\
+%    3r_yr_x    & 3r_y^2-r^2 & 3r_yr_z \\
+%    3r_zr_x    & 3r_zr_y    & 3r_z^2-r^2 \\
+%    \end{bmatrix}
+%    \label{eq:partial_srp_state}
+%\end{equation}
+%
+%\subsubsection{Partial derivative with respect to coefficient of radiation pressure}
+%
+%\begin{equation}
+%    \frac{\partial\bm{a}_{s}}{\partial{C_r}}
+%    =
+%    \frac{1}{C_R}\bm{a}_s
+%    =
+%    -P_\Sun\frac{A}{m}\frac{\mathbf{r}}{r^3}AU^2
+%    \label{eq:partial_srp_cr}
+%\end{equation}
+%
+%\subsection{Thrust}
+%
+%\begin{equation}
+%    \frac{\bm{a}_T}{\partial{}}
+%\end{equation}
+%
+%\subsection{Gravitational Potential: Point Mass}
+%
+%\subsubsection{Partial derivative with respect to state}
+%\begin{equation}
+%    \frac{\partial{\bm{a}_{g}}}{\partial{\mathbf{r}}}  =
+%    \frac{\mu}{r^5}
+%    \begin{bmatrix}
+%    3r_x^2-r^2 & 3r_xr_y    & 3r_xr_z \\
+%    3r_yr_x    & 3r_y^2-r^2 & 3r_yr_z \\
+%    3r_zr_x    & 3r_zr_y    & 3r_z^2-r^2 \\
+%    \end{bmatrix}
+%    \label{eq:partial_point_mass_wrt_state}
+%\end{equation}
+%
+%\subsubsection{Partial derivative with respect to gravitational parameter}
+%\begin{equation}
+%    \frac{\partial{\bm{a}_{g}}}{\partial{\mu}} =
+%    \frac{1}{\mu}\bm{a}_g =
+%    -\frac{\mathbf{r}}{r^3}
+%    \label{eq:partial_point_mass_wrt_G}
+%\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Gravitational Potential: Tri-axial ellipsoid}
+%\subsubsection{Partial derivative with respect to state}
+%\begin{equation}
+%    \frac{\partial{\bm{a}_{g}}}{\partial{\mathbf{r}}} =
+%    \mu
+%    \begin{bmatrix}
+%
+%    \end{bmatrix}
+%    \label{eq:partial_triaxial_wrt_state}
+%\end{equation}
+%
+%\subsubsection{Partial derivative with respect to characteristic parameters}
+%\begin{equation}
+%    \mathbf{p}_{g}=
+%    \begin{bmatrix}
+%    \rho & a & b & c \\
+%    \end{bmatrix}^T
+%\end{equation}
+%
+%\begin{equation}
+%    j_1=
+%\end{equation}
+%
+%\begin{equation}
+%    \frac{\partial{\bm{a}}_g}{\partial{\rho}} =
+%    G\frac{4}{3}\pi
+%    \begin{bmatrix}
+%    {abc}{r_x}{R_D(b^2 + \kappa_0, c^2 + \kappa_0, a^2 + \kappa_0)}\\
+%    {abc}{r_y}{R_D(a^2 + \kappa_0, c^2 + \kappa_0, b^2 + \kappa_0)}\\
+%    {abc}{r_z}{R_D(a^2 + \kappa_0, b^2 + \kappa_0, c^2 + \kappa_0)}\\
+%    \end{bmatrix}
+%\end{equation}
+%
+%\begin{equation}
+%    \frac{\partial{\bm{a}}_g}{\partial{\mathbf{p}_g}} =
+%    G\frac{4}{3}\pi
+%    \begin{bmatrix}
+%    {abc}{r_x}{R_{D_x}} & \rho bc({r_x}{R_{D_x}} + a\frac{\partial{R_{D_x}}}{\partial{a}}) & \rho ac({r_x}{R_{D_x}} + b\frac{\partial{R_{D_x}}}{\partial{b}}) & \rho ab({r_x}{R_{D_x}} + c\frac{\partial{R_{D_x}}}{\partial{c}})\\
+%    {abc}{r_y}{R_{D_y}} & \rho bc({r_y}{R_{D_y}} + a\frac{\partial{R_{D_y}}}{\partial{a}}) & \rho ac({r_y}{R_{D_y}} + b\frac{\partial{R_{D_y}}}{\partial{b}}) & \rho ab({r_y}{R_{D_y}} + c\frac{\partial{R_{D_y}}}{\partial{c}})\\
+%    {abc}{r_z}{R_{D_z}} & \rho bc({r_z}{R_{D_z}} + a\frac{\partial{R_{D_z}}}{\partial{a}}) & \rho ac({r_z}{R_{D_z}} + b\frac{\partial{R_{D_z}}}{\partial{b}}) & \rho ab({r_z}{R_{D_z}} + c\frac{\partial{R_{D_z}}}{\partial{c}})\\
+%    \end{bmatrix}
+%\end{equation}
+%
+%\subsection{Gravitational Potential: Expansion in spherical harmonics}
