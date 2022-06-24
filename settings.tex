@@ -82,6 +82,9 @@
 %\usepackage{longtable}
 %\usepackage[stylemods=longextra]{glossaries-extra}
 %\usepackage{glossary-longextra}
+\newcommand{\glsposs}[1]{%
+ \ifglsused{#1}{\acrshort{#1}'s}{\acrlong{#1}'s (\acrshort{#1})\glsunset{#1}}%
+}
 \usepackage[acronym, order=letter, style=long, nogroupskip=true]{glossaries}
 %\makeatletter
 %\renewcommand*{\@@glossarysec}{section}%
