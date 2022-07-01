@@ -24,6 +24,19 @@
 
 % paragraph linbreaks
 
+%---------------------------
+% Bibliography
+%---------------------------
+\usepackage[
+    natbib=true,
+    backend=bibtex,
+    sorting=anyvt,
+    url=true,
+    style=draft,
+    doi=true]{biblatex}
+
+\usepackage[nottoc]{tocbibind} % Include in TOC
+
 
 %\usepackage{tikz}
 %\usetikzlibrary{positioning,arrows.meta,calc,decorations.pathreplacing}
@@ -64,109 +77,109 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-    \pagenumbering{gobble}
+\pagenumbering{gobble}
 
-    %% Roman numerals
-    \title{Autonomous Space Exploration}
+%% Roman numerals
+\title{Autonomous Space Exploration}
 %    \author{Geoffrey H. Garrett}{G.H. Garrett}
-    \coverimage{cover}
-    \subtitle{Test}
-    \subject{Test}
+\coverimage{cover}
+\subtitle{Test}
+\subject{Test}
 
-    \makecover
+% \makecover
 
-    \newpage
-    \thispagestyle{empty}
-    \mbox{}
-    \newpage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
 
-    \frontmatter % Use roman page numbering style
-    \onehalfspacing
+\frontmatter % Use roman page numbering style
+\onehalfspacing
 %    \begin{longtable}{lp{\glsdescwidth}p{\glspagelistwidth}}
-    % abbreviations.
-    \setlength{\glsdescwidth}{0.9\textwidth}
+% abbreviations.
+\setlength{\glsdescwidth}{0.9\textwidth}
 %    \setlength{\glspagelistwidth}{0.1\textwidth}
-    \printnoidxglossary[type=\acronymtype, title=Abbreviations]
+\printnoidxglossary[type=\acronymtype, title=Abbreviations]
 
 
 %    \printnoidxglossary[type=symbols, title=Notation, style=long]
 %    \chapter*{Notation}
-    \printnoidxglossary[
-        type=symbols,
-        title={Notation},
-    ]
-    \setglossarysection{section}
-    \printnoidxglossary[
-        type={notation:orbit},
-        title={Orbital Mechanics},
-    ]
-    \printnoidxglossary[
-        type={notation:mission},
-        title={Other},
-    ]
+\printnoidxglossary[
+    type=symbols,
+    title={Notation},
+]
+\setglossarysection{section}
+\printnoidxglossary[
+    type={notation:orbit},
+    title={Orbital Mechanics},
+]
+\printnoidxglossary[
+    type={notation:mission},
+    title={Other},
+]
 
-    NASA's Doubler
+NASA's Doubler
 Asteroid Redirection Test (DART)
 
-    \printnoidxglossary[
-        type={notation:set},
-        title={Sets and Graphs},
-    ]
-    \printnoidxglossary[
-        type={notation:ml},
-        title={Machine Learning},
-        nonumberlist
-    ]
-    \printnoidxglossary[
-        type={notation:dl},
-        title={Deep Learning},
-        nonumberlist
-    ]
-    \printnoidxglossary[
-        type={notation:fn},
-        title={Functions},
-    ]
-    \printnoidxglossary[
-        type={notation:prob},
-        title={Probability and information theory},
-    ]
-    \setglossarysection{chapter}
+\printnoidxglossary[
+    type={notation:set},
+    title={Sets and Graphs},
+]
+\printnoidxglossary[
+    type={notation:ml},
+    title={Machine Learning},
+    nonumberlist
+]
+\printnoidxglossary[
+    type={notation:dl},
+    title={Deep Learning},
+    nonumberlist
+]
+\printnoidxglossary[
+    type={notation:fn},
+    title={Functions},
+]
+\printnoidxglossary[
+    type={notation:prob},
+    title={Probability and information theory},
+]
+\setglossarysection{chapter}
 
-    \doublespacing
-    \listoffiguresG
-    \listoftables
+\doublespacing
+\listoffigures
+\listoftables
 
-    \newpage
+\newpage
 
-    \setcounter{tocdepth}{2} % Set TOC to display up to subsections
-    \tableofcontents
+\setcounter{tocdepth}{2} % Set TOC to display up to subsections
+\tableofcontents
 
-    \mainmatter % Begin numeric (1,2,3...) page numbering
+\mainmatter % Begin numeric (1,2,3...) page numbering
 %    \glsreset   % reset glossary first use flag
-    \input{chapters/0-front-matter/introduction.tex}
-    \input{chapters/1-main-matter/astrodynamics.tex}
-    \input{chapters/1-main-matter/dynamic-modelling.tex}
-    \input{chapters/1-main-matter/numerical-analysis.tex}
-    \input{chapters/1-main-matter/trajectory-optimization.tex}
-    \input{chapters/1-main-matter/estimation-theory/chapter.tex}
-    \input{chapters/1-main-matter/machine-learning/chapter.tex}
-    \input{chapters/1-main-matter/problem.tex}
+\input{chapters/0-front-matter/introduction.tex}
+\input{chapters/1-main-matter/astrodynamics.tex}
+\input{chapters/1-main-matter/dynamic-modelling.tex}
+\input{chapters/1-main-matter/numerical-analysis.tex}
+\input{chapters/1-main-matter/trajectory-optimization.tex}
+\input{chapters/1-main-matter/estimation-theory/chapter.tex}
+\input{chapters/1-main-matter/machine-learning/chapter.tex}
+\input{chapters/1-main-matter/problem.tex}
 
-    \newpage
+\newpage
 
-    \printbibliography
+\bibliography{library}
 
-    \backmatter
+\backmatter
 
-    \begin{appendices}
-        \chapter{Appendices}
-        \numberwithin{equation}{section}
-%        \renewcommand{\chapter}{Appendices}
-        \renewcommand{\thesection}{\Alph{section}}
-        \renewcommand\theequation{\Alph{section}.\arabic{equation}}
-        \input{chapters/2-back-matter/appendix-A.tex}
-        \input{chapters/2-back-matter/appendix-B.tex}
-        \input{chapters/2-back-matter/appendix-C.tex}
-    \end{appendices}
+\begin{appendices}
+    \chapter{Appendices}
+    \numberwithin{equation}{section}
+    %        \renewcommand{\chapter}{Appendices}
+    \renewcommand{\thesection}{\Alph{section}}
+    \renewcommand\theequation{\Alph{section}.\arabic{equation}}
+    \input{chapters/2-back-matter/appendix-A.tex}
+    \input{chapters/2-back-matter/appendix-B.tex}
+    \input{chapters/2-back-matter/appendix-C.tex}
+\end{appendices}
 
 \end{document}

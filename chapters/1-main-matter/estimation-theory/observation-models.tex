@@ -28,20 +28,20 @@ physical information determinable between link-ends are:
 
 \begin{enumerate}
     \item \textit{pointing angles}: determined by either (a) measuring the
-    direction of the maximum signal amplitude of the spacecraft with respect to
-    a single observer, or (b) Very Long Baseline Interferometry (VLBI) using
-    multiple observers, given accurate relative fixed positions of the
-    observers.
+          direction of the maximum signal amplitude of the spacecraft with respect to
+          a single observer, or (b) Very Long Baseline Interferometry (VLBI) using
+          multiple observers, given accurate relative fixed positions of the
+          observers.
     \item \textit{range}: \textit{a.k.a. line-of-sight distance}, determined by
-    the measuring the light trip time between A and B. This is most configured
-    such that round-trip light time is measured, the duration between the
-    emission of a signal from A, reflected at B, and received again by A.
-    One-way configuration is also possible, with more stringent requirements on
-    time precision.
+          the measuring the light trip time between A and B. This is most configured
+          such that round-trip light time is measured, the duration between the
+          emission of a signal from A, reflected at B, and received again by A.
+          One-way configuration is also possible, with more stringent requirements on
+          time precision.
     \item \textit{range rate}: \textit{a.k.a. line-of-sight velocity}, of
-    a B with respect to an observer A can be derived from the Doppler shift
-    of a radar wave. The most common configurations for these measurements are
-    one-way, two-way and three-way.
+          a B with respect to an observer A can be derived from the Doppler shift
+          of a radar wave. The most common configurations for these measurements are
+          one-way, two-way and three-way.
 \end{enumerate}
 
 Radar tracking is the most used widely used form deep space spacecraft tracking
@@ -54,29 +54,29 @@ bands are designated by the International Telecommunication Union (ITU)
 \cite{Berner2020}, and given in \autoref{tab:itu-bands}.
 
 \begin{table}[htp!]
-\renewcommand{\arraystretch}{1.5}
-\centering
-\caption{
-    \textbf{Frequency Bands Allocated by the International Telecommunication
-    Union (ITU)}. Near space bands are used for spacecrafts less than 2 million
-    km from Earth, and deep space bands for any distance greater. *Deep Space
-    S-band is not available at Madrid tracking stations due to a conflict with
-    IMT- 2000 users, per agreement between NASA and Secretaria de Estado de
-    Telecomunicaciones para la Sociedad de la Informacion (SETSI), January 2001
-    ~\cite{Berner2020}.
-}
-\label{tab:itu-bands}
-\begin{tabular}{lllll}
-\hline
-Band             & \multicolumn{2}{l}{Deep Space Bands} (MHz) & \multicolumn{2}{l}{Near Space Bands} (MHz)\\
-                 &                                              Uplink & Downlink &                                             Uplink & Downlink  \\
-\hline\hline
-          S      &                                        2110–2120* &                    2290–2300 &                                        2025–2110 &                2200–2290 \\
-          X      &                                        7145–7190  &                    8400–8450 &                                        7190–7235 &                8450–8500 \\
-          K      &                                              N/A  &                          N/A &                                      22550-23150 &              25500–27000 \\
-         Ka      &                                      34200–34700  &                  31800–32300 &                                              N/A &                       N/A \\
-\hline
-\end{tabular}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \caption{
+        \textbf{Frequency Bands Allocated by the International Telecommunication
+            Union (ITU)}. Near space bands are used for spacecrafts less than 2 million
+        km from Earth, and deep space bands for any distance greater. *Deep Space
+        S-band is not available at Madrid tracking stations due to a conflict with
+        IMT- 2000 users, per agreement between NASA and Secretaria de Estado de
+        Telecomunicaciones para la Sociedad de la Informacion (SETSI), January 2001
+        ~\cite{Berner2020}.
+    }
+    \label{tab:itu-bands}
+    \begin{tabular}{lllll}
+        \hline
+        Band & \multicolumn{2}{l}{Deep Space Bands} (MHz) & \multicolumn{2}{l}{Near Space Bands} (MHz)                             \\
+             & Uplink                                     & Downlink                                   & Uplink      & Downlink    \\
+        \hline\hline
+        S    & 2110–2120*                                 & 2290–2300                                  & 2025–2110   & 2200–2290   \\
+        X    & 7145–7190                                  & 8400–8450                                  & 7190–7235   & 8450–8500   \\
+        K    & N/A                                        & N/A                                        & 22550-23150 & 25500–27000 \\
+        Ka   & 34200–34700                                & 31800–32300                                & N/A         & N/A         \\
+        \hline
+    \end{tabular}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,23 +95,23 @@ data types observed with the DSN \cite{Berner2020}:
 
 \begin{itemize}
     \item \textit{One-way}: The spacecraft generates the downlink signal(s) from an
-    onboard oscillator. The DSN compares the received frequency against a
-    locally generated frequency
+          onboard oscillator. The DSN compares the received frequency against a
+          locally generated frequency
     \item \textit{Two-way}: The DSN transmits a signal to the spacecraft. The spacecraft
-    tracks the phase of the uplink signal and generates a phase coherent
-    downlink signal. The DSN compares the received frequency with the same
-    reference frequency from which the uplink was generated.
+          tracks the phase of the uplink signal and generates a phase coherent
+          downlink signal. The DSN compares the received frequency with the same
+          reference frequency from which the uplink was generated.
     \item \textit{Three-way}: The spacecraft is tracked by two stations, one with the
-    two-way mode while the other receives and compares the signal to a locally
-    generated frequency. The most common application of this mode is during the
-    handover between stations at two different DSCCs.
+          two-way mode while the other receives and compares the signal to a locally
+          generated frequency. The most common application of this mode is during the
+          handover between stations at two different DSCCs.
     \item \textit{Coherent Three-way}: Coherent three-way tracking is three-way tracking
-    when the transmitting and receiving stations share a common frequency
-    reference. This is possible at all three DSCCs as all antennas at a
-    complex share the same frequency reference.
+          when the transmitting and receiving stations share a common frequency
+          reference. This is possible at all three DSCCs as all antennas at a
+          complex share the same frequency reference.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.85\linewidth]{graphics/n-way.PNG}
     \caption{
@@ -144,30 +144,28 @@ the frequency of the signal, accuracies can range between 0.05 and 0.2 mrad
 \end{equation}
 
 \begin{figure}
-\centering
-\begin{subfigure}{.48\textwidth}
-  \centering
-  \includegraphics[width=.99\linewidth]{graphics/vlbi.PNG}
-  \caption{
-      \textbf{Measuring angles with VLBI}. Differential signal arrival time,
-      $\tau_g$, is obtained by cross-correlating signals recorded open loop at
-      each end of the baseline~\cite[p.~48]{Catherine2005}.
-  }
-  \label{fig:monopulse}
-\end{subfigure}\hspace{0.03\textwidth}
-\begin{subfigure}{.48\textwidth}
-  \centering
-  \includegraphics[width=.99\linewidth]{graphics/monopulse.PNG}
-  \caption{
-      \textbf{Measuring angles with the monopulse technique}. Antenna beams of a
-      monopulse autotrack system.~\cite[p.~196]{Montenbruck2000}
-  }
-  \label{fig:vlbi}
-\end{subfigure}
-\caption{
-
-}
-\label{fig:test}
+    \centering
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=.99\linewidth]{graphics/vlbi.PNG}
+        \caption{
+            \textbf{Measuring angles with VLBI}. Differential signal arrival time,
+            $\tau_g$, is obtained by cross-correlating signals recorded open loop at
+            each end of the baseline~\cite[p.~48]{Catherine2005}.
+        }
+        \label{fig:monopulse}
+    \end{subfigure}\hspace{0.03\textwidth}
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=.99\linewidth]{graphics/monopulse.PNG}
+        \caption{
+            \textbf{Measuring angles with the monopulse technique}. Antenna beams of a
+            monopulse autotrack system.~\cite[p.~196]{Montenbruck2000}
+        }
+        \label{fig:vlbi}
+    \end{subfigure}
+    \caption{abc}
+    \label{fig:test}
 \end{figure}
 
 
@@ -202,7 +200,7 @@ turn-around signal travel time through:
 
 where $f_0$ is the carrier signal frequency. There are two main systems used in
 RTLT ranging, namely \textit{tone-ranging systems} and \textit{code ranging
-systems}, as depicted in \autoref{fig:ranging-methods}. Both systems have their
+    systems}, as depicted in \autoref{fig:ranging-methods}. Both systems have their
 own advantages and disadvantages. Tone-ranging measurements suffer from
 ambiguity which can be mitigated through the use of additional sub-harmonic
 tones, whereas code-ranging requires greater acquisition time for weak signals,
@@ -213,7 +211,7 @@ unless a pre-steering Doppler shift is used \cite[p.~197]{Montenbruck2000}.
     \includegraphics[width=1.0\linewidth]{graphics/ranging-method.PNG}
     \caption{
         \textbf{Primary physical principles behind Round-trip Light time (RTLT)
-        ranging.}, shown are tone ranging (left) and code ranging (right)
+            ranging.}, shown are tone ranging (left) and code ranging (right)
         \cite[p.~196]{Montenbruck2000}
     }
     \label{fig:ranging-methods}
@@ -246,11 +244,11 @@ periods such as 1000 seconds may also be chosen \cite{}.
 \begin{equation*}
     \begin{aligned}
         \textrm{where  }
-        \mathbf{f}_t, \mathbf{f}_r &= \textrm{the transmitted and received signal frequencies,}\\
-        \mathbf{v}_t, \mathbf{v}_t &= \textrm{the transmitters and receivers inertial velocity vectors,}\\
-        \mathbf{e} &= \textrm{the unit vector in the direction of the signal propagation,}\\
-        c &= \textrm{the speed of light,}\\
-        \mathbf{U}_t, \mathbf{U}_r &= \textrm{the Newtonian potential at the trasmitter and receiver.}\\
+        \mathbf{f}_t, \mathbf{f}_r & = \textrm{the transmitted and received signal frequencies,}            \\
+        \mathbf{v}_t, \mathbf{v}_t & = \textrm{the transmitters and receivers inertial velocity vectors,}   \\
+        \mathbf{e}                 & = \textrm{the unit vector in the direction of the signal propagation,} \\
+        c                          & = \textrm{the speed of light,}                                         \\
+        \mathbf{U}_t, \mathbf{U}_r & = \textrm{the Newtonian potential at the trasmitter and receiver.}     \\
     \end{aligned}
 \end{equation*}
 
@@ -259,32 +257,32 @@ time averaged over a counting period, $t_c$
 
 
 \begin{table}[htp!]
-\renewcommand{\arraystretch}{1.5}
-\centering
-\caption{
-    \textbf{Spacecraft Transponder Turnaround Ratios.} *K-band uplink
-    implementation, at two 34-meter BWG antennas per complex, will start
-    November 2021 and complete July 2024. **K-band Doppler and ranging data are
-    not supported by the DSN. ***Due to the bandwidth difference between 600 MHz
-    uplink and 1500 MHz downlink, the coherency between uplink and downlink
-    using these transponder ratios does not apply to the entire allocated
-    bandwidth~\cite{Berner2020}.
-}
-\label{tab:turnaround-ratios}
-\begin{tabular}{lll}
-\hline
-\textbf{Uplink} & \textbf{Downlink} & \textbf{Ratio (downlink/uplink)}  \\
-\hline\hline
-S               & S                 & 240/221                           \\
-S               & X                 & 880/221                           \\
-S               & Ka                & 3328/221, 3344/221, 3360/221      \\
-X               & S                 & 240/749                           \\
-X               & X                 & 880/749                           \\
-X               & $K_a$             & 3328/749, 3344/749, 3360/749      \\
-K*              & K**               & 2407/2720, 2407/2760, 2407/2816***\\
-$K_a$           & $K_a$             & 3344/3599, 3360/3599              \\
-\hline
-\end{tabular}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \caption{
+        \textbf{Spacecraft Transponder Turnaround Ratios.} *K-band uplink
+        implementation, at two 34-meter BWG antennas per complex, will start
+        November 2021 and complete July 2024. **K-band Doppler and ranging data are
+        not supported by the DSN. ***Due to the bandwidth difference between 600 MHz
+        uplink and 1500 MHz downlink, the coherency between uplink and downlink
+        using these transponder ratios does not apply to the entire allocated
+        bandwidth~\cite{Berner2020}.
+    }
+    \label{tab:turnaround-ratios}
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Uplink} & \textbf{Downlink} & \textbf{Ratio (downlink/uplink)}   \\
+        \hline\hline
+        S               & S                 & 240/221                            \\
+        S               & X                 & 880/221                            \\
+        S               & Ka                & 3328/221, 3344/221, 3360/221       \\
+        X               & S                 & 240/749                            \\
+        X               & X                 & 880/749                            \\
+        X               & $K_a$             & 3328/749, 3344/749, 3360/749       \\
+        K*              & K**               & 2407/2720, 2407/2760, 2407/2816*** \\
+        $K_a$           & $K_a$             & 3344/3599, 3360/3599               \\
+        \hline
+    \end{tabular}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -297,11 +295,11 @@ $K_a$           & $K_a$             & 3344/3599, 3360/3599              \\
 \begin{equation*}
     \begin{aligned}
         \textrm{where  }
-        \mathbf{f}_t, \mathbf{f}_r &= \textrm{the transmitted and received signal frequencies,}\\
-        \mathbf{v}_t, \mathbf{v}_t &= \textrm{the transmitters and receivers inertial velocity vectors,}\\
-        \mathbf{e} &= \textrm{the unit vector in the direction of the signal propagation,}\\
-        c &= \textrm{the speed of light,}\\
-        \mathbf{U}_t, \mathbf{U}_r &= \textrm{the Newtonian potential at the trasmitter and receiver.}\\
+        \mathbf{f}_t, \mathbf{f}_r & = \textrm{the transmitted and received signal frequencies,}            \\
+        \mathbf{v}_t, \mathbf{v}_t & = \textrm{the transmitters and receivers inertial velocity vectors,}   \\
+        \mathbf{e}                 & = \textrm{the unit vector in the direction of the signal propagation,} \\
+        c                          & = \textrm{the speed of light,}                                         \\
+        \mathbf{U}_t, \mathbf{U}_r & = \textrm{the Newtonian potential at the trasmitter and receiver.}     \\
     \end{aligned}
 \end{equation*}
 
@@ -353,8 +351,8 @@ points on the image plane $(u,v)$ according to the relations:
 
 \begin{equation}
     \begin{aligned}
-        u&=f\frac{x^c}{z^c},\\
-        v&=f\frac{y^c}{z^c}.
+        u & =f\frac{x^c}{z^c}, \\
+        v & =f\frac{y^c}{z^c}.
     \end{aligned}
 \end{equation}
 
@@ -364,18 +362,18 @@ exposure center in the camera-fixed frame is defined by:
 \begin{equation}
     \mathbf{b}_i^c=\frac{1}{\sqrt{(\bar{x}_i^c)^2+(\bar{y}_i^c)^2+f^2}}
     \begin{bmatrix}
-    -\bar{x}^c_i \\
-    -\bar{y}^c_i \\
-    -f \\
+        -\bar{x}^c_i \\
+        -\bar{y}^c_i \\
+        -f           \\
     \end{bmatrix},
 \end{equation}
 
 \begin{equation}
     \mathbf{I}_i^I=\frac{1}{\sqrt{(x^I_i - x^I)^2+(y^I_i - y^I)^2+(z^I_i - z^I)^2}}
     \begin{bmatrix}
-    x^I_i - x^I \\
-    y^I_i - y^I \\
-    z^I_i - z^I \\
+        x^I_i - x^I \\
+        y^I_i - y^I \\
+        z^I_i - z^I \\
     \end{bmatrix},
 \end{equation}
 
@@ -389,7 +387,7 @@ exposure center in the camera-fixed frame is defined by:
     \includegraphics[width=0.55\linewidth]{graphics/landmark_geometry.PNG}
     \caption{
         \textbf{Relative geometrical relationship between spacecraft and landmarks
-        for a pin-hole camera model}
+            for a pin-hole camera model}
     }
 \end{figure}
 
@@ -412,8 +410,8 @@ exposure center in the camera-fixed frame is defined by:
 
 \begin{equation}
     \begin{aligned}
-        \tau_{\underline{A}B}^{(i+1)}(t_t) &= \frac{1}{c}|\bm{r}_B(t_t+\tau_{AB}^{(i)})-\bm{r}_A(t_t)|\text{, transmitter (A) clamped} \\
-        \tau_{A\underline{B}}^{(i+1)}(t_r) &= \frac{1}{c}|\bm{r}_B(t_r)-\bm{r}_A(t_r-\tau_{AB}^{(i)})|\text{, receiver (B) clamped}
+        \tau_{\underline{A}B}^{(i+1)}(t_t) & = \frac{1}{c}|\bm{r}_B(t_t+\tau_{AB}^{(i)})-\bm{r}_A(t_t)|\text{, transmitter (A) clamped} \\
+        \tau_{A\underline{B}}^{(i+1)}(t_r) & = \frac{1}{c}|\bm{r}_B(t_r)-\bm{r}_A(t_r-\tau_{AB}^{(i)})|\text{, receiver (B) clamped}
     \end{aligned}
 \end{equation}
 
@@ -421,8 +419,8 @@ exposure center in the camera-fixed frame is defined by:
 
 \begin{equation}
     \begin{aligned}
-        \tau_{\underline{B}A}^{(i+1)} &= \frac{1}{c}|\bm{r}_B(t+\tau_{AB})-\bm{r}_A(t+\tau_{BA}^{(i)})|\text{, transponder (B) clamped} \\
-        \tau_{A\underline{B}}^{(i+1)} &= \frac{1}{c}|\bm{r}_B(t)-\bm{r}_A(t-\tau_{AB}^{(i)})|\text{, receiver (A) clamped}
+        \tau_{\underline{B}A}^{(i+1)} & = \frac{1}{c}|\bm{r}_B(t+\tau_{AB})-\bm{r}_A(t+\tau_{BA}^{(i)})|\text{, transponder (B) clamped} \\
+        \tau_{A\underline{B}}^{(i+1)} & = \frac{1}{c}|\bm{r}_B(t)-\bm{r}_A(t-\tau_{AB}^{(i)})|\text{, receiver (A) clamped}
     \end{aligned}
 \end{equation}
 
