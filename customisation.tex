@@ -23,6 +23,21 @@
 \usepackage{cleveref}           % Better than autoref
 
 
+%---------------------------
+% Bibliography
+%---------------------------
+\usepackage[
+    natbib=true,
+    backend=bibtex,
+    sorting=anyvt,
+    url=true,
+    style=draft,
+    doi=true]{biblatex}
+
+\addbibresource{library.bib}
+ \usepackage[nottoc]{tocbibind} % Include in TOC
+ \bibliography{library}
+
 
 %---------------------------
 % Table formatting
