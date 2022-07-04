@@ -22,7 +22,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 
-% paragraph linbreaks
+% paragraph linebreaks
 
 %---------------------------
 % Bibliography
@@ -72,6 +72,8 @@
 
 \newcommand{\eqdesc}[1]{\ensuremath{\gls{#1} &=} \text{\glsdesc{#1}}}
 
+\bibliography{library}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,10 +119,6 @@
     type={notation:mission},
     title={Other},
 ]
-
-NASA's Doubler
-Asteroid Redirection Test (DART)
-
 \printnoidxglossary[
     type={notation:set},
     title={Sets and Graphs},
@@ -167,7 +165,7 @@ Asteroid Redirection Test (DART)
 
 \newpage
 
-\bibliography{library}
+\printbibliography
 
 \backmatter
 
