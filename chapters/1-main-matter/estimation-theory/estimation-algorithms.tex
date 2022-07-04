@@ -1,9 +1,9 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newpage\section{Orbit Determination and Parameter Estimation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Preliminary orbit determination is useful in an initial determination of the
-%orbital elements of a satellite's motion, and can be carried out using two
+%orbital elements of a satellite's motion and can be carried out using two
 %position vectors of the satellite relative to the observing ground station.
 
 Predicting the state ($\bm{x}_t$) of a spacecraft given an initial condition
@@ -160,7 +160,7 @@ for a step size $\Delta\bm{\beta}$. The resulting linearized model is:
 \end{equation}
 
 \begin{equation}
-    \left|{\frac {\Delta\hat{\bm{\beta}}}{\hat{\bm{\beta}}}\right|<0.001,\qquad j=1,\dots ,n.
+    \left|\frac {\Delta\hat{\bm{\beta}}}{\hat{\bm{\beta}}}\right|<0.001,\qquad j=1,\dots ,n.
 \end{equation}
 
 \cite{Kelley1999}
@@ -285,12 +285,7 @@ optimality, tractability and robustness
 
 \subsubsection{Extended Kalman Filter}
 
-owever, the application of the KF to nonlinear systems can be difficult.
-The most common approach is to use the Extended Kalman Filter (EKF) which simply linearises all nonlinear
-models so that the traditional linear Kalman filter can be applied. Although the EKF (in its many forms) is a
-widely used filtering strategy, over thirty years of experience with it has led to a general consensus within the
-tracking and control community that it is difficult to implement, difficult to tune, and only reliable for systems
-which are almost linear on the time scale of the update intervals
+However, the application of the KF to nonlinear systems can be complex. The most common approach is the Extended Kalman Filter (EKF), which linearises all nonlinear models to apply the traditional linear Kalman filter. Although the EKF (in its many forms) is a widely used filtering strategy, over thirty years of experience with it has led to a consensus within the tracking and control community that it is challenging to implement, difficult to tune, and only reliable for systems which are almost linear on the time scale of the update intervals.
 
 \begin{equation}
    \hat{\bm{x}}_{i}^- = f({\bm{x}}_{i-1}^+,\bm{u}_{i})
@@ -301,8 +296,8 @@ which are almost linear on the time scale of the update intervals
 \end{equation}
 
 Although superior to Linearized Kalman Filtering in that the state propagation
-is represented correctly by the non-linear system, the main drawback is that the
-covariance is propagated through the linearized state transition matrix. This
+is represented correctly by the non-linear system; the main drawback is that the
+covariance is propagated through the linearised state transition matrix. This
 results in the uncertainty of the system being non-representative of the true
 non-linear system.
 
@@ -315,15 +310,15 @@ non-linear system.
 
 \subsubsection{Unscented Kalman Filter}
 
-First and second order terms of the nonlinear system captured through the
+First and second-order terms of the nonlinear system captured through the
 addition of the unscented transform (UT).
 
-Proposed by Julier and Uhlmann in 1997 \cite{Julier1997}
+Proposed by Julier and Uhlmann in 1997~\cite{Julier1997}
 
 \cite{Wan2000, Wan2001}
-In order to combat the first order propagation of covariance, a set of sigma
-points are chosen at each estimation step. These are chosen according to the
-covariance of the current state estimate, and are passed through the non-linear
+In order to combat the first-order propagation of covariance, a set of sigma
+points is chosen at each estimation step. These are chosen according to the
+covariance of the current state estimate and are passed through the non-linear
 system to produce weighted estimates of the mean state and its covariance.
 
 \begin{equation}
@@ -368,10 +363,10 @@ and the mean and covariance of $\bm{z}$ is approximated using the weighted
 sample mean and covariance of the posterior sigma points,
 
 \begin{equation}
-    \begin{alignat}{1}
+    \begin{aligned}
         \bar{\bm{z}} & \approx \sum_{k=0}^{2L} W_k^{(m)}\mathcal{Z}_k                                                   \\
         \bm{P}_i     & \approx \sum_{k=0}^{2L} W_k^{(c)}\{\mathcal{Z}_k-\bar{\bm{z}}\}\{\mathcal{Z}_k-\bar{\bm{z}}\}^T +\bm{Q}_k. \\
-    \end{alignat}
+    \end{aligned}
 \end{equation}
 
 
@@ -381,7 +376,7 @@ sample mean and covariance of the posterior sigma points,
 \end{equation}
 
 
-Notethatthismethoddifferssubstantiallyfromgeneral“sam-pling”methods(e.g.,Monte-Carlomethodssuchasparticlefilters[1])whichrequireordersofmagnitudemoresamplepointsinanattempttopropagateanaccurate(possiblynon-Gaussian)distributionofthestate.Thedeceptivelysim-pleapproachtakenwiththeUTresultsinapproximationsthatareaccuratetothethirdorderforGaussianinputsforallnonlinearities.Fornon-Gaussianinputs,approximationsareaccuratetoatleastthesecond-order,withtheaccuracyofthirdandhigherordermomentsdeterminedbythechoiceofand(See[4]foradetaileddiscussionoftheUT).
+% Notethatthismethoddifferssubstantiallyfromgeneral“sam-pling”methods(e.g.,Monte-Carlomethodssuchasparticlefilters[1])whichrequireordersofmagnitudemoresamplepointsinanattempttopropagateanaccurate(possiblynon-Gaussian)distributionofthestate.Thedeceptivelysim-pleapproachtakenwiththeUTresultsinapproximationsthatareaccuratetothethirdorderforGaussianinputsforallnonlinearities.Fornon-Gaussianinputs,approximationsareaccuratetoatleastthesecond-order,withtheaccuracyofthirdandhigherordermomentsdeterminedbythechoiceofand(See[4]foradetaileddiscussionoftheUT).
 
 \begin{equation}
    \bm{\rho}_i = \bm{z}_i - h(\bar{\bm{x}}_{i|i+1})
@@ -405,7 +400,7 @@ joint estimation methods are more accurate \cite{Plett2005}.
 %\noindent{}A CEKF consists of 3 main steps, namely: \textit{Initialisation (0)}, \textit{Prediction (1)} and \textit{Correction (2)}, where steps 1 \& 2 are iterated through $K-1$ times, where $K$ ($K\in\mathbb{Z}^+$) quantifies the number of Epochs.
 %
 %\begin{itemize}
-%    \item \textbf{Step (0) Initialisation}: The \textit{a posteriori} estimate of the initial state ($\hat{x}_0^+$) is determined according to the expectation of the true value $x_0$. The initial state error co-variance matrix is calculated according to the expectation of the co-variance between $\hat{x}_0^+$ and $x_0$. Within the context of satellite tracking, a predefined $\hat{x}_0^+$ will be used throughout the CEKF analysis to analyse the performance as a result of the selection of hyper-parameters: $\bm{Q}_{k-1}$ and $\bm{R}_k$.
+%    \item \textbf{Step (0) Initialisation}: The \textit{a posteriori} estimate of the initial state ($\hat{x}_0^+$) is determined according to the expectation of the true value $x_0$. The initial state error covariance matrix is calculated according to the expectation of the covariance between $\hat{x}_0^+$ and $x_0$. Within the context of satellite tracking, a predefined $\hat{x}_0^+$ will be used throughout the CEKF analysis to analyse the performance as a result of the selection of hyper-parameters: $\bm{Q}_{k-1}$ and $\bm{R}_k$.
 %    \item \textbf{Step (1) Prediction}: Project the state and its co-variance matrix at $k-1$ one step forward in order to obtain the \textit{a priori} estimates at $k$ according to the system dynamics. $\bm{Q}_{k-1}$ is implemented, then this contributes to the \textit{a priori} estimate of $P_k^{}$.
 %    \item \textbf{Step (2) Correction}: The measurements at $k$ are then compared with the predicted state according to system dynamics (\textit{a priori} estimate) providing the \textit{measurement innovation} ($\Delta{\rho}_k$). \textit{innovation co-variance} ($S_k$) and $H_k$ are then calculated and used to obtain the \textit{Kalman gain} ($\bar{K}_k$). Finally the \textit{a posteriori} estimate of the state ($\hat{x}_k^+$) and co-variance ($P_k^+$) are determined. $k$ is incremented by a step forward and the process from step 1 is repeated for all Epochs.
 %\end{itemize}

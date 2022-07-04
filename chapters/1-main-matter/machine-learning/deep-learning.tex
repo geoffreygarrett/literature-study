@@ -4,7 +4,7 @@
 representations of data. At the core of \gls{DL} is the use of \glspl{MLP}, used
 to model these representations. \Glspl{MLP} are fully connected layers of
 biologically inspired artificial neurons, also known as \textbf{perceptrons}. A
-brief history of these biologically inspired models are covered in
+brief history of these biologically inspired models is covered in
 \autoref{ssec:perceptrons} with adapted notation from the field of \gls{DL}.
 Although not all practices in \gls{DL}, strictly speaking, make use of
 \glspl{MLP}, they are a fundamental concept which must be understood in the
@@ -16,14 +16,14 @@ component: perceptrons.
 only a forward direction, as opposed to exhibiting \textbf{feedback} connections,
 where intermediate computations are fed back into the network. When feedforward
 networks are extended to include feedback connections, they are called
-\textbf{\glspl{RNN}}. These types of networks excel at learning temporal
+\textbf{\glspl{RNN}}. These networks excel at learning temporal
 features, exhibiting a refined hypothesis space favouring sequenced information,
 such as a series of chronological observations. \autoref{ssec:rnn} covers this
 type of \gls{DNN}, and the prominent sub-type of \glspl{RNN}: \glspl{LSTM}.
 
-One type of neural networks which is similar to \glspl{MLP} and popular in
-contemporary research, is the \gls{CNN}. These deep \glspl{NN} are essentially
-\glspl{MLP} which omit the property of being fully connected, in favour of
+One type of neural network similar to \glspl{MLP} and popular in
+contemporary research is the \gls{CNN}. These deep \glspl{NN} are essentially
+\glspl{MLP} which omit the property of being fully connected in favour of
 refining the hypothesis space towards detection of spatially-related features.
 
 %The main difference between a \gls{NN} and a traditional \gls{ML} algorithm is
@@ -35,8 +35,8 @@ refining the hypothesis space towards detection of spatially-related features.
 The McCullock-Pitts neuron, an earlier iteration of an artificial neuron, was
 proposed by McCulloch and Pitts in the field of neuroscience in 1943
 \cite{McCulloch1943}. Their work contended that neurons with a binary activation
-function were analogous to first order logic sentences. The perception of
-artifical neurons changed with Hebb's work in 1949, where he proposed an idea
+function were analogous to first-order logic sentences. The perception of
+artificial neurons changed with Hebb's work in 1949, where he proposed an idea
 which has come to be known as Hebb's rule:
 
 \begin{fancyquotes}
@@ -48,7 +48,7 @@ which has come to be known as Hebb's rule:
     efficiency, as one of the cells firing B, is increased. \cite{10.1007/978-3-642-70911-1_15}
 \end{fancyquotes}
 
-This theory is often summaraized as \textit{``Cells that fires together, wire
+This theory is often summarised as \textit{``Cells that fires together, wire
 together"} \cite{doi:10.1126/science.7912852}, which persists today in the
 gradient-based learning at the core of contemporary \gls{DL}. The perceptron was
 proposed by Rosenblatt \cite{Rosenblatt_1957_6098} in his technical report
@@ -324,16 +324,16 @@ from the illustration of a perceptron in \autoref{ssec:perceptrons}.
 \autoref{fig:mlp-example-bp} shows the same network with all model parameters
 included for concise illustration of the backpropagation algorithm.
 
-\begin{figure}[htbp]
-    \centering
-    \input{graphics/tikz/perceptron_xor_test2}
-    \captionsetup{format=hang} % hanging captions
-    \caption{
-        \textbf{Multi-layer perceptron mapping for an arbitrary network}
-        with $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$.
-    }
-    \label{fig:mlp-example}
-\end{figure}
+% \begin{figure}[htbp]
+%     \centering
+%     \input{graphics/tikz/perceptron_xor_test2}
+%     \captionsetup{format=hang} % hanging captions
+%     \caption{
+%         \textbf{Multi-layer perceptron mapping for an arbitrary network}
+%         with $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$.
+%     }
+%     \label{fig:mlp-example}
+% \end{figure}
 %\newpage
 Deriving the expression for the partial of the cost function with respect to
 $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$ using \autoref{eq:bp:w:2} gives:
@@ -349,19 +349,19 @@ $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$ using \autoref{eq:bp:w:2} gives:
 \end{equation}
 
 
-\begin{figure}[htbp]
-    \centering
-    \input{graphics/tikz/perceptron_xor_test}
-    \captionsetup{format=hang} % hanging captions
-    \caption{
-        \textbf{Multi-layer perceptron mapping for an arbitrary network} with
-        $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$ expanded
-        to show all model parameters and model variables. Emphasis has been
-        placed on the backpropagation to determine the expression for
-        $\partial\gls{ml:J}/\partial\gls{dl:z:1:2}$.
-    }
-    \label{fig:mlp-example-bp}
-\end{figure}
+% \begin{figure}[htbp]
+%     \centering
+%     \input{graphics/tikz/perceptron_xor_test}
+%     \captionsetup{format=hang} % hanging captions
+%     \caption{
+%         \textbf{Multi-layer perceptron mapping for an arbitrary network} with
+%         $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$ expanded
+%         to show all model parameters and model variables. Emphasis has been
+%         placed on the backpropagation to determine the expression for
+%         $\partial\gls{ml:J}/\partial\gls{dl:z:1:2}$.
+%     }
+%     \label{fig:mlp-example-bp}
+% \end{figure}
 
 The commonality between the updates of $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$
 are immediately clear, motivating the use of the previously mentioned table filling
@@ -607,17 +607,17 @@ carried out for infrequently updated parameters, and smaller for those more
 frequently updated. This property makes this algorithm perform well for sparsely
 distributed data. The following is often set for simplicity in literature:
 \begin{equation}
-    g_{t,i} & = \nabla_{\gls{dl:theta}_i} \gls{dl:J}(\gls{dl:theta}_k)
+    g_{t,i} = \nabla_{\gls{dl:theta}_i} \gls{dl:J}(\gls{dl:theta}_k)
 \end{equation}
 Adagrad modifies the learning rate $\eta$ at each time step $t$ using the
 past computed gradients for each parameter $\theta_i$ as:
 \begin{equation}
-    \gls{dl:theta}_{t+1,i} &= \gls{dl:theta}_{t,i} -\frac{\gls{dl:lr}}{\sqrt{G_{t,ii}+\epsilon}}\cdot{g_{t,i}}
+    \gls{dl:theta}_{t+1,i} = \gls{dl:theta}_{t,i} -\frac{\gls{dl:lr}}{\sqrt{G_{t,ii}+\epsilon}}\cdot{g_{t,i}}
 \end{equation}
 Where $G_t$ is a diagonal matrix where each element $i,i$ corresponds to the sum
 of the squares of all historical gradients of $g_i$, expressed by:
 \begin{equation}
-    G_t & = \sum_{t=1}^T \bm{g}_{\tau}^2
+    G_t = \sum_{t=1}^T \bm{g}_{\tau}^2
 \end{equation}
 A smoothing factor $\epsilon$ is used to avoid division by zero, typically set
 as $1e-8$. The primary benefit of Adagrad is the elimination of the need to
@@ -726,7 +726,7 @@ algorithms are not included here as their use is sparse throughout literature,
 rather the RMSProp and Adam algorithms are most commonly used.
 %\textcolor{red}{More motivation here}
 
-\item \textbf{\Gls{Learning to Optimize}}: \cite{ruder2017overview,Li2017}
+\textbf{Learning to Optimize}: \cite{ruder2017overview,Li2017}
 
 %
 %\subsection{Gradient based learning}
@@ -787,7 +787,7 @@ rather the RMSProp and Adam algorithms are most commonly used.
 \textcolor{red}{(Short section on how CNNs refine the hypothesis of the
     mapping towards spacial features.)}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{graphics/cnn_banner.png}
     \caption{\textcolor{red}{(Need to get add reference for diagram and add caption)}}
@@ -798,7 +798,7 @@ rather the RMSProp and Adam algorithms are most commonly used.
 \textcolor{red}{(Short section on how RNNs refine the hypothesis of the
     mapping towards sequential features.)}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{graphics/RNN-unrolled.png}
     \caption{\textcolor{red}{(Need to get add reference for diagram and add caption)}}

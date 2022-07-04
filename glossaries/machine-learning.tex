@@ -14,7 +14,7 @@
 %
 % THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 % IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 % AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 % LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -122,6 +122,10 @@
 \newacronym{KFCV}{KFCV}{
     $k$-fold cross-validation
 }
+\newacronym{LSTM}{LSTM}{
+    Long short-term memory
+}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -306,16 +310,27 @@
 % deep learning
 
 \newacronym{MLPs}{MLPs}{multi-layer perceptrons}
-\newacronym{ANN}{ANN}{artificial neural networks}
 \newacronym{GD}{GD}{gradient descent}
 \newacronym{SGD}{SGD}{stochastic gradient descent}
 \newacronym{NAG}{NAG}{Nesterov accelerated gradient}
 \newacronym{MB-SGD}{MB-SGD}{mini-batch stochastic gradient descent}
 \newacronym{adagrad}{AdaGrad}{adaptive gradient}
 \newacronym{adam}{Adam}{adaptive moment estimation}
-\newglossaryentry{theta}{type=symbols,name=\ensuremath{\mathbf{\theta}},sort=theta,description={model parameters}}
-\newglossaryentry{L}{type=symbols,name=\ensuremath{L},sort=L,description={number of hidden layers in the network}}
-\newglossaryentry{a_vec}{type=symbols,name=\ensuremath{\mathbf{a}},sort=a,description={hidden layer output}}
+\newglossaryentry{theta}{
+    type=notation:ml,
+    name=\ensuremath{\mathbf{\theta}},
+    sort=theta,
+    description={model parameters}}
+\newglossaryentry{L}{
+    type=notation:ml,
+    name=\ensuremath{L},
+    sort=L,
+    description={number of hidden layers in the network}}
+\newglossaryentry{a_vec}{
+    type=notation:ml,
+    name=\ensuremath{\mathbf{a}},
+    sort=a,
+    description={hidden layer output}}
 
 \newglossary{notation:dl}{ndl}{sbl}{Deep Learning}
 
@@ -355,58 +370,58 @@
 }
 
 \newglossaryentry{dl:nh:l}{
-    type=notation:dl,
-    name=\ensuremath{n_h^{[l]}},
-    sort=nhl,
-    description={number of hidden units in the $\gls{dl:l}^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{n_h^{[l]}},
+sort=nhl,
+description={number of hidden units in the $\gls{dl:l}^\text{th}$ layer of the network}
 }
-\newglossaryentry{dl:nh:lm1}{
-    type=notation:dl,
-    name=\ensuremath{n_h^{[l-1]}},
-    sort=nhlm1,
-    description={number of hidden units in the $(\gls{dl:l}-1)^\text{th}$ layer of the network}
-}
+% \newglossaryentry{dl:nh:lm1}{
+% type=notation:dl,
+% name=\ensuremath{n_h^{[l-1]}},
+% sort=nhlm1,
+% description={number of hidden units in the $(\gls{dl:l}-1)^\text{th}$ layer of the network}
+% }
 
 \newglossaryentry{dl:nh:lm1}{
-    type=notation:dl,
-    name=\ensuremath{n_h^{[\gls{dl:l}-1]}},
-    sort=nhlm1,
-    description={number of hidden units in the ${(\gls{dl:l}-1})^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{n_h^{[\gls{dl:l}-1]}},
+sort=nhlm1,
+description={number of hidden units in the ${(\gls{dl:l}-1})^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:nh:L}{
-    type=notation:dl,
-    name=\ensuremath{n_h^{[\gls{dl:L}]}},
-    sort=nhL,
-    description={number of hidden units in the ${\gls{dl:L}}^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{n_h^{[\gls{dl:L}]}},
+sort=nhL,
+description={number of hidden units in the ${\gls{dl:L}}^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:nh:Lm1}{
-    type=notation:dl,
-    name=\ensuremath{n_h^{[\gls{dl:L}-1]}},
-    sort=nhLm1,
-    description={number of hidden units in the ${(\gls{dl:L}-1)}^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{n_h^{[\gls{dl:L}-1]}},
+sort=nhLm1,
+description={number of hidden units in the ${(\gls{dl:L}-1)}^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:nh:1}{
-    type=notation:dl,
-    name=\ensuremath{n_h^{[1]}},
-    sort=nh1,
-    description={number of hidden units in the 1$^\text{st}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{n_h^{[1]}},
+sort=nh1,
+description={number of hidden units in the 1$^\text{st}$ layer of the network}
 }
 
 \newglossaryentry{dl:nh:2}{
-    type=notation:dl,
-    name=\ensuremath{n_h^{[2]}},
-    sort=nh2,
-    description={number of hidden units in the 2$^\text{nd}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{n_h^{[2]}},
+sort=nh2,
+description={number of hidden units in the 2$^\text{nd}$ layer of the network}
 }
 
 \newglossaryentry{dl:W:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{W}^{[l]}},
-    sort=Wl,
-    description={$\in\gls{set:R}^{\gls{dl:nh:l}\times\gls{dl:nh:lm1}}$, weight matrix of the \gls{dl:l}$^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{W}^{[l]}},
+sort=Wl,
+description={$\in\gls{set:R}^{\gls{dl:nh:l}\times\gls{dl:nh:lm1}}$, weight matrix of the \gls{dl:l}$^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:lr}{
@@ -415,14 +430,6 @@
     sort=\alpha,
     description={learning rate, a.k.a. \textit{step-size}, of the network update}
 }
-
-\newglossaryentry{dl:J}{
-    type=notation:dl,
-    name=\ensuremath{\alpha},
-    sort=\alpha,
-    description={learning rate, a.k.a. \textit{step-size}, of the network update}
-}
-
 
 \newglossaryentry{dl:a:l:j}{
     type=notation:dl,
@@ -437,17 +444,17 @@
     description={}
 }
 \newglossaryentry{dl:a:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[\gls{dl:l}]}},
-    sort=al,
-    description={}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[\gls{dl:l}]}},
+sort=al,
+description={}
 }
 
 \newglossaryentry{dl:W:L}{
-    type=notation:dl,
-    name=\ensuremath{\bm{W}^{[\gls{dl:L}]}},
-    sort=WL,
-    description={$\in\gls{set:R}^{\gls{dl:nh:L}\times\gls{dl:nh:Lm1}}$, weight matrix of the \gls{dl:L} (output) layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{W}^{[\gls{dl:L}]}},
+sort=WL,
+description={$\in\gls{set:R}^{\gls{dl:nh:L}\times\gls{dl:nh:Lm1}}$, weight matrix of the \gls{dl:L} (output) layer of the network}
 }
 
 %\newglossaryentry{dl:W:0}{
@@ -458,24 +465,17 @@
 %}
 
 \newglossaryentry{dl:W:1}{
-    type=notation:dl,
-    name=\ensuremath{\bm{W}^{[1]}},
-    sort=W1,
-    description={$\in\gls{set:R}^{\gls{dl:nh:1}\times\gls{ml:n_x}}$, weight matrix of the 1$^\text{st}$ (input) layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{W}^{[1]}},
+sort=W1,
+description={$\in\gls{set:R}^{\gls{dl:nh:1}\times\gls{ml:n_x}}$, weight matrix of the 1$^\text{st}$ (input) layer of the network}
 }
 
 \newglossaryentry{dl:W:2}{
-    type=notation:dl,
-    name=\ensuremath{\bm{W}^{[2]}},
-    sort=W2,
-    description={$\in\gls{set:R}^{\gls{dl:nh:2}\times\gls{dl:nh:1}}$, weight matrix of the 2$^\text{nd}$ layer of the network}
-}
-
-\newglossaryentry{dl:W:2}{
-    type=notation:dl,
-    name=\ensuremath{\bm{W}^{[2]}},
-    sort=W2,
-    description={weight matrix of the 2$^\text{nd}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{W}^{[2]}},
+sort=W2,
+description={$\in\gls{set:R}^{\gls{dl:nh:2}\times\gls{dl:nh:1}}$, weight matrix of the 2$^\text{nd}$ layer of the network}
 }
 
 \newglossaryentry{dl:z}{
@@ -498,210 +498,210 @@
     description={l$^{th}$ layer of the network}
 }
 \newglossaryentry{dl:w:l:jk}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[\gls{dl:l}]}_{jk}},
-    sort=wljk,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[\gls{dl:l}]}_{jk}},
+sort=wljk,
+description={}
 }
 \newglossaryentry{dl:w:l}{
-    type=notation:dl,
-    name=\ensuremath{{\bm{W}}^{[l]}},
-    sort=Wl,
-    description={}
+type=notation:dl,
+name=\ensuremath{{\bm{W}}^{[l]}},
+sort=Wl,
+description={}
 }
 \newglossaryentry{dl:w:1:22}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[1]}_{22}},
-    sort=w122,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[1]}_{22}},
+sort=w122,
+description={}
 }
 \newglossaryentry{dl:w:2:11}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[2]}_{11}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[2]}_{11}},
+sort=a,
+description={}
 }
 \newglossaryentry{dl:w:2:21}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[2]}_{21}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[2]}_{21}},
+sort=a,
+description={}
 }
 \newglossaryentry{dl:w:1:11}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[1]}_{11}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[1]}_{11}},
+sort=a,
+description={}
 }
 \newglossaryentry{dl:w:1:12}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[1]}_{12}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[1]}_{12}},
+sort=a,
+description={}
 }
 \newglossaryentry{dl:w:1:21}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[1]}_{21}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[1]}_{21}},
+sort=a,
+description={}
 }
 \newglossaryentry{dl:w:2:12}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[2]}_{12}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[2]}_{12}},
+sort=a,
+description={}
 }
 \newglossaryentry{dl:w:2:22}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[2]}_{22}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{w}^{[2]}_{22}},
+sort=a,
+description={}
 }
 \newglossaryentry{dl:w:2:1}{
-    type=notation:dl,
-    name=\ensuremath{{w}^{[1]}_2},
-    sort=a,
-    description={weight of 2$^\text{nd}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_1$)}
+type=notation:dl,
+name=\ensuremath{{w}^{[1]}_2},
+sort=a,
+description={weight of 2$^\text{nd}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_1$)}
 }
 
 \newglossaryentry{dl:z:2:1}{
-    type=notation:dl,
-    name=\ensuremath{{z}^{[2]}_1},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{z}^{[2]}_1},
+sort=a,
+description={}
 }
 
 \newglossaryentry{dl:z:vec:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{z}^{[l]}},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{\bm{z}^{[l]}},
+sort=a,
+description={}
 }
 
 \newglossaryentry{dl:z:1:1}{
-    type=notation:dl,
-    name=\ensuremath{{z}^{[1]}_1},
-    sort=z11,
-    description={latent variable of 1$^\text{st}$ node of the 1$^\text{st}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{{z}^{[1]}_1},
+sort=z11,
+description={latent variable of 1$^\text{st}$ node of the 1$^\text{st}$ layer of the network}
 }
 
 \newglossaryentry{dl:z:1:2}{
-    type=notation:dl,
-    name=\ensuremath{{z}^{[1]}_2},
-    sort=z12,
-    description={latent variable of 2$^\text{nd}$ node of the 1$^\text{st}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{{z}^{[1]}_2},
+sort=z12,
+description={latent variable of 2$^\text{nd}$ node of the 1$^\text{st}$ layer of the network}
 }
 
 \newglossaryentry{dl:z:l:j}{
-    type=notation:dl,
-    name=\ensuremath{{z}^{[\gls{dl:l}]}_j},
-    sort=a,
-    description={weight of j$^\text{th}$ node of the \gls{dl:l}$^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{{z}^{[\gls{dl:l}]}_j},
+sort=a,
+description={weight of j$^\text{th}$ node of the \gls{dl:l}$^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:0:1}{
-    type=notation:dl,
-    name=\ensuremath{{a}^{[0]}_1},
-    sort=a,
-    description={activation output of 1$^\text{st}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_1$)}
+type=notation:dl,
+name=\ensuremath{{a}^{[0]}_1},
+sort=a,
+description={activation output of 1$^\text{st}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_1$)}
 }
 
 \newglossaryentry{dl:a:0:2}{
-    type=notation:dl,
-    name=\ensuremath{{a}^{[0]}_2},
-    sort=a,
-    description={activation output of 2$^\text{nd}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_2$)}
+type=notation:dl,
+name=\ensuremath{{a}^{[0]}_2},
+sort=a,
+description={activation output of 2$^\text{nd}$ node of the 0$^\text{th}$ layer of the network (equivalently $x_2$)}
 }
 
 \newglossaryentry{dl:a:1:1}{
-    type=notation:dl,
-    name=\ensuremath{{a}^{[1]}_1},
-    sort=a,
-    description={activation output of 1$^\text{st}$ node of the 1$^\text{st}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{{a}^{[1]}_1},
+sort=a,
+description={activation output of 1$^\text{st}$ node of the 1$^\text{st}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:1:2}{
-    type=notation:dl,
-    name=\ensuremath{{a}^{[1]}_2},
-    sort=a,
-    description={activation output of 2$^\text{nd}$ node of the 1$^\text{st}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{{a}^{[1]}_2},
+sort=a,
+description={activation output of 2$^\text{nd}$ node of the 1$^\text{st}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:2:1}{
-    type=notation:dl,
-    name=\ensuremath{{a}^{[2]}_1},
-    sort=a,
-    description={activation output of 1$^\text{st}$ node of the 2$^\text{nd}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{{a}^{[2]}_1},
+sort=a,
+description={activation output of 1$^\text{st}$ node of the 2$^\text{nd}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:2:2}{
-    type=notation:dl,
-    name=\ensuremath{{a}^{[2]}_2},
-    sort=a,
-    description={}
+type=notation:dl,
+name=\ensuremath{{a}^{[2]}_2},
+sort=a,
+description={}
 }
 
 \newglossaryentry{dl:z:2:2}{
-    type=notation:dl,
-    name=\ensuremath{{z}^{[2]}_2},
-    sort=z,
-    description={}
+type=notation:dl,
+name=\ensuremath{{z}^{[2]}_2},
+sort=z,
+description={}
 }
 
 \newglossaryentry{dl:a:vec:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[l]}},
-    sort=a1,
-    description={activation output vector of the $l^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[l]}},
+sort=a1,
+description={activation output vector of the $l^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:vec:0}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[0]}},
-    sort=a1,
-    description={}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[0]}},
+sort=a1,
+description={}
 }
 
 \newglossaryentry{dl:a:vec:lm1}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[l-1]}},
-    sort=am1,
-    description={activation output vector of the $(l-1)^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[l-1]}},
+sort=am1,
+description={activation output vector of the $(l-1)^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:vec:1}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[1]}},
-    sort=a1,
-    description={activation output vector of the $1^\text{st}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[1]}},
+sort=a1,
+description={activation output vector of the $1^\text{st}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:vec:2}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[2]}},
-    sort=a2,
-    description={activation output vector of the $2^\text{nd}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[2]}},
+sort=a2,
+description={activation output vector of the $2^\text{nd}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:vec:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[\gls{dl:l}]}},
-    sort=al,
-    description={activation output vector of the $\gls{dl:l}^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[\gls{dl:l}]}},
+sort=al,
+description={activation output vector of the $\gls{dl:l}^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:vec:L}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[\gls{dl:L}]}},
-    sort=aL,
-    description={activation output vector of the $\gls{dl:L}^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[\gls{dl:L}]}},
+sort=aL,
+description={activation output vector of the $\gls{dl:L}^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:a:vec:Lm1}{
-    type=notation:dl,
-    name=\ensuremath{\bm{a}^{[\gls{dl:L}-1]}},
-    sort=aLm1,
-    description={activation output vector of the $(\gls{dl:L}-1)^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{a}^{[\gls{dl:L}-1]}},
+sort=aLm1,
+description={activation output vector of the $(\gls{dl:L}-1)^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:b:l:j}{
@@ -712,10 +712,10 @@
 }
 
 \newglossaryentry{dl:b:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{b}^{[l]}},
-    sort=bl,
-    description={bias parameter vector of the $l^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{b}^{[l]}},
+sort=bl,
+description={bias parameter vector of the $l^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:b:1:1}{
@@ -743,24 +743,24 @@
     description={}
 }
 \newglossaryentry{dl:b:vec:1}{
-    type=notation:dl,
-    name=\ensuremath{\bm{b}^{[1]}},
-    sort=b1,
-    description={bias vector of the $1^\text{st}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{b}^{[1]}},
+sort=b1,
+description={bias vector of the $1^\text{st}$ layer of the network}
 }
 
 \newglossaryentry{dl:b:vec:2}{
-    type=notation:dl,
-    name=\ensuremath{\bm{b}^{[2]}},
-    sort=b2,
-    description={bias vector of the $2^\text{nd}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{b}^{[2]}},
+sort=b2,
+description={bias vector of the $2^\text{nd}$ layer of the network}
 }
 
 \newglossaryentry{dl:b:vec:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{b}^{[\gls{dl:l}]}},
-    sort=bl,
-    description={bias vector of the $\gls{dl:l}^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{b}^{[\gls{dl:l}]}},
+sort=bl,
+description={bias vector of the $\gls{dl:l}^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:g:1}{
@@ -785,10 +785,10 @@
 }
 
 \newglossaryentry{dl:b:vec:l}{
-    type=notation:dl,
-    name=\ensuremath{\bm{b}^{[\gls{dl:l}]}},
-    sort=bl,
-    description={bias vector of the $\gls{dl:l}^\text{th}$ layer of the network}
+type=notation:dl,
+name=\ensuremath{\bm{b}^{[\gls{dl:l}]}},
+sort=bl,
+description={bias vector of the $\gls{dl:l}^\text{th}$ layer of the network}
 }
 
 \newglossaryentry{dl:theta:j}{
@@ -798,6 +798,19 @@
     description={model parameters at state $j$}
 }
 
+\newglossaryentry{ml:m}{
+    type=notation:ml,
+    name=\ensuremath{m},
+    sort=m,   % is this
+    description={number of training examples}
+}
+
+\newglossaryentry{ml:n_y}{
+    type=notation:ml,
+    name=\ensuremath{n_y},
+    sort=n_y,   % is this
+    description={dimension of output vector}
+}
 
 %\newglossaryentry{dl:a:1}{
 %    type=notation:dl,
@@ -813,13 +826,14 @@
 %    description={weight matrix of the 2$^\text{nd}$ layer of the network}
 %}
 
+\newglossary{notation:rl}{ndl}{sbl}{Reinforcement Learning}
 
 % reinforcement learning
-\newglossaryentry{value}{type=symbols, name=\ensuremath{V},sort=V, description={value function}}
-\newglossaryentry{Q}{type=symbols, name=\ensuremath{Q},sort=Q, description={action-value function}}
-\newglossaryentry{state}{type=symbols, name=\ensuremath{s},sort=s, description={state}}
-\newglossaryentry{action}{type=symbols, name=\ensuremath{a},sort=a, description={action}}
-\newglossaryentry{action0}{type=symbols, name=\ensuremath{a_0},sort=a_0, description={initial action}}
-\newglossaryentry{state0}{type=symbols, name=\ensuremath{s_0},sort=s_0, description={initial state}}
-\newglossaryentry{trajectory}{type=symbols, name=\ensuremath{\tau},sort=tau, description={the trajectory, i.e. the sequence of states and actions in the world}}
-\newglossaryentry{policy}{type=symbols, name=\ensuremath{\pi},sort=pi, description={the policy, i.e. a rule used by an agent to decide what action to take}}
+\newglossaryentry{value}{type=notation:rl, name=\ensuremath{V},sort=V, description={value function}}
+\newglossaryentry{Q}{type=notation:rl, name=\ensuremath{Q},sort=Q, description={action-value function}}
+\newglossaryentry{state}{type=notation:rl, name=\ensuremath{s},sort=s, description={state}}
+\newglossaryentry{action}{type=notation:rl, name=\ensuremath{a},sort=a, description={action}}
+\newglossaryentry{action0}{type=notation:rl, name=\ensuremath{a_0},sort=a_0, description={initial action}}
+\newglossaryentry{state0}{type=notation:rl, name=\ensuremath{s_0},sort=s_0, description={initial state}}
+\newglossaryentry{trajectory}{type=notation:rl, name=\ensuremath{\tau},sort=tau, description={the trajectory, i.e. the sequence of states and actions in the world}}
+\newglossaryentry{policy}{type=notation:rl, name=\ensuremath{\pi},sort=pi, description={the policy, i.e. a rule used by an agent to decide what action to take}}
