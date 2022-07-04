@@ -3,7 +3,8 @@
 %    oneside,
     doublespace
 ]{tudat}
-\include{settings}
+
+\input{settings}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % COVER PAGE
@@ -60,8 +61,6 @@
 
 \newcommand{\eqdesc}[1]{\ensuremath{\gls{#1} &=} \text{\glsdesc{#1}}}
 
-\bibliography{library}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,8 +74,6 @@
 \coverimage{cover}
 \subtitle{Test}
 \subject{Test}
-
-\makecover
 
 \newpage
 \thispagestyle{empty}
@@ -98,6 +95,7 @@
     type=symbols,
     title={Notation},
 ]
+
 \setglossarysection{section}
 \printnoidxglossary[
     type={notation:orbit},
@@ -119,6 +117,11 @@
 \printnoidxglossary[
     type={notation:dl},
     title={Deep Learning},
+    nonumberlist
+]
+\printnoidxglossary[
+    type={notation:rl},
+    title={Reinforcement Learning},
     nonumberlist
 ]
 \printnoidxglossary[
