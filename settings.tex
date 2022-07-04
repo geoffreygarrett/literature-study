@@ -167,11 +167,23 @@
 \usepackage{sansmath}
 %\usepackage[style=nature,backend=bibtex]{biblatex}
 %\addbibresource{bib.bib}
+
 %---------------------------
 % Bibliography
 %---------------------------
+\usepackage[
+    natbib=true,
+    backend=bibtex,
+    % sorting=anyvt,
+    url=true,
+    style=nature,
+    doi=true]{biblatex}
 
-%
+\addbibresource{library.bib}
+\usepackage[nottoc]{tocbibind} % Include in TOC
+\bibliography{library}
+
+ 
 % \usepackage[nottoc]{tocbibind} % Include in TOC
 
 % \addbibresource{library}
