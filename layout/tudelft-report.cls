@@ -100,21 +100,23 @@
 \else
     %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used
     \RequirePackage{fontspec} % Custom fonts
+    \RequirePackage[T1]{fontenc}  % AIAA font
 
     %% Adding the various fonts
-    \setmainfont{Arial}
-    \setmathsf{Arial}
-    \setmathtt{Arial}
+    % \setmainfont{Arial}
+    % \setmathsf{Arial}
+    % \setmathtt{Arial}
 
-    \newfontfamily\tudtitlefamily[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
-    \newfontfamily\quotefont{Georgia}
+    % \newfontfamily\tudtitlefamily[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
+    % \newfontfamily\quotefont{Georgia}
 
     %% Defining commands to be used in layout
-    \def\largetitlestyle{\tudtitlefamily}
+    \def\largetitlestyle{\normalfont}
     \def\titlestyle{\normalfont}
+    \definecolor{title}{HTML}{4884d6} % Color for the title
 
     %% Changing the quote environment to use Georgia
-    \AtBeginEnvironment{quote}{\quotefont}
+    % \AtBeginEnvironment{quote}{\quotefont}
 \fi
 
 %%%%% 3. Adjusting the Titles in Text and Table of Contents %%%%%

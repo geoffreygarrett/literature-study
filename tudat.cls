@@ -6,6 +6,28 @@
 \RequirePackage{tikz}       % Create graphic elements
 \usetikzlibrary{positioning,arrows.meta,calc,decorations.pathreplacing}
 
+%%%%% 2. Loading all the Fonts (Supports pdfLaTeX, XeLaTeX and LuaLaTeX) %%%%%
+
+
+
+        %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used
+% \RequirePackage{fontspec} % Custom fonts
+
+        %% Adding the various fonts
+        % \setmainfont{Arial}
+        % \setmathsf{Arial}
+        % \setmathtt{Arial}
+
+        % \newfontfamily\tudtitlefamily[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
+        % \newfontfamily\quotefont{Georgia}
+
+        %% Defining commands to be used in layout
+\def\largetitlestyle{\normalfont}
+\def\titlestyle{\normalfont}
+
+        %% Changing the quote environment to use Georgia
+        % \AtBeginEnvironment{quote}{\quotefont}
+
 %\RequirePackage{amsmath}    % Mathematics
 %\RequirePackage{amssymb}    % Symbols
 %\RequirePackage{siunitx}    % Various functions, e.g. \num{}
@@ -39,8 +61,8 @@
 \RequirePackage[T1]{fontenc}  % AIAA font
 
 % makecover
-\RequirePackage{graphicx}
-\RequirePackage{tikz}
+% \RequirePackage{graphicx}
+% \RequirePackage{tikz}
 %\RequirePackage{xspace}
 
 % double spacing
@@ -57,7 +79,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ExecuteOptions{}
-%\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
 \LoadClass[10pt,oneside]{book}
 
@@ -139,24 +161,31 @@
 
 
 %% Commands to define the title, author, etc
-\renewcommand{\title}[1]{%
-    \def\atitle{#1}%
+\makeatletter
+\renewcommand*{\title}[1]{%
+    \def\@title{#1}%
     \hypersetup{pdftitle=#1}} % Adding to metadata
+\makeatother
 
+\makeatletter
 \renewcommand*{\author}[2][]{%
-    \def\aauthor{#2}%
-    \def\aauthor@short{#1}%
-    \hypersetup{pdfauthor=\ifdefvoid{\aauthor@short}{#2}{#1}}} % Adding to metadata
+    \def\@author{#2}%
+    \def\@author@short{#1}%
+    \hypersetup{pdfauthor=\ifdefvoid{\@author@short}{#2}{#1}}} % Adding to 
+\makeatother
 
 %% Arguments to define
-\newcommand*\subtitle[1]{\def\asubtitle{#1}}
+\makeatletter
+\newcommand*\subtitle[1]{\def\@subtitle{#1}}
 \newcommand*\coverimage[1]{\def\@cover@image{#1}}
-\newcommand\subject[1]{\def\asubject{#1}}
-
+\newcommand\subject[1]{\def\@subject{#1}}
+\makeatother
+\global\let\maketitle\relax
 \definecolor{title}{HTML}{4884d6} % Color for the title
 \usepackage{etoolbox}   % General toolbox (e.g. \ifdefvoid)
 \usepackage{fontspec}
 
+\makeatletter
 \newcommand*\makecover{
     \clearpage
     \thispagestyle{empty}
@@ -179,15 +208,15 @@
 
 
         \node[below=1cm,minimum width={\paperwidth},inner ysep=25pt,opacity=0.7,text opacity=1] at (current page.north) {%
-            \begin{minipage}{0.9\paperwidth}
-                \fontsize{35}{35}\selectfont\color{title}\centering\atitle \\[0.5ex]
-                \ifdefvoid{\asubtitle}{}{\fontsize{22}{22}\selectfont\color{tudelft-white}
-                The balance of risk and reward in the autonomous navigation of environments with inherent epistemic uncertainty
-                \\[2.5ex]}
-                \ifdefvoid{\asubject}{}{\fontsize{22}{22}\selectfont\color{tudelft-white} \\[0.5ex]}
-                \fontsize{24}{24}\selectfont\color{tudelft-white}\centering Geoffrey H. Garrett
-            \end{minipage}};
+        \begin{minipage}{0.9\paperwidth}
+            \fontsize{35}{35}\selectfont\color{title}\centering\@title \\[0.5ex]
+            \ifdefvoid{\@subtitle}{}{\fontsize{22}{22}\selectfont\color{tudelft-white}\@subtitle
+            [2.5ex]}
+            \ifdefvoid{\@subject}{}{\fontsize{22}{22}\selectfont\color{tudelft-white} [0.5ex]}
+            \fontsize{24}{24}\selectfont\color{tudelft-white}\centering \@author
+        \end{minipage}};
 
     \end{tikzpicture}
     \cleardoublepage{}
 }
+\makeatother

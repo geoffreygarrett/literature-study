@@ -2,7 +2,7 @@
     11pt,
 %    oneside,
     doublespace
-]{tudat}
+]{layout/tudelft-report}
 
 \input{settings}
 
@@ -70,10 +70,13 @@
 
 %% Roman numerals
 \title{Autonomous Space Exploration}
-%    \author{Geoffrey H. Garrett}{G.H. Garrett}
+\author{Geoffrey H. Garrett}{G.H. Garrett}
 \coverimage{cover}
-\subtitle{Test}
+\subtitle{The balance of risk and reward in the autonomous navigation of environments with inherent epistemic uncertainty}
 \subject{Test}
+\date{\today}
+
+\makecover
 
 \newpage
 \thispagestyle{empty}
@@ -81,7 +84,7 @@
 \newpage
 
 \frontmatter % Use roman page numbering style
-\onehalfspacing
+% \onehalfspacing
 %    \begin{longtable}{lp{\glsdescwidth}p{\glspagelistwidth}}
 % abbreviations.
 \setlength{\glsdescwidth}{0.9\textwidth}
@@ -134,7 +137,7 @@
 ]
 \setglossarysection{chapter}
 
-\doublespacing
+% \doublespacing
 \listoffigures
 \listoftables
 
@@ -146,13 +149,13 @@
 \mainmatter % Begin numeric (1,2,3...) page numbering
 %    \glsreset   % reset glossary first use flag
 \input{chapters/0-front-matter/introduction.tex}
-\input{chapters/1-main-matter/astrodynamics.tex}
-\input{chapters/1-main-matter/dynamic-modelling.tex}
-\input{chapters/1-main-matter/numerical-analysis.tex}
-\input{chapters/1-main-matter/trajectory-optimization.tex}
-\input{chapters/1-main-matter/estimation-theory/chapter.tex}
 \input{chapters/1-main-matter/machine-learning/chapter.tex}
-\input{chapters/1-main-matter/problem.tex}
+\input{chapters/1-main-matter/astrodynamics.tex}
+% \input{chapters/1-main-matter/dynamic-modelling.tex}
+% \input{chapters/1-main-matter/numerical-analysis.tex}
+% \input{chapters/1-main-matter/trajectory-optimization.tex}
+% \input{chapters/1-main-matter/estimation-theory/chapter.tex}
+% \input{chapters/1-main-matter/problem.tex}
 
 \newpage
 
@@ -160,15 +163,15 @@
 
 \backmatter
 
-\begin{appendices}
-    \chapter{Appendices}
-    \numberwithin{equation}{section}
-    %        \renewcommand{\chapter}{Appendices}
-    \renewcommand{\thesection}{\Alph{section}}
-    \renewcommand\theequation{\Alph{section}.\arabic{equation}}
-    \input{chapters/2-back-matter/appendix-A.tex}
-    \input{chapters/2-back-matter/appendix-B.tex}
-    \input{chapters/2-back-matter/appendix-C.tex}
-\end{appendices}
+% \begin{appendices}
+%     \chapter{Appendices}
+%     \numberwithin{equation}{section}
+%     %        \renewcommand{\chapter}{Appendices}
+%     \renewcommand{\thesection}{\Alph{section}}
+%     \renewcommand\theequation{\Alph{section}.\arabic{equation}}
+%     \input{chapters/2-back-matter/appendix-A.tex}
+%     \input{chapters/2-back-matter/appendix-B.tex}
+%     \input{chapters/2-back-matter/appendix-C.tex}
+% \end{appendices}
 
 \end{document}
