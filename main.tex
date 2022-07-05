@@ -1,8 +1,10 @@
 \documentclass[
     11pt,
 %    oneside,
-    doublespace
-]{layout/tudelft-report}
+    % doublespaceE
+]{tudat}
+
+\linespread{1.25}
 
 \input{settings}
 
@@ -16,6 +18,9 @@
 \usepackage{array,tabularx}
 \renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
 \usepackage{amsmath}% http://ctan.org/pkg/amsmath
+
+% for URLS in bib
+\usepackage{url}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PACKAGES
@@ -70,10 +75,10 @@
 
 %% Roman numerals
 \title{Autonomous Space Exploration}
-\author{Geoffrey H. Garrett}{G.H. Garrett}
+\author{Geoffrey H. Garrett}
 \coverimage{cover}
 \subtitle{The balance of risk and reward in the autonomous navigation of environments with inherent epistemic uncertainty}
-\subject{Test}
+\subject{Space Flight: Space Exploration}
 \date{\today}
 
 \makecover
@@ -151,10 +156,11 @@
 \input{chapters/0-front-matter/introduction.tex}
 \input{chapters/1-main-matter/machine-learning/chapter.tex}
 \input{chapters/1-main-matter/astrodynamics.tex}
-% \input{chapters/1-main-matter/dynamic-modelling.tex}
+\input{chapters/1-main-matter/dynamic-modelling.tex}
+% \input{chapters/1-main-matter/estimation-theory/chapter.tex}
+
 % \input{chapters/1-main-matter/numerical-analysis.tex}
 % \input{chapters/1-main-matter/trajectory-optimization.tex}
-% \input{chapters/1-main-matter/estimation-theory/chapter.tex}
 % \input{chapters/1-main-matter/problem.tex}
 
 \newpage

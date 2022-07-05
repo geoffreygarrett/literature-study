@@ -43,10 +43,7 @@
 %\RequirePackage{titletoc}   % Custom table of contents
 %\RequirePackage{fancyhdr}   % Custom header/footer
 \definecolor{mylinkcolor}{RGB}{0,0,0}
-% \definecolor{mylinkcolor}{RGB}{0, 166, 214}
-\definecolor{mycitecolor}{RGB}{0, 166, 214}
-
-\RequirePackage[colorlinks,linkcolor=mylinkcolor,citecolor=mycitecolor]{hyperref} % Improved referencing/links
+\RequirePackage[colorlinks,linkcolor=mylinkcolor]{hyperref} % Improved referencing/links
 %
 \RequirePackage{graphicx}   % Adding images
 %\RequirePackage{float}      % Additional float parameters
@@ -82,9 +79,9 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ExecuteOptions{}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{layout/tudelft-report}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
-\LoadClass[10pt]{layout/tudelft-report}
+\LoadClass[10pt,oneside]{book}
 
 
 % Optional double spacing for draft/review.
@@ -161,3 +158,65 @@
 \definecolor{tudelft-cyan}{cmyk}{1,0,0,0}
 \definecolor{tudelft-black}{cmyk}{0,0,0,1}
 \definecolor{tudelft-white}{cmyk}{0,0,0,0}
+
+
+%% Commands to define the title, author, etc
+\makeatletter
+\renewcommand*{\title}[1]{%
+    \def\@title{#1}%
+    \hypersetup{pdftitle=#1}} % Adding to metadata
+\makeatother
+
+\makeatletter
+\renewcommand*{\author}[2][]{%
+    \def\@author{#2}%
+    \def\@author@short{#1}%
+    \hypersetup{pdfauthor=\ifdefvoid{\@author@short}{#2}{#1}}} % Adding to 
+\makeatother
+
+%% Arguments to define
+\makeatletter
+\newcommand*\subtitle[1]{\def\@subtitle{#1}}
+\newcommand*\coverimage[1]{\def\@cover@image{#1}}
+\newcommand\subject[1]{\def\@subject{#1}}
+\makeatother
+\global\let\maketitle\relax
+\definecolor{title}{HTML}{4884d6} % Color for the title
+\usepackage{etoolbox}   % General toolbox (e.g. \ifdefvoid)
+\usepackage{fontspec}
+
+\makeatletter
+\newcommand*\makecover{
+    \clearpage
+    \thispagestyle{empty}
+    \usetikzlibrary{positioning}
+
+% cover image.
+    \begin{tikzpicture}[remember picture, overlay]
+
+        % cover image.
+        \node[inner sep=0pt] at (current page.center) {%
+            \includegraphics[height=\paperheight]{cover.png}%
+        };
+
+        \node[rotate=90,below right=4cm and .3cm] at (current page.west) {%
+            \titlestyle\color{tudelft-white} Delft University of Technology};
+
+        % white TU Delft logo.
+        \node[above right=0.2cm and 0.6cm] at (current page.south west) {%
+            \includegraphics[width=0.35\linewidth]{tudelft/logo-white.pdf}};
+
+
+        \node[below=1cm,minimum width={\paperwidth},inner ysep=25pt,opacity=0.7,text opacity=1] at (current page.north) {%
+        \begin{minipage}{0.9\paperwidth}
+            \fontsize{35}{35}\selectfont\color{title}\centering\@title \\[0.5ex]
+            \ifdefvoid{\@subtitle}{}{\fontsize{22}{22}\selectfont\color{tudelft-white}\@subtitle
+            [2.5ex]}
+            \ifdefvoid{\@subject}{}{\fontsize{22}{22}\selectfont\color{tudelft-white} [0.5ex]}
+            \fontsize{24}{24}\selectfont\color{tudelft-white}\centering \@author
+        \end{minipage}};
+
+    \end{tikzpicture}
+    \cleardoublepage{}
+}
+\makeatother

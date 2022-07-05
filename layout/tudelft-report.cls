@@ -29,14 +29,16 @@
 \RequirePackage{enumitem}   % Customise the list spacing
 
 \RequirePackage{geometry}   % Document geometry
-\RequirePackage{titlesec}   % Custom titles
+% \RequirePackage{titlesec}   % Custom titles
+\RequirePackage[explicit]{titlesec}
 \RequirePackage{titletoc}   % Custom table of contents
 \RequirePackage{fancyhdr}   % Custom header/footer
-\RequirePackage[hidelinks]{hyperref} % Improved referencing/links
+% \RequirePackage[hidelinks]{hyperref} % Improved referencing/links
 
 \RequirePackage{graphicx}   % Adding images
 \RequirePackage{float}      % Additional float parameters
-\RequirePackage[labelfont=bf,justification=centering,footnotesize]{caption} % Captions
+% \RequirePackage[labelfont=bf,justification=centering,footnotesize]{caption} % Captions
+\RequirePackage[labelfont=bf,justification=left,footnotesize]{caption} % Captions
 \RequirePackage{subcaption} % Subfigures and subcaptions
 \RequirePackage{xcolor}     % Using colours in documents
 \RequirePackage{tikz}       % Create graphic elements
