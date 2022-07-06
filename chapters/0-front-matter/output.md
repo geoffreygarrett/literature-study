@@ -38,7 +38,7 @@ most powerful nuclear weapon in history, had an explosive yield of 50
 megatons [@Khan2020]. This yield was around 1300 times that of "Little
 Boy\" and "Fat Man\", which were nuclear bombs fueled by highly enriched
 uranium and dropped on Hiroshima and Nagasaki, respectively, ending
-World War II [@osti_1489669]. Given that an Earth impactor dimensionally
+World War II [@malik1985]. Given that an Earth impactor dimensionally
 similar to "2019 OK\" could yield between one-fourth and six times the
 explosive energy of the "Tsar Bomba", it is clear that a period of
 twenty-four hours between detection and closest approach is an
