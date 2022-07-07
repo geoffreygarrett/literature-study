@@ -15,9 +15,9 @@ This work aims to elucidate and explore existing literature defining the boundar
 
 The structure of this work is as follows: first, a brief overview of historic missions in space exploration which involved orbiting or interacting physically with small bodies. This is followed by a review of the literature on machine learning fundamentals, deep learning and reinforcement learning techniques in \autoref{chap:ML}. Specific attention will 
 
- and its applications to characterisation of small bodies. Next, a review of the literature on the use of machine learning to characterise small bodies. Finally, a review of the literature on the use of machine learning to characterise small bodies in the context of planetary defence.
+%  and its applications to characterisation of small bodies. Next, a review of the literature on the use of machine learning to characterise small bodies. Finally, a review of the literature on the use of machine learning to characterise small bodies in the context of planetary defence.
 
-risk and its management in the context of space missions. Next, the concept of optimality is introduced and its application to autonomous space exploration is discussed. Finally, a case study is used to demonstrate how principles of optimality might be applied in the context of an Earth-deflection kinetic impactor mission.
+% risk and its management in the context of space missions. Next, the concept of optimality is introduced and its application to autonomous space exploration is discussed. Finally, a case study is used to demonstrate how principles of optimality might be applied in the context of an Earth-deflection kinetic impactor mission.
 
 
 
@@ -54,124 +54,3 @@ risk and its management in the context of space missions. Next, the concept of o
 %    be rather simple. - John von Neumann
 %\end{fancyquotes}
 
-
-\section{Brief History of Missions to Small Bodies}
-
-The motivations for engaging in space exploration can be broadly divided into two categories: scientific curiosity and national security. In terms of scientific curiosity, humans have long been fascinated by the stars and planets, and the desire to understand our place
-
-There have been many missions to small celestial bodies pursued by mankind in
-our drive to better understand the formation of the Solar System and the
-conditions in the early solar nebula. The term \textit{small body} refers to any
-celestial objects which avoided accretion by the Sun, a major planet, or their
-largest moons. The major categories of scientific questions, for which
-small body exploration bears promising of answering, are ones addressing
-\textit{the conditions of the early solar nebular} and \textit{planetisimanl
-    formation}~\cite{Davidsson2021}.
-
-- NEAR Shoemaker on Eros
-- NASA's Stardust mission: Annefrank, Wild 2 and Tempel 1
-- Japan's Hayabusa Sampling Mission: Itokawa
-
-Hayabusa (aka, MUSES-C) was a Japanese spacecraft designed to return samples
-from the near-Earth asteroid Itokawa. It launched on May 9, 2003, and
-successfully met up with Itokawa in September 2005. The spacecraft endured
-multiple malfunctions during the mission but managed to finish most of its major
-objectives. The spacecraft's samples returned to Earth on June 13, 2010, but it
-took time for scientists to open its container and check for samples. Hayabusa
-mission scientists confirmed in November 2010 that Hayabusa indeed picked up
-samples of Itokawa.
-
-Itokawa is a potentially hazardous asteroid that periodically crosses Earth's
-orbit; that's one of the reasons this asteroid was chosen for close-up study.
-It's about 1,150 feet (350 meters) in diameter and is classified as an S-type
-asteroid. Images from the spacecraft showed few impact craters, although a
-''rubble pile'' appears on the surface.
-
-
-- ESA's Rosetta Comet Mission
-
-The European Space Agency's Rosetta spacecraft was a popular mission that
-successfully made its way to a comet and landed a probe, called Philae, on the
-object's surface. Rosetta launched on March 2, 2004, and made two asteroid
-flybys before its last destination: Steins (September 2008) and Lutetia (July
-2010).
-
-When Rosetta reached Steins, the probe discovered that the object is a rare
-E-type (enstatite) asteroid, meaning that it has iron-poor silicates on its
-surface. The asteroid is roughly 4.1 miles (6.6 km) at its longest dimension and
-is likely part of a larger object that broke apart. Rosetta spotted impact
-craters on Steins' surface, and the space rock's measurements suggest that the
-interior consists of rubble. The asteroid will likely disintegrate due to its
-delicate interior.
-
-- NASA's Dawn rises
-
-NASA's Dawn mission launched on Sept. 27, 2007, to investigate two large members
-of the asteroid belt: Ceres (a dwarf planet) and 4 Vesta (an asteroid). First,
-the spacecraft came to Vesta, orbiting the asteroid between July 2011 and
-December 2012. Dawn's next and final destination was Ceres, where it entered
-orbit on March 6, 2015. (NASA also considered sending Dawn to visit a third
-target but ultimately turned down the idea.) The mission ended in late 2018,
-when the probe's hydrazine fuel will run out.
-
-- Japan's lost Procyon
-
-Japan's Procyon, also known as Proximate Object Close flyby with Optical
-Navigation, launched with Hayabusa2 on Dec. 4, 2014. In 2016, the probe was
-supposed to fly by asteroid 2000 DP107, but a problem with the ion-thruster
-system on Procyon forced the Japan Aerospace Exploration Agency to abandon the
-mission. Procyon did, however, catch a glimpse of Comet 67P, the destination of
-the Rosetta mission.
-
-- New Horizons explores Kuiper Belt object Arrokoth
-
-NASA's New Horizons mission was designed to fly past Pluto, which it did in
-2015. Because the spacecraft was in fine shape, mission personnel evaluated
-other destinations that the probe had fuel to reach and decided to fly past an
-object then known only as 2014 MU69, which had been discovered after the
-spacecraft launched.
-
-New Horizons' flyby determined that this Kuiper Belt object, now officially
-called Arrokoth, was a contact binary, formed when two space rocks glide gently
-into each other.
-
-
-- NASA samples with OSIRIS-REx
-
-NASA's OSIRIS-Rex (Origins, Spectral Interpretation, Resource Identification,
-Security, Regolith Explorer) launched on Sept. 8, 2016, en route to Bennu, a
-C-type asteroid. The spacecraft arrived at Bennu in August 2018 and spent nearly
-two years studying the asteroid from orbit.
-
-On Oct. 20, 2020, the OSIRIS-REx spacecraft conducted the key maneuver of its
-mission, capturing a sample of the rocky world to bring back to Earth. The
-spacecraft left Bennu in May 2021 and is scheduled to deliver its cargo in
-September 2023.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55  FUTURE
-
-- NASA hits an asteroid with a DART
-NASA's Double Asteroid Redirection Test (DART) will be a new kind of asteroid
-mission for the agency. Instead of focusing on detailed science observations,
-DART is a planetary defense mission dedicated to giving scientists their first
-real-world data about how they might be able to deflect an asteroid headed for
-Earth.
-
-In late 2022, DART will arrive at an asteroid called Didymos, release a cubesat
-to record the scene, then slam into Didymos' moon, Dimorphos. Scientists will
-watch from Earth to see how much the impact tweaks the moon's orbit around the
-larger asteroid.
-
-Later this decade, a European Space Agency mission called Hera will head out to
-Didymos as well to study the asteroid and crater after the dust has settled.
-
-
-- Psyche, a metallic world to explore
-
-
-In 2022, NASA will launch the Psyche mission to visit an asteroid also called
-Psyche. The world is strangely metallic for an asteroid, leaving scientists with
-a puzzle — and a hope that the body may turn out to be the bare core of a planet
-that lost its rock. The spacecraft will launch in 2022 and reach its target
-in 2026, then spend 21 months orbiting Psyche.
