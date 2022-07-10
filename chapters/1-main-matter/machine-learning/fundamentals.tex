@@ -1,10 +1,12 @@
 \section{Machine Learning Fundamentals}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This section provides a non-exhaustive coverage of the basics of \gls{ML}, which can be applied to all \gls{ML} algorithms. This section starts by defining what is meant when it is said that an algorithm ``learns". The types of datasets encountered in these learning algorithms are then briefly covered to provide insight into the potential applications that are not covered in this review. This is followed by distinguishing between the goal of fitting training data and finding patterns that generalise to new data. Finally, a ubiquitous concept in machine learning is covered: \textit{hyperparameters}, which are \textit{settings} of a learning algorithm which must be determined outside the learning algorithm itself.
+This section discusses the fundamentals of \gls{ML}, which underpin all \gls{ML} algorithms. In this first part of our discussion (\autoref{ssec:learning_algorithms}), we look at what it means for an algorithm to "learn" and the kinds of experiences used in learning that form the taxonomy of machine learning. The types of datasets encountered in these learning algorithms are then briefly covered to provide insight into the potential applications that are not covered in this review. This is followed by distinguishing between the goal of fitting training data and finding patterns that generalise to new data. Finally, a ubiquitous concept in machine learning is covered: \textit{hyperparameters}, which are \textit{settings} of a learning algorithm which must be determined outside the learning algorithm itself.
 
-\subsection{Learning algorithms\label{ssec:learning_algo}}
+This section provides a brief overview of the fundamentals of \gls{ML}, which apply to all \gls{ML} algorithms. To begin, we must first comprehend what it means for an algorithm to "learn." The sorts of data these algorithms work with are then evaluated to provide more information on the possible applications that aren't directly addressed here. Finally, one of the most fundamental concepts in machine learning is outlined: hyperparameters, which are settings for a learning algorithm that must be determined outside of the learning algorithm itself.
+
+\subsection{Learning algorithms\label{ssec:learning_algorithms}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Generally speaking, a machine learning algorithm is a procedure for learning from data. However correct this definition is, it provides little insight into the relevant concepts in the field. A more succinct definition is provided by Mitchell~\cite{Mitchell97LearningAlgorithm}:
+Generally speaking, a machine learning algorithm is a procedure for learning from data. However correct this definition is, it provides little insight into the relevant concepts in the field. A more succinct definition is provided by Carnegie Mellon University professor Tom Mitchell~\cite{Mitchell97LearningAlgorithm}:
 
 \begin{fancyquotes}
     A computer program is said to learn from experience $E$ with respect
