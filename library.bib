@@ -419,6 +419,46 @@
   biburl     = {https://dblp.org/rec/journals/corr/abs-2005-14165.bib},
   bibsource  = {dblp computer science bibliography, https://dblp.org}
 }
+
+% hinge loss svm
+@article{Zhang2008,
+  abstract = {The Support Vector Machine (SVM) is a popular classification paradigm in machine learning and has achieved great success in real applications. However, the standard SVM can not select variables automatically and therefore its solution typically utilizes all the input variables without discrimination. This makes it difficult to identify important predictor variables, which is often one of the primary goals in data analysis. In this paper, we propose two novel types of regularization in the context of the multicategory SVM (MSVM) for simultaneous classification and variable selection. The MSVM generally requires estimation of multiple discriminating functions and applies the argmax rule for prediction. For each individual variable, we propose to characterize its importance by the supnorm of its coefficient vector associated with different functions, and then minimize the MSVM hinge loss function subject to a penalty on the sum of supnorms. To further improve the supnorm penalty, we propose the adaptive regularization, which allows different weights imposed on different variables according to their relative importance. Both types of regularization automate variable selection in the process of building classifiers, and lead to sparse multiclassifiers with enhanced interpretability and improved accuracy, especially for high dimensional low sample size data. One big advantage of the sup-norm penalty is its easy implementation via standard linear programming. Several simulated examples and one real gene data analysis demonstrate the outstanding performance of the adaptive supnorm penalty in various data settings. © 2008, Institute of Mathematical Statistics. All rights reserved.},
+  author   = {H.H. Zhang and Y. Liu and Y. Wu and J. Zhu},
+  doi      = {10.1214/08-EJS122},
+  journal  = {Electronic Journal of Statistics},
+  pages    = {149-167},
+  title    = {Variable selection for the multicategory SVM via adaptive sup-norm regularization},
+  volume   = {2},
+  year     = {2008}
+}
+
+
+% hingle loss SVM
+@article{Liu2007,
+  abstract = {The Support Vector Machine (SVM) has become one of the most popular machine learning techniques in recent years. The success of the SVM is mostly due to its elegant margin concept and theory in binary classification. Generalization to the multicategory setting, however, is not trivial. There are a number of different multicategory extensions of the SVM in the literature. In this paper, we review several commonly used extensions and Fisher consistency of these extensions. For inconsistent extensions, we propose two approaches to make them Fisher consistent, one is to add bounded constraints and the other is to truncate unbounded hinge losses.},
+  author   = {Y. Liu},
+  journal  = {Journal of Machine Learning Research},
+  pages    = {291-298},
+  title    = {Fisher consistency of multicategory Support Vector Machines},
+  volume   = {2},
+  year     = {2007}
+}
+
+
+% hingle loss and svm
+@article{Wu2007,
+  abstract = {The support vector machine (SVM) has been widely applied for classification problems in both machine learning and statistics. Despite its popularity, however, SVM has some drawbacks in certain situations. In particular, the SVM classifier can be very sensitive to outliers in the training sample. Moreover, the number of support vectors (SVs) can be very large in many applications. To circumvent these drawbacks, we propose the robust truncated hinge loss SVM (RSVM), which uses a truncated hinge loss. The RSVM is shown to be more robust to outliers and to deliver more accurate classifiers using a smaller set of SVs than the standard SVM. Our theoretical results show that the RSVM is Fisher-consistent, even when there is no dominating class, a scenario that is particularly challenging for multicategory classification. Similar results are obtained for a class of margin-based classifiers. © 2007 American Statistical Association.},
+  author   = {Y. Wu and Y. Liu},
+  doi      = {10.1198/016214507000000617},
+  issue    = {479},
+  journal  = {Journal of the American Statistical Association},
+  pages    = {974-983},
+  title    = {Robust truncated hinge loss support vector machines},
+  volume   = {102},
+  year     = {2007}
+}
+
+
 % credit card fraud
 @article{Tiwari2021,
   title      = {Credit Card Fraud Detection using Machine Learning: {A} Study},
@@ -433,6 +473,123 @@
   biburl     = {https://dblp.org/rec/journals/corr/abs-2108-10005.bib},
   bibsource  = {dblp computer science bibliography, https://dblp.org}
 }
+
+% ML Climate change
+@article{Rolnick2023,
+  abstract  = {Climate change is one of the greatest challenges facing humanity, and we, as machine learning (ML) experts, may wonder how we can help. Here we describe how ML can be a powerful tool in reducing greenhouse gas emissions and helping society adapt to a changing climate. From smart grids to disaster management, we identify high impact problems where existing gaps can be filled by ML, in collaboration with other fields. Our recommendations encompass exciting research questions as well as promising business opportunities. We call on the ML community to join the global effort against climate change.},
+  author    = {David Rolnick and Priya L. Donti and Lynn H. Kaack and Kelly Kochanski and Alexandre Lacoste and Kris Sankaran and Andrew Slavin Ross and Nikola Milojevic-Dupont and Natasha Jaques and Anna Waldman-Brown and Alexandra Sasha Luccioni and Tegan Maharaj and Evan D. Sherwin and S. Karthik Mukkavilli and Konrad P. Kording and Carla P. Gomes and Andrew Y. Ng and Demis Hassabis and John C. Platt and Felix Creutzig and Jennifer Chayes and Yoshua Bengio},
+  doi       = {10.1145/3485128},
+  issn      = {15577341},
+  issue     = {2},
+  journal   = {ACM Computing Surveys},
+  keywords  = {Climate change,adaptation,artificial intelligence,machine learning,mitigation},
+  month     = {3},
+  publisher = {Association for Computing Machinery},
+  title     = {Tackling Climate Change with Machine Learning},
+  volume    = {55},
+  year      = {2023}
+}
+
+
+% genomics datastics ML
+@article{Libbrecht2015,
+  abstract = {The field of machine learning includes the development and application of computer algorithms that improve with experience.Machine learning methods can be divided into supervised, semi-supervised and unsupervised methods. Supervised methods are trained on examples with labels (for example, 'gene' or 'not gene') and are then used to predict these labels on other examples, whereas unsupervised methods find patterns in data sets without the use of labels. Semi-supervised methods combine these two approaches, leveraging patterns in unlabelled data to improve power in the prediction of labels.Different machine learning methods may be required for an application, depending on whether one is interested in interpreting the output model or is simply concerned with predictive power. Generative models, which posit a probabilistic distribution over input data, are generally best for interpretability, whereas discriminative models, which seek only to model labels, are generally best for predictive power.Prior information can be added to a model in order to train the model more effectively when it is provided with limited data, to limit the complexity of the model or to incorporate data that are not used by the model directly. Prior information can be incorporated explicitly in a probabilistic model or implicitly through the choice of features or similarity measures.The choice of an appropriate performance measure depends strongly on the application task. Machine learning methods are most effective when they optimize an appropriate performance measure.Network estimation methods are appropriate when the data contain complex dependencies among examples. These methods work best when they take into account the confounding effects of indirect relationships.},
+  author   = {Maxwell W Libbrecht and William Stafford Noble},
+  doi      = {10.1038/nrg3920},
+  issn     = {1471-0064},
+  issue    = {6},
+  journal  = {Nature Reviews Genetics},
+  pages    = {321-332},
+  title    = {Machine learning applications in genetics and genomics},
+  volume   = {16},
+  url      = {https://doi.org/10.1038/nrg3920},
+  year     = {2015}
+}
+
+
+% ML in medicine
+@article{Kourou2015,
+  abstract  = {Cancer has been characterized as a heterogeneous disease consisting of many different subtypes. The early diagnosis and prognosis of a cancer type have become a necessity in cancer research, as it can facilitate the subsequent clinical management of patients. The importance of classifying cancer patients into high or low risk groups has led many research teams, from the biomedical and the bioinformatics field, to study the application of machine learning (ML) methods. Therefore, these techniques have been utilized as an aim to model the progression and treatment of cancerous conditions. In addition, the ability of ML tools to detect key features from complex datasets reveals their importance. A variety of these techniques, including Artificial Neural Networks (ANNs), Bayesian Networks (BNs), Support Vector Machines (SVMs) and Decision Trees (DTs) have been widely applied in cancer research for the development of predictive models, resulting in effective and accurate decision making. Even though it is evident that the use of ML methods can improve our understanding of cancer progression, an appropriate level of validation is needed in order for these methods to be considered in the everyday clinical practice. In this work, we present a review of recent ML approaches employed in the modeling of cancer progression. The predictive models discussed here are based on various supervised ML techniques as well as on different input features and data samples. Given the growing trend on the application of ML methods in cancer research, we present here the most recent publications that employ these techniques as an aim to model cancer risk or patient outcomes.},
+  author    = {Konstantina Kourou and Themis P. Exarchos and Konstantinos P. Exarchos and Michalis V. Karamouzis and Dimitrios I. Fotiadis},
+  doi       = {10.1016/J.CSBJ.2014.11.005},
+  issn      = {2001-0370},
+  journal   = {Computational and Structural Biotechnology Journal},
+  keywords  = {Cancer recurrence,Cancer survival,Cancer susceptibility,Machine learning,Predictive models},
+  month     = {1},
+  pages     = {8-17},
+  pmid      = {25750696},
+  publisher = {Elsevier},
+  title     = {Machine learning applications in cancer prognosis and prediction},
+  volume    = {13},
+  year      = {2015}
+}
+
+
+% ML in medicine
+@article{Abbasi2019,
+  abstract = {Abstract Machine learning leverages statistical and computer science principles to develop algorithms capable of improving performance through interpretation of data rather than through explicit instructions. Alongside widespread use in image recognition, language processing, and data mining, machine learning techniques have received increasing attention in medical applications, ranging from automated imaging analysis to disease forecasting. This review examines the parallel progress made in epilepsy, highlighting applications in automated seizure detection from electroencephalography (EEG), video, and kinetic data, automated imaging analysis and pre-surgical planning, prediction of medication response, and prediction of medical and surgical outcomes using a wide variety of data sources. A brief overview of commonly used machine learning approaches, as well as challenges in further application of machine learning techniques in epilepsy, is also presented. With increasing computational capabilities, availability of effective machine learning algorithms, and accumulation of larger datasets, clinicians and researchers will increasingly benefit from familiarity with these techniques and the significant progress already made in their application in epilepsy.},
+  author   = {Bardia Abbasi and Daniel M Goldenholz},
+  doi      = {https://doi.org/10.1111/epi.16333},
+  issue    = {10},
+  journal  = {Epilepsia},
+  keywords = {artificial intelligence,deep learning,epilepsy imaging,epilepsy surgery,seizure detection},
+  pages    = {2037-2047},
+  title    = {Machine learning applications in epilepsy},
+  volume   = {60},
+  url      = {https://onlinelibrary.wiley.com/doi/abs/10.1111/epi.16333},
+  year     = {2019}
+}
+
+
+% ML in medicine
+@article{May2021,
+  author    = {Mike May},
+  doi       = {10.1038/S41591-020-01197-2},
+  issn      = {1546170X},
+  issue     = {1},
+  journal   = {Nature medicine},
+  month     = {1},
+  pages     = {2-3},
+  pmid      = {33442003},
+  publisher = {NLM (Medline)},
+  title     = {Eight ways machine learning is assisting medicine},
+  volume    = {27},
+  year      = {2021}
+}
+
+
+% ML in medicine
+@article{Rajkomar2019,
+  abstract  = {A 49-year-old patient notices a painless rash on his shoulder but does not seek care. Months later, his wife asks him to see a doctor, who diagnoses a seborrheic keratosis. Later, when the patient undergoes a screening colonoscopy, a nurse notices a dark macule on his shoulder and advises him to have it evaluated. One month later, the patient sees a dermatologist, who obtains a biopsy specimen of the lesion. The findings reveal a noncancerous pigmented lesion. Still concerned, the dermatologist requests a second reading of the biopsy specimen, and invasive melanoma is diagnosed. An oncologist initiates treatment with systemic chemotherapy. A physician friend asks the patient why he is not receiving immunotherapy. W hat if every medical decision, whether made by an intensivist or a community health worker, was instantly reviewed by a team of relevant experts who provided guidance if the decision seemed amiss? Patients with newly diagnosed, uncomplicated hypertension would receive the medications that are known to be most effective rather than the one that is most familiar to the prescriber. 1,2 Inadvertent overdoses and errors in prescribing would be largely eliminated. 3,4 Patients with mysterious and rare ailments could be directed to renowned experts in fields related to the suspected diagnosis. 5 Such a system seems far-fetched. There are not enough medical experts to staff it, it would take too long for experts to read through a patient's history, and concerns related to privacy laws would stop efforts before they started. 6 Yet, this is the promise of machine learning in medicine: the wisdom contained in the decisions made by nearly all clinicians and the outcomes of billions of patients should inform the care of each patient. That is, every diagnosis, management decision, and therapy should be personalized on the basis of all known information about a patient, in real time, incorporating lessons from a collective experience. This framing emphasizes that machine learning is not just a new tool, such as a new drug or medical device. Rather, it is the fundamental technology required to meaningfully process data that exceed the capacity of the human brain to comprehend ; increasingly, this overwhelming store of information pertains to both vast clinical databases and even the data generated regarding a single patient. 7 Nearly 50 years ago, a Special Article in the Journal stated that computing would be "augmenting and, in some cases, largely replacing the intellectual functions of the physician." 8 Yet, in early 2019, surprisingly little in health care is driven by machine learning. Rather than report the myriad proof-of-concept models (of retrospective data) that have been tested, here we describe the core structural changes and paradigm shifts in the health care system that are necessary to enable the full promise of machine learning in medicine (see video). M achine Le a r ning E x pl a ined Traditionally, software engineers have distilled knowledge in the form of explicit computer code that instructs computers exactly how to process data and how to A video overview of machine learning is available at NEJM.org},
+  author    = {Alvin Rajkomar and Jeffrey Dean and Isaac Kohane},
+  doi       = {10.1056/NEJMRA1814259/SUPPL_FILE/NEJMRA1814259_DISCLOSURES.PDF},
+  issn      = {0028-4793},
+  issue     = {14},
+  journal   = {New England Journal of Medicine},
+  month     = {4},
+  pages     = {1347-1358},
+  pmid      = {30943338},
+  publisher = {Massachusetts Medical Society},
+  title     = {Machine Learning in Medicine},
+  volume    = {380},
+  year      = {2019}
+}
+
+
+% ML in medicine
+@article{Singh2019,
+  abstract  = {Machine learning techniques can extensively apply in the solution of the medicine domain problems by applying classification models and systems that can support medical personnel in the diagnosis and predication of diagnosis diseases. Though, it's hard to extract knowledge and information from medical records and data because this data and information is in mixed, unorganized, and high dimensional. This data also contains noise in collected data and outliers exist in collected data. Main applicable method will be used applies by checking different machine learning techniques. The performance of machine learning technique is checked by verifying and validating machine learning techniques' performances through accuracy. Present research paper has been discussing about the usability and applicability of different machine learning techniques i.e. decision tree algorithm, support vector machine method, random forest method, evolutionary algorithms based models and swarm intelligence based techniques in the diagnosis and treatment of the diseases. Advance medical diagnosis criteria generates confidence in diagnosis by using imagining techniques in the diagnosis of a disease is extensively used by doctors. In view of the fact that analyzing medical images is very complex and difficult task, by using machine learning methods for analysis of imaging will support and give major help in disease diagnosis. Application of different Machine learning methods is used by applying its techniques on big data for interpretation for diagnosis because machine learning methods show their capability and shows their easiness to solve the problems of bioinformatics domain.},
+  author    = {Preeti Singh and S. P. Singh and D. S. Singh},
+  doi       = {10.1109/CICT48419.2019.9066250},
+  isbn      = {9781728153988},
+  journal   = {2019 IEEE Conference on Information and Communication Technology, CICT 2019},
+  keywords  = {Decision Tree,Machine Learning,Medicine,Random Forest,Support Vector Machine},
+  month     = {12},
+  publisher = {Institute of Electrical and Electronics Engineers Inc.},
+  title     = {An introduction and review on machine learning applications in medicine and healthcare},
+  year      = {2019}
+}
+
 
 % A Review of Machine Learning and Deep Learning Applications
 @inproceedings{Shinde2018,
@@ -561,6 +718,180 @@
   url      = {https://EconPapers.repec.org/RePEc:bla:jorssb:v:67:y:2005:i:2:p:301-320},
   abstract = {Summary. We propose the elastic net, a new regularization and variable selection method. Real world data and a simulation study show that the elastic net often outperforms the lasso, while enjoying a similar sparsity of representation. In addition, the elastic net encourages a grouping effect, where strongly correlated predictors tend to be in or out of the model together. The elastic net is particularly useful when the number of predictors (p) is much bigger than the number of observations (n). By contrast, the lasso is not a very satisfactory variable selection method in the p\gg{}n case. An algorithm called LARS-EN is proposed for computing elastic net regularization paths efficiently, much like algorithm LARS does for the lasso.}
 }
+% Image Interpretation
+@article{Farabet2013,
+  abstract = {Scene labeling consists of labeling each pixel in an image with the category of the object it belongs to. We propose a method that uses a multiscale convolutional network trained from raw pixels to extract dense feature vectors that encode regions of multiple sizes centered on each pixel. The method alleviates the need for engineered features, and produces a powerful representation that captures texture, shape, and contextual information. We report results using multiple postprocessing methods to produce the final labeling. Among those, we propose a technique to automatically retrieve, from a pool of segmentation components, an optimal set of components that best explain the scene; these components are arbitrary, for example, they can be taken from a segmentation tree or from any family of oversegmentations. The system yields record accuracies on the SIFT Flow dataset (33 classes) and the Barcelona dataset (170 classes) and near-record accuracy on Stanford background dataset (eight classes), while being an order of magnitude faster than competing approaches, producing a (320× 240) image labeling in less than a second, including feature extraction. © 1979-2012 IEEE.},
+  author   = {Clement Farabet and Camille Couprie and Laurent Najman and Yann Lecun},
+  doi      = {10.1109/TPAMI.2012.231},
+  issn     = {01628828},
+  issue    = {8},
+  journal  = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  keywords = {Convolutional networks,deep learning,image classification,image segmentation,scene parsing},
+  pages    = {1915-1929},
+  pmid     = {23787344},
+  title    = {Learning hierarchical features for scene labeling},
+  volume   = {35},
+  year     = {2013}
+}
+@article{Girshick2013,
+  abstract  = {Object detection performance, as measured on the canonical PASCAL VOC
+               dataset, has plateaued in the last few years. The best-performing methods are
+               complex ensemble systems that typically combine multiple low-level image
+               features with high-level context. In this paper, we propose a simple and
+               scalable detection algorithm that improves mean average precision (mAP) by more
+               than 30% relative to the previous best result on VOC 2012---achieving a mAP of
+               53.3%. Our approach combines two key insights: (1) one can apply high-capacity
+               convolutional neural networks (CNNs) to bottom-up region proposals in order to
+               localize and segment objects and (2) when labeled training data is scarce,
+               supervised pre-training for an auxiliary task, followed by domain-specific
+               fine-tuning, yields a significant performance boost. Since we combine region
+               proposals with CNNs, we call our method R-CNN: Regions with CNN features. We
+               also compare R-CNN to OverFeat, a recently proposed sliding-window detector
+               based on a similar CNN architecture. We find that R-CNN outperforms OverFeat by
+               a large margin on the 200-class ILSVRC2013 detection dataset. Source code for
+               the complete system is available at http://www.cs.berkeley.edu/~rbg/rcnn.},
+  author    = {Ross Girshick and Jeff Donahue and Trevor Darrell and Jitendra Malik},
+  doi       = {10.48550/arxiv.1311.2524},
+  isbn      = {9781479951178},
+  issn      = {10636919},
+  journal   = {Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition},
+  month     = {11},
+  pages     = {580-587},
+  publisher = {IEEE Computer Society},
+  title     = {Rich feature hierarchies for accurate object detection and semantic segmentation},
+  url       = {https://arxiv.org/abs/1311.2524v5},
+  year      = {2013}
+}
+@article{Chen2014,
+  abstract = {Deep Convolutional Neural Networks (DCNNs) have recently shown state of the art performance in high level vision tasks, such as image classification and object detection. This work brings together methods from DCNNs and probabilistic graphical models for addressing the task of pixel-level classification (also called "semantic image segmentation"). We show that responses at the final layer of DCNNs are not sufficiently localized for accurate object segmentation. This is due to the very invariance properties that make DCNNs good for high level tasks. We overcome this poor localization property of deep networks by combining the responses at the final DCNN layer with a fully connected Conditional Random Field (CRF). Qualitatively, our "DeepLab" system is able to localize segment boundaries at a level of accuracy which is beyond previous methods. Quantitatively, our method sets the new state-of-art at the PASCAL VOC-2012 semantic image segmentation task, reaching 71.6% IOU accuracy in the test set. We show how these results can be obtained efficiently: Careful network re-purposing and a novel application of the 'hole' algorithm from the wavelet community allow dense computation of neural net responses at 8 frames per second on a modern GPU.},
+  author   = {Liang-Chieh Chen and George Papandreou and Iasonas Kokkinos and Kevin Murphy and Alan L. Yuille},
+  doi      = {10.48550/arxiv.1412.7062},
+  month    = {12},
+  pages    = {1-12},
+  title    = {Semantic Image Segmentation with Deep Convolutional Nets and Fully Connected CRFs},
+  url      = {https://arxiv.org/abs/1412.7062v4},
+  year     = {2014}
+}
+@article{He2014,
+  abstract  = {Existing deep convolutional neural networks (CNNs) require a fixed-size (e.g., 224x224) input image. This requirement is "artificial" and may reduce the recognition accuracy for the images or sub-images of an arbitrary size/scale. In this work, we equip the networks with another pooling strategy, "spatial pyramid pooling", to eliminate the above requirement. The new network structure, called SPP-net, can generate a fixed-length representation regardless of image size/scale. Pyramid pooling is also robust to object deformations. With these advantages, SPP-net should in general improve all CNN-based image classification methods. On the ImageNet 2012 dataset, we demonstrate that SPP-net boosts the accuracy of a variety of CNN architectures despite their different designs. On the Pascal VOC 2007 and Caltech101 datasets, SPP-net achieves state-of-the-art classification results using a single full-image representation and no fine-tuning. The power of SPP-net is also significant in object detection. Using SPP-net, we compute the feature maps from the entire image only once, and then pool features in arbitrary regions (sub-images) to generate fixed-length representations for training the detectors. This method avoids repeatedly computing the convolutional features. In processing test images, our method is 24-102x faster than the R-CNN method, while achieving better or comparable accuracy on Pascal VOC 2007. In ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2014, our methods rank #2 in object detection and #3 in image classification among all 38 teams. This manuscript also introduces the improvement made for this competition.},
+  author    = {Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun},
+  doi       = {10.1007/978-3-319-10578-9_23},
+  issue     = {PART 3},
+  journal   = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+  keywords  = {Image Classification,Index Terms-Convolutional Neural Networks,Object Detection !,Spatial Pyramid Pooling},
+  month     = {6},
+  pages     = {346-361},
+  publisher = {Springer Verlag},
+  title     = {Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition},
+  volume    = {8691 LNCS},
+  url       = {http://arxiv.org/abs/1406.4729 http://dx.doi.org/10.1007/978-3-319-10578-9_23},
+  year      = {2014}
+}
+@article{Shelhamer2014,
+  abstract  = {Convolutional networks are powerful visual models that yield hierarchies of
+               features. We show that convolutional networks by themselves, trained
+               end-to-end, pixels-to-pixels, exceed the state-of-the-art in semantic
+               segmentation. Our key insight is to build "fully convolutional" networks that
+               take input of arbitrary size and produce correspondingly-sized output with
+               efficient inference and learning. We define and detail the space of fully
+               convolutional networks, explain their application to spatially dense prediction
+               tasks, and draw connections to prior models. We adapt contemporary
+               classification networks (AlexNet, the VGG net, and GoogLeNet) into fully
+               convolutional networks and transfer their learned representations by
+               fine-tuning to the segmentation task. We then define a novel architecture that
+               combines semantic information from a deep, coarse layer with appearance
+               information from a shallow, fine layer to produce accurate and detailed
+               segmentations. Our fully convolutional network achieves state-of-the-art
+               segmentation of PASCAL VOC (20% relative improvement to 62.2% mean IU on 2012),
+               NYUDv2, and SIFT Flow, while inference takes one third of a second for a
+               typical image.},
+  author    = {Evan Shelhamer and Jonathan Long and Trevor Darrell},
+  doi       = {10.48550/arxiv.1411.4038},
+  issn      = {01628828},
+  issue     = {4},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  keywords  = {Convolutional Networks,Deep Learning,Semantic Segmentation,Transfer Learning},
+  month     = {11},
+  pages     = {640-651},
+  pmid      = {27244717},
+  publisher = {IEEE Computer Society},
+  title     = {Fully Convolutional Networks for Semantic Segmentation},
+  volume    = {39},
+  url       = {https://arxiv.org/abs/1411.4038v2},
+  year      = {2014}
+}
+@report{Girshick2015,
+  abstract = {This paper proposes a Fast Region-based Convolutional Network method (Fast R-CNN) for object detection. Fast R-CNN builds on previous work to efficiently classify object proposals using deep convolutional networks. Compared to previous work, Fast R-CNN employs several innovations to improve training and testing speed while also increasing detection accuracy. Fast R-CNN trains the very deep VGG16 network 9× faster than R-CNN, is 213× faster at test-time, and achieves a higher mAP on PASCAL VOC 2012. Compared to SPPnet, Fast R-CNN trains VGG16 3× faster, tests 10× faster, and is more accurate. Fast R-CNN is implemented in Python and C++ (using Caffe) and is available under the open-source MIT License at https: //github.com/rbgirshick/fast-rcnn.},
+  author   = {Ross Girshick},
+  title    = {Fast R-CNN},
+  url      = {https://github.com/rbgirshick/},
+  year     = {2015}
+}
+@article{Ren2015,
+  abstract  = {State-of-the-art object detection networks depend on region proposal
+               algorithms to hypothesize object locations. Advances like SPPnet and Fast R-CNN
+               have reduced the running time of these detection networks, exposing region
+               proposal computation as a bottleneck. In this work, we introduce a Region
+               Proposal Network (RPN) that shares full-image convolutional features with the
+               detection network, thus enabling nearly cost-free region proposals. An RPN is a
+               fully convolutional network that simultaneously predicts object bounds and
+               objectness scores at each position. The RPN is trained end-to-end to generate
+               high-quality region proposals, which are used by Fast R-CNN for detection. We
+               further merge RPN and Fast R-CNN into a single network by sharing their
+               convolutional features---using the recently popular terminology of neural
+               networks with 'attention' mechanisms, the RPN component tells the unified
+               network where to look. For the very deep VGG-16 model, our detection system has
+               a frame rate of 5fps (including all steps) on a GPU, while achieving
+               state-of-the-art object detection accuracy on PASCAL VOC 2007, 2012, and MS
+               COCO datasets with only 300 proposals per image. In ILSVRC and COCO 2015
+               competitions, Faster R-CNN and RPN are the foundations of the 1st-place winning
+               entries in several tracks. Code has been made publicly available.},
+  author    = {Shaoqing Ren and Kaiming He and Ross Girshick and Jian Sun},
+  doi       = {10.48550/arxiv.1506.01497},
+  issn      = {01628828},
+  issue     = {6},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  keywords  = {Object detection,convolutional neural network,region proposal},
+  month     = {6},
+  pages     = {1137-1149},
+  pmid      = {27295650},
+  publisher = {IEEE Computer Society},
+  title     = {Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks},
+  volume    = {39},
+  url       = {https://arxiv.org/abs/1506.01497v3},
+  year      = {2015}
+}
+@article{Redmon2015,
+  abstract  = {We present YOLO, a new approach to object detection. Prior work on object
+               detection repurposes classifiers to perform detection. Instead, we frame object
+               detection as a regression problem to spatially separated bounding boxes and
+               associated class probabilities. A single neural network predicts bounding boxes
+               and class probabilities directly from full images in one evaluation. Since the
+               whole detection pipeline is a single network, it can be optimized end-to-end
+               directly on detection performance. Our unified architecture is extremely fast. Our base YOLO model processes
+               images in real-time at 45 frames per second. A smaller version of the network,
+               Fast YOLO, processes an astounding 155 frames per second while still achieving
+               double the mAP of other real-time detectors. Compared to state-of-the-art
+               detection systems, YOLO makes more localization errors but is far less likely
+               to predict false detections where nothing exists. Finally, YOLO learns very
+               general representations of objects. It outperforms all other detection methods,
+               including DPM and R-CNN, by a wide margin when generalizing from natural images
+               to artwork on both the Picasso Dataset and the People-Art Dataset.},
+  author    = {Joseph Redmon and Santosh Divvala and Ross Girshick and Ali Farhadi},
+  doi       = {10.48550/arxiv.1506.02640},
+  isbn      = {9781467388504},
+  issn      = {10636919},
+  journal   = {Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition},
+  month     = {6},
+  pages     = {779-788},
+  publisher = {IEEE Computer Society},
+  title     = {You Only Look Once: Unified, Real-Time Object Detection},
+  volume    = {2016-December},
+  url       = {https://arxiv.org/abs/1506.02640v5},
+  year      = {2015}
+}
+
+
 % cross validation
 @inbook{Refaeilzadeh2009,
   title     = {Cross-Validation},
@@ -712,6 +1043,7 @@
   url       = {https://proceedings.neurips.cc/paper/2014/file/5cce8dede893813f879b873962fb669f-Paper.pdf},
   editor    = {Z. Ghahramani and M. Welling and C. Cortes and N. Lawrence and K. Q. Weinberger}
 }
+
 @inproceedings{Kothari2020,
   title     = {The final frontier: Deep learning in space},
   author    = {Vivek Kothari and Edgar Liberis and Nicholas D. Lane},
@@ -765,14 +1097,17 @@
   doi     = {10.23915/distill.00030},
   note    = {\url{https://distill.pub/2021/multimodal-neurons}}
 }
+
 @misc{molnar_2022,
   title   = {Interpretable machine learning},
-  author  = {Molnar, Christoph},
-  year    = 2022,
-  month   = {Jan},
+  url     = {https://christophm.github.io/interpretable-ml-book/neural-networks.html},
   journal = {Chapter 10 Neural Network Interpretation},
-  url     = {https://christophm.github.io/interpretable-ml-book/neural-networks.html}
+  author  = {Molnar, Christoph},
+  year    = {2022},
+  month   = {Jan}
 }
+
+
 @article{IzzoGeodesyNet2021,
   title    = {Geodesy of irregular small bodies via neural density fields: geodesyNets},
   author   = {Dario Izzo and Pablo G\'{o}mez},

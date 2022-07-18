@@ -88,6 +88,9 @@
 \mbox{}
 \newpage
 
+%%%%%%%%%%%%%
+% Frontmatter 
+%%%%%%%%%%%%%
 \frontmatter % Use roman page numbering style
 % \onehalfspacing
 %    \begin{longtable}{lp{\glsdescwidth}p{\glspagelistwidth}}
@@ -103,23 +106,28 @@
 \setcounter{tocdepth}{2} % Set TOC to display up to subsections
 \tableofcontents
 
+%%%%%%%%%%%%%
+% Mainmatter
+%%%%%%%%%%%%%
 \mainmatter % Begin numeric (1,2,3...) page numbering
 %    \glsreset   % reset glossary first use flag
 \input{chapters/0-front-matter/introduction.tex}
-\input{chapters/1-main-matter/machine-learning/chapter.tex}
+\input{chapters/1-main-matter/machine-learning/machine-learning.tex}
 \input{chapters/1-main-matter/astrodynamics.tex}
 \input{chapters/1-main-matter/dynamic-modelling.tex}
-\input{chapters/1-main-matter/estimation-theory/chapter.tex}
+\input{chapters/1-main-matter/estimation-theory/estimation-theory.tex}
 
 \input{chapters/1-main-matter/numerical-analysis.tex}
 \input{chapters/1-main-matter/trajectory-optimization.tex}
-\input{chapters/1-main-matter/problem.tex}
 
 \newpage
 
+%%%%%%%%%%%%%
+% Backmatter 
+%%%%%%%%%%%%%
+\input{chapters/2-back-matter/conclusion.tex}
 \printbibliography
-
-\backmatter
+% \backmatter
 
 % \begin{appendices}
 %     \chapter{Appendices}

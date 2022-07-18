@@ -60,7 +60,7 @@ those that underlie the practitioner's domain-specific problems.
     \item \textbf{Anomaly detection}: In this task, a learning algorithm learns to sift through a set of events and classify events that are anomalous. These algorithms have been applied to credit card companies in the detection of fraud \cite{Tiwari2021} and safety in the aviation industry \cite{Janakiraman2016, Basora2019}.
     \item \textbf{Synthesis and sampling}: In this task, learning algorithms generate \textbf{new} examples which appear to be drawn from the same underlying distribution but are not present in the training data. A recent example around which research is being done is the \gls{GPT-3} which can produce human-like text, given prompts as input \cite{Brown2020}.
     \item \textbf{Imputation of missing values}: In this task, the learning algorithm is given some input $x\in\mathbb{R}$ with some elements $x_i$ missing. The algorithm must then make predictions for the missing values. Emmanuel et al. discuss the latest methods in \gls{ML} that address this task~\cite{Emmanuel2021}. A recent example of the imputation of missing frames to add frames to videos for improved video smoothness is \gls{RIFE} \cite{huang2020rife}.
-    \item \textbf{Denoising}: In this learning task, the machine learning algorithm learns to generate a clean example $\mathbf{x}\in\mathbb{R}^n$ from a corrupted sample $\tilde{\mathbf{x}}\in\mathbb{R}^n$. Generally speaking the learner is predicting the probability distribution $p(\mathbf{x}|\tilde{\mathbf{x}})$.
+    \item \textbf{Denoising}: In this learning task, the machine learning algorithm learns to generate a clean example $\mathbf{x}\in\mathbb{R}^n$ from a corrupted sample $\tilde{\mathbf{x}}\in\mathbb{R}^n$. Generally speaking the learner is predicting the probability distribution $p(\bm{x}|\tilde{\mathbf{x}})$.
     \item \textbf{Density estimation} or \textbf{probability mass function estimation} involves the task of learning a function $p_\text{model}:\mathbb{R}^n\rightarrow{}\mathbb{R}$, where $p_\text{model}(\mathbf{x})$ is interpreted as a probability distribution function from which $\mathbf{x}$ was drawn. Effectively the algorithm learns the structure of the data that it has been provided with. Most of the aforementioned tasks involve learning this distribution function, at least implicitly. For example for the missing value imputation task, if $x_i$ is missing, and all other values $x_{-i}$ are given, then the algorithm learns the distribution $p(x_i|\mathbf{x}_{-i})$ which involves $p(\mathbf{x})$ implicitly.
 \end{itemize}
 %An ongoing trend in society is the augmentation of responsibility in intelligent
@@ -201,8 +201,8 @@ the number of classes.
         \gls{J}_\text{\gls{BCE}}=-\sum_{i=1}^{\gls{ml:m}}\bigg(\gls{y_true_i1}\log(\gls{y_pred_i1})+(1-\gls{y_true_i1})\log(1-\gls{y_pred_i1})\bigg)\label{eq:equation}
     \end{equation}
     \item \textbf{\Gls{HL}} is measure which is often used for training binary
-    \gls{SVM} classifiers. The loss function assumes that \gls{y_true_ij} and
-    \gls{y_pred_ij} are in the bounds $[-1,1]$ for the classification task.
+    \gls{SVM} classifiers \cite{Wu2007, Liu2007, Zhang2008}. The loss function assumes that \gls{y_true_ij} and
+    \gls{y_pred_ij} are in the bounds $[-1,1]$ for the classification task. 
     \begin{equation}
         \gls{J}_\text{\gls{HL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})
     \end{equation}
