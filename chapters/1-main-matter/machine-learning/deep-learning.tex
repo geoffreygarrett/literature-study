@@ -39,14 +39,14 @@ function were analogous to first-order logic sentences. The perception of
 artificial neurons changed with Hebb's work in 1949, where he proposed an idea
 which has come to be known as Hebb's rule:
 
-\begin{fancyquotes}
+\begin{quote}
     Let us assume that the persistence or repetition of a reverberatory activity
     (or ``trace") tends to induce lasting cellular changes that add to its
     stability. [...] When an axon of cell A is near enough to excite a cell B
     and repeatedly or persistently takes part in firing it, some growth process
     or metabolic change takes place in one or both cells such that A’s
     efficiency, as one of the cells firing B, is increased. \cite{10.1007/978-3-642-70911-1_15}
-\end{fancyquotes}
+\end{quote}
 
 This theory is often summarised as \textit{``Cells that fires together, wire
 together"} \cite{doi:10.1126/science.7912852}, which persists today in the
@@ -66,11 +66,11 @@ value $b$. The latter notation will be used, as it is the preferred notation in
 contemporary deep learning research. The notation defining the mapping of a
 perceptron is then: $f(\gls{ml:x};\gls{w_vec},
 \gls{b})=\gls{ml:x}^T\gls{w_vec}+\gls{b}$;
-$\gls{ml:x}\in\gls{set:R}^{\gls{ml:n_x}}$,
-$\gls{w_vec}\in\gls{set:R}^{\gls{ml:n_x}}$, $\gls{b}\in\gls{set:R}$. Furthermore
-the model parameters, \gls{ml:theta}, as introduced in
+$\gls{ml:x}\in\gls{set:R}[^{\gls{np:dim}[_\gls{fn:in}]}]$,
+$\gls{w_vec}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:in}]}$, $\gls{b}\in\gls{set:R}$. Furthermore
+the model parameters, \glsvec{fn:param}, as introduced in
 \autoref{sec:capoverunder}, are defined by the union of the bias and weight
-vectors: $\gls{ml:theta}=\{\gls{w_vec},\gls{b}\}$.
+vectors: $\glsvec{fn:param}=\{\gls{w_vec},\gls{b}\}$.
 \begin{figure}[htbp]
     \centering
     \input{graphics/tikz/perceptron_b}
@@ -79,7 +79,7 @@ vectors: $\gls{ml:theta}=\{\gls{w_vec},\gls{b}\}$.
         \textbf{Generalized illustration of a perceptron.} The mapping is
         defined by $f(\gls{ml:x};\gls{w_vec},
         \gls{b})=\gls{ml:x}^T\gls{w_vec}+\gls{b}$ where
-        $\{\gls{w_vec},\gls{b}\}=\gls{ml:theta}$. The original formulation of
+        $\{\gls{w_vec},\gls{b}\}=\glsvec{fn:param}$. The original formulation of
         the perceptron \cite{Rosenblatt_1957_6098} was intended to output a
         binary value, using a threshold step function, for classification
         purposes. The actual activation function \gls{dl:activation} has been
@@ -90,7 +90,7 @@ vectors: $\gls{ml:theta}=\{\gls{w_vec},\gls{b}\}$.
 \end{figure}
 
 \begin{equation}
-    a=g\bigg(\sum_{k=0}^{\gls{ml:n_x}}{w_k}x_k + b\bigg)=g(z)
+    a=g\bigg(\sum_{k=0}^{\gls{np:dim}[_\gls{fn:in}]}{w_k}x_k + b\bigg)=g(z)
 \end{equation}
 
 
@@ -172,9 +172,9 @@ that there is no universally accepted definition of what integer values of
 perceptron layers \gls{dl:L} constitute deep and shallow networks, but generally
 speaking: a shallow network will usually have one hidden layer and a deep
 network will have several hidden layers. The mapping of an \gls{MLP} is defined
-by $\gls{y_pred}=f(\gls{ml:x}; \gls{theta})$;
-$\gls{ml:x}\in\gls{set:R}^{\gls{ml:n_x}}$;
-$\gls{y_pred}\in\gls{set:R}^{\gls{ml:n_y}}$.
+by $\gls{y_pred}=f(\gls{ml:x}; \glsvec{fn:param})$;
+$\gls{ml:x}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:in}]}$;
+$\gls{y_pred}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:out}]}$.
 
 \begin{figure}[htp]
     \centering
@@ -330,7 +330,7 @@ included for concise illustration of the backpropagation algorithm.
 %     \captionsetup{format=hang} % hanging captions
 %     \caption{
 %         \textbf{Multi-layer perceptron mapping for an arbitrary network}
-%         with $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$.
+%         with $\gls{dl:L}=2$ and $\{\gls{np:dim}[_\gls{fn:in}],n_h^{[1]},n_y\}=\{2,2,2\}$.
 %     }
 %     \label{fig:mlp-example}
 % \end{figure}
@@ -355,7 +355,7 @@ $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$ using \autoref{eq:bp:w:2} gives:
 %     \captionsetup{format=hang} % hanging captions
 %     \caption{
 %         \textbf{Multi-layer perceptron mapping for an arbitrary network} with
-%         $\gls{dl:L}=2$ and $\{\gls{ml:n_x},n_h^{[1]},n_y\}=\{2,2,2\}$ expanded
+%         $\gls{dl:L}=2$ and $\{\gls{np:dim}[_\gls{fn:in}],n_h^{[1]},n_y\}=\{2,2,2\}$ expanded
 %         to show all model parameters and model variables. Emphasis has been
 %         placed on the backpropagation to determine the expression for
 %         $\partial\gls{ml:J}/\partial\gls{dl:z:1:2}$.
@@ -500,7 +500,7 @@ variants which differ in their use of the training dataset.
     \textit{each} example in the dataset and performs an update for each
     input-output pair in the dataset:
     \begin{equation}
-        \gls{dl:theta}_{t+1} = \gls{dl:theta}_t - \gls{dl:lr} \nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_t;\gls{ml:x:i},\gls{ml:y_true:i})
+        \gls{dl:theta}_{t+1} = \gls{dl:theta}_t - \gls{dl:lr} \nabla_{\gls{dl:theta}}\gls{dl:J}(\gls{dl:theta}_t;\glsvec{fn:in}^{\gls{ml:ith:xy}},\glsvec{fn:out}^{\gls{ml:ith:xy}})
         \label{eq:dl:opt:sgd}
     \end{equation}
     Batch gradient descent often results in redundant gradient calculations for

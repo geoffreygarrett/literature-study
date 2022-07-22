@@ -21,10 +21,390 @@
 % SOFTWARE.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ACRONYMS
+% COMNMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\myset}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\myvec}[1]{\ensuremath{\bm{#1}}}
+\newcommand{\mymat}[1]{\ensuremath{\bm{#1}}}
+\newcommand{\myten}[1]{\ensuremath{\mathbf{#1}}}
 
+\newcommand{\glsvec}[1]{\ensuremath{\myvec{{{\gls{#1}}}}}}
+\newcommand{\glsmat}[1]{\ensuremath{\mymat{{{\gls{#1}}}}}}
+\newcommand{\glsten}[1]{\ensuremath{\myten{{{\gls{#1}}}}}}
+\newcommand{\firstindex}{0}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERAL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACRONYMS
+\newacronym{NEO}{NEO}{near-Earth object}
 \newacronym{TNT}{TNT}{trinitrotoluene}
 \newacronym{DART}{DART}{Double Asteroid Redirection Test}
-\newacronym{NASA}{NASA}{National Aeronautics and Space Administration}
+\newacronym{NASA}{NASA}{the National Aeronautics and Space Administration}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NUMBERS AND ARRAYS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary{notation:np}{nml}{sbl}{Numbers and Arrays}
+
+% NOTATION
+\newglossaryentry{np:a}{
+	type=notation:np,
+	name=\ensuremath{a},
+	text=\ensuremath{a},
+	sort=a,
+	description={A scalar (integer or real)}}
+
+\newglossaryentry{np:vec:a}{
+    type=notation:np,
+    name=\ensuremath{\myvec{a}},
+    text=\ensuremath{\myvec{a}},
+    sort=ab,
+    description={A vector}}
+
+\newglossaryentry{np:mat:a}{
+    type=notation:np,
+    name=\ensuremath{\mymat{A}},
+    text=\ensuremath{\mymat{A}},
+    sort=ac,
+    description={A matrix}}
+
+\newglossaryentry{np:ten:a}{
+    type=notation:np,
+    name=\ensuremath{\myten{A}},
+    text=\ensuremath{\myten{A}},
+    sort=ad,
+    description={A tensor}}
+
+\newglossaryentry{np:eye}{
+    type=notation:np,
+    name=\ensuremath{\mymat{I}},
+    text=\ensuremath{\mymat{I}},
+    sort=I,
+    description={Identity matrix with context-implied dimensions}}
+
+\newglossaryentry{np:eye:n}{
+    type=notation:np,
+    name=\ensuremath{\mymat{I}_n},
+    text=\ensuremath{\mymat{I}_n},
+    sort=In,
+    description={Identity matrix with \gls{np:n} rows and \gls{np:n} columns}}
+
+\newglossaryentry{np:n}{
+    type=notation:np,
+    name=\ensuremath{n},
+    text=\ensuremath{n},
+    sort=n,
+    description={A natural number from \gls{set:N}}}
+
+\newglossaryentry{np:dim}{
+    type=notation:np,
+    name=\ensuremath{n_a},
+    text=\ensuremath{n},
+    sort=na,
+    description={The dimension of the vector space containing \gls{np:vec:a}}}
+
+% We make these appear without being referenced.
+\glsadd{np:a}
+\glsadd{np:vec:a}
+\glsadd{np:mat:a}
+\glsadd{np:ten:a}
+\glsadd{np:eye}
+\glsadd{np:eye:n}
+\glsadd{np:n}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SETS AND GRAPHS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary{notation:set}{nml}{sbl}{Sets and Graphs}
+
+\newglossaryentry{set:A}{
+    type=notation:set,
+    name=\ensuremath{\myset{A}},
+    sort=A,
+    description={A set}
+}
+
+\newglossaryentry{set:N}{
+    type=notation:set,
+    name=\ensuremath{\myset{N}},
+    sort=N,
+    description={The set of natural numbers}
+}
+
+\newglossaryentry{set:R}{
+    type=notation:set,
+    name=\ensuremath{\myset{R}},
+    sort=R,
+    description={The set of real numbers}
+}
+
+\newglossaryentry{set:Z}{
+    type=notation:set,
+    name=\ensuremath{\myset{Z}},
+    sort=Z,
+    description={The set of integer numbers}
+}
+
+\newglossaryentry{set:G}{
+    type=notation:set,
+    name=\ensuremath{\mathcal{G}},
+    sort=zG,
+    description={A graph}
+}
+
+\newglossaryentry{set:PaG}{
+    type=notation:set,
+    name=\ensuremath{Pa_\mathcal{G}(\text{x}^{(i)})},
+    text=\ensuremath{Pa_\mathcal{G}},
+    sort=zPaG,
+    description={The parents of $\text{x}^{(i)}$ in \gls{set:G}}
+}
+
+\glsadd{set:A}
+\glsadd{set:G}
+\glsadd{set:PaG}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FUNCTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary{notation:fn}{nml}{sbl}{Functions}
+
+% NOTATION
+\newglossaryentry{fn:maps}{
+    type=notation:fn,
+    name=\ensuremath{f: \gls{set:A}\rightarrow\myset{B}},
+    text=\ensuremath{\rightarrow},
+    sort=fab,
+    description={The function $f$ whose domain is \gls{set:A} and range is \myset{B}}}
+
+\newglossaryentry{fn:in}{
+    type=notation:fn,
+    name=\ensuremath{x},
+    text=\ensuremath{x},
+    sort=x,
+    description={The input of a function}
+}
+
+\newglossaryentry{fn:out}{
+    type=notation:fn,
+    name=\ensuremath{y},
+    text=\ensuremath{y},
+    sort=y,
+    description={The output of a function}
+}
+
+\newglossaryentry{fn:param}{
+    type=notation:fn,
+    name=\ensuremath{\theta},
+    text=\ensuremath{\theta},
+    sort=theta,
+    description={The parameter of a function}
+}
+
+\newglossaryentry{fn:fn}{
+    type=notation:fn,
+    name=\ensuremath{f(\myvec{x}; \myvec{\theta})},
+    text=\ensuremath{f},
+    sort=f,
+    description={A function of \glsvec{fn:in}, parametrised by \glsvec{fn:param}, (sometimes shortened as $f(\glsvec{fn:in})$)}}
+
+
+\glsadd{fn:fn}
+\glsadd{fn:param}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INDEXING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+\newglossary{notation:ix}{nml}{sbl}{Functions}
+
+\newglossaryentry{ix:sub}{
+    type=notation:ix,
+    name=\ensuremath{a_i},
+    text=\ensuremath{i},
+    sort=ai,
+    description={Element $i$ of vector \gls{np:vec:a}, with indexing starting at \firstindex}}
+
+\newglossaryentry{ix:sub:t}{
+    type=notation:ix,
+    name=\ensuremath{a_t},
+    text=\ensuremath{a_t},
+    sort=at,
+    description={Value of $a$ at temporal step $t$, with indexing starting at \firstindex}}
+
+\newglossaryentry{ix:negsub}{
+    type=notation:ix,
+    name=\ensuremath{a_{-i}},
+    text=\ensuremath{a_{-i}},
+    sort=azi,
+    description={All elements of vector \gls{np:vec:a} except $i$}}
+    
+\glsadd{ix:sub}
+\glsadd{ix:sub:t}
+\glsadd{ix:negsub}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONTROL THEORY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MACHINE LEARNING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary{notation:ml}{nml}{sbl}{Machine Learning}
+
+\newglossaryentry{ml:X}{
+    type=notation:ml,
+    name=\ensuremath{\myset{X}},
+    text=\ensuremath{\myset{X}},
+    sort=X,
+    description={The set of training examples}
+}
+
+\newglossaryentry{ml:ith:xy}{
+    type=notation:ml,
+    name=\ensuremath{(\glsvec{fn:in}^{(i)}, \glsvec{fn:out}^{(i)})},
+    text=\ensuremath{(i)},
+    sort=xy,
+    description={The $i^\text{th}$ example pair in \gls{ml:X} (supervised learning)}
+}
+
+\newglossaryentry{ml:ith:x}{
+    type=notation:ml,
+    name=\ensuremath{\glsvec{fn:in}^{(i)}},
+    text=\ensuremath{(i)},
+    sort=x,
+    description={The $i^\text{th}$ example in \gls{ml:X} (unsupervised learning)}
+}
+
+
+\glsadd{ml:X}
+\glsadd{ml:ith:x}
+\glsadd{ml:ith:xy}
+
+\newglossaryentry{ml:N}{
+    type=notation:ml,
+    name=\ensuremath{N},
+    text=\ensuremath{N},
+    sort=X,
+    description={Size of \gls{ml:X}}
+}
+
+\newglossaryentry{ml:K}{
+    type=notation:ml,
+    name=\ensuremath{K},
+    text=\ensuremath{K},
+    sort=K,
+    description={Size of \gls{ml:X}}
+}
+
+\newacronym{AI}{AI}{artificial intelligence}
+\newacronym{ML}{ML}{machine learning}
+\newacronym{NN}{NN}{neural network}
+\newacronym{ANN}{ANN}{artificial neural network}
+\newacronym{NLP}{NLP}{natural language processing}
+\newacronym{DL}{DL}{deep learning}
+\newacronym{RL}{RL}{reinforcement learning}
+\newacronym{CV}{CV}{computer vision}
+\newacronym{MLP}{MLP}{multilayer perceptron}
+\newacronym{CNN}{CNN}{convolutional neural network}
+\newacronym{RNN}{RNN}{recurrent neural network}
+\newacronym{LOOCV}{LOOCV}{leave-one-out cross-validation}
+\newacronym{GPT-3}{GPT-3}{Generative Pre-trained Transformer 3}
+\newacronym{MSE}{MSE}{mean squared error}
+\newacronym{MAE}{MAE}{mean absolute error}
+\newacronym{MBE}{MBE}{mean bias error}
+\newacronym{MSLE}{MSLE}{mean squared logarithmic error}
+\newacronym{NFLT}{NFLT}{No Free Lunch Theorem}
+\newacronym{NFL}{NFL}{No Free Lunch}
+\newacronym{CD}{CD}{cosine distance}
+\newacronym{CP}{CP}{cosine proximity}
+\newacronym{CS}{CS}{cosine similarity}
+\newacronym{BCE}{BCE}{binary cross-entropy}
+\newacronym{SVM}{SVM}{support vector machine}
+\newacronym{MCE}{MCE}{multi-class cross-entropy}
+\newacronym{HL}{HL}{hinge loss}
+\newacronym{MHL}{MHL}{multi-class hinge loss}
+\newacronym{SHL}{SHL}{squared hinge loss}
+\newacronym{MSHL}{MSHL}{multi-class squared hinge loss}
+\newacronym{LASSO}{LASSO}{least absolute shrinkage and selection operator}
+\newacronym{RIFE}{RIFE}{real-time intermediate flow estimation for video frame interpolation}
+\newacronym{KFCV}{KFCV}{$k$-fold cross-validation}
+\newacronym{LSTM}{LSTM}{Long short-term memory}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEEP LEARNING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary{notation:dl}{nml}{sbl}{Deep Learning}
+
+\newglossaryentry{dl:layer}{
+    type=notation:dl,
+    name=\ensuremath{a^{[l]}},
+    text=\ensuremath{a^{[l]}},
+    sort=a,
+    description={The value of $a$ in layer $l$ of a neural network}
+}
+
+\glsadd{dl:layer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REINFORCEMENT LEARNING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossary{notation:rl}{ndl}{sbl}{Reinforcement Learning}
+
+\newglossaryentry{rl:V}{
+    type=notation:rl, 
+    name=\ensuremath{V},
+    sort=V, 
+    description={The value function}}
+
+\newglossaryentry{rl:Q}{
+    type=notation:rl, 
+    name=\ensuremath{Q},
+    sort=Q, 
+    description={The action-value function}}
+
+\newglossaryentry{rl:s}{
+    type=notation:rl, 
+    name=\ensuremath{s},
+    sort=s, 
+    description={A state}}
+
+\newglossaryentry{rl:a}{
+    type=notation:rl, 
+    name=\ensuremath{a},
+    sort=a, 
+    description={An action}}
+
+\newglossaryentry{rl:a0}{
+    type=notation:rl, 
+    name=\ensuremath{a_0},
+    sort=a0, 
+    description={The initial action}}
+
+\newglossaryentry{rl:s0}{
+    type=notation:rl, 
+    name=\ensuremath{s_0},
+    sort=s0, 
+    description={The initial state}}
+
+\newglossaryentry{rl:tau}{
+    type=notation:rl, 
+    name=\ensuremath{\tau},
+    sort=tau, 
+    description={The trajectory, i.e. the sequence of states and actions in the world}}
+
+\newglossaryentry{rl:pi}{
+    type=notation:rl, 
+    name=\ensuremath{\pi},
+    sort=pi, 
+    description={the policy, i.e. a rule used by an agent to decide what action to take}}
+
+\glsadd{rl:V}
+\glsadd{rl:Q}
+\glsadd{rl:s}
+\glsadd{rl:a}
+\glsadd{rl:a0}
+\glsadd{rl:s0}
+\glsadd{rl:tau}

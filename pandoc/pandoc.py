@@ -7,8 +7,26 @@ import subprocess
 import sys
 
 REGEX_SUBSTITUTION = {
-    r'\\glsposs{(\w+)}': r"\1's",
+    r'\\glsposs{(\w+)}': r"\\glspl{\1}",
 }
+
+
+
+def prepare(doc):
+    """
+    In order to deal with acronyms, we need to load and parse the acronyms.tex manually.
+    """
+    acronyms = {}
+    pattern = re.compile(r"\\newacronym(\[.*\])?\{(?P<label>[A-Za-z-]+)\}\{.+\}\{(?P<value>[A-Za-z 0-9\-]+)\}")
+    # write to std out so that we can parse it manually
+    
+    with open('./glossaries/general.tex', 'r', encoding='utf-8') as f:
+        for line in f:
+            match = pattern.match(line)
+            if match:
+                acronyms[match.group('label')] = match.group('value')
+
+    return acronyms
 
 def preprocess(directory):
     # make a copy of the directory and place into temporary directory.
@@ -35,13 +53,13 @@ def preprocess(directory):
 
                 # read file contents
                 contents = f.read()
-
-                # contents = re.escape(contents)
+                
                 for key, value in REGEX_SUBSTITUTION.items():
-                        contents = re.sub(key, value, contents, flags=re.MULTILINE)
+                    contents = re.sub(key, value, contents, flags=re.MULTILINE)
 
                 with open(temp_file_path, 'w') as f:
                     f.write(contents)
+
         # if file is a directory, recurse on it
         elif os.path.isdir(os.path.join(directory, file)):
             preprocess(os.path.join(directory, file))
@@ -65,12 +83,26 @@ def pandoc(directory):
             # get abspath of output file
             output_file_path = os.path.abspath(os.path.join(output_path, file.replace('.tex', '.md')))
             # execute pandoc on file
-            subprocess.call(['pandoc',  file_path,'-o', output_file_path,  '--bibliography', os.path.join(root, 'library.bib'), '--csl', os.path.join(root, 'styles/elsevier-with-titles'),
-            '-t', 'gfm', '--citeproc', 
+            subprocess.call(['pandoc',  file_path,'-o', output_file_path,  '--bibliography', os.path.join(root, 'library.bib'), 
+            '--csl', os.path.join(root, 'styles/elsevier-with-titles'),
+            # '--number-sections',
+            '-N',
+            '-F', os.path.join(root, 'acronym.py'),
+            '-F', os.path.join(root, 'code/tikz.py'),
+            '-t', 'html', 
+            '--standalone', 
+            '--citeproc', 
+            '--abbreviations', os.path.join(root, 'glossaries/general.tex'), 
+            # '--template', os.path.join(root, 'template.tex')])
             '--wrap', 'none',
-            '--metadata', 'link-citations=true', 
+            '-M', 'link-citations=true', 
+            '-M', f"header-includes={os.path.join(root, 'main.tex')}", 
+            # '--data-dir', os.path.join(root, 'pandoc'),
+            # '--template', 'template.latex',
             # '--metadata', 'suppress-bibliography=false',
-            # '--metadata', 'reference-section-title=References'
+            '-M', 'reference-section-title=References',
+            '-M', 'glossary=true',
+            '-M', 'cref=true',
             ])
             # print output file path
             print(output_file_path)

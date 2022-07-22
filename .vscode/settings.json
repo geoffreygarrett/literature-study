@@ -1,4 +1,7 @@
 {
     "editor.padding.bottom": 2,
-    "editor.suggestLineHeight": 28
+    "editor.suggestLineHeight": 28,
+    "Lua.diagnostics.globals": [
+        "return"
+    ]
 }

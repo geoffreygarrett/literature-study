@@ -140,14 +140,14 @@ approximation to a first-order Taylor polynomial expansion about $\bm{\beta}$,
 for a step size $\Delta\bm{\beta}$. The resulting linearized model is:
 \begin{equation}
     \begin{aligned}
-        \bm{z}                              &=        \bm{f}(\bm{\beta}) + \bm{\epsilon}                                                              \\
-        \bm{f}(\bm{\beta}+\Delta\bm{\beta}) &\approx  \bm{f}(\bm{\beta}) + \frac{\partial{\bm{f}(\bm{\beta})}}{\partial{\bm{\beta}}}\Delta\bm{\beta}  \\
+        \bm{z}                              &=        f(\bm{\beta}) + \bm{\epsilon}                                                              \\
+        f(\bm{\beta}+\Delta\bm{\beta}) &\approx  f(\bm{\beta}) + \frac{\partial{f(\bm{\beta})}}{\partial{\bm{\beta}}}\Delta\bm{\beta}  \\
     \end{aligned}
 \end{equation}
 
 \begin{equation}
     \begin{aligned}
-        \bm{\rho} &= \bm{f}(\bm{\beta}) - \bm{f}(\bm{\beta}^*)  + \frac{\partial{\bm{f}(\bm{\beta})}}{\partial{\bm{\beta}}}\Delta\bm{\beta}  \\
+        \bm{\rho} &= f(\bm{\beta}) - f(\bm{\beta}^*)  + \frac{\partial{f(\bm{\beta})}}{\partial{\bm{\beta}}}\Delta\bm{\beta}  \\
         \bm{\rho} &= \Delta\bm{z}  + \bm{H}\Delta\bm{\beta}  \\
     \end{aligned}
 \end{equation}
@@ -333,7 +333,7 @@ The \textbf{sigma points} can be selected by
 
 \begin{equation}
     \begin{aligned}
-        L                   &= \text{dim}(\hat{\bm{x}})                                                      && \bm{x}\in{\mathbb{R}}^{L} \\
+        L                   &= \text{dim}(\hat{\bm{x}})                                                      && \bm{x}\in{\gls{set:R}}^{L} \\
         \mathcal{X}_0       &= \hat{\bm{x}}_{i-1}^{+}                                                                                     \\
         \mathcal{X}_j       &= \hat{\bm{x}}_{i-1}^{+} + \sqrt{(L+\lambda)} \bm{A}_j                          && j=1,...,L                 \\
         \mathcal{X}_{L+j}   &= \hat{\bm{x}}_{i-1}^{+} - \sqrt{(L+\lambda)} \bm{A}_j                          && j=1,...,L                 \\

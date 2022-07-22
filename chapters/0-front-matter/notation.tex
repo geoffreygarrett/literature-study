@@ -1,27 +1,46 @@
-\setlength{\glsdescwidth}{0.9\textwidth}
+\setlength{\glsdescwidth}{0.8\textwidth}
 %    \setlength{\glspagelistwidth}{0.1\textwidth}
-\printnoidxglossary[type=\acronymtype, title=Abbreviations]
 
 
-%    \printnoidxglossary[type=symbols, title=Notation, style=long]
-%    \chapter*{Notation}
+
+% \printnoidxglossary[type=symbols, title=Notation, style=long]
+\chapter{List of Notations}
+% \printnoidxglossary[type=symbols, title={Notation}]
+
+\setglossarysection{subsection}
+% \renewcommand{\glossarysection}[2][]{{\centering\section*{#2}}}
+
 \printnoidxglossary[
-    type=symbols,
-    title={Notation},
+    type={notation:np},
+    title={Numbers \& Arrays},
+    nonumberlist
 ]
 
-\setglossarysection{section}
+\printnoidxglossary[
+    type={notation:ix},
+    title={Indexing},
+    nonumberlist
+]
+
 \printnoidxglossary[
     type={notation:orbit},
     title={Orbital Mechanics},
+    nonumberlist
 ]
 \printnoidxglossary[
     type={notation:mission},
     title={Other},
+    nonumberlist
 ]
 \printnoidxglossary[
     type={notation:set},
-    title={Sets and Graphs},
+    title={Sets \& Graphs},
+    nonumberlist
+]
+\printnoidxglossary[
+    type={notation:fn},
+    title={Functions},
+    nonumberlist
 ]
 \printnoidxglossary[
     type={notation:ml},
@@ -37,10 +56,6 @@
     type={notation:rl},
     title={Reinforcement Learning},
     nonumberlist
-]
-\printnoidxglossary[
-    type={notation:fn},
-    title={Functions},
 ]
 \printnoidxglossary[
     type={notation:prob},

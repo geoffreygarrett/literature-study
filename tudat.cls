@@ -102,7 +102,7 @@
     \item\relax}
     {\endlist}
 \makeatother
-
+\setlength{\headheight}{13.59999pt}
 % title sec
 \RequirePackage[explicit]{titlesec}
 \renewcommand{\thechapter}{\arabic{chapter}}

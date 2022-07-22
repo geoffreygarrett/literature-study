@@ -1,7 +1,31 @@
 # Machine Learning Fundamentals
-This section provides a non-exhaustive coverage of the basics of [ML]{acronym-label="ML" acronym-form="singular+short"}, which can be applied to all [ML]{acronym-label="ML" acronym-form="singular+short"} algorithms. This section starts by defining what is meant when it is said that an algorithm "learns\". The types of datasets encountered in these learning algorithms are then briefly covered to provide insight into the potential applications that are not covered in this review. This is followed by distinguishing between the goal of fitting training data and finding patterns that generalise to new data. Finally, a ubiquitous concept in machine learning is covered: *hyperparameters*, which are *settings* of a learning algorithm which must be determined outside the learning algorithm itself.
 
-## Learning algorithms[\[ssec:learning_algo\]]{#ssec:learning_algo label="ssec:learning_algo"}
+This section discusses the fundamentals of [ML]{acronym-label="ML"
+acronym-form="singular+short"}, which underpin all
+[ML]{acronym-label="ML" acronym-form="singular+short"} algorithms. In
+this first part of our discussion (), we look at what it means for an
+algorithm to \"learn\" and the kinds of experiences used in learning
+that form the taxonomy of machine learning. The types of datasets
+encountered in these learning algorithms are then briefly covered to
+provide insight into the potential applications that are not covered in
+this review. This is followed by distinguishing between the goal of
+fitting training data and finding patterns that generalise to new data.
+Finally, a ubiquitous concept in machine learning is covered:
+*hyperparameters*, which are *settings* of a learning algorithm which
+must be determined outside the learning algorithm itself.
+
+This section provides a brief overview of the fundamentals of
+[ML]{acronym-label="ML" acronym-form="singular+short"}, which apply to
+all [ML]{acronym-label="ML" acronym-form="singular+short"} algorithms.
+To begin, we must first comprehend what it means for an algorithm to
+\"learn.\" The sorts of data these algorithms work with are then
+evaluated to provide more information on the possible applications that
+aren't directly addressed here. Finally, one of the most fundamental
+concepts in machine learning is outlined: hyperparameters, which are
+settings for a learning algorithm that must be determined outside of the
+learning algorithm itself.
+
+## Learning algorithms[\[ssec:learning_algorithms\]]{#ssec:learning_algorithms label="ssec:learning_algorithms"}
 
 Generally speaking, a machine learning algorithm is a procedure for
 learning from data. However correct this definition is, it provides
@@ -9,7 +33,7 @@ little insight into the relevant concepts in the field. A more succinct
 definition is provided by Carnegie Mellon University professor Tom
 Mitchell [@Mitchell97LearningAlgorithm]:
 
-::: {.fancyquotes}
+::: {.quote}
 A computer program is said to learn from experience $E$ with respect to
 some class of tasks $T$ and a performance measure $P$, if its
 performance at tasks in $T$, as measured by $P$, improves with
@@ -39,7 +63,7 @@ solved using tried and true techniques in their domain of expertise?
 Goodfellow et al. [@Goodfellow-et-al-2016] provide an insightful
 response to this:
 
-::: {.fancyquotes}
+::: {.quote}
 Machine learning enables us to tackle tasks that are too difficult to
 solve with fixed programs written and designed by human beings. From a
 scientific and philosophical point of view, machine learning is
@@ -84,8 +108,8 @@ domain-specific problems.
     $y=f(\mathbf{x})$, the model assigns a provided input, $\mathbf{x}$
     to a category identified by numeric code $y$. An example of this
     would be the mapping of a grayscale image,
-    $\mathbf{x}\in\mathbb{R}^2$ to a value corresponding to a numerical
-    encoding $f:\mathbb{R}^n\rightarrow\{\textrm{Cat},\;\textrm{Dog}\}$.
+    $\mathbf{x}\in\gls{set:R}^2$ to a value corresponding to a numerical
+    encoding $f:\gls{set:R}^n\rightarrow\{\textrm{Cat},\;\textrm{Dog}\}$.
 
 -   **Classification with missing inputs**: Classification becomes more
     challenging when the model input measurements are not always
@@ -99,7 +123,7 @@ domain-specific problems.
 
 -   **Regression**: In this task, the learning algorithm is expected to
     predict a continuous numerical value for a given input. This is done
-    by learning a function $f: \mathbb{R}^n\rightarrow\mathbb{R}$. the
+    by learning a function $f: \gls{set:R}^n\rightarrow\gls{set:R}$. the
     formulation is similar to classification, except for the output
     format. An example of this would be learning a function to predict
     the expected returns for a given investment given the state of the
@@ -141,7 +165,7 @@ domain-specific problems.
     can produce human-like text, given prompts as input [@Brown2020].
 
 -   **Imputation of missing values**: In this task, the learning
-    algorithm is given some input $x\in\mathbb{R}$ with some elements
+    algorithm is given some input $x\in\gls{set:R}$ with some elements
     $x_i$ missing. The algorithm must then make predictions for the
     missing values. Emmanuel et al. discuss the latest methods in
     [ML]{acronym-label="ML" acronym-form="singular+short"} that address
@@ -151,14 +175,14 @@ domain-specific problems.
     [@huang2020rife].
 
 -   **Denoising**: In this learning task, the machine learning algorithm
-    learns to generate a clean example $\mathbf{x}\in\mathbb{R}^n$ from
-    a corrupted sample $\tilde{\mathbf{x}}\in\mathbb{R}^n$. Generally
+    learns to generate a clean example $\mathbf{x}\in\gls{set:R}^n$ from
+    a corrupted sample $\tilde{\mathbf{x}}\in\gls{set:R}^n$. Generally
     speaking the learner is predicting the probability distribution
     $p(\mathbf{x}|\tilde{\mathbf{x}})$.
 
 -   **Density estimation** or **probability mass function estimation**
     involves the task of learning a function
-    $p_\text{model}:\mathbb{R}^n\rightarrow{}\mathbb{R}$, where
+    $p_\text{model}:\gls{set:R}^n\rightarrow{}\gls{set:R}$, where
     $p_\text{model}(\mathbf{x})$ is interpreted as a probability
     distribution function from which $\mathbf{x}$ was drawn. Effectively
     the algorithm learns the structure of the data that it has been
@@ -190,17 +214,17 @@ managing our dataset is presented; there must be some **train-test
 split**. This is further complicated by the **validation** dataset,
 which is discussed later in the chapter.
 
-Given that the input-output pair is $\{\gls{x_in_i}, \gls{y_true_i}\}$,
+Given that the input-output pair is $\{\gls{x_in_i}, \glsvec{fn:out}^{\gls{ml:ith:xy}}\}$,
 [y_true_i]{acronym-label="y_true_i" acronym-form="singular+short"} is
 commonly referred to as the *ground truth*, and
-$\hat{\mathbf{f}}(\gls{x_in_i})=\gls{y_pred_i}$ are referred to as the
+$\hat{f}(\gls{x_in_i})=\gls{y_pred_i}$ are referred to as the
 *predictor* and *predicted output* respectively. The performance in the
 form of a loss function [J]{acronym-label="J"
 acronym-form="singular+short"} (also referred to as an objective or cost
 function in literature) is then a function of
 [y_true_i]{acronym-label="y_true_i" acronym-form="singular+short"} and
 [y_pred_i]{acronym-label="y_pred_i" acronym-form="singular+short"},
-therefore $\gls{J}(\gls{y_pred_i}, \gls{y_true_i})$.
+therefore $\gls{J}(\gls{y_pred_i}, \glsvec{fn:out}^{\gls{ml:ith:xy}})$.
 
 [ML]{acronym-label="ML" acronym-form="singular+short"} often borrows
 from *approximation theory* vector norm notation
@@ -217,7 +241,7 @@ metrics. See for the expressions of vector norms.
     beneficial mathematical property of [MSE]{acronym-label="MSE"
     acronym-form="singular+short"} is that gradients can be easily
     calculated.
-    $$\gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\gls{y_true_i}||^2_2
+    $$\gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\glsvec{fn:out}^{\gls{ml:ith:xy}}||^2_2
             \label{eq:MSE}$$ $$\begin{aligned}
                 \textrm{where, }
                 \eqdesc{J}\text{,} \\
@@ -231,7 +255,7 @@ metrics. See for the expressions of vector norms.
     acronym-form="singular+short"} but without the squaring. Like
     [MSE]{acronym-label="MSE" acronym-form="singular+short"}, the
     gradient can be easily calculated.
-    $$\gls{J}_\text{L2E} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\gls{y_true_i}||_2$$
+    $$\gls{J}_\text{L2E} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\glsvec{fn:out}^{\gls{ml:ith:xy}}||_2$$
 
 -   **[MAE]{acronym-label="MAE" acronym-form="singular+short"}** or **L1
     loss** is the average of the sum of absolute differences between
@@ -243,7 +267,7 @@ metrics. See for the expressions of vector norms.
     programming. [MAE]{acronym-label="MAE"
     acronym-form="singular+short"} is also more resilient to large error
     values as a result of outliers, as it does not make use of a square.
-    $$\gls{J}_\text{MAE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\gls{y_true_i}||_1
+    $$\gls{J}_\text{MAE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\glsvec{fn:out}^{\gls{ml:ith:xy}}||_1
             \label{eq:MAE}$$
 
 -   **[MBE]{acronym-label="MBE" acronym-form="singular+short"}** is the
@@ -253,7 +277,7 @@ metrics. See for the expressions of vector norms.
     can produce a low [MBE]{acronym-label="MBE"
     acronym-form="singular+short"}. This metric is primarily used to
     measure the average bias of a prediction.
-    $$\gls{J}_\text{MBE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}(\gls{y_pred_ij}-\gls{y_true_ij})$$
+    $$\gls{J}_\text{MBE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}(\gls{y_pred_ij}-\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub})$$
     $$\begin{aligned}
                 \textrm{where, }
                 \eqdesc{ml:n_y}\text{,} \\
@@ -268,8 +292,8 @@ metrics. See for the expressions of vector norms.
     other words, large and small discrepancies between the predicted and
     ground truth are dealt in a relative manner, resulting in similar
     loss value magnitudes. $$\begin{aligned}
-                \gls{J}_\text{MSLE} &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}(\log{(\gls{y_true_ij}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
-                &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}2\log(\frac{\gls{y_true_ij}+1}{\gls{y_pred_ij}+1})
+                \gls{J}_\text{MSLE} &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}(\log{(\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
+                &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}2\log(\frac{\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}+1}{\gls{y_pred_ij}+1})
             \end{aligned}$$
 
 -   **[CP]{acronym-label="CP" acronym-form="singular+short"}** or
@@ -284,7 +308,7 @@ metrics. See for the expressions of vector norms.
     acronym-form="singular+short"}** is used instead. The relation
     between the metrics is $\text{\gls{CD}}=1-\text{\gls{CP}}$, bounding
     the error in the interval $[0,2]$. $$\gls{J}_\text{\gls{CD}} =
-            \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\bigg(1-\frac{\gls{y_true_i}\cdot{}\gls{y_pred_i}}{||\gls{y_true_i}||_2\cdot{}||\gls{y_pred_i}||_2}\bigg)$$
+            \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\bigg(1-\frac{\glsvec{fn:out}^{\gls{ml:ith:xy}}\cdot{}\gls{y_pred_i}}{||\glsvec{fn:out}^{\gls{ml:ith:xy}}||_2\cdot{}||\gls{y_pred_i}||_2}\bigg)$$
 
 **Binary classification loss functions**\
 Binary classification differs from multi-class in that the output is a
@@ -305,8 +329,8 @@ the output is equal to the number of classes.
 
 -   **[HL]{acronym-label="HL" acronym-form="singular+short"}** is
     measure which is often used for training binary
-    [SVM]{acronym-label="SVM" acronym-form="singular+short"}
-    classifiers. The loss function assumes that
+    [SVM]{acronym-label="SVM" acronym-form="singular+short"} classifiers
+    [@Wu2007; @Liu2007; @Zhang2008]. The loss function assumes that
     [y_true_ij]{acronym-label="y_true_ij" acronym-form="singular+short"}
     and [y_pred_ij]{acronym-label="y_pred_ij"
     acronym-form="singular+short"} are in the bounds $[-1,1]$ for the
@@ -317,7 +341,7 @@ the output is equal to the number of classes.
     addresses the constant gradient present in [HL]{acronym-label="HL"
     acronym-form="singular+short"}, smoothing the loss function across
     the domain of the loss function
-    ($\gls{y_true_ij}\cdot{}\gls{y_pred_ij}$). This provides better
+    ($\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\cdot{}\gls{y_pred_ij}$). This provides better
     gradient learning properties, as predictions that are more incorrect
     than others have a heavier associated gradient.
     $$\gls{J}_\text{\gls{SHL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})^2$$
@@ -325,16 +349,16 @@ the output is equal to the number of classes.
 **Multi-class classification loss functions** Multi-class classification
 is formulated such that each possible class ($n_c$) is defined by an
 element of the output vector. The loss functions here are similar to the
-binary classification loss functions but adapted for $\gls{ml:n_y}=n_c$.
+binary classification loss functions but adapted for $\gls{np:dim}[_\gls{fn:out}]=n_c$.
 
 -   **[MCE]{acronym-label="MCE" acronym-form="singular+short"}**:
-    $$\gls{J}_\text{\gls{MCE}}=-\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}\gls{y_true_ij}\log(\gls{y_pred_ij})$$
+    $$\gls{J}_\text{\gls{MCE}}=-\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\log(\gls{y_pred_ij})$$
 
 -   **[MHL]{acronym-label="MHL" acronym-form="singular+short"}**:
-    $$\gls{J}_\text{\gls{MHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})$$
+    $$\gls{J}_\text{\gls{MHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\max(0, {1-\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\cdot{}\gls{y_pred_ij}})$$
 
 -   **[MSHL]{acronym-label="MSHL" acronym-form="singular+short"}**:
-    $$\gls{J}_\text{\gls{MSHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{ml:n_y}}\max(0, {1-\gls{y_true_ij}\cdot{}\gls{y_pred_ij}})^2$$
+    $$\gls{J}_\text{\gls{MSHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\max(0, {1-\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\cdot{}\gls{y_pred_ij}})^2$$
 
 ### The Experience, $E$[\[sec:ML-experience\]]{#sec:ML-experience label="sec:ML-experience"}
 
@@ -427,7 +451,7 @@ there is no single best technique for addressing an arbitrary problem.
 Luke states the following in *essentials of
 metaheuristics* [@luke2012essentials]:
 
-::: {.fancyquotes}
+::: {.quote}
 The [NFL]{acronym-label="NFL" acronym-form="singular+short"} stated that
 within certain constraints, over the space of all possible problems,
 every optimisation technique will perform as well as every other one on
@@ -447,7 +471,7 @@ being applied. This theorem highlights the importance of having a clear
 understanding of the problem at hand before applying a learning
 algorithm or an optimisation technique. Domingos states  [@Domingos15]:
 
-::: {.fancyquotes}
+::: {.quote}
 In the meantime, the practical consequence of the "no free lunch"
 theorem is that there's no such thing as learning without knowledge.
 Data alone is not enough.
@@ -456,7 +480,7 @@ Data alone is not enough.
 This theorem, in effect, motivates the true goal of machine learning, as
 worded by Goodfellow et al. [@Goodfellow-et-al-2016 p. 116]:
 
-::: {.fancyquotes}
+::: {.quote}
 This means that the goal of machine learning research is not to seek a
 universal learning algorithm or the absolute best learning algorithm.
 Instead, our goal is to understand what kinds of distributions are
@@ -502,11 +526,11 @@ towards zero, effectively discouraging a learning algorithm from
 producing an excessively complex model to avoid overfitting. Norm
 penalty methods can be generalised as:
 
-$$\gls{J_reg}(\gls{ml:theta}; \gls{X}, \gls{Y})
+$$\gls{J_reg}(\glsvec{fn:param}; \gls{X}, \gls{Y})
     =
-    \gls{J}(\gls{ml:theta}; \gls{X}, \gls{Y})_\text{train}
+    \gls{J}(\glsvec{fn:param}; \gls{X}, \gls{Y})_\text{train}
     +
-    \gls{ml:w_reg}\gls{o_reg}({\gls{ml:theta}}),
+    \gls{ml:w_reg}\gls{o_reg}({\glsvec{fn:param}}),
     \label{eq:norm_penalty_reg}$$ $$\begin{aligned}
         \textrm{where, }
         \eqdesc{J_reg}\text{,} \\
@@ -529,7 +553,7 @@ $$\nabla_{\gls{w_vec}}\gls{J_reg}(\gls{w_vec};\gls{X},\gls{Y})
     =
     \nabla_{\gls{w_vec}}\gls{J}(\gls{w_vec};\gls{X},\gls{Y})
     +
-    \gls{ml:w_reg}\nabla_{\gls{w_vec}}\gls{o_reg}(\gls{ml:theta})\text{.}
+    \gls{ml:w_reg}\nabla_{\gls{w_vec}}\gls{o_reg}(\glsvec{fn:param})\text{.}
     \label{eq:norm_penalty_reg_graident}$$
 
 $\bm{\text{L}^2}$ **regularization**, also known as **ridge
@@ -537,7 +561,7 @@ regression**, **weight decay** or **Tikhonov regularization**
 [@Goodfellow-et-al-2016 p. 227], is a parameter norm regularization
 method which drives the weights of a model towards the origin in the
 weight space and contributes to as,
-$$\gls{o_reg}(\gls{ml:theta})=\frac{1}{2}||\gls{w_vec}||^2_2.
+$$\gls{o_reg}(\glsvec{fn:param})=\frac{1}{2}||\gls{w_vec}||^2_2.
     \label{eq:l2_reg}$$
 
 Weight decay suppresses any irrelevant components of the weight vector
@@ -550,7 +574,7 @@ $\bm{\text{L}^1}$ **regularization**, also known as
 **[LASSO]{acronym-label="LASSO" acronym-form="singular+short"}
 regression** is a parameter norm regularization method which penalizes
 the largest weight magnitudes in the weight vector. It is defined by,
-$$\gls{o_reg}(\gls{ml:theta})=||\gls{w_vec}||_1.
+$$\gls{o_reg}(\glsvec{fn:param})=||\gls{w_vec}||_1.
     \label{eq:l1_reg}$$
 
 The key difference between $L^1$ and $L^2$ regularisation is that $L^1$
@@ -572,7 +596,7 @@ not.
 **Elastic net regularization** is a combination of both $L^1$ and $L^2$
 regularization was introduced by Zou and Hastie [@ZouHastie2005] and is
 expressed by:
-$$\gls{o_reg}(\gls{ml:theta})=\frac{1-\gls{b_ela}}{2}||\gls{w_vec}||^2_2 + \gls{b_ela}||\gls{w_vec}||_1\text{,}$$
+$$\gls{o_reg}(\glsvec{fn:param})=\frac{1-\gls{b_ela}}{2}||\gls{w_vec}||^2_2 + \gls{b_ela}||\gls{w_vec}||_1\text{,}$$
 $$\begin{aligned}
         \textrm{where, }
         \eqdesc{b_ela}\text{.} \\

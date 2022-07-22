@@ -23,103 +23,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ACRONYMS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newacronym{NEO}{NEO}{Near-Earth object}
-\newacronym{AI}{AI}{artificial intelligence}
-\newacronym{ML}{ML}{machine learning}
-\newacronym{NN}{NN}{
-	neural network%
-}
-\newacronym{ANN}{ANN}{
-	artificial neural network%
-}
-\newacronym{NLP}{NLP}{
-	natural language processing%
-}
-\newacronym{DL}{DL}{
-	deep learning%
-}
-\newacronym{RL}{RL}{
-	reinforcement learning%
-}
-\newacronym{CV}{CV}{
-	computer vision%
-}
-\newacronym{MLP}{MLP}{
-	multilayer perceptron%
-}
-\newacronym{CNN}{CNN}{
-	convolutional neural network%
-}
-\newacronym{RNN}{RNN}{
-	recurrent neural network%
-}
-\newacronym{LOOCV}{LOOCV}{
-	leave-one-out cross-validation%
-}
-\newacronym{GPT-3}{GPT-3}{
-	Generative Pre-trained Transformer 3%
-}
-\newacronym{MSE}{MSE}{
-	mean squared error%
-}
-\newacronym{MAE}{MAE}{
-	mean absolute error%
-}
-\newacronym{MBE}{MBE}{
-	mean bias error%
-}
-\newacronym{MSLE}{MSLE}{
-	mean squared logarithmic error%
-}
-\newacronym{NFLT}{NFLT}{
-	No Free Lunch Theorem%
-}
-\newacronym{NFL}{NFL}{
-	No Free Lunch%
-}
-\newacronym{CD}{CD}{
-	cosine distance%
-}
-\newacronym{CP}{CP}{%
-	cosine proximity%
-}%
-\newacronym{CS}{CS}{%
-	cosine similarity%
-}%
-\newacronym{BCE}{BCE}{%
-	binary cross-entropy%
-}
-\newacronym{SVM}{SVM}{%
-	support vector machine%
-}
-\newacronym{MCE}{MCE}{%
-	multi-class cross-entropy%
-}
-\newacronym{HL}{HL}{%
-	hinge loss%
-}
-\newacronym{MHL}{MHL}{
-	multi-class hinge loss
-}
-\newacronym{SHL}{SHL}{%
-	squared hinge loss
-}
-\newacronym{MSHL}{MSHL}{%
-	multi-class squared hinge loss
-}
 
-\newacronym{LASSO}{LASSO}{
-	least absolute shrinkage and selection operator
-}
-\newacronym{RIFE}{RIFE}{
-	real-time intermediate flow estimation for video frame interpolation
-}
-\newacronym{KFCV}{KFCV}{
-	$k$-fold cross-validation
-}
-\newacronym{LSTM}{LSTM}{
-	Long short-term memory
-}
 
 
 
@@ -128,17 +32,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newglossary{notation:ml}{nml}{sbl}{Machine Learning}
 
-\newglossaryentry{b}{
+
+\newglossaryentry{ml:paren_i}{
+	type=notation:ml,
+	name=\ensuremath{a^{(i)}},
+	text=\ensuremath{^{(i)}},
+	sort=i,
+	description={bias}
+}
+
+\newglossaryentry{ml:b}{
 	type=notation:ml,
 	name=\ensuremath{b},
 	sort=b,
-	description={bias}
+	description={Bias parameter}
 }
 \newglossaryentry{ml:x}{
 	type=notation:ml,
 	name=\ensuremath{\bm{x}},
 	sort=x,
-	description={input vector}
+	description={Input vector}
 }
 \newglossaryentry{ml:n_x}{
 	type=notation:ml,
@@ -155,35 +68,17 @@
 \newglossaryentry{ml:n_y}{
 	type=notation:ml,
 	name=\ensuremath{n_y},
-	sort=ny,
+	sort=ny, 
 	description={output size}
 }
 \newglossaryentry{ml:x_i}{
 	type=notation:ml,
-	name=\ensuremath{\bm{x}^{(i)}},
+	name=\ensuremath{\bm{x}\gls{ml:ith_eg}},
 	sort=xi,
 	description={input vector for the $i^\text{th}$ example}
 }
-\newglossaryentry{y_true}{
-	type=notation:ml,
-	name=\ensuremath{\bm{y}},
-	sort=y,
-	description={ground truth/ output vector}
-}
 
-\newglossaryentry{y_true_i}{
-	type=notation:ml,
-	name=\ensuremath{\bm{y}^{(i)}},
-	sort=yi,
-	description={ground truth/ output vector for the $i^\text{th}$ example}
-}
 
-\newglossaryentry{y_true_ij}{
-	type=notation:ml,
-	name=\ensuremath{{y}^{(i)}_j},
-	sort=yij,
-	description={ground truth/ output vector for the $j^\text{th}$ component of the $i^\text{th}$ example}
-}
 
 \newglossaryentry{y_true_i1}{
 	type=notation:ml,
@@ -269,12 +164,6 @@
 	description={predicted output value for the $i^\text{th}$ example}
 }
 
-\newglossaryentry{ml:theta}{
-	type=notation:ml,
-	name=\ensuremath{{\bm{\theta}}},
-	sort=theta,
-	description={model parameters}
-}
 
 \newglossaryentry{o_reg}{
 	type=notation:ml,
@@ -316,18 +205,13 @@
 }
 
 % deep learning
-\newacronym{MLPs}{MLPs}{multi-layer perceptrons}
 \newacronym{GD}{GD}{gradient descent}
 \newacronym{SGD}{SGD}{stochastic gradient descent}
 \newacronym{NAG}{NAG}{Nesterov accelerated gradient}
 \newacronym{MB-SGD}{MB-SGD}{mini-batch stochastic gradient descent}
 \newacronym{adagrad}{AdaGrad}{adaptive gradient}
 \newacronym{adam}{Adam}{adaptive moment estimation}
-\newglossaryentry{theta}{
-	type=notation:ml,
-	name=\ensuremath{\mathbf{\theta}},
-	sort=theta,
-	description={model parameters}}
+
 \newglossaryentry{L}{
 	type=notation:ml,
 	name=\ensuremath{L},
@@ -475,7 +359,7 @@
     type=notation:dl,
     name=\ensuremath{\bm{W}^{[1]}},
     sort=W1,
-    description={$\in\gls{set:R}^{\gls{dl:nh:1}\times\gls{ml:n_x}}$, weight matrix of the 1$^\text{st}$ (input) layer of the network}
+    description={$\in\gls{set:R}^{\gls{dl:nh:1}\times\gls{np:dim}[_\gls{fn:in}]}$, weight matrix of the 1$^\text{st}$ (input) layer of the network}
 }
 
 \newglossaryentry{dl:W:2}{
@@ -843,14 +727,3 @@ description={bias vector of the $2^\text{nd}$ layer of the network}
 %    description={weight matrix of the 2$^\text{nd}$ layer of the network}
 %}
 
-\newglossary{notation:rl}{ndl}{sbl}{Reinforcement Learning}
-
-% reinforcement learning
-\newglossaryentry{value}{type=notation:rl, name=\ensuremath{V},sort=V, description={value function}}
-\newglossaryentry{Q}{type=notation:rl, name=\ensuremath{Q},sort=Q, description={action-value function}}
-\newglossaryentry{state}{type=notation:rl, name=\ensuremath{s},sort=s, description={state}}
-\newglossaryentry{action}{type=notation:rl, name=\ensuremath{a},sort=a, description={action}}
-\newglossaryentry{action0}{type=notation:rl, name=\ensuremath{a_0},sort=a0, description={initial action}}
-\newglossaryentry{state0}{type=notation:rl, name=\ensuremath{s_0},sort=s0, description={initial state}}
-\newglossaryentry{trajectory}{type=notation:rl, name=\ensuremath{\tau},sort=tau, description={the trajectory, i.e. the sequence of states and actions in the world}}
-\newglossaryentry{policy}{type=notation:rl, name=\ensuremath{\pi},sort=pi, description={the policy, i.e. a rule used by an agent to decide what action to take}}
