@@ -17,10 +17,10 @@ The key concepts and terms used in \gls{RL} are heavily influenced by the field 
     \item Actions: An action \gls{rl:a} is a description of the agent's action in the environment. The \textbf{action space} is the set of all valid actions in the environment. Some environments have \textbf{discrete action spaces} whereas others have \textbf{continuous action spaces}, which can influence the applicability of some \gls{RL} algorithms (see \autoref{ssec:algorithms}). For the latter, the action space is real, $\gls{rl:A}\in\gls{set:R}$.
 
     % Policies
-    \item Policies: A policy is a rule which determines what action the agent decides to take in the environment. A policy can be \textbf{deterministic}, in which case it is denoted by $\gls{rl:a}[_t]=\gls{rl:mu}(\gls{rl:s}[_t])$, or \textbf{stochastic}, in which case it is denoted by $\gls{rl:a}[_t]\sim\gls{rl:pi}(\cdot|\gls{rl:s}[_t])$. Deterministic policies are straightforward, an example is an \gls{MLP} (see \autoref{ssec:mlps}). Stochastic policies are separated further into \textbf{categorical policies} (used in discrete action spaces) and \textbf{diagonal Gaussian policies} used in continuous action spaces. Categorical stocastic policy neural networks are trained in the same way as a classifier. For a neural network
+    \item Policies: A policy is a rule which determines what action the agent decides to take in the environment. A policy can be \textbf{deterministic}, in which case it is denoted by $\gls{rl:a}[_t]=\gls{rl:mu}(\gls{rl:s}[_t])$, or \textbf{stochastic}, in which case it is denoted by $\gls{rl:a}[_t]\sim\gls{rl:pi}(\cdot|\gls{rl:s}[_t])$. Deterministic policies are straightforward, an example is an \gls{MLP} (see \autoref{ssec:mlps}). Stochastic policies are separated further into \textbf{categorical policies} (used in discrete action spaces) and \textbf{diagonal Gaussian policies} used in continuous action spaces. Categorical stochastic policy neural networks are trained in the same way as a classifier. % For a neural network (...)
     
     % Rewards and Returns
-    \item Rewards \& Returns: A reward $\gls{rl:r}[_t]$ is a signal received by the agent at each time step \gls{rl:t}[t]. There are two variants of rewards, \textbf{discounted} and \textbf{undiscounted}. The \textbf{finite-horizon undiscounted} return is the sum of all rewards received in within a finite horizon T,
+    \item Rewards \& Returns: A reward $\gls{rl:r}[_t]$ is a signal received by the agent at each time step \gls{rl:t}[t]. There are two variants of rewards, \textbf{discounted} and \textbf{undiscounted}. The \textbf{finite-horizon undiscounted} return is the sum of all rewards received within a finite horizon T,
           \begin{equation}
               R(\tau)=\sum_{t=0}^{T} r_t.
           \end{equation}
@@ -28,9 +28,52 @@ The key concepts and terms used in \gls{RL} are heavily influenced by the field 
     \begin{equation}
         \gls{rl:R}(\gls{rl:tau})=\sum_{{\gls{rl:t}[t]}=0}^{\infty} \gls{rl:discount}^{\gls{rl:t}[t]} \gls{rl:r}_{\gls{rl:t}[t]}.
     \end{equation}
-    The intuition of the latter equation is evident, as we wish to place more importance on the immediate rewards from the environment rather than the future rewards. In the case of an \textbf{infinite-horizon} environment this factor is mandatory, as without it, there would be no incentive for the agent to reach the objective state sooner rather than later, in an excessively large period of time. Mathematically the infinite-horizon sum of rewards may not converge to a finite value, without the use of the discount factor. 
+    The intuition of the latter equation is evident, as we wish to place more importance on the immediate rewards from the environment rather than the future rewards. In the case of an \textbf{infinite-horizon} environment this factor is mandatory, as, without it, there would be no incentive for the agent to reach the objective state sooner rather than later, in an excessively large time. Mathematically the infinite-horizon sum of rewards may not converge to a finite value, without the use of the discount factor. 
 
+    % Trajectories
+    \item Trajectories: A trajectory is a sequence of states and actions taken by the agent in the environment,
+    \begin{equation}
+        \gls{rl:tau}=\{(\gls{rl:s}[_0],\gls{rl:a}[_0]), (\gls{rl:s}[_1],\gls{rl:a}[_1]),...\}.
+    \end{equation}
+    The initial state of the environment, $\gls{rl:s}[_0]$, is determined by the initial-state distribution, denoted by $\gls{rl:rho0}$,
+    \begin{equation}
+        \gls{rl:s}[_0]\sim\gls{rl:rho0}(\cdot{}).
+    \end{equation}
 
+    \item Trajectories: A trajectory is a sequence of states and actions taken by the agent in the environment,
+
+    \begin{equation}
+        P(\tau \mid \pi)=\rho_{0}\left(s_{0}\right) \prod_{t=0}^{T-1} P\left(s_{t+1} \mid s_{t}, a_{t}\right) \pi\left(a_{t} \mid s_{t}\right)
+    \end{equation}
+
+    \begin{equation}
+        J(\pi)=\int_{\tau} P(\tau \mid \pi) R(\tau)=\underset{\tau \sim \pi}{\mathrm{E}}[R(\tau)] .
+    \end{equation}
+
+    \begin{equation}
+        \pi^{*}=\arg \max _{\pi} J(\pi),
+    \end{equation}
+
+    \item Advantage Functions: 
+    \begin{equation}
+        A^{\pi}(s, a)=Q^{\pi}(s, a)-V^{\pi}(s)
+    \end{equation}
+
+    \item Bellman Equations:
+    
+    \begin{equation}
+        \begin{aligned}
+        &V^{\pi}(s)=\underset{\substack{a \sim \pi \\ s^{\prime} \sim P}}{\mathrm{E}}\left[r(s, a)+\gamma V^{\pi}\left(s^{\prime}\right)\right],\\
+        &Q^{\pi}(s, a)=\underset{s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+\gamma \underset{a^{\prime} \sim \pi}{\mathrm{E}}\left[Q^{\pi}\left(s^{\prime}, a^{\prime}\right)\right]\right],
+        \end{aligned}
+    \end{equation}
+
+    \begin{equation}
+        \begin{aligned}
+        &V^{*}(s)=\max _{a} \underset{s^{\prime} \sim P}{ } \mathrm{E}\left[r(s, a)+\gamma V^{*}\left(s^{\prime}\right)\right],\\
+        &Q^{*}(s, a)=\underset{s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+\gamma \max _{a^{\prime}} Q^{*}\left(s^{\prime}, a^{\prime}\right)\right] .
+        \end{aligned}
+    \end{equation}
 
     % While the line between these two formulations of return are quite stark in RL formalism, deep RL practice tends to blur the line a fair bit—for instance, we frequently set up algorithms to optimize the undiscounted return, but use discount factors in estimating value functions.
 \end{itemize}
