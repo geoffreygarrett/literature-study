@@ -350,8 +350,119 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % REINFORCEMENT LEARNING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tupleft}{\langle}
+\newcommand{\tupright}{\rangle}
+\newacronym{MDP}{MDP}{Markov Decision Process}
+\newacronym{POMDP}{POMDP}{Partially Observable Markov Decision Process}
+\newacronym{TRPO}{TRPO}{Trust Region Policy Optimisation}
+\newacronym{PPO}{PPO}{Proximal Policy Optimisation}
+\newacronym{VPG}{VPG}{Vanilla Policy Gradient}
 
 \newglossary{notation:rl}{ndl}{sbl}{Reinforcement Learning}
+
+\newglossaryentry{rl:s}{
+    type=notation:rl, 
+    name=\ensuremath{s},
+    sort=a, 
+    description={A state}}
+
+\newglossaryentry{rl:r}{
+    type=notation:rl, 
+    name=\ensuremath{r},
+    sort=r, 
+    description={A reward (a.k.a. return)}}
+
+\newglossaryentry{rl:discount}{
+    type=notation:rl, 
+    name=\ensuremath{\gamma},
+    sort=g, 
+    description={The discount factor}}
+
+\glsadd{rl:s}
+
+\newglossaryentry{rl:a}{
+    type=notation:rl, 
+    name=\ensuremath{a},
+    sort=b, 
+    description={An action}}
+
+\newglossaryentry{rl:rho0}{
+    type=notation:rl, 
+    name=\ensuremath{\rho_0},
+    sort=rho, 
+    description={The distribution of \gls{rl:s}[_0]}}
+
+\glsadd{rl:a}
+
+\newglossaryentry{rl:obs:fn}{
+    type=notation:rl, 
+    name=\ensuremath{O},
+    sort=O, 
+    description={The observation probability function}}
+
+\newglossaryentry{rl:obs:set}{
+    type=notation:rl, 
+    name=\ensuremath{\myset{O}},
+    sort=O, 
+    description={The set of observations}}
+
+
+\newglossaryentry{rl:o}{
+    type=notation:rl, 
+    name=\ensuremath{o},
+    sort=o, 
+    description={An observation}}
+
+\glsadd{rl:o}
+
+\newglossaryentry{rl:S}{
+    type=notation:rl, 
+    name=\ensuremath{\myset{S}},
+    sort=S, 
+    description={The set of all valid nonterminal states, a.k.a. ``the state space''}}
+
+\glsadd{rl:S}
+
+\newglossaryentry{rl:S:plus}{
+    type=notation:rl, 
+    name=\ensuremath{\myset{S}^+},
+    sort=S, 
+    description={The set of all valid states, including the terminal state}}
+
+\glsadd{rl:S:plus}
+
+\newglossaryentry{rl:A}{
+    type=notation:rl, 
+    name=\ensuremath{\myset{A}},
+    sort=A, 
+    description={The set of all valid actions}}
+
+\glsadd{rl:A}
+
+\newglossaryentry{rl:R}{
+    type=notation:rl, 
+    name=\ensuremath{R},
+    sort=R, 
+    description={The reward function}}
+
+\glsadd{rl:R}
+
+\newglossaryentry{rl:P}{
+    type=notation:rl, 
+    name=\ensuremath{{P}},
+    sort=P, 
+    description={The transition propabaility function (i.e. the dynamics)}}
+
+\glsadd{rl:R}
+
+\newglossaryentry{rl:t}{
+    type=notation:rl, 
+    name=\ensuremath{t},
+    text={},
+    sort=t, 
+    description={A discrete time step}}
+
+\glsadd{rl:R}
 
 \newglossaryentry{rl:V}{
     type=notation:rl, 
@@ -364,24 +475,6 @@
     name=\ensuremath{Q},
     sort=Q, 
     description={The action-value function}}
-
-\newglossaryentry{rl:s}{
-    type=notation:rl, 
-    name=\ensuremath{s},
-    sort=s, 
-    description={A state}}
-
-\newglossaryentry{rl:a}{
-    type=notation:rl, 
-    name=\ensuremath{a},
-    sort=a, 
-    description={An action}}
-
-\newglossaryentry{rl:a0}{
-    type=notation:rl, 
-    name=\ensuremath{a_0},
-    sort=a0, 
-    description={The initial action}}
 
 \newglossaryentry{rl:s0}{
     type=notation:rl, 
@@ -399,12 +492,17 @@
     type=notation:rl, 
     name=\ensuremath{\pi},
     sort=pi, 
-    description={the policy, i.e. a rule used by an agent to decide what action to take}}
+    description={A stochastic policy}}
+
+\newglossaryentry{rl:mu}{
+    type=notation:rl, 
+    name=\ensuremath{\mu},
+    sort=mu, 
+    description={A deterministic policy}}
 
 \glsadd{rl:V}
 \glsadd{rl:Q}
-\glsadd{rl:s}
 \glsadd{rl:a}
-\glsadd{rl:a0}
-\glsadd{rl:s0}
+\glsadd{rl:pi}
+\glsadd{rl:mu}
 \glsadd{rl:tau}

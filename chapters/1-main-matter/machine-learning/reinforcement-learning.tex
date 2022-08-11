@@ -1,79 +1,206 @@
-\section{Reinforcement Learning\label{ssec:RL}}
+\section{Reinforcement Learning}\label{sec:reinforcement_learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Key Concepts in Reinforcement Learning}
-
-\subsubsection{Markov Decision Processes (MDP)}
-
-So far, we’ve discussed the agent’s environment in an informal way, but if you
-try to go digging through the literature, you’re likely to run into the standard
-mathematical formalism for this setting: Markov Decision Processes (MDPs). An
-%MDP is a 5-tuple, \langle S, A, R, P, \rho_0 \rangle, where
-
-S is the set of all valid states,
-A is the set of all valid actions,
-R : $S \times A \times S \to \gls{set:R}$ is the reward function, with $r_t = R(s_t, a_t, s_{t+1})$,
-P : $S \times A \to \mathcal{P}(S)$ is the transition probability function, with
-$P(s'|s,a)$ being the probability of transitioning into state $s'$ if you start
-in state $s$ and take action $a$,
-and $\rho_0$ is the starting state distribution.
-
-The name Markov Decision Process refers to the fact that the system obeys the
-Markov property: transitions only depend on the most recent state and action,
-and no prior history.
+Reinforcement learning is a type of machine learning that focuses on tasks in which an agent receives a reward (or penalty) signal at each time step throughout its engagement with an environment in which it lives in, and interacts with it through decisions on which action to take. The roots of this field go back to Dr. Richard Bellman in 1954, who is also known as the ``Father of Dynamic Programming''. His works on Dynamic Programming \cite{Bellman1954,Bellman1957a}
 
 \input{graphics/tikz/agent-environment}
 
+
+\subsection{Key Concepts and Terminology}\label{ssec:key_concepts_and_terminology}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The key concepts and terms used in \gls{RL} are heavily influenced by the field of control theory
 \begin{itemize}
-    \item states and observations,
-    \item action spaces,
-    \item policies,
-    \item trajectories,
-    \item different formulations of return,
-    \item the RL optimization problem,
-    \item and value functions.
+    % States and Observations
+    \item States \& Observations: A state \gls{rl:s} is a full description of the environment, wheras an observation \gls{rl:o} is partial description of the state. It is said that the environment is \textbf{fully observed} if the agent has access to \gls{rl:s}, and that the environment is \textbf{partially observed} if the agent may only act on \gls{rl:o}. Note that consistent use of notation in \gls{RL} appears to be a primary challenge faced by many researchers, symptomatic of the inconcise use of the term \gls{rl:s} in instances where \gls{rl:o} would be more appropriate.
+    
+    % Actions
+    \item Actions: An action \gls{rl:a} is a description of the agent's action in the environment. The \textbf{action space} is the set of all valid actions in the environment. Some environments have \textbf{discrete action spaces} whereas others have \textbf{continuous action spaces}, which can influence the applicability of some \gls{RL} algorithms (see \autoref{ssec:algorithms}). For the latter, the action space is real, $\gls{rl:A}\in\gls{set:R}$.
+
+    % Policies
+    \item Policies: A policy is a rule which determines what action the agent decides to take in the environment. A policy can be \textbf{deterministic}, in which case it is denoted by $\gls{rl:a}[_t]=\gls{rl:mu}(\gls{rl:s}[_t])$, or \textbf{stochastic}, in which case it is denoted by $\gls{rl:a}[_t]\sim\gls{rl:pi}(\cdot|\gls{rl:s}[_t])$. Deterministic policies are straightforward, an example is an \gls{MLP} (see \autoref{ssec:mlps}). Stochastic policies are separated further into \textbf{categorical policies} (used in discrete action spaces) and \textbf{diagonal Gaussian policies} used in continuous action spaces. Categorical stocastic policy neural networks are trained in the same way as a classifier. For a neural network
+    
+    % Rewards and Returns
+    \item Rewards \& Returns: A reward $\gls{rl:r}[_t]$ is a signal received by the agent at each time step \gls{rl:t}[t]. There are two variants of rewards, \textbf{discounted} and \textbf{undiscounted}. The \textbf{finite-horizon undiscounted} return is the sum of all rewards received in within a finite horizon T,
+          \begin{equation}
+              R(\tau)=\sum_{t=0}^{T} r_t.
+          \end{equation}
+    The \textbf{infinite-horizon discounted} return, is the sum of all rewards ever returned, with the difference that rewards are discounted by how far in the future they are obtained. The discount factor is $\gls{rl:discount}\in(0,1)$, giving the expression,
+    \begin{equation}
+        \gls{rl:R}(\gls{rl:tau})=\sum_{{\gls{rl:t}[t]}=0}^{\infty} \gls{rl:discount}^{\gls{rl:t}[t]} \gls{rl:r}_{\gls{rl:t}[t]}.
+    \end{equation}
+    The intuition of the latter equation is evident, as we wish to place more importance on the immediate rewards from the environment rather than the future rewards. In the case of an \textbf{infinite-horizon} environment this factor is mandatory, as without it, there would be no incentive for the agent to reach the objective state sooner rather than later, in an excessively large period of time. Mathematically the infinite-horizon sum of rewards may not converge to a finite value, without the use of the discount factor. 
+
+
+
+    % While the line between these two formulations of return are quite stark in RL formalism, deep RL practice tends to blur the line a fair bit—for instance, we frequently set up algorithms to optimize the undiscounted return, but use discount factors in estimating value functions.
 \end{itemize}
 
 \begin{equation}
-    R(\tau)=\sum_{t=0}^{T} r_t
+    \gls{rl:V}^{\gls{rl:pi}}(\gls{rl:s})
+    =
+    {\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
+    \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s}\rbrack,
 \end{equation}
 
 \begin{equation}
-    R(\tau)=\sum_{t=0}^{\infty} \gamma^t r_t
+    \gls{rl:Q}^{\gls{rl:pi}}(\gls{rl:s}, \gls{rl:a})
+    =
+    {\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
+    \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s},~\gls{rl:a}[_0]=\gls{rl:a}\rbrack,
 \end{equation}
+
+\begin{equation}
+    \gls{rl:V}^{*}(\gls{rl:s})
+    =
+    \max_{\gls{rl:pi}}{\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
+    \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s}\rbrack,
+\end{equation}
+
+
+
+\subsection{Markov Decision Processes (MDP)}\label{ssec:mdp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A \gls{MDP} is a discrete-time stochastic process which defines a mathematical framework for decision making. This concept underpins the mathematical formulation of much of reinforcement learning \cite{Bellman1957a}. An \gls{MDP} is a 5-tuple of the form $\tupleft\gls{rl:S},\gls{rl:A},\gls{rl:P},\gls{rl:R},\gls{rl:rho0}\tupright$ where:
+
+\begin{itemize}
+    \item \gls{rl:S} is the set of all valid states,
+    \item \gls{rl:A} is the set of all valid actions,
+    \item \gls{rl:R} : $\gls{rl:S} \times \gls{rl:A} \times \gls{rl:S} \gls{fn:maps} \gls{set:R}$ is the reward function, with $r_t = \gls{rl:R}(\gls{rl:s}_{\gls{rl:t}}, \gls{rl:a}_{\gls{rl:t}}, \gls{rl:s}_{\gls{rl:t}[t]+1})$,
+    \item \gls{rl:P} : $\gls{rl:S}  \times \gls{rl:A} \gls{fn:maps} \mathcal{P}(\gls{rl:S})$ is the transition probability function, with $P(\gls{rl:s}'|\gls{rl:s},\gls{rl:a})$ being the probability of transitioning into state $s'$ if you start
+          in state $s$ and take action $a$,
+    \item and $\rho_0$ is the starting state distribution.
+\end{itemize}
+
+\gls{MDP} refers to the system exhibiting the Markov Property, which is the memoryless property of a stochastic system. This means that the future evolution of the Markov process depnds only on the present state, and not on past history. In practice, this is seen as the decisions of the agent and values of the system to be a function of solely the current state. A prerequisite of the decisions and values being effective and informative, is that the state representation be informative. The standard \gls{RL} world model is a \gls{MDP}, however not all \gls{RL} algorithms strictly adhere to the \gls{MDP} formalism. Ocassionally the discount factor \gls{rl:discount} is included in the \gls{MDP} tuple but due to it being optional in the case of a finite-horizon \gls{MDP}, it is often omitted for generality. Consequently the \gls{MDP} may be found in literature as a 6-tuple of the form $\tupleft\gls{rl:S},\gls{rl:A},\gls{rl:P},\gls{rl:R},\gls{rl:rho0},\gls{rl:discount}\tupright$.
+
+\subsection{Partially Observable Markov Decision Processes (POMDP)}\label{ssec:pomdp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Glspl{POMDP} were first described by Karl Johan Åström (a control theorist) in 1965 \cite{Astrom1965} in his discussion of \glspl{MDP} with imperfect information. This alternative mathematical framework is powerful in planning problems in environments with partial observability of states due to its careful quantification of the non-deterministic effects in the agents interaction with the environment, a critical problem in robotics \cite{Kurniawati2021}. Following the augmentation of the 5-tuple describing an \gls{MDP} (\autoref{ssec:mdp}) with two additional terms, a \gls{POMDP} is a 7-tuple of the form $\tupleft\gls{rl:S},\gls{rl:A},\gls{rl:obs:set},\gls{rl:P},\gls{rl:R}, \gls{rl:obs:fn}, \gls{rl:rho0}\tupright$ where the additional terms are:
+
+\begin{itemize}
+    \item \gls{rl:obs:set} is the set of all possible observations,
+    \item \gls{rl:obs:fn} : $\gls{rl:S} \times \gls{rl:A} \gls{fn:maps} \gls{set:R}$ is the observation function.
+\end{itemize}
+
+Similarly in the case of an \gls{MDP} (\autoref{ssec:mdp}), the 7-tuple described can sometimes be found in literature as an 8-tuple of the form $\tupleft\gls{rl:S},\gls{rl:A},\gls{rl:obs:set},\gls{rl:P},\gls{rl:R}, \gls{rl:obs:fn}, \gls{rl:rho0}, \gls{rl:discount}\tupright$.
+
+% \subsection{Model-Free vs Model-Based}\label{ssec:model}
+
+Continuous control \cite{Recht2019}
+% \begin{itemize}
+%     \item states and observations,
+%     \item action spaces,
+%     \item policies,
+%     \item trajectories,
+%     \item different formulations of return,
+%     \item the RL optimization problem,
+%     \item and value functions.
+% \end{itemize}
+
+
+% \begin{equation}
+%     \gls{rl:a}[_\gls{rl:t}] = \gls{rl:mu}
+% \end{equation}
+
+
 % $\displaystyle \mathop{\mathbb{E}}_{x\in A}$
-\begin{equation}
-    \gls{value}^{\gls{policy}}(\gls{state})
-    =
-        {\displaystyle \mathop{\mathbb{E}}_{\gls{trajectory}\sim\gls{policy}}}
-    \lbrack R(\gls{trajectory})~|~\gls{state0}=\gls{state}\rbrack,
-\end{equation}
+
+
+
+
+\subsection{Policy Optimisation}\label{ssec:algotypes}
+
+\subsubsection{Policy Optimisation}
+
+Policy optimisation is the process of optimising the policy \gls{rl:pi} to maximise the expected return $\gls{ml:J}(\gls{rl:pi}_{\gls{fn:param}})=\gls{E} [\gls{rl:R}(\gls{rl:tau})]$. Here, the finite-horizon undiscounted return $\gls{rl:R}(\gls{rl:tau})$ is used. The foundation of this class of algorithm relies on the derivation of an expression, or surrogate expression, for the gradient of the expected return. The method of optimisation is gradient ascent on the chosen expression,
 
 \begin{equation}
-    \gls{Q}^{\gls{policy}}(\gls{state}, \gls{action})
-    =
-        {\displaystyle \mathop{\mathbb{E}}_{\gls{trajectory}\sim\gls{policy}}}
-    \lbrack R(\gls{trajectory})~|~\gls{state0}=\gls{state},~\gls{action0}=\gls{action}\rbrack,
+    \theta_{k+1}=\theta_{k}+\alpha \nabla_{\theta} J\left(\pi_{\theta_{k}}\right)|_{\theta_{k}}
 \end{equation}
 
-\begin{equation}
-    \gls{value}^{*}(\gls{state})
-    =
-    \max_{\gls{policy}}{\displaystyle \mathop{\mathbb{E}}_{\gls{trajectory}\sim\gls{policy}}}
-    \lbrack R(\gls{trajectory})~|~\gls{state0}=\gls{state}\rbrack,
-\end{equation}
+(see \autoref{dl:optimisation} for further explanation)
 
-\subsection{Taxonomy of Reinforcement Learning}
+\begin{enumerate}
+
+    % VANILLA POLICY-GRADIENT
+    \item \textbf{\gls{VPG}} 
+    \begin{equation}
+        \nabla_{\theta} J\left(\pi_{\theta}\right)=\underset{\tau \sim \pi_{\theta}}{\mathrm{E}}\left[\sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}\left(a_{t} \mid s_{t}\right) A^{\pi_{\theta}}\left(s_{t}, a_{t}\right)\right],
+    \end{equation}
+    (See \autoref{sec:pg:derivation} for derivation)
+    \begin{equation}
+        \theta_{k+1}=\theta_{k}+\alpha \nabla_{\theta} J\left(\pi_{\theta_{k}}\right)
+    \end{equation}
+
+    This equation results in gradients being weighted by the log-probabilities of each action in proportion to the sum of all rewards ever obtained $\gls{rl:R}(\gls{rl:tau})$. This however does not make sense when considering cause and effect. Agents should not be reinforcing actions on the basis on past rewards (causes), but rather on the future rewards obtained (effects). 
+
+    An alternative form of policy gradient, called ``reward-to-go policy gradient'', 
+    \begin{equation}
+        \begin{gathered}
+        \nabla_{\theta} J\left(\pi_{\theta}\right)=\underset{\tau \sim \pi_{\theta}}{\mathrm{E}}\left[\sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}\left(a_{t} \mid s_{t}\right) \sum_{t^{\prime}=t}^{T} R\left(s_{t^{\prime}}, a_{t^{\prime}}, s_{t^{\prime}+1}\right)\right] ,
+        \end{gathered}
+    \end{equation}
+
+    utilises a modifed weight for the log-probabilities, which is the ``reward-to-go'',
+
+    \begin{equation}
+        \hat{R}_{t} \doteq \sum_{t^{\prime}=t}^{T} R\left(s_{t^{\prime}}, a_{t^{\prime}}, s_{t^{\prime}+1}\right).
+    \end{equation}
+
+    % TRUST REGION POLICY OPTIMISATION
+    \item \textbf{\gls{TRPO}}, a method of \gls{RL} which focuses on optimisation of a control policy, with guranteed monotonic improvement, using a theoretically-justified scheme. It is effective in highly nonlinear policy models such as \glspl{ANN} \cite{Schulman2015}. This method is not used in contemporary \gls{RL} practice, but has provided a useful theoretical foundation for trust-based policy optimisation algorithms. For example, the definition of \gls{TRPO} often precedes the definition of \gls{PPO} in literature, as it has some of the benefits of \gls{TRPO}, but is much simpler to implement, and is characterised by superior exmpirical sample complexity \cite{Schulman2017}.
+    
+    % PROXIMAL POLICY OPTIMISATION
+    \item \textbf{\glsentryfull{PPO}} is a family of policy gradient methods in \gls{RL} which alternates between sampling the environment and optimising a surrogate objective function using \gls{SGD}.
+    
+
+\end{enumerate}
+
+\subsubsection{Policy Optimisation}
+
+% \subsection{Taxonomy of Reinforcement Learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Value-based methods}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Value-based methods}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Policy-based methods}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Policy-based methods}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Policy gradient}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Policy gradient}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Deep deterministic policy gradient (DDPG)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Deep deterministic policy gradient (DDPG)}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Algorithms}\label{ssec:algorithms}
+
+
+\newpage\begin{table}[htp!]
+    \renewcommand{\arraystretch}{1.4}
+    \centering
+    \caption{
+        \textbf{}
+    }
+    \label{tab:rl:algorithms}
+    \begin{tabularx}{\textwidth}{lllllX}
+            \toprule
+            Algorithm           & Policy       & Action Space & State Space & Operator     & Citation                     \\ 
+            \midrule
+            Monte Carlo         & Either       & Discrete     & Discrete    & Sample-means &                              \\
+            Q-learning          & Off-policy   & Discrete     & Discrete    & Q-value      & \cite{Watkins1992}           \\
+            SARSA               & On-policy    & Discrete     & Discrete    & Q-value      & \cite{Rummery1994}           \\
+            Q-learning - Lambda & Off-policy   & Discrete     & Discrete    & Q-value      &                              \\
+            SARSA - Lambda      & On-policy    & Discrete     & Discrete    & Q-value      &                              \\
+            DQN                 & Off-policy   & Discrete     & Continuous  & Q-value      & \cite{Mnih2013, Hessel2017}  \\
+            DDPG                & Off-policy   & Continuous   & Continuous  & Q-value      & \cite{Lillicrap2015}         \\
+            A3C                 & On-policy    & Continuous   & Continuous  & Advantage    & \cite{Mnih2016}              \\
+            NAF                 & Off-policy   & Continuous   & Continuous  & Advantage    &                              \\
+            TRPO                & On-policy    & Continuous   & Continuous  & Advantage    & \cite{Schulman2015}          \\
+            PPO                 & On-policy    & Continuous   & Continuous  & Advantage    & \cite{Schulman2017}          \\
+            TD3                 & Off-policy   & Continuous   & Continuous  & Q-value      & \cite{Fujimoto2018}          \\
+            SAC                 & Off-policy   & Continuous   & Continuous  & Advantage    & \cite{Haarnoja2018}          \\
+            \bottomrule
+    \end{tabularx}
+\end{table}
+    

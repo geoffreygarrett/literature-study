@@ -405,6 +405,7 @@
   pages     = {1993--2000},
   doi       = {10.1109/IJCNN.2016.7727444}
 }
+
 % GPT-3 synthesis examples
 @article{Brown2020,
   title      = {Language Models are Few-Shot Learners},
@@ -1349,6 +1350,227 @@
   doi    = {10.1109/ISIT.2004.1365067},
   isbn   = {978-0-7803-8280-0}
 }
+@article{Schulman2017,
+   abstract = {We propose a new family of policy gradient methods for reinforcement learning, which alternate between sampling data through interaction with the environment, and optimizing a "surrogate" objective function using stochastic gradient ascent. Whereas standard policy gradient methods perform one gradient update per data sample, we propose a novel objective function that enables multiple epochs of minibatch updates. The new methods, which we call proximal policy optimization (PPO), have some of the benefits of trust region policy optimization (TRPO), but they are much simpler to implement, more general, and have better sample complexity (empirically). Our experiments test PPO on a collection of benchmark tasks, including simulated robotic locomotion and Atari game playing, and we show that PPO outperforms other online policy gradient methods, and overall strikes a favorable balance between sample complexity, simplicity, and wall-time.},
+   author = {John Schulman and Filip Wolski and Prafulla Dhariwal and Alec Radford and Oleg Klimov},
+   doi = {10.48550/arxiv.1707.06347},
+   month = {7},
+   title = {Proximal Policy Optimization Algorithms},
+   url = {http://arxiv.org/abs/1707.06347},
+   year = {2017},
+}
+@article{Schulman2015,
+   abstract = {We describe an iterative procedure for optimizing policies, with guaranteed monotonic improvement. By making several approximations to the theoretically-justified procedure, we develop a practical algorithm, called Trust Region Policy Optimization (TRPO). This algorithm is similar to natural policy gradient methods and is effective for optimizing large nonlinear policies such as neural networks. Our experiments demonstrate its robust performance on a wide variety of tasks: learning simulated robotic swimming, hopping, and walking gaits; and playing Atari games using images of the screen as input. Despite its approximations that deviate from the theory, TRPO tends to give monotonic improvement, with little tuning of hyperparameters.},
+   author = {John Schulman and Sergey Levine and Philipp Moritz and Michael I. Jordan and Pieter Abbeel},
+   doi = {10.48550/arxiv.1502.05477},
+   month = {2},
+   title = {Trust Region Policy Optimization},
+   url = {http://arxiv.org/abs/1502.05477},
+   year = {2015},
+}
+
+@article{Recht2019,
+  abstract = { This article surveys reinforcement learning from the perspective of optimization and control, with a focus on continuous control applications. It reviews the general formulation, terminology, and typical experimental implementations of reinforcement learning as well as competing solution paradigms. In order to compare the relative merits of various techniques, it presents a case study of the linear quadratic regulator (LQR) with unknown dynamics, perhaps the simplest and best-studied problem in optimal control. It also describes how merging techniques from learning theory and control can provide nonasymptotic characterizations of LQR performance and shows that these characterizations tend to match experimental behavior. In turn, when revisiting more complex applications, many of the observed phenomena in LQR persist. In particular, theory and experiment demonstrate the role and importance of models and the cost of generality in reinforcement learning algorithms. The article concludes with a discussion of some of the challenges in designing learning systems that safely and reliably interact with complex and uncertain environments and how tools from reinforcement learning and control might be combined to approach these challenges. },
+  author   = {Benjamin Recht},
+  doi      = {10.1146/annurev-control-053018-023825},
+  issue    = {1},
+  journal  = {Annual Review of Control, Robotics, and Autonomous Systems},
+  pages    = {253-279},
+  title    = {A Tour of Reinforcement Learning: The View from Continuous Control},
+  volume   = {2},
+  url      = { 
+              https://doi.org/10.1146/annurev-control-053018-023825
+              
+              },
+  year     = {2019}
+}
+@article{Haarnoja2018,
+   abstract = {Model-free deep reinforcement learning (RL) algorithms have been demonstrated
+on a range of challenging decision making and control tasks. However, these
+methods typically suffer from two major challenges: very high sample complexity
+and brittle convergence properties, which necessitate meticulous hyperparameter
+tuning. Both of these challenges severely limit the applicability of such
+methods to complex, real-world domains. In this paper, we propose soft
+actor-critic, an off-policy actor-critic deep RL algorithm based on the maximum
+entropy reinforcement learning framework. In this framework, the actor aims to
+maximize expected reward while also maximizing entropy. That is, to succeed at
+the task while acting as randomly as possible. Prior deep RL methods based on
+this framework have been formulated as Q-learning methods. By combining
+off-policy updates with a stable stochastic actor-critic formulation, our
+method achieves state-of-the-art performance on a range of continuous control
+benchmark tasks, outperforming prior on-policy and off-policy methods.
+Furthermore, we demonstrate that, in contrast to other off-policy algorithms,
+our approach is very stable, achieving very similar performance across
+different random seeds.},
+   author = {Tuomas Haarnoja and Aurick Zhou and Pieter Abbeel and Sergey Levine},
+   doi = {10.48550/arxiv.1801.01290},
+   month = {1},
+   title = {Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor},
+   url = {https://arxiv.org/abs/1801.01290},
+   year = {2018},
+}
+
+@article{Fujimoto2018,
+   abstract = {In value-based reinforcement learning methods such as deep Q-learning, function approximation errors are known to lead to overestimated value estimates and suboptimal policies. We show that this problem persists in an actor-critic setting and propose novel mechanisms to minimize its effects on both the actor and the critic. Our algorithm builds on Double Q-learning, by taking the minimum value between a pair of critics to limit overestimation. We draw the connection between target networks and overestimation bias, and suggest delaying policy updates to reduce per-update error and further improve performance. We evaluate our method on the suite of OpenAI gym tasks, outperforming the state of the art in every environment tested.},
+   author = {Scott Fujimoto and Herke van Hoof and David Meger},
+   doi = {10.48550/arxiv.1802.09477},
+   month = {2},
+   title = {Addressing Function Approximation Error in Actor-Critic Methods},
+   url = {http://arxiv.org/abs/1802.09477},
+   year = {2018},
+}
+
+@article{Hessel2017,
+   abstract = {The deep reinforcement learning community has made several independent
+improvements to the DQN algorithm. However, it is unclear which of these
+extensions are complementary and can be fruitfully combined. This paper
+examines six extensions to the DQN algorithm and empirically studies their
+combination. Our experiments show that the combination provides
+state-of-the-art performance on the Atari 2600 benchmark, both in terms of data
+efficiency and final performance. We also provide results from a detailed
+ablation study that shows the contribution of each component to overall
+performance.},
+   author = {Matteo Hessel and Joseph Modayil and Hado van Hasselt and Tom Schaul and Georg Ostrovski and Will Dabney and Dan Horgan and Bilal Piot and Mohammad Azar and David Silver},
+   doi = {10.48550/arxiv.1710.02298},
+   month = {10},
+   title = {Rainbow: Combining Improvements in Deep Reinforcement Learning},
+   url = {https://arxiv.org/abs/1710.02298},
+   year = {2017},
+}
+
+@article{Schulman2015,
+   abstract = {We describe an iterative procedure for optimizing policies, with guaranteed monotonic improvement. By making several approximations to the theoretically-justified procedure, we develop a practical algorithm, called Trust Region Policy Optimization (TRPO). This algorithm is similar to natural policy gradient methods and is effective for optimizing large nonlinear policies such as neural networks. Our experiments demonstrate its robust performance on a wide variety of tasks: learning simulated robotic swimming, hopping, and walking gaits; and playing Atari games using images of the screen as input. Despite its approximations that deviate from the theory, TRPO tends to give monotonic improvement, with little tuning of hyperparameters.},
+   author = {John Schulman and Sergey Levine and Philipp Moritz and Michael I. Jordan and Pieter Abbeel},
+   doi = {10.48550/arxiv.1502.05477},
+   month = {2},
+   title = {Trust Region Policy Optimization},
+   url = {http://arxiv.org/abs/1502.05477},
+   year = {2015},
+}
+
+@article{Rummery1994,
+  author = {G. A. Rummery and G. A. Rummery and M. Niranjan},
+  title  = {On-Line Q-Learning Using Connectionist Systems},
+  url    = {http://130.203.136.95/viewdoc/summary?doi=10.1.1.17.2539},
+  year   = {1994}
+}
+@article{Schulman2017,
+   abstract = {We propose a new family of policy gradient methods for reinforcement learning, which alternate between sampling data through interaction with the environment, and optimizing a "surrogate" objective function using stochastic gradient ascent. Whereas standard policy gradient methods perform one gradient update per data sample, we propose a novel objective function that enables multiple epochs of minibatch updates. The new methods, which we call proximal policy optimization (PPO), have some of the benefits of trust region policy optimization (TRPO), but they are much simpler to implement, more general, and have better sample complexity (empirically). Our experiments test PPO on a collection of benchmark tasks, including simulated robotic locomotion and Atari game playing, and we show that PPO outperforms other online policy gradient methods, and overall strikes a favorable balance between sample complexity, simplicity, and wall-time.},
+   author = {John Schulman and Filip Wolski and Prafulla Dhariwal and Alec Radford and Oleg Klimov},
+   doi = {10.48550/arxiv.1707.06347},
+   month = {7},
+   title = {Proximal Policy Optimization Algorithms},
+   url = {http://arxiv.org/abs/1707.06347},
+   year = {2017},
+}
+
+@article{Mnih2016,
+   abstract = {We propose a conceptually simple and lightweight framework for deep
+reinforcement learning that uses asynchronous gradient descent for optimization
+of deep neural network controllers. We present asynchronous variants of four
+standard reinforcement learning algorithms and show that parallel
+actor-learners have a stabilizing effect on training allowing all four methods
+to successfully train neural network controllers. The best performing method,
+an asynchronous variant of actor-critic, surpasses the current state-of-the-art
+on the Atari domain while training for half the time on a single multi-core CPU
+instead of a GPU. Furthermore, we show that asynchronous actor-critic succeeds
+on a wide variety of continuous motor control problems as well as on a new task
+of navigating random 3D mazes using a visual input.},
+   author = {Volodymyr Mnih and Adrià Puigdomènech Badia and Mehdi Mirza and Alex Graves and Timothy P. Lillicrap and Tim Harley and David Silver and Koray Kavukcuoglu},
+   doi = {10.48550/arxiv.1602.01783},
+   month = {2},
+   title = {Asynchronous Methods for Deep Reinforcement Learning},
+   url = {https://arxiv.org/abs/1602.01783},
+   year = {2016},
+}
+
+@article{Lillicrap2015,
+   abstract = {We adapt the ideas underlying the success of Deep Q-Learning to the
+continuous action domain. We present an actor-critic, model-free algorithm
+based on the deterministic policy gradient that can operate over continuous
+action spaces. Using the same learning algorithm, network architecture and
+hyper-parameters, our algorithm robustly solves more than 20 simulated physics
+tasks, including classic problems such as cartpole swing-up, dexterous
+manipulation, legged locomotion and car driving. Our algorithm is able to find
+policies whose performance is competitive with those found by a planning
+algorithm with full access to the dynamics of the domain and its derivatives.
+We further demonstrate that for many of the tasks the algorithm can learn
+policies end-to-end: directly from raw pixel inputs.},
+   author = {Timothy P. Lillicrap and Jonathan J. Hunt and Alexander Pritzel and Nicolas Heess and Tom Erez and Yuval Tassa and David Silver and Daan Wierstra},
+   doi = {10.48550/arxiv.1509.02971},
+   month = {9},
+   title = {Continuous control with deep reinforcement learning},
+   url = {https://arxiv.org/abs/1509.02971},
+   year = {2015},
+}
+
+@article{Mnih2013,
+   abstract = {We present the first deep learning model to successfully learn control policies directly from high-dimensional sensory input using reinforcement learning. The model is a convolutional neural network, trained with a variant of Q-learning, whose input is raw pixels and whose output is a value function estimating future rewards. We apply our method to seven Atari 2600 games from the Arcade Learning Environment, with no adjustment of the architecture or learning algorithm. We find that it outperforms all previous approaches on six of the games and surpasses a human expert on three of them.},
+   author = {Volodymyr Mnih and Koray Kavukcuoglu and David Silver and Alex Graves and Ioannis Antonoglou and Daan Wierstra and Martin Riedmiller},
+   doi = {10.48550/arxiv.1312.5602},
+   month = {12},
+   title = {Playing Atari with Deep Reinforcement Learning},
+   url = {http://arxiv.org/abs/1312.5602},
+   year = {2013},
+}
+
+@article{Watkins1992,
+  author   = {Watkins, Christopher J. C. H.
+              and Dayan, Peter},
+  title    = {Q-learning},
+  journal  = {Machine Learning},
+  year     = {1992},
+  month    = {May},
+  day      = {01},
+  volume   = {8},
+  number   = {3},
+  pages    = {279-292},
+  abstract = {Q-learning (Watkins, 1989) is a simple way for agents to learn how to act optimally in controlled Markovian domains. It amounts to an incremental method for dynamic programming which imposes limited computational demands. It works by successively improving its evaluations of the quality of particular actions at particular states.},
+  issn     = {1573-0565},
+  doi      = {10.1007/BF00992698},
+  url      = {https://doi.org/10.1007/BF00992698}
+}
+
+
+@article{Kurniawati2021,
+  abstract = {Planning under uncertainty is critical to robotics. The Partially Observable
+              Markov Decision Process (POMDP) is a mathematical framework for such planning
+              problems. It is powerful due to its careful quantification of the
+              non-deterministic effects of actions and partial observability of the states.
+              But precisely because of this, POMDP is notorious for its high computational
+              complexity and deemed impractical for robotics. However, since early 2000,
+              POMDPs solving capabilities have advanced tremendously, thanks to
+              sampling-based approximate solvers. Although these solvers do not generate the
+              optimal solution, they can compute good POMDP solutions that significantly
+              improve the robustness of robotics systems within reasonable computational
+              resources, thereby making POMDPs practical for many realistic robotics
+              problems. This paper presents a review of POMDPs, emphasizing computational
+              issues that have hindered its practicality in robotics and ideas in
+              sampling-based solvers that have alleviated such difficulties, together with
+              lessons learned from applying POMDPs to physical robots.},
+  author   = {Hanna Kurniawati},
+  doi      = {10.48550/arxiv.2107.07599},
+  month    = {7},
+  title    = {Partially Observable Markov Decision Processes (POMDPs) and Robotics},
+  url      = {https://arxiv.org/abs/2107.07599v1},
+  year     = {2021}
+}
+
+
+@article{Astrom1965,
+  author    = {{Åström, Karl Johan}},
+  issn      = {{0022-247X}},
+  language  = {{eng}},
+  pages     = {{174--205}},
+  publisher = {{Elsevier}},
+  series    = {{Journal of Mathematical Analysis and Applications}},
+  title     = {{Optimal Control of Markov Processes with Incomplete State Information I}},
+  url       = {{https://lup.lub.lu.se/search/files/5323668/8867085.pdf}},
+  doi       = {{10.1016/0022-247X(65)90154-X}},
+  volume    = {{10}},
+  year      = {{1965}}
+}
+
 @report{Shin2014,
   title  = {201 Frequency and Channel Assignments},
   author = {Dong K. Shin},
@@ -1361,6 +1583,42 @@
   year   = 2020,
   url    = {https://deepspace.jpl.nasa.gov/dsndocs/810-005/201/201D.pdf}
 }
+
+@article{Bellman1954,
+  author    = {Richard Bellman},
+  doi       = {bams/1183519147},
+  issue     = {6},
+  journal   = {Bulletin of the American Mathematical Society},
+  pages     = {503 – 515},
+  publisher = {American Mathematical Society},
+  title     = {The theory of dynamic programming},
+  volume    = {60},
+  url       = {https://doi.org/},
+  year      = {1954}
+}
+
+@book{Bellman1957a,
+  abstract  = {An introduction to the mathematical theory of multistage decision processes, this text takes a "functional equation" approach to the discovery of optimum policies. Written by a leading developer of such policies, it presents a series of methods, uniqueness and existence theorems, and examples for solving the relevant equations. The text examines existence and uniqueness theorems, the optimal inventory equation, bottleneck problems in multistage production processes, a new formalism in the calculus of variation, strategies behind multistage games, and Markovian decision processes. Each chapter concludes with a problem set that Eric V. Denardo of Yale University, in his informative new introduction, calls "a rich lode of applications and research topics." 1957 edition. 37 figures.},
+  author    = {Richard Bellman},
+  isbn      = {9780486428093},
+  keywords  = {book dynamic programming},
+  publisher = {Dover Publications},
+  title     = {Dynamic Programming},
+  year      = {1957}
+}
+@article{Bellman1957b,
+  author    = {Richard Bellman},
+  issn      = {00959057, 19435274},
+  issue     = {5},
+  journal   = {Journal of Mathematics and Mechanics},
+  pages     = {679-684},
+  publisher = {Indiana University Mathematics Department},
+  title     = {A Markovian Decision Process},
+  volume    = {6},
+  url       = {http://www.jstor.org/stable/24900506},
+  year      = {1957}
+}
+
 @article{Dirkx2019,
   title     = {Laser and radio tracking for planetary science missions--a comparison},
   author    = {Dominic Dirkx and Ivan Prochazka and Sven Bauer and Pieter Visser and Ron Noomen and Leonid I. Gurvits and Bert Vermeersen},
