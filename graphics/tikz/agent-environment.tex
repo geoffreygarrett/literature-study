@@ -2,8 +2,9 @@
 \tikzset{component/.style={rectangle, draw=black, thick, text width=7em,align=center, rounded corners, minimum height=2em}}
 
 \begin{figure}[!htp]
-    \label{fig:agent-environment}
     \centering
+    \captionsetup{format=hang} % hanging captions
+
     \tikzstyle{block} = [rectangle, draw,
     text width=8em, text centered, rounded corners, minimum height=4em]
 
@@ -28,5 +29,7 @@
 
 
     \end{tikzpicture}
-    \caption{Agent-environment interaction interface.}
+    \caption{\textbf{The agent-environment interaction interface} illustrates the interaction between an agent and its environment. The agent takes an action $a_t$ and receives a reward $r_{t+1}$ and a new state $s_{t+1}$, subject to the environment's dynamics.}
+    \label{fig:agent-environment}
+
 \end{figure}

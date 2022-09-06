@@ -19,8 +19,10 @@
 %subfig
 \begin{figure}[htp]
     \centering
+    \captionsetup{format=hang} % hanging captions
     \subfloat[Threshold Step]{
         \begin{tikzpicture}
+            \label{fig:threshold}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$step(z)$,xlabel=$z$,ymin=-5.0,ymax=5.0,xmin=-5,xmax=5,
                 legend style={at={(0.95,0.05)},anchor=south east},]
@@ -35,6 +37,7 @@
     }
     \subfloat[Linear]{
         \begin{tikzpicture}
+            \label{fig:linear}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$linear(z)$,xlabel=$z$,ymin=-5.0,ymax=5.0,xmin=-5,xmax=5,
                 legend style={at={(0.95,0.05)},anchor=south east},]
@@ -47,6 +50,7 @@
     }
     \subfloat[Sigmoid]{
         \begin{tikzpicture}
+            \label{fig:sigmoid}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$\sigma(z)$,xlabel=$z$,ymin=0,ymax=1.25,xmin=-5,xmax=5,
                 legend style={at={(0.05,0.95)},anchor=north west},]
@@ -59,6 +63,7 @@
     }\\
     \subfloat[Hyperbolic tangent]{
         \begin{tikzpicture}
+            \label{fig:hyperbolic_tangent}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$\tanh(z)$,xlabel=$z$,ymin=-1.25,ymax=1.25,xmin=-5,xmax=5, legend style={at={(0.95,0.05)},anchor=south east},]
                 \addplot[blue,smooth] {tanh(x)};
@@ -70,6 +75,7 @@
     }
     \subfloat[ReLU]{
         \begin{tikzpicture}
+            \label{fig:relu}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$ReLU(z)$,xlabel=$z$,ymin=-5.0,ymax=5.0,xmin=-5,xmax=5,
                 legend style={at={(0.95,0.05)},anchor=south east},]
@@ -84,6 +90,7 @@
     }
     \subfloat[Leaky ReLU]{
         \begin{tikzpicture}
+            \label{fig:lrelu}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$LReLU(z)$,xlabel=$z$,ymin=-5.0,ymax=5.0,xmin=-5,xmax=5,
                 legend style={at={(0.95,0.05)},anchor=south east},]
@@ -98,6 +105,7 @@
     }\\
     \subfloat[GELU]{
         \begin{tikzpicture}
+            \label{fig:gelu}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$GELU(z)$,xlabel=$z$,ymin=-5.0,ymax=5.0,xmin=-5,xmax=5,
                 legend style={at={(0.95,0.05)},anchor=south east},]
@@ -110,6 +118,7 @@
     }
     \subfloat[Swish]{
         \begin{tikzpicture}
+            \label{fig:swish}
             \begin{axis}
                 [width=5.5cm,height=4cm,ylabel=$Swish(z)$,xlabel=$z$,ymin=-1,ymax=3.0,xmin=-5,xmax=5,
                 legend style={at={(0.05,0.95)},anchor=north west},]
@@ -120,18 +129,19 @@
             \end{axis}
         \end{tikzpicture}
     }
-    \subfloat[]{
+    \subfloat[SIREN]{
         \begin{tikzpicture}
+            \label{fig:siren}
             \begin{axis}
-                [width=5.5cm,height=4cm,ylabel=$Swish(z)$,xlabel=$z$,ymin=-1,ymax=3.0,xmin=-5,xmax=5,
+                [width=5.5cm,height=4cm,ylabel=$sin(z)$,xlabel=$z\;\text{(deg)}$,ymin=-1.5,ymax=1.5,xmin=-200,xmax=200,
                 legend style={at={(0.05,0.95)},anchor=north west},]
-                \addplot[blue,smooth] {x*(1/(1+exp(-x)))}; % f (x) + σ (x) (1 − f (x))
+                \addplot[blue,smooth,domain=-200:200] {sin(x)}; % f (x) + σ (x) (1 − f (x))
                 \addlegendentry{f(x)}
-                \addplot[red, dashed, thick] {x/(1+exp(-x)) + 1/(1+exp(-x)) * (1-x/(1+exp(-x)))};
+                \addplot[red, dashed, thick,domain=-200:200] {cos(x)};
                 \addlegendentry{f'(x)}
             \end{axis}
         \end{tikzpicture}
     }
-    \caption[Sigmoidal activation functions.]{Commonly used activation functions in MLPs.}
+    \caption[Activation functions.]{\textbf{Activation functions} used in \gls{DL}, included for results in their performance or historic significance in the applications of artificial neural networks.}
     \label{fig:activation-functions}
 \end{figure}

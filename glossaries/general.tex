@@ -39,8 +39,21 @@
 % ACRONYMS
 \newacronym{NEO}{NEO}{near-Earth object}
 \newacronym{TNT}{TNT}{trinitrotoluene}
-\newacronym{DART}{DART}{Double Asteroid Redirection Test}
 \newacronym{NASA}{NASA}{the National Aeronautics and Space Administration}
+\newacronym{LIDAR}{LIDAR}{light detection and ranging}
+\newacronym{AIDA}{AIDA}{Asteroid Impact \& Deflection Assessment}
+\newacronym{HED}{HED}{howardite-eucrite-diogenite}
+\newacronym{DART}{DART}{Double Asteroid Redirection Test}
+
+
+% NEW HORIZONS APL
+\newacronym{MVIC}{MVIC}{Multi-spectral Visible Imaging Camera}
+\newacronym{LEISA}{LEISA}{Linear Etalon Imaging Spectral Array}
+\newacronym{NAVCAM}{NAVCAM}{navigation camera}
+\newacronym{MICAS}{MICAS}{Miniature Integrated Camera and Imaging Spectrometer}
+\newacronym{CCD}{CCD}{charged-coupled device}
+\newacronym{DS1}{DS1}{The Deep Space 1}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NUMBERS AND ARRAYS
@@ -260,6 +273,14 @@
     description={The set of training examples}
 }
 
+\newglossaryentry{ml:w}{
+    type=notation:ml,
+    name=\ensuremath{w},
+    text=\ensuremath{w},
+    sort=w,
+    description={The learned weight variable}
+}
+
 \newglossaryentry{ml:ith:xy}{
     type=notation:ml,
     name=\ensuremath{(\glsvec{fn:in}^{(i)}, \glsvec{fn:out}^{(i)})},
@@ -330,12 +351,20 @@
 \newacronym{RIFE}{RIFE}{real-time intermediate flow estimation for video frame interpolation}
 \newacronym{KFCV}{KFCV}{$k$-fold cross-validation}
 \newacronym{LSTM}{LSTM}{Long short-term memory}
+\newacronym{GAN}{GAN}{generative adversarial neural network}
+\newacronym{NIPS}{NIPS}{Neural Information Processing Systems}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DEEP LEARNING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newglossary{notation:dl}{nml}{sbl}{Deep Learning}
+\newacronym{DNN}{DNN}{deep neural network}
+\newacronym{RELU}{ReLU}{rectified linear unit}
+\newacronym{LRELU}{LReLU}{leaky rectified linear unit}
+\newacronym{RRELU}{RReLU}{randomised leaky rectified linear unit}
+\newacronym{ELU}{ELU}{exponential linear unit}
+\newacronym{SIREN}{SIREN}{sinusoidal representation network}
 
 \newglossaryentry{dl:layer}{
     type=notation:dl,
@@ -352,13 +381,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\tupleft}{\langle}
 \newcommand{\tupright}{\rangle}
-\newacronym{MDP}{MDP}{Markov Decision Process}
-\newacronym{POMDP}{POMDP}{Partially Observable Markov Decision Process}
-\newacronym{TRPO}{TRPO}{Trust Region Policy Optimisation}
-\newacronym{PPO}{PPO}{Proximal Policy Optimisation}
-\newacronym{VPG}{VPG}{Vanilla Policy Gradient}
+\newacronym{MDP}{MDP}{Markov decision process}
+\newacronym{POMDP}{POMDP}{partially observable Markov decision process}
+\newacronym{TRPO}{TRPO}{trust region policy optimisation}
+\newacronym{PPO}{PPO}{proximal policy optimisation}
+\newacronym{VPG}{VPG}{vanilla policy gradient}
+\newacronym{DDPG}{DDPG}{deep deterministic policy gradient}
+\newacronym{OU}{OU}{Ornstein-Uhlenbeck}
 
-\newglossary{notation:rl}{ndl}{sbl}{Reinforcement Learning}
+\newglossary{notation:rl}{ndl}{sbl}{reinforcement learning}
 
 \newglossaryentry{rl:s}{
     type=notation:rl, 
@@ -506,3 +537,16 @@
 \glsadd{rl:pi}
 \glsadd{rl:mu}
 \glsadd{rl:tau}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ORBITAL MECHANICS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary{notation:om}{ndl}{sbl}{orbital mechanics}
+
+\newglossaryentry{om:G}{
+    type=notation:om, 
+    name=\ensuremath{G},
+    sort=G, 
+    text=\ensuremath{G},
+    description={The Cavendish (a.k.a. gravitational) constant, $6.67430{\times}10^{-11} \text{N}{\cdot}\text{m}^2{\cdot}\text{kg}^{-2}$}}

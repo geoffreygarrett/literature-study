@@ -12,24 +12,14 @@ stepping stones towards concepts of higher complexity in the field.
 \autoref{ssec:mlps} covers this concept, extending directly on their composite
 component: perceptrons.
 
-\Glspl{MLP} are also called \textbf{feedfoward} as information is propagated in
-only a forward direction, as opposed to exhibiting \textbf{feedback} connections,
-where intermediate computations are fed back into the network. When feedforward
-networks are extended to include feedback connections, they are called
-\textbf{\glspl{RNN}}. These networks excel at learning temporal
-features, exhibiting a refined hypothesis space favouring sequenced information,
-such as a series of chronological observations. \autoref{ssec:rnn} covers this
-type of \gls{DNN}, and the prominent sub-type of \glspl{RNN}: \glspl{LSTM}.
+\Glspl{MLP} are also called \textbf{feedfoward} as information is propagated in only a forward direction, as opposed to exhibiting \textbf{feedback} connections, where intermediate computations are fed back into the network. When feedforward networks are extended to include feedback connections, they are called \glspl{RNN}. These networks excel at learning temporal features, exhibiting a refined hypothesis space favouring sequenced information, such as a series of chronological observations. \autoref{ssec:rnn} covers this type of \gls{DNN}, and the prominent sub-type of \glspl{RNN}: \glspl{LSTM}.
 
-One type of neural network similar to \glspl{MLP} and popular in
-contemporary research is the \gls{CNN}. These deep \glspl{NN} are essentially
-\glspl{MLP} which omit the property of being fully connected in favour of
-refining the hypothesis space towards detection of spatially-related features.
+\autoref{ssec:cnn} covers \gls{CNN}, a type of neural network similar to \glspl{MLP} and popular in contemporary research. These deep \glspl{NN} are essentially \glspl{MLP} which omit the property of being fully connected in favour of refining the hypothesis space towards detection of spatially-related features.
 
 %The main difference between a \gls{NN} and a traditional \gls{ML} algorithm is
 %that the neural network is a function of the data, rather than the data itself.
 
-\subsection{Brief History of the Perceptron\label{ssec:perceptrons}}
+\subsection{Brief History of the Perceptron}\label{ssec:perceptrons}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The McCullock-Pitts neuron, an earlier iteration of an artificial neuron, was
@@ -64,22 +54,22 @@ $\mathbf{x}$, with the bias being specified by the value of the first weight
 $w_0$. An alternative notation exists which treats the bias as a standalone
 value $b$. The latter notation will be used, as it is the preferred notation in
 contemporary deep learning research. The notation defining the mapping of a
-perceptron is then: $f(\gls{ml:x};\gls{w_vec},
-\gls{b})=\gls{ml:x}^T\gls{w_vec}+\gls{b}$;
+perceptron is then: $f(\gls{ml:x};\glsvec{ml:w},
+\gls{ml:b})=\gls{ml:x}^T\glsvec{ml:w}+\gls{ml:b}$;
 $\gls{ml:x}\in\gls{set:R}[^{\gls{np:dim}[_\gls{fn:in}]}]$,
-$\gls{w_vec}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:in}]}$, $\gls{b}\in\gls{set:R}$. Furthermore
+$\glsvec{ml:w}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:in}]}$, $\gls{ml:b}\in\gls{set:R}$. Furthermore
 the model parameters, \glsvec{fn:param}, as introduced in
 \autoref{sec:capoverunder}, are defined by the union of the bias and weight
-vectors: $\glsvec{fn:param}=\{\gls{w_vec},\gls{b}\}$.
+vectors: $\glsvec{fn:param}=\{\glsvec{ml:w},\gls{ml:b}\}$.
 \begin{figure}[htbp]
     \centering
     \input{graphics/tikz/perceptron_b}
     \captionsetup{format=hang} % hanging captions
     \caption{
         \textbf{Generalized illustration of a perceptron.} The mapping is
-        defined by $f(\gls{ml:x};\gls{w_vec},
-        \gls{b})=\gls{ml:x}^T\gls{w_vec}+\gls{b}$ where
-        $\{\gls{w_vec},\gls{b}\}=\glsvec{fn:param}$. The original formulation of
+        defined by $f(\gls{ml:x};\glsvec{ml:w},
+        \gls{ml:b})=\gls{ml:x}^T\glsvec{ml:w}+\gls{ml:b}$ where
+        $\{\glsvec{ml:w},\gls{ml:b}\}=\glsvec{fn:param}$. The original formulation of
         the perceptron \cite{Rosenblatt_1957_6098} was intended to output a
         binary value, using a threshold step function, for classification
         purposes. The actual activation function \gls{dl:activation} has been
@@ -158,23 +148,7 @@ subsequent research until about the 1980's.
 
 \subsection{Multi-layer perceptrons}\label{ssec:mlps}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Gls{MLPs}, otherwise known as \textbf{artificial neural networks} or
-\textbf{feedforward neural networks}, are the fundamental models of \gls{DL}.
-These models are biologically inspired, and make direct use of the concept of
-the perceptron discussed in \autoref{ssec:perceptrons}. The primary extensions
-involve the use of a variety of activation functions other than the threshold
-step, and multiple layers of fully connected perceptrons, often referred to as
-\textbf{neurons} or \textbf{units}. \gls{MLPs} are characterized as being
-\textbf{fully-connected} which means that all the units in a layer are connected
-to all units in the next. These models are often referred to as \textbf{deep
-feedfoward networks} by virtue of having \textit{several} hidden layers. Note
-that there is no universally accepted definition of what integer values of
-perceptron layers \gls{dl:L} constitute deep and shallow networks, but generally
-speaking: a shallow network will usually have one hidden layer and a deep
-network will have several hidden layers. The mapping of an \gls{MLP} is defined
-by $\gls{y_pred}=f(\gls{ml:x}; \glsvec{fn:param})$;
-$\gls{ml:x}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:in}]}$;
-$\gls{y_pred}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:out}]}$.
+\textbf{Artificial neural networks} in the form of \Glspl{MLP}, or \textbf{feedforward neural networks}, are the fundamental models of \gls{DL}. These models are biologically inspired, and make direct use of the concept of the perceptron discussed in \autoref{ssec:perceptrons}. The primary extensions involve the use of a variety of activation functions other than the threshold step, and multiple layers of fully connected perceptrons often referred to as \textbf{neurons} or \textbf{units}. \Glspl{MLP} are characterized as being \textbf{fully-connected} which means that all the units in a layer are connected to all units in the next. These models are often referred to as \textbf{deep feedfoward networks} by virtue of having \textit{several} hidden layers. Note that there is no universally accepted definition of what integer values of perceptron layers \gls{dl:L} constitute deep and shallow networks, but generally speaking: a shallow network will usually have one hidden layer and a deep network will have several hidden layers. The mapping of an \gls{MLP} is defined by $\gls{y_pred}=f(\gls{ml:x}; \glsvec{fn:param})$; $\gls{ml:x}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:in}]}$; $\gls{y_pred}\in\gls{set:R}^{\gls{np:dim}[_\gls{fn:out}]}$.
 
 \begin{figure}[htp]
     \centering
@@ -208,9 +182,7 @@ function associated to it.
     \label{fig:mlp-vec}
 \end{figure}
 
-\autoref{fig:mlp} and \autoref{fig:mlp-vec} are equivalent and introduce the
-notation used for the variables of the network. The vector form of the
-$l^\text{th}$ layer's activation variable is given by:
+\autoref{fig:mlp} and \autoref{fig:mlp-vec} are equivalent and introduce the notation used for the variables of an artifical neural network. The vector form of the $l^\text{th}$ layer's activation variable is given by:
 
 \begin{equation}
     \gls{dl:a:vec:l}
@@ -225,7 +197,7 @@ used in the backpropagation algorithm:
 
 \begin{equation}
     \gls{dl:a:l:j}
-    = \gls{dl:g:l} \bigg(\sum_{k=0}^{\gls{dl:nh:lm1}} \gls{dl:w:l:jk} \gls{dl:a:lm1:k} + \gls{dl:b:l:j} \bigg)
+    = \gls{dl:g:l} \bigg(\sum_{k=0}^{{n_h}^{[l-1]}} \gls{dl:w:l:jk} \gls{dl:a:lm1:k} + \gls{dl:b:l:j} \bigg)
     = \gls{dl:g:l}(\gls{dl:z:l:j});
     \label{eq:mlp:a}
 \end{equation}
@@ -247,7 +219,7 @@ The number of model parameters $n_{\theta}$ for an \gls{MLP} can be calculated
 as:
 
 \begin{equation}
-    n_{\theta}=\sum_{l=1}^{\gls{dl:L}} \gls{dl:nh:l} (\gls{dl:nh:lm1} + 1)
+    n_{\theta}=\sum_{l=1}^{\gls{dl:L}} \gls{dl:nh:l} ({n_h}^{[l-1]} + 1)
 \end{equation}
 
 
@@ -255,25 +227,16 @@ as:
     \frac{\partial{#1}}{\partial{#2}}
 }
 
-\subsection{Backpropagation\label{ssec:backprop}}
+\subsection{Backpropagation}\label{ssec:backprop}
 
-An important variable for the gradient-based optimization commonly used in
-neural architectures is the gradient of the cost function with respect to the
-model parameters $\nabla_{\gls{dl:theta}}$\gls{dl:J}(\gls{dl:theta}). This first
-order partial differential is used to calculate updated estimates of the optimal
-set of model parameters \gls{dl:theta}$^*$. Backpropagation is the technique
-used for this calculation. Using \autoref{eq:mlp:a}, we seek to find expressions
-for the first order partial derivative of the cost function with respect to
-weights and biases of the network. Using the chain rule, we have:
+An important variable for the gradient-based optimization commonly used in neural architectures is the gradient of the cost function with respect to the model parameters $\nabla_{\gls{fn:param}}$\gls{dl:J}(\gls{fn:param}). This first-order partial differential is used to calculate updated estimates of the optimal set of model parameters \gls{fn:param}$^*$. Backpropagation is the technique used for this calculation. Using \autoref{eq:mlp:a}, we seek to find expressions for the first-order partial derivative of the cost function for the weights and biases of the network. Using the chain rule, we have:
 
 \begin{equation}
     \pardiff{\gls{ml:J}}{\gls{dl:w:l:jk}} = \pardiff{\gls{ml:J}}{\gls{dl:z:l:j}}\pardiff{\gls{dl:z:l:j}}{\gls{dl:w:l:jk}}.
     \label{eq:bp:w:0}
 \end{equation}
 
-Following directly from  \autoref{eq:mlp:a}, the derivative of the $j^\text{th}$
-unit's latent variable $z$ with respect to a weight associated to the unit $j$
-in the previous layer is:
+Following directly from  \autoref{eq:mlp:a}, the derivative of the $j^\text{th}$ unit's latent variable $z$ with respect to a weight associated to the unit $j$ in the previous layer is:
 
 \begin{equation}
     \pardiff{\gls{dl:z:l:j}}{\gls{dl:w:l:jk}} = \gls{dl:a:lm1:k}.
@@ -287,16 +250,14 @@ Combining \autoref{eq:bp:w:0} and \autoref{eq:bp:w:1} gives:
     \label{eq:bp:w:2}
 \end{equation}
 
-A similar set of equations can be derived for the bias associated to the
-$j^\text{th}$ unit of a layer. Again, from the chain rule we have:
+A similar set of equations can be derived for the bias associated to the $j^\text{th}$ unit of a layer. Again, from the chain rule we have:
 
 \begin{equation}
     \pardiff{\gls{ml:J}}{\gls{dl:b:l:j}} = \pardiff{\gls{ml:J}}{\gls{dl:z:l:j}}\pardiff{\gls{dl:z:l:j}}{\gls{dl:b:l:j}}.
     \label{eq:bp:b:0}
 \end{equation}
 
-The first order partial derivative of the latent variable $z$ with respect to
-the same unit's bias is:
+The first order partial derivative of the latent variable $z$ with respect to the same unit's bias is:
 
 \begin{equation}
     \pardiff{\gls{dl:z:l:j}}{\gls{dl:b:l:j}} = 1
@@ -310,30 +271,20 @@ Combining \autoref{eq:bp:b:0} and \autoref{eq:bp:b:1} gives:
     \label{eq:bp:b:2}
 \end{equation}
 
-The expression for $\partial\gls{ml:J}/\partial\gls{dl:z:l:j}$ depends on the
-architecture of the network in question, and unless it concerns the output
-layer, it will be comprised of numerous other partials from later layers in the
-network. For this reason, a table filling strategy sometimes called
-\textbf{dynamic programming}, is used \cite[p.~214]{Goodfellow-et-al-2016} to
-avoid redundant calculations (a.k.a. fancy bookkeeping).
+The expression for $\partial\gls{ml:J}/\partial\gls{dl:z:l:j}$ depends on the architecture of the network in question, and unless it concerns the output layer, it will be comprised of numerous other partials from later layers in the network. For this reason, a table filling strategy sometimes called \textbf{dynamic programming}, is used \cite[p.~214]{Goodfellow-et-al-2016} to avoid redundant calculations (a.k.a. fancy bookkeeping).
 
-\autoref{fig:mlp-example} shows the general way of illustrating an \gls{MLP}
-with 2 perceptron layers with 2 inputs, 2 hidden units and 2 outputs. It can
-be misleading to those unfamiliar with the simplifications made, following
-from the illustration of a perceptron in \autoref{ssec:perceptrons}.
-\autoref{fig:mlp-example-bp} shows the same network with all model parameters
-included for concise illustration of the backpropagation algorithm.
+\autoref{fig:mlp-example} shows the general way of illustrating an \gls{MLP} with 2 perceptron layers with 2 inputs, 2 hidden units and 2 outputs. It can be misleading to those unfamiliar with the simplifications made, following from the illustration of a perceptron in \autoref{ssec:perceptrons}. \autoref{fig:mlp-example-bp} shows the same network with all model parameters included for a concise illustration of the backpropagation algorithm.
 
-% \begin{figure}[htbp]
-%     \centering
-%     \input{graphics/tikz/perceptron_xor_test2}
-%     \captionsetup{format=hang} % hanging captions
-%     \caption{
-%         \textbf{Multi-layer perceptron mapping for an arbitrary network}
-%         with $\gls{dl:L}=2$ and $\{\gls{np:dim}[_\gls{fn:in}],n_h^{[1]},n_y\}=\{2,2,2\}$.
-%     }
-%     \label{fig:mlp-example}
-% \end{figure}
+\begin{figure}[htbp]
+    \centering
+    \input{graphics/tikz/perceptron_xor_test2}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Multi-layer perceptron mapping for an arbitrary network}
+        with $\gls{dl:L}=2$ and $\{\gls{np:dim}[_\gls{fn:in}],n_h^{[1]},n_y\}=\{2,2,2\}$.
+    }
+    \label{fig:mlp-example}
+\end{figure}
 %\newpage
 Deriving the expression for the partial of the cost function with respect to
 $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$ using \autoref{eq:bp:w:2} gives:
@@ -349,19 +300,19 @@ $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$ using \autoref{eq:bp:w:2} gives:
 \end{equation}
 
 
-% \begin{figure}[htbp]
-%     \centering
-%     \input{graphics/tikz/perceptron_xor_test}
-%     \captionsetup{format=hang} % hanging captions
-%     \caption{
-%         \textbf{Multi-layer perceptron mapping for an arbitrary network} with
-%         $\gls{dl:L}=2$ and $\{\gls{np:dim}[_\gls{fn:in}],n_h^{[1]},n_y\}=\{2,2,2\}$ expanded
-%         to show all model parameters and model variables. Emphasis has been
-%         placed on the backpropagation to determine the expression for
-%         $\partial\gls{ml:J}/\partial\gls{dl:z:1:2}$.
-%     }
-%     \label{fig:mlp-example-bp}
-% \end{figure}
+\begin{figure}[htbp]
+    \centering
+    \input{graphics/tikz/perceptron_xor_test}
+    \captionsetup{format=hang} % hanging captions
+    \caption{
+        \textbf{Multi-layer perceptron mapping for an arbitrary network} with
+        $\gls{dl:L}=2$ and $\{\gls{np:dim}[_\gls{fn:in}],n_h^{[1]},n_y\}=\{2,2,2\}$ expanded
+        to show all model parameters and model variables. Emphasis has been
+        placed on the backpropagation to determine the expression for
+        $\partial\gls{ml:J}/\partial\gls{dl:z:1:2}$.
+    }
+    \label{fig:mlp-example-bp}
+\end{figure}
 
 The commonality between the updates of $\gls{dl:w:1:22}$ and $\gls{dl:b:1:2}$
 are immediately clear, motivating the use of the previously mentioned table filling
@@ -430,38 +381,137 @@ as seen in \autoref{fig:mlp-example-bp}, gives:
 \subsection{Activation function\label{activation_fn}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textcolor{red}{(References to the papers presenting the activation functions
-    are missing)}
+The trend of activation functions in neural networks is that more and more non-saturated activation functions are being used to improve the performance of deep neural networks. The main benefit of using these activation functions is that they can help to avoid the so-called vanishing gradient problem, which can impede the convergence speed of a neural network.
 
-A wide variety of activation functions $\phi$ have been used and improve upon
-the threshold step function. The primary concept used in motivating different
-activation functions is the problem of \textbf{vanishing gradient} when using
-deep neural networks. Vanishing gradient is a phenomena that occurs in deep
-neural networks when calculating the partial derivative of the cost function
-with respect to the weights being updated. \autoref{eq:bp-deriv} shows that when
-the gradient of a unit in a layer (e.g. $g'^{\;[2]}$), becomes small
-(learning is nearly complete), the backpropagated gradients to earlier weights
-(e.g. $\gls{dl:w:2:22}$) become increasingly small. This phenomena is worsened
-by activation functions whose gradients are zero in regions of their input
-domain, effectively halting learning.
+There are several different types of activation functions that can be used in deep neural networks. Some of the most common ones include those that follow in this section.
 
-The Sigmoid function (a.k.a. the logistic function) was introduced to replace
-the step function in the initial design of the perceptron
-(\autoref{ssec:perceptrons}), which has no gradients to be exploited by gradient
-descent methods. The sigmoid exhibits problems with vanishing gradients due to
-the saturation that occurs at 0 and 1 in the output, where gradients are
-extremely close to zero. In addition to vanishing gradients, the derivative is
-computationally expensive when networks become large. A similar activation
-function to the Sigmoid, is the hyperbolic tangent (TanH) function, seen in
-\autoref{}. Tanh suffers from the same problems as the Sigmoid. The main
-difference between the two is that the output of TanH is zero centered in the
-range of -1 to 1, which has been known to improve convergence in learning
-\autoref{}. The problems faced by the Sigmoid and TanH functions motivated a
-simpler activation: the ReLU (\autoref{}), which has become the most commonly
-used in the field of \gls{DL}.
+\subsubsection{Sigmoid}\label{ssec:sigmoid}
+    
+The sigmoid function is a saturated activation function that has been used for many years, but it has been shown to have some limitations in terms of its performance. Some key points to take away from the sigmoid activation function include the following:
 
-The sigmoid function (seen in \autoref{}) has been one of the most widely
-used activation functions in machine learning
+\begin{itemize}
+    \item The sigmoid function is a continuous function, which means that it is differentiable everywhere.
+    \item The derivatives of the sigmoid function are easily calculated.
+    \item The sigmoid function was commonly used in shallow neural networks.
+    \item In addition, the sigmoid function is frequently employed in the output level of a neural network owing to its value distribution.
+    \item While the sigmoid function is rarely adopted in deep neural networks except for the output level, it suffers from the limitations of soft saturation.
+\end{itemize}
+
+\subsubsection{Hyperbolic Tangent (TanH)}\label{ssec:hyperbolic_tangent}
+
+The hyperbolic tangent is an example of another saturated activation function that has been used in deep neural networks, but similarly to the sigmoid, it has also been shown to have some limitations in terms of its performance. Some key points to take away from the hyperbolic tangent activation function include the following:
+
+\begin{itemize}
+    \item The hyperbolic tangent function is continuous and monotonic, and it is differentiable everywhere.
+    \item It is symmetric about the origin, of which the outputs, namely the inputs of the next layer, are more likely on average close to zero.
+    \item Neural networks with hyperbolic tangent activation functions converge faster than those with sigmoid activation functions.
+    \item Furthermore, neural networks with hyperbolic tangent activation functions have lower classification errors than those with sigmoid activation functions,
+    \item therefore, the hyperbolic tangent is generally preferred over the use of sigmoid activation functions.
+    \item A disadvantage is that the calculation of the derivatives of hyperbolic tangent functions is more complicated than the sigmoid function. 
+    \item It has the same soft saturation as the sigmoid function, which also has the vanishing gradient problem.
+\end{itemize}
+
+In conclusion, neural networks with hyperbolic tangent activation functions can learn faster than those with sigmoid activation functions. This is because hyperbolic tangent activation functions are more efficient and produce sparse outputs, which is hypothesised as being due to this behaviour more closely resembling the actual operating mode of cortical neurons.
+
+\subsubsection{Rectified Linear Unit (ReLU)}\label{ssec:rectified_linear_unit}
+
+The \gls{RELU} is a non-saturated activation function that is very effective in avoiding the vanishing gradient problem \cite{Hara2015}. Some key advantages of the \gls{RELU} activation function over the sigmoid and hyperbolic tangent activation functions include the following:
+
+\begin{itemize}
+    \item Reduced computational cost compared to sigmoid and hyperbolic tangent functions.
+    \item Faster convergence than saturating activation functions \cite{Hara2015}.
+    \item Easier sparsity in the activations of neuron units. One advantage of the \gls{RELU} activation function is that it allows a network to easily obtain sparse representation. More specifically, the output is 0 when the input x<0, which provides the sparsity in the activation of neuron units and improves the efficiency of data learning. When the input x≥0, the features of the data can be retained largely \cite{Hara2015}.
+    \item Derivatives can be set as constant, improving convergence speed. This avoids being trapped in a local optimum and resolves the vanishing gradient effect that occurred in sigmoid and hyperbolic tangent activation functions \cite{Fahlman1988}.
+    \item Can reach the best performance without unsupervised pre-training \cite{pmlr-v15-glorot11a}.
+\end{itemize}
+
+\subsubsection{Leaky Rectified Linear Unit (LReLU)}\label{ssec:leaky_relu}
+
+\gls{LRELU} is a variant of the \gls{RELU} activation function which aims at addressing the tendency of ``dead (or dying) \gls{RELU}'' neurons occurring as a result of the zero gradients in the negative part of the \gls{RELU} function which halts learning in that region of its domain \cite{Hara2015}. The key points of \gls{LRELU} and other augmented variants are:
+
+\begin{itemize}
+    \item The \gls{LRELU} activation function is a modification of the \gls{RELU} activation function that allows for small negative values when the input is less than zero.
+    \item This allows for a small, non-zero gradient when the unit is saturated and not active, which can help improve the learning process \cite{Maas2013}.
+    \item The PreLU and \gls{RRELU} activation functions are also modifications of the \gls{RELU} function that can help improve learning by preventing vanishing gradients.
+\end{itemize}
+
+\subsubsection{Exponetial Linear Unit (ELU)}
+
+The \gls{ELU} is another non-saturated activation function, and it is even more effective than \gls{RELU} in avoiding the vanishing gradient problem.
+
+\begin{itemize}
+    \item \gls{ELU} has a left-saturation which allows deep neural networks to be more robust to input perturbations or noise.
+    \item The output average of \gls{ELU} is close to zero, which contributes to faster convergence.
+    \item Experimental results have shown that \gls{ELU} can enable faster learning and improved generalization performance, partly due to the output average of an \gls{ELU} approaching zero.
+    \item It has an additional parameter (often denoted as $\alpha$) which manages the value to which an \gls{ELU} saturates for negative network inputs \cite{Maas2013}.
+\end{itemize}
+
+\subsubsection{Swish}\label{ssec:swish}
+
+Swish is a smooth, non-monotonic activation function that outperforms ReLU on deep networks applied to a variety of challenging domains, developed by Google. 
+
+\begin{itemize}
+    \item Its simplicity and similarity to \gls{RELU} means that \glspl{RELU} can be replaced with Swish units in any neural network with ease.
+    \item Its performance in comparison to ReLU, suggests that even when varying the batch size, it outperforms ReLU.
+    \item Swish consistently matches or outperforms ReLU in deep neural network applications in challenging domains (i.e. image classification and machine translation) \cite{Ramachandran2017}.
+    \item Deeper Swish networks can be trained than ReLU variants. This is because Swish has a gradient squishing property, which helps to prevent over-fitting and results in more accurate models. 
+\end{itemize}
+
+\subsubsection{Sinusoidal representation network (SIREN)}\label{ssec:siren}
+
+\gls{SIREN} offers several potential benefits over conventional continuous and discrete representations \cite{Sitzmann2020}, including:
+
+\begin{itemize}
+    \item Accurate representations of natural signals, such as images, audio, and video in a deep learning framework.
+    \item Derivatives and Laplacians of the target signal are implicitly learned when the network is trained on the target signal.
+    \item A single \gls{SIREN} can be trained on the target signal, its derivative, and its Laplacian simultaneously.
+    \item Constrained and unconstrained boundary value problems can be solved robustly using \gls{SIREN}. 
+\end{itemize}
+
+A key success with \glspl{SIREN} is the promising results shown by Izzo et al. \cite{IzzoGeodesyNet2021, IzzoBennu2021} when applied to the modelling of irregularly shaped small bodies with heterogeneous mass distribution, for the reconstruction of the gravitational potential field with and without provided body shapes.
+
+
+% The choice of activation functions in deep networks has a significant effect on
+% the training dynamics and task performance. Currently, the most successful and
+% widely-used activation function is the Rectified Linear Unit (ReLU). Although
+% various hand-designed alternatives to ReLU have been proposed, none have managed to replace it due to inconsistent gains. In this work, we propose to leverage automatic search techniques to discover new activation functions. Using
+% a combination of exhaustive and reinforcement learning-based search, we discover multiple novel activation functions. We verify the effectiveness of the
+% searches by conducting an empirical evaluation with the best discovered activation function. Our experiments show that the best discovered activation function,
+% f(x) = x · sigmoid(βx), which we name Swish, tends to work better than ReLU
+% on deeper models across a number of challenging datasets. For example, simply
+% replacing ReLUs with Swish units improves top-1 classification accuracy on ImageNet by 0.9% for Mobile NASNet-A and 0.6% for Inception-ResNet-v2. The
+% simplicity of Swish and its similarity to ReLU make it easy for practitioners to
+% replace ReLUs with Swish units in any neural network.
+
+% A wide variety of activation functions $\phi$ have been used and improved upon
+% the threshold step function. The primary concept used in motivating different
+% activation functions is the problem of \textbf{vanishing gradient} when using
+% deep neural networks. A vanishing gradient is a phenomenon that occurs in deep
+% neural networks when calculating the partial derivative of the cost function
+% associated with the weights being updated. \autoref{eq:bp-deriv} shows that when
+% the gradient of a unit in a layer (e.g. $g'^{\;[2]}$), becomes small
+% (learning is nearly complete), the backpropagated gradients to earlier weights
+% (e.g. $\gls{dl:w:2:22}$) become increasingly small. This phenomenon is worsened
+% by activation functions whose gradients are zero in regions of their input
+% domain, effectively halting learning.
+
+% The Sigmoid function (a.k.a. the logistic function) was introduced to replace
+% the step function in the initial design of the perceptron
+% (\autoref{ssec:perceptrons}), which has no gradients to be exploited by gradient
+% descent methods. The sigmoid exhibits problems with vanishing gradients due to
+% the saturation that occurs at 0 and 1 in the output, where gradients are
+% extremely close to zero. In addition to vanishing gradients, the derivative is
+% computationally expensive when networks become large. A similar activation
+% function to the Sigmoid is the hyperbolic tangent (TanH) function, seen in
+% \autoref{}. Tanh suffers from the same problems as the Sigmoid. The main
+% difference between the two is that the output of TanH is zero-centred in the
+% range of -1 to 1, which has been known to improve convergence in learning
+% \autoref{}. The problems faced by the Sigmoid and TanH functions motivated a
+% simpler activation: the ReLU (\autoref{}), which has become the most commonly
+% used in the field of \gls{DL}.
+
+% The sigmoid function (seen in \autoref{}) has been one of the most widely
+% used activation functions in machine learning
 
 %\begin{figure}[htbp]
 %    \centering
@@ -469,20 +519,14 @@ used activation functions in machine learning
 %    \caption{Activation functions}
 %    \label{fig:activation}
 %\end{figure}
+\vspace{2em}
 \input{graphics/tikz/activation}
-\textcolor{red}{(Caption needs further elaboration, and the bottom right graph must be removed)}
+% \textcolor{red}{(Caption needs further elaboration, and the bottom right graph must be removed)}
 %
-\newpage
-
 \subsection{Optimisation of Artificial Neural Networks}\label{dl:optimisation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-It was seen in \autoref{eq:} that the partial differential of \gls{ml:J} can be
-expressed with respect to the model parameters of a \gls{MLP}. These first
-order expressions can therefore be used in gradient optimization of the network.
-This is referred to as \textbf{gradient descent}, of which there are three
-variants which differ in their use of the training dataset.
+It was seen in \autoref{ssec:backprop} that the partial differential of \gls{ml:J} can be expressed as a function of the model parameters of an \gls{MLP}. These first-order expressions can therefore be used in gradient optimisation of the network. This is referred to as \textbf{gradient descent}, of which there are three variants which differ in their use of the training dataset.
 
 \begin{itemize}
     \item \textbf{\Gls{GD}}, a.k.a. batch gradient descent or vanilla gradient
@@ -621,7 +665,7 @@ of the squares of all historical gradients of $g_i$, expressed by:
 \end{equation}
 A smoothing factor $\epsilon$ is used to avoid division by zero, typically set
 as $1e-8$. The primary benefit of Adagrad is the elimination of the need to
-manually tune $\gls{dl:lr}$, its is typically set and left at
+manually tune $\gls{dl:lr}$, it is typically set and left at
 $0.01$~\cite{ruder2017overview}. The primary weakness of Adagrad is that the
 accumulated sum of squares of the gradient continuously grows during training,
 causing the learning rate to asymptotically approach zero.
@@ -646,10 +690,10 @@ parameter updates as:
 \begin{equation}
     \begin{aligned}
         \text{RMS}[g]              & = \sqrt{\gls{E} [g^2] + \epsilon} \\
-        \text{RMS}[\Delta{\theta}] & = \sqrt{\gls{E} [\Delta{\theta}^2] + \epsilon} \\
+        \text{RMS}[\Delta{\theta}] & = \sqrt{\gls{E} [\Delta{\theta}^2] + \epsilon}, \\
     \end{aligned}
 \end{equation}
-From which the final expression for the parameter updates are expressed:
+from which the final expression for the parameter updates is expressed:
 \begin{equation}
     \begin{aligned}
         \Delta{\gls{dl:theta}_t} &= - \frac{\text{RMS}[\Delta{\gls{dl:theta}}]_{t-1}}{\text{RMS}[\bm{g}]_t}\cdot{}\bm{g}_t \\
@@ -657,15 +701,11 @@ From which the final expression for the parameter updates are expressed:
     \end{aligned}
 \end{equation}
 The motivation and derivation of the implementation are omitted here but can be
-found in literature \cite{zeiler2012adadelta,ruder2017overview}. The key
+found in literature \cite{zeiler2012adadelta, ruder2017overview}. The key
 takeaway is that there is no need to set the learning rate $\gls{dl:lr}$ to a
-fixed value. \textcolor{red}{(Include personal experience on initial expectation
-of parameter update?)}.
+fixed value.
 
-\textbf{RMSProp}~\cite{JMLR:v12:duchi11a}
-
-\textcolor{red}{(The short paragraph describing RMSProp and its relative
-pros and cons hasn't been written yet.)}
+\textbf{RMSProp}, or root mean square propagation, is a method used to optimize Artificial Neural Networks (ANNs). RMSProp is a learning method that has been growing in popularity among scientists and researchers. It extends the Stochastic Gradient Descent algorithm, as well as the momentum method. Additionally, it forms the foundation of the Adam algorithm \cite{ruder2017overview, JMLR:v12:duchi11a}. The RMSProp derivation is similar to that of Adadelta:
 
 \begin{equation}
     \begin{aligned}
@@ -674,31 +714,36 @@ pros and cons hasn't been written yet.)}
     \end{aligned}
 \end{equation}
 
-\textbf{Adam}~\cite{JMLR:v12:duchi11a}
+An commonly suggested balue for $\gamma$ is $0.9$, and \gls{dl:lr} is often set to $0.001$.
 
-\textcolor{red}{(The description of Adam, and the moment equations haven't
-been written yet.)}
+\textbf{Adam} is a popular, adaptive gradient descent optimization algorithm that has been shown to work well in practice. It maintains a per-parameter learning rate that is adapted based on the average of recent magnitudes of the gradients, which makes it suitable for online and non-stationary problems. It is also computationally efficient and has few memory requirements. It is a combination of the advantages of RMSProp and momentum. The Adam algorithm is expressed as follows:
 
 \begin{equation}
     \begin{aligned}
         m_t &= \beta_1 m_{t-1} + (1-\beta_1)\bm{g}_t \\
-        v_t &= \beta_2 v_{t-1} + (1-\beta_2)\bm{g}_t^2 \\
+        v_t &= \beta_2 v_{t-1} + (1-\beta_2)\bm{g}_t^2, \\
     \end{aligned}
 \end{equation}
+
+where $m_t$ and $v_t$ are estimates of the first moment and the second moment of the gradients respectively. The bias-corrected first and second-moment estimates are given by:
 
 \begin{equation}
     \begin{aligned}
         \hat{m}_t &= \frac{m_t}{1-\beta_1^t} \\
-        \hat{v}_t &= \frac{v_t}{1-\beta_2^t} \\
+        \hat{v}_t &= \frac{v_t}{1-\beta_2^t}, \\
     \end{aligned}
 \end{equation}
+
+where the final update is given by:
 
 \begin{equation}
     \begin{aligned}
         \Delta{\gls{dl:theta}_t} &= - \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} \bm{g}_t \\
-        \gls{dl:theta}_{t+1}       &= \gls{dl:theta}_t + \Delta{\gls{dl:theta}_t}
+        \gls{dl:theta}_{t+1}       &= \gls{dl:theta}_t + \Delta{\gls{dl:theta}_t}.
     \end{aligned}
 \end{equation}
+
+The hyperparameters $\beta_1$ and $\beta_2$ are typically set to $0.9$ and $0.999$ respectively. The hyperparameter $\epsilon$ is typically set to $10^{-8}$ \cite{ruder2017overview}.
 
 \begin{figure}[htp]
     \centering
@@ -707,7 +752,7 @@ been written yet.)}
     \captionsetup{format=hang} % hanging captions
     \caption{
         Vanilla gradient descent methods with an illustration of the effect of
-        varied levels of learning rate (\gls{dl:lr}), in the convergence of the
+        varying levels of learning rate (\gls{dl:lr}), in the convergence of the
         cost function optimization (\gls{ml:J}) with a ravine-like topology. a)
         shows a very slow convergence with a constant low setting of
         $\gls{dl:lr}$. b) shows an overshooting of the minimum with a constant
@@ -717,16 +762,9 @@ been written yet.)}
     }
     \label{fig:vanilla-gd-learning}
 \end{figure}
-It should be noted that in addition to these, there are the popular
-\textbf{AdaMax} and \textbf{Nadam} \cite{ruder2017overview} methods. The AdaMax
-algorithm is a generalization of the Adam algorithm, which uses $\ell_2$ norms,
-allowing formulation with any $\ell_p$ norm. The Nadam algorithm incorporates a
-combination of the elements used in the \gls{NAG} and Adam algorithms. These
-algorithms are not included here as their use is sparse throughout literature,
-rather the RMSProp and Adam algorithms are most commonly used.
-%\textcolor{red}{More motivation here}
+There are the popular \textbf{AdaMax} and \textbf{Nadam} \cite{ruder2017overview} methods. The AdaMax algorithm is a generalisation of the Adam algorithm, which uses $\ell_2$ norms, allowing formulation with any $\ell_p$ norm. The Nadam algorithm incorporates a combination of the elements used in the \gls{NAG} and Adam algorithms. Adam is predominantly used in the literature, and while acknowledging these alternatives exist, they are omitted here. There also exists another branch of optimization algorithms, which are categorised under ``learning to optimise'' \cite{Li2017}. An arbitrary example of this is the inclusion of a learned learning rate during the training process. 
 
-\textbf{Learning to Optimize}: \cite{ruder2017overview,Li2017}
+% \textbf{Learning to Optimize}: \cite{ruder2017overview,Li2017}
 
 %
 %\subsection{Gradient based learning}
@@ -778,121 +816,70 @@ rather the RMSProp and Adam algorithms are most commonly used.
 %%\subsection{Backpropagation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%
 \subsection{Common Frameworks and Techniques}
-
 
 \subsubsection{Convolutional Neural Networks (CNNs)\label{ssec:cnn}}
 
-\textcolor{red}{(Short section on how CNNs refine the hypothesis of the
-    mapping towards spacial features.)}
+Convolutional Neural Networks are a machine learning framework used for pattern recognition within images. They differ from traditional ANNs in that they focus on local image features, which allows for simpler network architecture. Additionally, \glspl{CNN} often use the \glspl{RELU} (\autoref{ssec:rectified_linear_unit}) function, which has been found to improve performance. \glspl{CNN} are composed of three primary types of layers: convolutional layers, pooling layers, and fully-connected layers. A \glspl{CNN} architecture is formed when these components are stacked. The input layer holds the pixel values of the image, the convolutional layer produces activations based on local regions of the input, the pooling layer downsamples the activations, and the fully-connected layer produces class scores from the activations. By transforming the input in this way, \glspl{CNN} can produce class scores for classification and regression purposes. See \autoref{fig:cnn} for an illustration of the architecture.
 
 \begin{figure}[h]
     \centering
+    \captionsetup{format=hang} % hanging captions
     \includegraphics[width=\textwidth]{graphics/cnn_banner.png}
-    \caption{\textcolor{red}{(Need to get add reference for diagram and add caption)}}
+    \caption{General architecture of a \gls{CNN}: convolutional layers, pooling layers, and fully-connected layers are stacked and transformed to produce class scores for the classification of a given image (e.g. A zebra). Image taken from Analytics Vidya \cite{vidhya_2022}.}
+    \label{fig:cnn}
 \end{figure}
 
-\subsubsection{Recurrent Neural Networks (RNNs)\label{ssec:rnn}}
+\subsubsection{Recurrent Neural Networks (RNNs)}\label{ssec:rnn}
 
-\textcolor{red}{(Short section on how RNNs refine the hypothesis of the
-    mapping towards sequential features.)}
+\Glspl{RNN} are a type of neural network that is mainly used to detect patterns in a sequence of data. This type of network is often applied to areas such as handwriting recognition, speech recognition, and image description. \Glspl{RNN} are distinguished from other types of neural networks by their ability to pass information back into themselves, which allows for the detection of patterns in data over time \cite{Schmidt2019}. \autoref{fig:rnn-unrolled} depicts the chain-like nature of \glspl{RNN} when shown as ``unrolled''.
 
 \begin{figure}[h]
     \centering
+    \captionsetup{format=hang} % hanging captions
     \includegraphics[width=0.7\textwidth]{graphics/RNN-unrolled.png}
-    \caption{\textcolor{red}{(Need to get add reference for diagram and add caption)}}
+    \caption{\cite{Colah2015}}
+    \label{fig:rnn-unrolled}
 \end{figure}
 
-\textcolor{red}{(Short section on LSTMs and how they excel in long term
-    sequential features compared to vanilla RNNs.)}
+The vanishing gradient problem is a difficulty that traditional \glspl{RNN} face in learning over a lot of timesteps. This is because the error between the predicted and actual values decreases as each step is taken, making it difficult for the network to learn from its mistakes. \Glspl{LSTM} are designed to overcome this problem by using a more consistent error.
+
+\Glspl{LSTM} are a type of \gls{RNN} that is specifically designed to handle the vanishing gradient problem. They use a more constant error, allowing RNNs to learn over a lot more timesteps. To achieve this, LSTMs store more information outside of the traditional neural network flow in structures called gated cells. This allows them to remember information for long periods, which is something traditional \glspl{RNN} struggle with. \autoref{fig:lstm-chain} depicts the architecture of an \gls{LSTM} cell which has an input gate, an output gate, and a forget gate. A well-known and well-regarded introduction to \glspl{LSTM} in \gls{DL} is given by Colah \cite{Colah2015}, with a focus on the intuition behind the architecture.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/LSTM3-chain.png}
+    \caption{\cite{Colah2015}}
+    \label{fig:lstm-chain}
+\end{figure}
+
 
 \subsubsection{Generative Adversarial Networks (GANs)\label{ssec:gan}}
 
-\textcolor{red}{(Short section how GANs learn to model a probability
-    distribution such that one can draw synthetically generated samples
-    from said distribution.)}
+First proposed by Goodfellow et al. \cite{Goodfellow2014} \glspl{GAN} have provided an innovative approach to solutions to numerous problems without extensively annotated training data \cite{Creswell2017}. These applications include semantic image editing, style transfer, image synthesis, image super-resolution and classification. \glspl{GAN} learn by deriving back propagation signals from a competitive process between two networks. The representations learned by \glspl{GAN} can be used for several different applications as detailed below \cite{Alqahtani2021}. A detailed tutorial on \glspl{GAN} were provided by Goodfellow \cite{Goodfellow2016} during \gls{NIPS} 2016.
 
-\newpage\subsection{Deep Learning in Space Exploration}
+\begin{itemize}
+    \item \textbf{Semantic image editing}: Image editing is the process of altering a digital image. Common transformations include cropping, resizing, exposure adjustment, colour correction, straightening, Perspectives etc. \Gls{GAN}-based models have been used for semantic image editing which means automatically adding or removing objects from images. This can be done by first generating an object conditioned on the input image and then blending it with the original image. 
+    \item \textbf{Style transfer}: In this application, the style of one image is transferred to the content of another to create a new ``stylized'' image that contains the content of the first but the style of the second. The style can be described by various statistics of the image such as colour, texture, and spatial statistics of the feature representations.
+    \item \textbf{Image synthesis}: Image synthesis is the process of generating new images from scratch. This can be done by first creating a latent space that contains all the possible variations of images and then sampling from this space to generate new images. \Glspl{GAN} have been used for image synthesis by learning a latent space from real images and then generating new images by sampling from this space.
+    \item \textbf{Image super-resolution}: Image super-resolution is the process of upscaling an image to improve its resolution. This can be done by first training a \gls{GAN} to generate high-resolution images from low-resolution images and then using this model to upscale the input image.
+    \item \textbf{Image classification}: Image classification is the task of assigning a label to an image. This can be done by training a classifier on real images and then using this classifier to label new images. \Glspl{GAN} have been used for image classification by training a \gls{GAN} to generate images from a given class label and then using this model to classify new images.
+\end{itemize}
 
-Disregarding the disagreements of whether space should be privatised or remain
-only in the public sector, the uncertain economic returns of space exploration
-are well known to be a key hindrance to progress in the field. Space
-exploration is expensive, and this uncertainty of return is unattractive to
-profit-seeking companies, leaving stakeholders far and few between. As a result,
-the most successful results from \gls{DL} are rarely used in space exploration
-due to neural networks not being human readable~\cite{esa_ai}. Interpretation of
-neural networks have come a far way however, but require a deep understanding
-of the problem domain for effective understanding of the way in which the
-network is approaching its given task~\cite{Montavon2018, Sheu2020,
-goh2021multimodal, molnar_2022}. The tasks most interpretable tend to be those
-most relatable to the human mind, such as language
-processing
-\cite{belinkov-etal-2020-interpretability, DBLP:journals/corr/abs-2108-04840},
-and visual pattern recognition \cite{DBLP:journals/corr/abs-1802-00121}.
+\subsection{Deep Learning in Space Exploration}
+
+Disregarding the disagreements on whether space should be privatised or remain only in the public sector, the uncertain economic returns of space exploration are well known to be a key hindrance to progress in the field. Space exploration is expensive, and this uncertainty of return is unattractive to profit-seeking companies, leaving stakeholders far and few between. As a result, the most successful results from \gls{DL} are rarely used in space exploration due to neural networks not being human-readable~\cite {esa_ai}. Interpretation of neural networks have come a far way, however, but requires a deep understanding of the problem domain for an effective understanding of how the network is attempting to optimise for its given task~\cite{Montavon2018, Sheu2020, goh2021multimodal, molnar_2022}. The tasks most interpretable tend to be those most relatable to the human mind, such as language processing \cite{belinkov-etal-2020-interpretability, DBLP:journals/corr/abs-2108-04840}, and visual pattern recognition \cite{DBLP:journals/corr/abs-1802-00121}.
 
 \gls{DL} in space exploration has been a popular topic of research in recent
 years, some examples of the learning tasks have followed directly from
 promising methods in the following areas:
 
 \begin{itemize}
-    \item \textbf{Search for celestial patterns}: The detection of bodies in
-          the solar system is dependent upon the size, distance from Earth, and
-          albedo of the body in question. For asteroids, their albedos range
-          from 0.03, for C-type asteroids, to 0.22 for S-type
-          \cite{planetary_data}. These conditions result in a situation where
-          expensive manual surveys are required to sift through large amounts of
-          data in order to find potential detections. A recent trend in this
-          area is the use of deep learning to find patterns in the data
-          indicating the presence of these bodies. \glspl{CNN} have been used to
-          detect asteroid trails in Hubble Space Telescope data
-          \cite{parfeni2020detection}, and a two-stage detection-classification
-          framework in the Asteroid Terrestial-impact Last Alert System (ATLAS)
-          survey \cite{Chyba_Rabeendran_2021}. The reported accuracies on
-          test data is promising, bringing humanity one step closer to
-          autonomous detection of potentially hazardous (or opportunistic)
-          asteroids. The applications of \gls{DL} have not been strictly limited
-          to our Solar System, with exoplanet detection also showing promising
-          results with limited datasets \cite{bird2020model}.
+    \item \textbf{Search for celestial patterns}: The detection of bodies in the solar system is dependent upon the size, distance from Earth, and albedo of the body in question. For asteroids, their albedos range from 0.03, for C-type asteroids, to 0.22 for S-type \cite{planetary_data}. These conditions result in a situation where expensive manual surveys are required to sift through large amounts of data in order to find potential detections. A recent trend in this area is the use of deep learning to find patterns in the data indicating the presence of these bodies. \glspl{CNN} have been used to detect asteroid trails in Hubble Space Telescope data \cite{parfeni2020detection}, and a two-stage detection-classification framework in the Asteroid Terrestial-impact Last Alert System (ATLAS) survey \cite{Chyba_Rabeendran_2021}. The reported accuracies on test data are promising, bringing humanity one step closer to autonomous detection of potentially hazardous (or opportunistic) asteroids. The applications of \gls{DL} have not been strictly limited to our Solar System, with exoplanet detection also showing promising results with limited datasets \cite{bird2020model}.
 
-    \item \textbf{Uncooperative space objects}: A big threat to our future in
-          space is the abundant presence of space debris trapped in orbit around
-          Earth, which grows steadily as time passes, increasing the risk of a
-          cascading series of collisions resulting in the Kessler Syndrome
-          \cite{https://doi.org/10.1029/JA083iA06p02637}. This condition would
-          have devastating consequences on our future presence in space. One of
-          many required potential measures is the de-orbiting of larger space
-          debris to avoid the risk of collision leading to smaller and less
-          predictable debris. The use of deep learning to detect, classify, and
-          track decommissioned spacecraft is a promising approach to the series
-          of challenges in de-orbiting an uncooperative object. Space object
-          classification \cite{doi:10.1177/0954410021996129, 8009786}, and
-          pose estimation \cite{Afshar2020, Ren2020} are key learning tasks in this
-          area of ongoing research, making extensive use of \glspl{CNN}.
+    \item \textbf{Uncooperative space objects}: A big threat to our future in space is the abundant presence of space debris trapped in orbit around Earth, which grows steadily as time passes, increasing the risk of a cascading series of collisions resulting in the Kessler Syndrome \cite{https://doi.org/10.1029/JA083iA06p02637}. This condition would have devastating consequences on our future presence in space. One of many required potential measures is the de-orbiting of larger space debris to avoid the risk of a collision leading to smaller and less predictable debris. The use of deep learning to detect, classify, and track decommissioned spacecraft is a promising approach to the series of challenges in de-orbiting an uncooperative object. Space object classification \cite{doi:10.1177/0954410021996129, 8009786}, and pose estimation \cite{Afshar2020, Ren2020} are key learning tasks in this area of ongoing research, making extensive use of \glspl{CNN}.
 
-    \item \textbf{Small body dynamics}: The mass distribution of asteroids are
-           often heterogeneous and their shape far-off from spherical,
-           spheroidal and ellipsoidal, presenting challenges when applying the
-           trick of the trade in gravitational potential modelling, namely:
-           spherical/spheroidal harmonics, and ellipsoidal harmonics. This
-           was mentioned and discussed briefly in \autoref{sec:dynamic_modelling}
-           \textcolor{red}{(section on environment models)}. \gls{DL} shows promise
-           in the area of asteroid dynamics, steadily progressing in the
-           research community \cite{carruba2022machine}. One promising new
-           alternative in gravitational potential modelling is the use of
-           neural networks to model the mass density of a body, using neural
-           density networks \cite{DBLP:journals/corr/abs-1802-00121}. The
-           results of Izzo et al. in the latter task are particularly promising,
-           as they have demonstrated that artificial neural networks can be used
-           accurate geodetic models of highly irregular bodies given minimal
-           prior information on the body. Their novel method is referred to as
-           using a geodesyNet, which is a neural network that learns a
-           three-dimensional, differentiable mapping of the body's density, that
-           the authors refer to as a neural density
-           field~\cite{IzzoGeodesyNet2021}. An interesting design choice in
-           geodesyNet is the use of sine waves as activation functions, which
-           had been notoriously difficult to train due to their periodic, and
-           non monoticity (See \autoref{activation_fn}).
+    \item \textbf{Small body dynamics}: The mass distribution of asteroids is often heterogeneous and their shape is far off from spherical, spheroidal and ellipsoidal, presenting challenges when applying the trick of the trade in gravitational potential modelling, namely: spherical/spheroidal harmonics, and ellipsoidal harmonics. This is discussed briefly in \autoref{sec:gravitational_potential}. \gls{DL} shows promise in the area of asteroid dynamics, steadily progressing in the research community \cite{carruba2022machine}. One promising new alternative in gravitational potential modelling is the use of neural networks to model the mass density of a body, using neural density networks \cite{DBLP:journals/corr/abs-1802-00121}. The results of Izzo et al. in the latter task are particularly promising, as they have demonstrated that artificial neural networks can be used in accurate geodetic models of highly irregular bodies given minimal prior information on the body. Their novel method is referred to as using a geodesyNet, which is a neural network that learns a three-dimensional, differentiable mapping of the body's density, that the authors refer to as a neural density field~\cite{IzzoGeodesyNet2021}. An interesting design choice in geodesyNet is the use of sinusoidal wave functions as activation, discussed in \autoref{ssec:siren}, which had previously been notoriously difficult to train due to their periodic, and non-monotonicity.
 
 %    \item This novel approach is generic and can be used to
 %           analyze geodetic properties of the body and even infer its body shape.
@@ -913,12 +900,12 @@ promising methods in the following areas:
 
 %            \begin{equation}
 
-            \begin{figure}[h]
-                \centering
-                \includegraphics[width=0.8\linewidth]{graphics/geodesynet-example}
-                \caption{GeodesyNet~\cite{IzzoGeodesyNet2021}}
-                \label{fig:geodesy-net}
-            \end{figure}
+            % \begin{figure}[h]
+            %     \centering
+            %     \includegraphics[width=0.8\linewidth]{graphics/geodesynet-example}
+            %     \caption{GeodesyNet~\cite{IzzoGeodesyNet2021}}
+            %     \label{fig:geodesy-net}
+            % \end{figure}
 
 
 %    \item \cite{Takahashi2014}
@@ -927,10 +914,10 @@ promising methods in the following areas:
 %    outside of the body. One set is used to model the gravitational potential
 %    outside the Brillouin (i.e., circumscribing) sphere of the body.
 
-    \item \textbf{Low-thrust trajectory optimization}:
-    \textcolor{red}{(Majority of these applications are RL, short description will be here, with most in next chapter, this applies to varying degrees, to the following two points as well)}
-    \item \textbf{Trajectory sequence planning}
-    \item \textbf{Spacecraft autonomous control}
+    \item \textbf{Spacecraft trajectory optimization}:
+    Deep reinforcement learning has shown promise in the field of spacecraft guidance and trajectory optimisation \cite{Kolosa2019, Hovell2020}, the algorithms used are discussed further in \autoref{sec:reinforcement_learning}.
+    % \item \textbf{Trajectory sequence planning}
+    % \item \textbf{Spacecraft autonomous control}
 \end{itemize}
 %
 %been toward autonomy in docking

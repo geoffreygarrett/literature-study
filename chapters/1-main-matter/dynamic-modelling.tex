@@ -1,17 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Dynamic Modelling}
+\chapter{Dynamic Modelling}\label{chap:dynamic_modelling}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section covers the kinetic modelling of a spacecraft in the vicinity of an
-asteroid. Throughout the mathematical description of the considered dynamics,
-design choices are motivated with regards their respective effects on simulation
-fidelity and computational complexity. The spacecraft's \textbf{rotational
-kinetics} can be modelled through the use of Newton's second law applied in the
-inertial frame (superscripted as "I") as
-$\frac{d}{dt}(\mathbf{I}^I\mathbf{\omega})=\mathbf{M}^I$. This is however not
-helpful as $\mathbf{\omega}$ and $I^I$ can change during the motion. Instead it
-is preferred to use Euler's equations describing the rotation of a rigid body,
-using a rotating reference frame attached to its principal axes of inertia:
+This section covers the kinetic modelling of a spacecraft in the vicinity of an asteroid. Throughout the mathematical description of the considered dynamics, design choices are motivated by their respective effects on simulation fidelity and computational complexity. The spacecraft's \textbf{rotational kinetics} can be modelled through the use of Newton's second law applied in the inertial frame (superscripted as "I") as $\frac{d}{dt}(\mathbf{I}^I\mathbf{\omega})=\mathbf{M}^I$. This is however not helpful as $\mathbf{\omega}$ and $I^I$ can change during the motion. Instead, it is preferred to use Euler's equations describing the rotation of a rigid body, using a rotating reference frame attached to its principal axes of inertia:
 
 \begin{equation}
 {\displaystyle \mathbf {I} {\dot {\boldsymbol {\omega }}}+{\boldsymbol {\omega }}\times \left(\mathbf {I} {\boldsymbol {\omega }}\right)=\mathbf {M},}
@@ -35,32 +26,7 @@ Expansion of \autoref{eq:euler_rotation} in three-dimensional principle orthogon
 \end{aligned}}
 \end{equation}
 
-In physical reality, the instantaneous thrust control capabilities of a
-spacecraft are heavily dependent upon the current attitude of the spacecraft.
-This coupling is key in guidance strategies that ensure mission success in the
-short-term, such as docking in spacecraft rendezvous \cite{Hovell2021}. High
-model fidelity is always desirable, however the cost of modelling the rotational
-kinematics of a spacecraft is an approximate twofold expense in computational
-complexity. It is therefore common for the rotational kinematic modelling of a
-spacecraft to be assumed as decoupled from the translational kinematics for
-long-term horizon guidance and control strategies. Further motivation for the
-omission of the rotational kinematics is the \textit{curse of dimensionality}, a
-term coined by Richard E. Bellman \cite{bellman1957dynamic}
-\cite{bellman1961adaptive}. This phenomena occurs in many domains and can be
-described as the effect of increased sparsity when increasing the dimensions of
-data, as less volume is filled by the data in the volume spanned by the
-increased dimensions. The spacecraft's \textbf{translational kinetics} can be
-effectively modelled using Newton's second law in the inertial frame as
-$\frac{d}{dt}(m\textbf{v}^I)=\textbf{F}^I$. There are a plethora of forces
-incident upon a spacecraft in interplanetary space, however a majority of their
-magnitudes are of such a low order that their effects can be considered
-negligible in most cases. This coupled with the fact that it is superfluous to
-model effects on the spacecraft's kinetics that are of magnitudes lower than
-than what is discernible with the navigation sensors. This extends to parameter
-estimation in that the magnitude of these effects would be negligible compared
-to measurement noise. \autoref{tab:acc_effects} shows the effect of omitting
-specific acceleration models on the final state of an asteroid mission with the
-approximate parameters taken from the NEAR Shoemaker mission.
+In physical reality, the instantaneous thrust control capabilities of a spacecraft are heavily dependent upon the current attitude of the spacecraft. This coupling is key in guidance strategies that ensure mission success in the short-term, such as docking in spacecraft rendezvous \cite{Hovell2021}. High model fidelity is always desirable, however, the cost of modelling the rotational kinematics of a spacecraft is an approximate twofold expense in computational complexity. It is therefore common for the rotational kinematic modelling of a spacecraft to be assumed as decoupled from the translational kinematics for long-term horizon guidance and control strategies. Further motivation for the omission of the rotational kinematics is the \textit{curse of dimensionality}, a term coined by Richard E. Bellman \cite{bellman1957dynamic} \cite{bellman1961adaptive}. This phenomenon occurs in many domains and can be described as the effect of increased sparsity when increasing the dimensions of data, as less volume is filled by the data in the volume spanned by the increased dimensions. The spacecraft's \textbf{translational kinetics} can be effectively modelled using Newton's second law in the inertial frame as $\frac{d}{dt}(m\textbf{v}^I)=\textbf{F}^I$. There are a plethora of forces incident upon a spacecraft in interplanetary space, however, a majority of their magnitudes are of such a low order that their effects can be considered negligible in most cases. This is coupled with the fact that it is superfluous to model effects on the spacecraft's kinetics that are of magnitudes lower than what is discernible with the navigation sensors. This extends to parameter estimation in that the magnitude of these effects would be negligible compared to measurement noise. \autoref{tab:acc_effects} shows the effect of omitting specific acceleration models on the final state of an asteroid mission with the approximate parameters taken from the NEAR Shoemaker mission.
 
 \begin{table}
     \caption{
@@ -86,19 +52,9 @@ approximate parameters taken from the NEAR Shoemaker mission.
     \end{tabular}
 \end{table}
 
-It is evident from \autoref{tab:acc_effects} that the most influential effect on
-the kinetics of the spacecraft other than the trivial inclusion of the
-point-mass acceleration due to Eros within these mission parameters is the solar
-radiation pressure (SRP). It is therefore computationally beneficial, with
-minimal impact on the holistic result of the control and guidance, to exclude
-all sources of acceleration other than thrust, solar radiation pressure and the
-gravitational potential of the target asteroid.
+It is evident from \autoref{tab:acc_effects} that the most influential effect on the kinetics of the spacecraft other than the trivial inclusion of the point-mass acceleration due to Eros within these mission parameters is the solar radiation pressure (SRP). It is therefore computationally beneficial, with minimal impact on the holistic result of the control and guidance, to exclude all sources of acceleration other than thrust, solar radiation pressure and the gravitational potential of the target asteroid.
 
-As mentioned in \autoref{ssec:frame_rtn}, the use of the RSW frame for thrust
-control provides significant insight into the effects incurred on the Keplerian
-elements of an orbit. In the same way that the effects of thrust in this frame
-provides meaningful insight to an astrodynamicist, it can be postulated that the
-learnability may be improved for an arbitrary machine learning algorithm.
+As mentioned in \autoref{ssec:frame_rtn}, the use of the RSW frame for thrust control provides significant insight into the effects incurred on the Keplerian elements of an orbit. In the same way that the effects of thrust in this frame provides meaningful insight to an astrodynamicist, it can be postulated that the learnability may be improved for an arbitrary machine learning algorithm.
 
 % \begin{equation}
 %     \ddot{\mathbf{r}}=-2\bm{\omega}\times\dot{\mathbf{r}}-\dot{\bm{\omega}}\times\mathbf{r}-\bm{\omega}\times(\bm{\omega}\times\mathbf{r})+\sum{\mathbf{a}}
@@ -167,13 +123,7 @@ learnability may be improved for an arbitrary machine learning algorithm.
 \section{Solar Radiation Pressure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The simplest method of modelling the effect of solar radiation pressure without
-consideration for rotational kinetics can be done using a cannonball radiation
-model. This model assumes a constant radiation coefficient regardless of the
-orientation of the spacecraft with no torque effects. This behaviour is
-identical to that of an object that has spherically symmetric mass distribution,
-hence the term "cannonball". In inertial space $\{X_I\}$, this model is
-expressed as
+The simplest method of modelling the effect of solar radiation pressure without consideration for rotational kinetics can be done using a cannonball radiation model. This model assumes a constant radiation coefficient regardless of the orientation of the spacecraft with no torque effects. This behaviour is identical to that of an object that has spherically symmetric mass distribution, hence the term "cannonball". In inertial space $\{X_I\}$, this model is expressed as:
 
 \begin{equation}
     \mathbf{a}_{SRP}=-\Xi{}P_\Sun{C}_R\frac{A}{m}\frac{\mathbf{r}_{\Sun}}{|\mathbf{r}_\Sun|^3}AU^2
@@ -271,7 +221,7 @@ The acceleration contribution due to thrust is then
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Gravitational Potential}
+\section{Gravitational Potential}\label{sec:gravitational_potential}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The acceleration due the gravitational potential of a body in inertial space $\{X^I\}$ is expressed as,

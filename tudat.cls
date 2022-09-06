@@ -146,10 +146,10 @@
 \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0pt}
 
 % subsubsections
-%\titleformat{\subsubsection}
-%{\normalsize\bfseries\singlespacing}
-%{\thesubsubsection.\space}{0pt}{#1}[]
-%\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
+\titleformat{\subsubsection}
+{\normalsize\bfseries\singlespacing}
+{\thesubsubsection.\space}{0pt}{#1}[]
+\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
 
 \setlength{\abovedisplayskip}{\baselineskip}
 \setlength{\belowdisplayskip}{\baselineskip}

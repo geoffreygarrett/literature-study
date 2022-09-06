@@ -1,69 +1,54 @@
 \section{Fundamentals of Machine Learning}\label{sec:fundamentals_of_machine_learning}
 
 
-This section discusses the fundamentals of \gls{ML}, which underpin all \gls{ML} algorithms. In this first part of our discussion (\cref{ssec:learning_algorithms}), we look at what it means for an algorithm to "learn" and the kinds of experiences used in learning that form the taxonomy of machine learning. The types of datasets encountered in these learning algorithms are then briefly covered to provide insight into the potential applications that are not covered in this review. This is followed by distinguishing between the goal of fitting training data and finding patterns that generalise to new data. Finally, a ubiquitous concept in machine learning is covered: \textit{hyperparameters}, which are \textit{settings} of a learning algorithm which must be determined outside the learning algorithm itself.
+% This section discusses the fundamentals of \gls{ML}, which underpin all \gls{ML} algorithms. In this first part of our discussion (\autoref{ssec:learning_algorithms}), we look at what it means for an algorithm to "learn" and the kinds of experiences used in learning that form the taxonomy of machine learning. The types of datasets encountered in these learning algorithms are then briefly covered to provide insight into the potential applications that are not covered in this review. This is followed by distinguishing between the goal of fitting training data and finding patterns that generalise to new data. Finally, a ubiquitous concept in machine learning is covered: \textit{hyperparameters}, which are \textit{settings} of a learning algorithm which must be determined outside the learning algorithm itself.
 
-This section provides a brief overview of the fundamentals of \gls{ML}, which apply to all \gls{ML} algorithms. To begin, we must first comprehend what it means for an algorithm to "learn." The sorts of data these algorithms work with are then evaluated to provide more information on the possible applications that aren't directly addressed here. Finally, one of the most fundamental concepts in machine learning is outlined: hyperparameters, which are settings for a learning algorithm that must be determined outside of the learning algorithm itself.
+This section provides a brief overview of the fundamentals of \gls{ML}, which apply to all \gls{ML} algorithms. Firstly, \autoref{ssec:learning_algorithms} covers what it means for an algorithm to ``learn.'', common learning tasks (T), performance measures (P), and experiences (E) that learning algorithms encounter. \autoref{sec:capoverunder} consolidates an understanding of ``capacity'', ``overfitting'' and ``underfitting'' and how they are influenced by the quantity of available data and our selection of models in our goals of capturing the data's underlying distribution. Finally, \autoref{ssec:hyperparameters_and_validation_sets} outlines the critical concept of ``hyperparameters'', which are settings for a learning algorithm that must be determined independently of the learning process itself.
 
 \subsection{Learning algorithms}\label{ssec:learning_algorithms}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Generally speaking, a machine learning algorithm is a procedure for learning from data. However correct this definition is, it provides little insight into the relevant concepts in the field. A more succinct definition is provided by Carnegie Mellon University professor Tom Mitchell~\cite{Mitchell97LearningAlgorithm}:
 
 \begin{quote}
-    A computer program is said to learn from experience $E$ with respect
-    to some class of tasks $T$ and a performance measure $P$, if its performance
-    at tasks in $T$, as measured by $P$, improves with experience $E$.
+    A computer program is said to learn from experience $E$ with respect to some class of tasks $T$ and a performance measure $P$, if its performance at tasks in $T$, as measured by $P$, improves with experience $E$.
 \end{quote}
 
-This definition introduces the entities present during all
-machine learning tasks. The entities will not be formally defined in the
-following sections as it is far outside the scope of this literature and is
-philosophical in nature. This section will instead cover examples of each, which
-will provide practical insight on which the reader can build their knowledge.
+This definition introduces the entities present during all machine learning tasks. The entities will not be formally defined in the following sections as it is far outside the scope of this literature and is philosophical. This section will instead cover examples of each, which will provide practical insight on which the reader can build their knowledge.
 
 \subsubsection{The Task, $T$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 There exist a plethora of tasks to which humanity has applied learning algorithms to during the timeline of the field. It is common for \gls{ML} practitioners to originate from domains outside that of computer science in order to assess the feasibility of existing algorithms in their domain. There is, however, a question that often presents itself to specialists in their respective fields when they consider applying \gls{ML} to the existing problems in their field. Why should a specialist opt for solving problems with \gls{ML} that have been solved using tried and true techniques in their domain of expertise? Goodfellow et al. \cite{Goodfellow-et-al-2016} provide an insightful response to this:
 
 \begin{quote}
-    Machine learning enables us to tackle tasks that are too difficult
-    to solve with fixed programs written and designed by human beings. From a
-    scientific and philosophical point of view, machine learning is interesting
-    because developing our understanding of it entails developing our
-    understanding of the principles that underlie intelligence.
+    Machine learning enables us to tackle tasks that are too difficult to solve with fixed programs written and designed by human beings. From a scientific and philosophical point of view, machine learning is interesting because developing our understanding of it entails developing our understanding of the principles that underlie intelligence.
 \end{quote}
 
-An example of a field which has undergone dramatic changes in a short period of
-time, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et
-al. discuss this in their paper with a focus on comparing \gls{DL} and \gls{CV}
-\cite{Mahony-et-al-2020}. Their paper concludes that many \gls{CV} techniques
-invented in the 20 years preceding the paper have become irrelevant as a result
-of \gls{DL}. However, they emphasise the importance of the knowledge
-established in those 20 years, arguing that \textit{``knowledge is never
-obsolete''}, as it provides specialists with more tools and intuition when
-addressing problems. Some typical applications of \gls{CV} are detailed, and
-although these may be outperformed by \gls{DL}, relying on \gls{DL} in some
-cases is overkill. They also point out some hybrid approaches between \gls{DL}
-and \gls{CV} which synergise, saying that \gls{CV} provides improved performance
-in \gls{DL} by reducing training time. This emphasises that specialists should
-not expect an end-all solution from \gls{ML} in addressing their domain-specific
-problems, but rather as mentioned by Goodfellow et al., strive for a better
-understanding of the principles that underlie intelligence and, by extension,
-those that underlie the practitioner's domain-specific problems.
+An example of a field which has undergone dramatic changes in a short period, with the advent of \gls{DL} and modern hardware, is \gls{CV}. Mahony et al. discuss this in their paper with a focus on comparing \gls{DL} and \gls{CV} \cite{Mahony-et-al-2020}. Their paper concludes that many \gls{CV} techniques invented in the 20 years preceding the paper have become irrelevant as a result of \gls{DL}. However, they emphasise the importance of the knowledge established in those 20 years, arguing that \textit{``knowledge is never obsolete''}, as it provides specialists with more tools and intuition when addressing problems. Some typical applications of \gls{CV} are detailed, and although these may be outperformed by \gls{DL}, relying on \gls{DL} in some cases is overkill. They also point out some hybrid approaches between \gls{DL} and \gls{CV} which synergise, saying that \gls{CV} provides improved performance in \gls{DL} by reducing training time. This emphasises that specialists should not expect an end-all solution from \gls{ML} in addressing their domain-specific problems, but rather as mentioned by Goodfellow et al., strive for a better understanding of the principles that underlie intelligence and, by extension, those that underlie the practitioner's domain-specific problems.
 
 \begin{itemize}
     \item \textbf{Classification}: In this task, the learning algorithm is expected to produce a function $f: \gls{set:R}[^\gls{np:n}]\gls{fn:maps} \{1,...,k\}$. When $y=f(\mathbf{x})$, the model assigns a provided input, $\mathbf{x}$ to a category identified by numeric code $y$. An example of this would be the mapping of a grayscale image, $\mathbf{x}\in\gls{set:R}^2$ to a value corresponding to a numerical encoding $f:\gls{set:R}^n\rightarrow\{\textrm{Cat},\;\textrm{Dog}\}$.
+
     \item \textbf{Classification with missing inputs}: Classification becomes more challenging when the model input measurements are not always guaranteed to be the same. In this situation, the algorithm must learn the set of all function mappings arising from the possible combinations of input vectors that arise from missing subsets of inputs in $\mathbf{x}$. An example of this would be the classification of a medical diagnosis, as depending on the invasiveness of certain procedures, different subsets of measurements are available.
+
     \item \textbf{Regression}: In this task, the learning algorithm is expected to predict a continuous numerical value for a given input. This is done by learning a function $f: \gls{set:R}^n\rightarrow\gls{set:R}$. the formulation is similar to classification, except for the output format. An example of this would be learning a function to predict the expected returns for a given investment given the state of the market, as is common in algorithmic trading.
+
     \item \textbf{Transcription}: This type of task involves the learning algorithm observing a relatively unstructured input and transcribing it into some discrete textual form. An example is the transcription of an audio waveform containing speech into text.
+
     \item \textbf{Machine translation}: In machine translation, the already structured input is mapped into a different language. This is common in the field of \gls{NLP}, where languages are translated, for example, English to and from French. This, however, is not limited to natural languages but can also be applied to programming languages.
+
     \item \textbf{Structured output}: This task entails those where the output is a vector or a data structure which details important relationships between the contained elements. This task subsumes the prior two of transcription and machine translation. An example of this would be the parsing of the grammatical structure of a natural language sentence, addressed in \gls{NLP} and demonstrated by Collobert \cite{pmlr-v15-collobert11a}.
-    \item \textbf{Anomaly detection}: In this task, a learning algorithm learns to sift through a set of events and classify events that are anomalous. These algorithms have been applied to credit card companies in the detection of fraud \cite{Tiwari2021} and safety in the aviation industry \cite{Janakiraman2016, Basora2019}.
+
+    \item \textbf{Anomaly detection}: In this task, a learning algorithm learns to sift through a set of events and classify anomalous events. These algorithms have been applied to credit card companies in the detection of fraud \cite{Tiwari2021} and safety in the aviation industry \cite{Janakiraman2016, Basora2019}.
+
     \item \textbf{Synthesis and sampling}: In this task, learning algorithms generate \textbf{new} examples which appear to be drawn from the same underlying distribution but are not present in the training data. A recent example around which research is being done is the \gls{GPT-3} which can produce human-like text, given prompts as input \cite{Brown2020}.
+
     \item \textbf{Imputation of missing values}: In this task, the learning algorithm is given some input $x\in\gls{set:R}$ with some elements $x_i$ missing. The algorithm must then make predictions for the missing values. Emmanuel et al. discuss the latest methods in \gls{ML} that address this task~\cite{Emmanuel2021}. A recent example of the imputation of missing frames to add frames to videos for improved video smoothness is \gls{RIFE} \cite{huang2020rife}.
+
     \item \textbf{Denoising}: In this learning task, the machine learning algorithm learns to generate a clean example $\mathbf{x}\in\gls{set:R}^n$ from a corrupted sample $\tilde{\mathbf{x}}\in\gls{set:R}^n$. Generally speaking the learner is predicting the probability distribution $p(\mathbf{x}|\tilde{\mathbf{x}})$.
+
     \item \textbf{Density estimation} or \textbf{probability mass function estimation} involves the task of learning a function $p_\text{model}:\gls{set:R}^n\rightarrow{}\gls{set:R}$, where $p_\text{model}(\mathbf{x})$ is interpreted as a probability distribution function from which $\mathbf{x}$ was drawn. Effectively the algorithm learns the structure of the data that it has been provided with. Most of the aforementioned tasks involve learning this distribution function, at least implicitly. For example for the missing value imputation task, if $x_i$ is missing, and all other values $x_{-i}$ are given, then the algorithm learns the distribution $p(x_i|\mathbf{x}_{-i})$ which involves $p(\mathbf{x})$ implicitly.
 \end{itemize}
+
 %An ongoing trend in society is the augmentation of responsibility in intelligent
 %algorithms through autonomy, evident by the advent of semi-autonomous cars,
 %autonomous cyber-security \cite{Taeihagh2019}, autonomous industrial site
@@ -75,7 +60,7 @@ those that underlie the practitioner's domain-specific problems.
 %This section reviews the currently ongoing research in machine
 %learning as a whole. First, the main categories:
 
-\subsubsection{The Performance, $P$\label{sec:ML-performance}}
+\subsubsection{The Performance, $P$}\label{sec:ML-performance}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In order to assess the performance of our learning algorithm in task $T$,
 we must have some quantitative measure of performance $P$ with which we steer
@@ -88,26 +73,17 @@ wish for it to train according to some dataset such that it can generalise to
 inputs that it has never seen before. After all, there is little worth in a
 classification algorithm recognising cats and dogs with 90\% accuracy on its
 training dataset, if it performs with 20\% accuracy on an unseen \textbf{test}
-dataset. This previously mentioned scenario is known as \textit{overfitting} and
-is discussed in its own section later in the chapter. For this reason, the first
+dataset. This previously mentioned scenario is known as ``overfitting'' and
+is discussed in its section later in the chapter. For this reason, the first
 requirement for managing our dataset is presented; there must be some
 \textbf{train-test split}. This is further complicated by the
 \textbf{validation} dataset, which is discussed later in the chapter.
 
-Given the input-output pair $\{\gls{fn:in}, \gls{fn:out}\}$, $\glsvec{fn:out}^{\gls{ml:ith:xy}}$ is referred to as the \textit{ground truth}, and $\hat{f}(\gls{x_in_i})=\gls{y_pred_i}$ are referred to as the \textit{predictor} and \textit{predicted output} respectively. The performance in the form of a loss function \gls{J} (also referred to as an objective or cost function in literature) is then a function of $\glsvec{fn:out}^{\gls{ml:ith:xy}}$ and \gls{y_pred_i}, therefore $\gls{J}(\gls{y_pred_i}, \glsvec{fn:out}^{\gls{ml:ith:xy}})$.
-
-\gls{ML} often borrows from \textit{approximation theory} vector norm notation
-($\ell(\cdot)_p=||\cdot||_p$) to simplify notation in performance metrics. See
-\autoref{appendix:vector_norms} for the expressions of vector norms.
+Given the input-output pair $\{\gls{fn:in}, \gls{fn:out}\}$, $\gls{fn:out}^{\gls{ml:ith:xy}}$ is referred to as the ``ground truth'', and $\hat{f}(\gls{fn:in}[_i])=\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}$ are referred to as the ``predictor'' and ``predicted output'' respectively. The performance in the form of a loss function \gls{ml:J} (also referred to as an objective or cost function in literature) is then a function of $\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}$ and $\gls{fn:out}^{\gls{ml:ith:xy}}$, therefore $\gls{ml:J}(\gls{fn:out}^{\gls{ml:ith:xy}}, \gls{fn:out}^{\gls{ml:ith:xy}})$. \gls{ML} often borrows from \textit{approximation theory} vector norm notation ($\ell(\cdot)_p=||\cdot||_p$) to simplify notation in performance metrics. See \autoref{appendix:vector_norms} for the expressions of vector norms. Note that the following loss functions adhere to vector norm notation and vector variable notation (i.e. $\glsvec{fn:out}$ as the vector form of $\gls{fn:out}$) where possible, given legibility constraints of the relevant operators.
 
 \textbf{Regression loss functions}
 \begin{itemize}
-    \item \textbf{\Gls{MSE}} is the average of the squared differences between
-    predictions and the ground truth. It is only concerned with the average
-    magnitude of errors irrespective of their direction. Due to the squaring,
-    predictions which have greater errors are more heavily penalized. A
-    beneficial mathematical property of \gls{MSE} is that gradients can be
-    easily calculated.
+    \item \textbf{\Gls{MSE}} is the average of the squared differences between predictions and the ground truth. It is only concerned with the average magnitude of errors irrespective of their direction. Due to the squaring, predictions which have greater errors are more severely penalized. A beneficial mathematical property of \gls{MSE} is that gradients can be easily calculated.
     \begin{equation}
         \gls{J}_\text{\gls{MSE}} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\glsvec{fn:out}^{\gls{ml:ith:xy}}||^2_2
         \label{eq:MSE}
@@ -117,16 +93,16 @@ Given the input-output pair $\{\gls{fn:in}, \gls{fn:out}\}$, $\glsvec{fn:out}^{\
             \textrm{where, }
             \eqdesc{J}\text{,} \\
             \eqdesc{ml:m}\text{,} \\
-            \eqdesc{y_pred_i}\text{,} \\
-            \eqdesc{y_true_i}\text{.} \\
+            \hat{\gls{fn:out}}^{\gls{ml:ith:xy}}&=\text{predicted output for the }i^{th}\text{example,} \\
+            \gls{fn:out}^{\gls{ml:ith:xy}}&=\text{ground truth output for the }i^{th}\text{example.} \\
         \end{aligned}
     \end{equation*}
-    \item \textbf{L2 error} is the average of the differences between
-    predictions and the ground truth. It is the same as \gls{MSE} but without
-    the squaring. Like \gls{MSE}, the gradient can be easily calculated.
+
+    \item \textbf{L2 error} is the average of the differences between predictions and the ground truth. It is the same as \gls{MSE} but without the squaring. Like \gls{MSE}, the gradient can be easily calculated.
     \begin{equation}
         \gls{J}_\text{L2E} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\glsvec{fn:out}^{\gls{ml:ith:xy}}||_2
     \end{equation}
+
     \item \textbf{\Gls{MAE}} or \textbf{L1 loss} is the average of the sum of
     absolute differences between predictions and the ground truth. This measure
     is similar to \gls{MSE} in that it considers the magnitude of the errors and
@@ -138,21 +114,21 @@ Given the input-output pair $\{\gls{fn:in}, \gls{fn:out}\}$, $\glsvec{fn:out}^{\
         \gls{J}_\text{MAE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}||\gls{y_pred_i}-\glsvec{fn:out}^{\gls{ml:ith:xy}}||_1
         \label{eq:MAE}
     \end{equation}
+
     \item \textbf{\Gls{MBE}} is the sum of all differences between predictions
     and the ground truth. \gls{MBE} is not often used as a measure of the model
     error as high individual errors can produce a low \gls{MBE}. This metric is
     primarily used to measure the average bias of a prediction.
     \begin{equation}
-        \gls{J}_\text{MBE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}(\gls{y_pred_ij}-\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub})
+        \gls{J}_\text{MBE} = \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}(\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j}-\gls{fn:out}^{\gls{ml:ith:xy}}_{j})
     \end{equation}
     \begin{equation*}
         \begin{aligned}
             \textrm{where, }
-            \eqdesc{ml:n_y}\text{,} \\
-            \eqdesc{y_pred_ij}\text{,} \\
-            \eqdesc{y_true_ij}\text{.} \\
+            \eqdesc{ml:n_y}\text{.} 
         \end{aligned}
     \end{equation*}
+
     \item \textbf{\Gls{MSLE}} can be interpreted as a measure of the ratio
     between predictions and the ground truth. This metric is used when it is
     desirable to achieve some relative measure of accuracy as opposed to an
@@ -161,10 +137,11 @@ Given the input-output pair $\{\gls{fn:in}, \gls{fn:out}\}$, $\glsvec{fn:out}^{\
     similar loss value magnitudes.
     \begin{equation}
         \begin{aligned}
-            \gls{J}_\text{MSLE} &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}(\log{(\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}+1)} - \log{(\gls{y_pred_ij}+1)})^2 \\
-            &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}2\log(\frac{\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}+1}{\gls{y_pred_ij}+1})
+            \gls{J}_\text{MSLE} &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}(\log{(\gls{fn:out}^{\gls{ml:ith:xy}}_{j}+1)} - \log{(\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j}+1)})^2 \\
+            &= \frac{1}{\gls{ml:m}}\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}2\log(\frac{{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j}+1}{\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j}+1})
         \end{aligned}
     \end{equation}
+
     \item \textbf{\Gls{CP}} or \textbf{\gls{CS}} is a measure of similarity
     between two non-zero vectors of an inner product space. The metric is
     defined as the cosine of the angle between the two vectors. The metric is
@@ -181,7 +158,7 @@ Given the input-output pair $\{\gls{fn:in}, \gls{fn:out}\}$, $\glsvec{fn:out}^{\
 
 \textbf{Binary classification loss functions}\\
 Binary classification differs from multi-class in that the output is a single
-value (\gls{np:dim}[_\gls{fn:out}]$=1$). For multi-class, the dimension of the output is equal to
+value ($\gls{np:dim}[_\gls{fn:out}]=1$). For multi-class, the dimension of the output is equal to
 the number of classes.
 
 \begin{itemize}
@@ -195,48 +172,43 @@ the number of classes.
     \begin{equation}
         \gls{J}_\text{\gls{BCE}}=-\sum_{i=1}^{\gls{ml:m}}\bigg(\gls{y_true_i1}\log(\gls{y_pred_i1})+(1-\gls{y_true_i1})\log(1-\gls{y_pred_i1})\bigg)\label{eq:equation}
     \end{equation}
-    \item \textbf{\Gls{HL}} is measure which is often used for training binary
-    \gls{SVM} classifiers \cite{Wu2007, Liu2007, Zhang2008}. The loss function assumes that \glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub} and
-    \gls{y_pred_ij} are in the bounds $[-1,1]$ for the classification task.
+    \item \textbf{\Gls{HL}} is a measure which is often used for training binary
+    \gls{SVM} classifiers \cite{Wu2007, Liu2007, Zhang2008}. The loss function assumes that $\glsvec{fn:out}^{\gls{ml:ith:xy}}$ and
+    $\hat{\glsvec{fn:out}}^{\gls{ml:ith:xy}}$ have their norms bounded in $[-1,1]$ for the classification task.
     \begin{equation}
-        \gls{J}_\text{\gls{HL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})
+        \gls{J}_\text{\gls{HL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\glsvec{fn:out}^{\gls{ml:ith:xy}}{\cdot}\hat{\glsvec{fn:out}}^{\gls{ml:ith:xy}}})
     \end{equation}
+
     \item \textbf{\Gls{SHL}} addresses the constant gradient present in
     \gls{HL}, smoothing the loss function across the domain of the loss function
-    ($\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\cdot{}\gls{y_pred_ij}$). This provides better gradient
+    ($\glsvec{fn:out}^{\gls{ml:ith:xy}}{\cdot}\hat{\glsvec{fn:out}}^{\gls{ml:ith:xy}}$). This provides better gradient
     learning properties, as predictions that are more incorrect than others have
     a heavier associated gradient.
     \begin{equation}
-        \gls{J}_\text{\gls{SHL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\gls{y_true_i1}\cdot{}\gls{y_pred_i1}})^2
+        \gls{J}_\text{\gls{SHL}}=\sum_{i=1}^{\gls{ml:m}}\max(0, {1-\glsvec{fn:out}^{\gls{ml:ith:xy}}\cdot{}\hat{\glsvec{fn:out}}^{\gls{ml:ith:xy}}})^2
     \end{equation}
 \end{itemize}
 
 \textbf{Multi-class classification loss functions}
 Multi-class classification is formulated such that each possible class ($n_c$)
 is defined by an element of the output vector. The loss functions here are
-similar to the binary classification loss functions but adapted for
-$\gls{np:dim}[_\gls{fn:out}]=n_c$.
+derived from the binary classification loss functions but adapted for multiple output classes with $\gls{np:dim}[_\gls{fn:out}]=n_c$.
 
 \begin{itemize}
     \item \textbf{\Gls{MCE}}:
     \begin{equation}
-        \gls{J}_\text{\gls{MCE}}=-\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\log(\gls{y_pred_ij})
+        \gls{J}_\text{\gls{MCE}}=-\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\gls{fn:out}^{\gls{ml:ith:xy}}_{j}\log(\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j})
     \end{equation}
     \item \textbf{\Gls{MHL}}:
     \begin{equation}
-        \gls{J}_\text{\gls{MHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\max(0, {1-\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\cdot{}\gls{y_pred_ij}})
+        \gls{J}_\text{\gls{MHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\max(0, {1-\gls{fn:out}^{\gls{ml:ith:xy}}_{j}\cdot{}\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j}})
     \end{equation}
     \item \textbf{\Gls{MSHL}}:
     \begin{equation}
-        \gls{J}_\text{\gls{MSHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\max(0, {1-\glsvec{fn:out}^{\gls{ml:ith:xy}}_\gls{ix:sub}\cdot{}\gls{y_pred_ij}})^2
+        \gls{J}_\text{\gls{MSHL}}=\sum_{i=1}^{\gls{ml:m}}\sum_{j=1}^{\gls{np:dim}[_\gls{fn:out}]}\max(0, {1-{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j}{\cdot{}}\hat{\gls{fn:out}}^{\gls{ml:ith:xy}}_{j}})^2
     \end{equation}
 \end{itemize}
 
-
-
-%With the
-%In the case of classification, most metrics are derived from the confusion
-%matric
 
 \subsubsection{The Experience, $E$\label{sec:ML-experience}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -267,71 +239,29 @@ which it is generally expected to learn some pattern of interest.
 %    approximator to the function: $f(x)=x^2$.
     % Dimensionality reduction \cite{vogelstein2021supervised}
 
-    \item \textbf{Unsupervised learning} algorithms experience a dataset
-    containing only features and learn some useful properties of the structure
-    of the dataset. This form of learning often addresses recognition problems
-    in \textit{association} \& \textit{clustering} \cite{barlow1999ul}.
+    \item \textbf{Unsupervised learning} algorithms experience a dataset containing only features and learn some useful properties of the structure of the dataset. This form of learning often addresses recognition problems in ``association'' \& ``clustering'' \cite{barlow1999ul}.
 
-    \item \textbf{Semi-supervised} is a middle ground between supervised
-    learning (in which all training data is labelled) and unsupervised learning
-    (in which no label data is provided)~\cite{books/mit/06/CSZ2006}. Some
-    example applications of this paradigm are dimensionality reduction
-    ~\cite{Zhang2007}, clustering \cite{Bair2013}, and anomaly detection
-    \cite{DBLP:journals/corr/abs-1805-06725}.
+    \item \textbf{Semi-supervised} is a middle ground between supervised learning (in which all training data is labelled) and unsupervised learning (in which no label data is provided)~\cite{books/mit/06/CSZ2006}. Some example applications of this paradigm are dimensionality reduction ~\cite{Zhang2007}, clustering \cite{Bair2013}, and anomaly detection \cite{DBLP:journals/corr/abs-1805-06725}.
 
-    \item \textbf{Reinforcement learning} are learning algorithms which rely
-    exclusively on a series of reinforcements from their environment. These
-    reinforcements can be positive (rewards) or negative (punishments). This
-    category is discussed further in \autoref{ssec:RL}.
+    \item \textbf{Reinforcement learning} are learning algorithms which rely exclusively on a series of reinforcements from their environment. These reinforcements can be positive (rewards) or negative (punishments). This category is discussed further in \autoref{sec:reinforcement_learning}.
 \end{itemize}
 
 \subsection{Capacity, Overfitting and Underfitting\label{sec:capoverunder}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The primary objective in \gls{ML} is to find a model which performs well on
-previously \textit{unseen data}, which has not been used during the training or
-fitting of a model. This ability of the learning algorithm is referred to as its
-ability to \textit{generalise}.
+The primary objective in \gls{ML} is to find a model which performs well on previously \textit{unseen data}, which has not been used during the training or fitting of a model. This ability of the learning algorithm is referred to as its ability to \textit{generalise}.
 
-Typically the learning algorithm is trained according to a set of
-\textit{training data} with which we aim at reducing the learners
-\textbf{training error}. Due to this data having been directly used to optimise
-the model during training, we cannot expect this error to be representative of
-the model's \textbf{generalisation error}. In order to derive an estimate of the
-generalisation error, we separate part of the initial data set into training and
-\textbf{test data}, from which the \textbf{test error} is derived. Given some
-assumptions about the \textbf{data-generating process}, such as the data being
-\textbf{\gls{iid}}, it can be said that the training error is equal to the
-expectation of the test error.
+Typically the learning algorithm is trained according to a set of \textit{training data} with which we aim at reducing the learners \textbf{training error}. Due to this data having been directly used to optimise the model during training, we cannot expect this error to be representative of the model's \textbf{generalisation error}. In order to derive an estimate of the generalisation error, we separate part of the initial data set into training and \textbf{test data}, from which the \textbf{test error} is derived. Given some assumptions about the \textbf{data-generating process}, such as the data being \textbf{\gls{iid}}, it can be said that the training error is equal to the expectation of the test error.
 
-An important concept in \gls{ML} is the \textit{capacity} of the model. This is
-defined informally as \textit{``a model’s [...] ability to fit a wide
-variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}. Machine learning
-algorithms will generally perform their best when their capacity is appropriate
-for the true complexity of the task they are expected to perform, given the
-available training data. Models with insufficient capacity will fail to perform
-complex tasks, and those with excess capacity will perform complex tasks, but
-they may overfit the training data.
+An important concept in \gls{ML} is the \textit{capacity} of the model. This is defined informally as \textit{``a model’s [...] ability to fit a wide variety of functions"}~\cite[p.~111-112]{Goodfellow-et-al-2016}. Machine learning algorithms will generally perform their best when their capacity is appropriate for the true complexity of the task they are expected to perform, given the available training data. Models with insufficient capacity will fail to perform complex tasks, and those with excess capacity will perform complex tasks, but they may overfit the training data.
 
-One technique of controlling the capacity of an algorithm is to control its
-\textbf{hypothesis space}, the set of possible functions that the algorithm may
-use to solve the task at hand. In the case of a polynomial, such as the
-arbitrary one seen in \autoref{fig:capacity-plots}, this effect can be
-intuitively related to the model's propensity to underfit and overfit a set of
-training data.
+One technique of controlling the capacity of an algorithm is to control its \textbf{hypothesis space}, the set of possible functions that the algorithm may use to solve the task at hand. In the case of a polynomial, such as the arbitrary one seen in \autoref{fig:capacity-plots}, this effect can be intuitively related to the model's propensity to underfit and overfit a set of training data.
 
 \begin{figure}[htp]
     \centering
     \input{graphics/tikz/overfitting}
     \captionsetup{format=hang} % hanging captions
     \caption{
-        Three different models fit an arbitrary example training set
-        generated from an arbitrary third-degree polynomial (dashed line) with
-        some added noise. (a) Shows that first-degree polynomial (linear model)
-        fails in generalising well to the data, and results in
-        \textbf{underfitting}. (b) Shows a third-degree polynomial generalising
-        well and is described as having an \textbf{appropriate capacity},
-        potentially optimal. (c) Shows an eleventh-degree polynomial which has a
-        high variance in error and is described as \textbf{overfitting}.
+        Three different models fit an arbitrary example training set generated from an arbitrary third-degree polynomial (dashed line) with some added noise. (a) Shows that first-degree polynomial (linear model) fails in generalising well to the data, and results in \textbf{underfitting}. (b) Shows a third-degree polynomial generalising well and is described as having an \textbf{appropriate capacity}, potentially optimal. (c) Shows an eleventh-degree polynomial which has a high variance in error and is described as \textbf{overfitting}.
     }
     \label{fig:capacity-plots}
 \end{figure}
@@ -341,71 +271,41 @@ training data.
     \input{graphics/tikz/capacity-vs-error}
     \captionsetup{format=hang} % hanging captions
     \caption{
-        Typical relationship between capacity and error. Training and test errors behave differently. At the left end of the graph, training error and generalisation error are both high. This is the \textbf{underfitting regime} As we increase capacity, training error decreases, but the gap between training and generalisation error increases. Eventually, the size of this gap outweighs the decrease in training error, and we enter the \textbf{overfitting regime}, where capacity is too large, above the \textbf{optimal capacity}. Adapted from Goodfellow et al. \cite{Goodfellow-et-al-2016}.
-    }
+        Typical relationship between capacity and error. Training and test errors behave differently. At the left end of the graph, training error and generalisation error are both high. This is the \textbf{underfitting regime} As we increase capacity, training error decreases, but the gap between training and generalisation error increases. Eventually, the size of this gap outweighs the decrease in training error, and we enter the \textbf{overfitting regime}, where capacity is too large, above the \textbf{optimal capacity}. Adapted from Goodfellow et al. \cite{Goodfellow-et-al-2016}. 
+        }
     \label{fig:capacity}
 \end{figure}
 
 \subsubsection{No Free Lunch Theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The \gls{NFLT}, sometimes abbreviated as \gls{NFL}, is a simple but important
-concept in \gls{ML} and optimisation~\cite{Wolpert1997}. The theorem suggests
-that an optimisation technique will perform equally well as any other when
-averaging its performance over the set of all possible problems. This implies
-that there is no single best technique for addressing an arbitrary problem. Luke
-states the following in \textit{essentials of
-metaheuristics}~\cite{luke2012essentials}:
+The \gls{NFLT}, sometimes abbreviated as \gls{NFL}, is a simple but important concept in \gls{ML} and optimisation~\cite{Wolpert1997}. The theorem suggests that an optimisation technique will perform equally well as any other when averaging its performance over the set of all possible problems. This implies that there is no single best technique for addressing an arbitrary problem. Luke states the following in \textit{essentials of metaheuristics}~\cite{luke2012essentials}:
 
 \begin{quote}
-    The \gls{NFL} stated that within certain constraints, over the space of
-    all possible problems, every optimisation technique will perform as well as
-    every other one on average (including Random Search)
+    The \gls{NFL} stated that within certain constraints, over the space of all possible problems, every optimisation technique will perform as well as every other one on average (including Random Search)
 \end{quote}
 
 This argues that without having substantive information about the fundamentals of the problem being modelled, choosing to apply a single technique to an arbitrary problem will not yield a predictably better or worse result than applying another to the same problem. Therefore, in the case where the underlying process being optimised is not well-understood, a variety of techniques should be applied.
 
-However, in practice, knowledge to some degree is known about the problem which
-is being optimised or to which a learning algorithm is being applied. This
-theorem highlights the importance of having a clear understanding of the problem
-at hand before applying a learning algorithm or an optimisation technique.
-Domingos states ~\cite{Domingos15}:
+However, in practice, knowledge to some degree is known about the problem which is being optimised or to which a learning algorithm is being applied. This theorem highlights the importance of having a clear understanding of the problem at hand before applying a learning algorithm or an optimisation technique. Domingos states ~\cite{Domingos15}:
 
 \begin{quote}
     In the meantime, the practical consequence of the “no free lunch” theorem is that there’s no such thing as learning without knowledge. Data alone is not enough.
 \end{quote}
 
-This theorem, in effect, motivates the true goal of machine learning, as worded
-by Goodfellow et al.~\cite[p.~116]{Goodfellow-et-al-2016}:
+This theorem, in effect, motivates the true goal of machine learning, as worded by Goodfellow et al.~\cite[p.~116]{Goodfellow-et-al-2016}:
 
 \begin{quote}
-    This means that the goal of machine learning research is not to seek
-    a universal learning algorithm or the absolute best learning algorithm.
-    Instead, our goal is to understand what kinds of distributions are relevant
-    to the “real world” that an AI agent experiences, and what kinds of machine
-    learning algorithms perform well on data drawn from the kinds of
-    data-generating distributions we care about.
+    This means that the goal of machine learning research is not to seek a universal learning algorithm or the absolute best learning algorithm. Instead, our goal is to understand what kinds of distributions are relevant to the “real world” that an AI agent experiences, and what kinds of machine learning algorithms perform well on data drawn from the kinds of data-generating distributions we care about.
 \end{quote}
 
+This is an important insight and directly relates to a learning algorithm's tendency to overfit or underfit. If we do not have a clear understanding of the level of complexity of the task we are trying to find a solution to with our learning algorithm, then we are likely to overfit or underfit. If one assumes the complexity of the problem to be higher than its true complexity, the learner will have access to a much larger hypothesis space (capacity) than what is optimal. On the other hand, if we underestimate the complexity, it is almost certain that we will design an algorithm with insufficient capacity. This also extends to the quantity and quality of training data that we are training with. It is impossible, for example, to model an $n^\text{th}$ order process with anything less than $n$ training samples without underfitting, and this is without considering the possibility of measurement noise.
 
-This is an important insight and directly relates to a learning algorithm's
-tendency to overfit or underfit. If we do not have a clear understanding of the
-level of complexity of the task we are trying to find a solution to with our
-learning algorithm, then we are likely to overfit or underfit. If one assumes
-the complexity of the problem to be higher than its true complexity, the learner
-will have access to a much larger hypothesis space (capacity) than what is
-optimal. On the other hand, if we underestimate the complexity, it is almost
-certain that we will design an algorithm with insufficient capacity. This also
-extends to the quantity and quality of training data that we are training with.
-It is impossible, for example, to model an $n^\text{th}$ order process with anything less
-than $n$ training samples without underfitting, and this is without considering
-the possibility of measurement noise.
-
-\subsubsection{Regularization}
+\subsubsection{Regularisation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Generally speaking, regularisation is any modification we make to a learning algorithm that is intended to reduce its generalisation error but not its training error. Due to the large number of techniques that fit this description within \gls{ML} and its subfields, it is outside the scope of this paper to exhaustively cover this concept; however, the core idea behind regularisation within \gls{ML} is motivated here through one of its earliest forms.
+Regularisation is, generally speaking, any modification we make to a learning algorithm that is intended to reduce its generalisation error but not its training error. Due to the large number of techniques that fit this description within \gls{ML} and its subfields, it is outside the scope of this paper to exhaustively cover this concept; however, the core idea behind regularisation within \gls{ML} is motivated here through one of its earliest forms.
 
-A fundamental approach to regularization in \gls{ML} originating from \textit{statistical learning} is the use of \textbf{parameter norm penalties}. This technique aims at guiding the parameter vectors through the addition of a penalty term in the objective (cost/loss) function being minimised. This penalty constrains (regularises) or shrinks the optimal \gls{w_vec} estimate towards zero, effectively discouraging a learning algorithm from producing an excessively complex model to avoid overfitting. Norm penalty methods can be generalised as:
+A fundamental approach to regularisation in \gls{ML} originating from the field of \textit{statistical learning} is the use of ``parameter norm penalties''. This technique aims at guiding the parameter vectors through the addition of a penalty term in the objective (cost/loss) function being minimised. This penalty constrains (regularises) or shrinks the optimal \gls{w_vec} estimate towards zero, effectively discouraging a learning algorithm from producing an excessively complex model to avoid overfitting. Norm penalty methods can be generalised as:
 
 \begin{equation}
     \gls{J_reg}(\glsvec{fn:param}; \gls{X}, \gls{Y})
@@ -419,7 +319,7 @@ A fundamental approach to regularization in \gls{ML} originating from \textit{st
     \begin{aligned}
         \textrm{where, }
         \eqdesc{J_reg}\text{,} \\
-        \eqdesc{ml:theta}\text{,} \\
+        \eqdesc{fn:param}\text{,} \\
         \eqdesc{X}\text{,} \\
         \eqdesc{Y}\text{,} \\
         \eqdesc{J}\text{,} \\
@@ -443,9 +343,9 @@ cost function is given by,
     \label{eq:norm_penalty_reg_graident}
 \end{equation}
 
-$\bm{\text{L}^2}$ \textbf{regularization}, also known as \textbf{ridge
-regression}, \textbf{weight decay} or \textbf{Tikhonov regularization}
-\cite[p.~227]{Goodfellow-et-al-2016}, is a parameter norm regularization method
+$\bm{\text{L}^2}$ \textbf{regularisation}, also known as ``ridge
+regression'', ``weight decay'' or ``Tikhonov regularisation''
+\cite[p.~227]{Goodfellow-et-al-2016}, is a parameter norm regularisation method
 which drives the weights of a model towards the origin in the weight space and
 contributes to \autoref{eq:norm_penalty_reg} as,
 \begin{equation}
@@ -456,10 +356,10 @@ contributes to \autoref{eq:norm_penalty_reg} as,
 Weight decay suppresses any irrelevant components of the weight vector by
 choosing the smallest vector that solves the learning problem. Furthermore, if
 the weight decay parameter is chosen correctly, noise may be suppressed in the
-output, subsequently improving generalization~\cite{NIPS1991_8eefcfdf}.
+output, subsequently improving generalisation~\cite{NIPS1991_8eefcfdf}.
 
-$\bm{\text{L}^1}$ \textbf{regularization}, also known as \textbf{\gls{LASSO}
-regression} is a parameter norm regularization method which penalizes the
+$\bm{\text{L}^1}$ \textbf{regularisation}, also known as ``\gls{LASSO}
+regression'' is a parameter norm regularisation method which penalizes the
 largest weight magnitudes in the weight vector. It is defined by,
 \begin{equation}
     \gls{o_reg}(\glsvec{fn:param})=||\gls{w_vec}||_1.
@@ -473,19 +373,19 @@ The key difference between $L^1$ and $L^2$ regularisation is that $L^1$ regulari
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \input{graphics/tikz/l1-regularization}
-        \subcaption{$\text{L}^1~\text{regularization}$}
+        \subcaption{$\text{L}^1~\text{regularisation}$}
         \label{fig:underfitting}
     \end{subfigure}\hfil
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \input{graphics/tikz/l2-regularization}
-        \subcaption{$\text{L}^2~\text{regularization}$}
+        \subcaption{$\text{L}^2~\text{regularisation}$}
         \label{fig:underfitting}
     \end{subfigure}\hfil
     \captionsetup{format=hang} % hanging captions
     \caption{
         An illustration of the effect of of (a) L$^1$ and (b) L$^2$ (or weight
-        decay) regularization on the optimal value of \gls{w_vec} for
+        decay) regularisation on the optimal value of \gls{w_vec} for
         $\gls{w_vec}\in\gls{set:R}^2$. The solid contours show equal values of
         the unregularized objective. The dashed contours show equal values of
         the respective norm regularizer. The point $\tilde{\bm{w}}$ shows these
@@ -499,8 +399,8 @@ The key difference between $L^1$ and $L^2$ regularisation is that $L^1$ regulari
     \label{fig:l1-l2-regularization}
 \end{figure}
 
-\textbf{Elastic net regularization} is a combination of both $L^1$ and $L^2$
-regularization was introduced by Zou and Hastie \cite{ZouHastie2005} and is
+\textbf{Elastic net regularisation} is a combination of both $L^1$ and $L^2$
+regularisation was introduced by Zou and Hastie \cite{ZouHastie2005} and is
 expressed by:
 \begin{equation}
     \gls{o_reg}(\glsvec{fn:param})=\frac{1-\gls{b_ela}}{2}||\gls{w_vec}||^2_2 + \gls{b_ela}||\gls{w_vec}||_1\text{,}
@@ -512,15 +412,15 @@ expressed by:
     \end{aligned}
 \end{equation*}
 Looking again at \autoref{fig:l1-l2-regularization}, one might wonder if an
-alternative vector norm regularization method would be more appropriate, i.e.
-$p\notin\{1,2\}$ for \autoref{eq:ell-p}. Hastie et al. state however, that
+alternative vector norm regularisation method would be more appropriate, i.e.
+$p\notin\{1,2\}$ for \autoref{eq:ell-p}. Hastie et al. state, however, that
 experience suggests that it is not worth the extra variance incurred to estimate
 what vector norm $L^p$ should be used based on the
 data~\cite[p.~73]{hastie2009elements}.
 %Given some function $f(\gls{x_in};\glsvec{fn:param})$ being learnt
 %by being modelled by a learning algorithm,
 
-\subsection{Hyperparameters and Validation Sets}
+\subsection{Hyperparameters and Validation Sets}\label{ssec:hyperparameters_and_validation_sets}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Most machine learning algorithms have parameters referred to as hyperparameters. These define some algorithm settings which are not self-adapted during learning. This, however, does not mean that the algorithm cannot exist in a subroutine during which the hyperparameters are optimised. An example of a hyperparameter is the value of \gls{ml:w_reg} chosen in \autoref{eq:norm_penalty_reg}. This parameter is kept constant throughout the learning algorithm and heavily influences the resultant model. Optimising hyperparameters on the training set that control capacity is generally not appropriate. This is because the hyperparameter would tend towards overfitting the training data, which would result in the best test score, but with high variance and thus poor generalisation on unseen data. Therefore as mentioned, the training procedure can be used as a subroutine of a larger optimisation problem, which uses a validation set to assess the performance of the model's hyperparameters.
 
@@ -530,11 +430,11 @@ Most machine learning algorithms have parameters referred to as hyperparameters.
     \captionsetup{format=hang} % hanging captions
     \caption{
         Regression modelling, as performed in \autoref{fig:capacity-plots}. The
-        effect of varying the regularization coefficient \gls{ml:w_reg} in
+        effect of varying the regularisation coefficient \gls{ml:w_reg} in
         \autoref{eq:norm_penalty_reg} is shown in the left panel. The effect of
-        varying the regularization coefficient \gls{ml:w_reg} in
+        varying the regularisation coefficient \gls{ml:w_reg} in
         \autoref{eq:l1_reg} is shown in the right panel. The effect of varying
-        the regularization coefficient \gls{ml:w_reg} in \autoref{eq:l2_reg} is
+        the regularisation coefficient \gls{ml:w_reg} in \autoref{eq:l2_reg} is
         depicted in relation to its effect on the capacity of the model. (a)
         shows that \gls{ml:w_reg} has been chosen excessively, causing the
         hypothesis space available to the learner to be insufficient. (b) shows
@@ -548,10 +448,11 @@ Most machine learning algorithms have parameters referred to as hyperparameters.
 
 The importance of optimising the hyperparameters of a learning algorithm,
 especially relating to capacity, is illustrated in
-\autoref{fig:reg-capacity-plots} using the example of regularization weight
+\autoref{fig:reg-capacity-plots} using the example of regularisation weight
 $\gls{ml:w_reg}$.
 
 \subsubsection{The bias-variance tradeoff}
+
 Bias and variance measure two different sources in an estimator (model).
 \textbf{The bias-variance tradeoff} is an inherent property of a model which
 allows for the variance of the estimated parameter to be reduced by increasing

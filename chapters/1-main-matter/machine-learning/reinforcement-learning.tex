@@ -1,26 +1,27 @@
-\section{Reinforcement Learning}\label{sec:reinforcement_learning}
+\newpage\section{Reinforcement Learning}\label{sec:reinforcement_learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Reinforcement learning is a type of machine learning that focuses on tasks in which an agent receives a reward (or penalty) signal at each time step throughout its engagement with an environment in which it lives in, and interacts with it through decisions on which action to take. The roots of this field go back to Dr. Richard Bellman in 1954, who is also known as the ``Father of Dynamic Programming''. His works on Dynamic Programming \cite{Bellman1954,Bellman1957a}
 
-\input{graphics/tikz/agent-environment}
+Continuous control \cite{Recht2019}
 
+\input{graphics/tikz/agent-environment}
 
 \subsection{Key Concepts and Terminology}\label{ssec:key_concepts_and_terminology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The key concepts and terms used in \gls{RL} are heavily influenced by the field of control theory
+The \autoref{fig:agent-environment} illustrates the interaction between an agent and its environment. The agent takes an action $a_t$ and receives a reward $r_{t+1}$ and a new state $s_{t+1}$, subject to the environment's dynamics. The agent's goal is to maximize the cumulative reward it receives over time. The key preliminary concepts and terms used in \gls{RL} (notably influenced by the field of control theory) are discussed below: 
 \begin{itemize}
     % States and Observations
-    \item States \& Observations: A state \gls{rl:s} is a full description of the environment, wheras an observation \gls{rl:o} is partial description of the state. It is said that the environment is \textbf{fully observed} if the agent has access to \gls{rl:s}, and that the environment is \textbf{partially observed} if the agent may only act on \gls{rl:o}. Note that consistent use of notation in \gls{RL} appears to be a primary challenge faced by many researchers, symptomatic of the inconcise use of the term \gls{rl:s} in instances where \gls{rl:o} would be more appropriate.
+    \item \textbf{States \& Observations}: A state \gls{rl:s} is a full description of the environment, whereas an observation \gls{rl:o} is partial description of the state. It is said that the environment is \textbf{fully observed} if the agent has access to \gls{rl:s}, and that the environment is \textbf{partially observed} if the agent may only act on \gls{rl:o}. Note that consistent use of notation in \gls{RL} appears to be a primary challenge faced by many researchers, a symptom of which is the technically incorrect use of the term \gls{rl:s} in instances where \gls{rl:o} would be more appropriate.
     
     % Actions
-    \item Actions: An action \gls{rl:a} is a description of the agent's action in the environment. The \textbf{action space} is the set of all valid actions in the environment. Some environments have \textbf{discrete action spaces} whereas others have \textbf{continuous action spaces}, which can influence the applicability of some \gls{RL} algorithms (see \autoref{ssec:algorithms}). For the latter, the action space is real, $\gls{rl:A}\in\gls{set:R}$.
+    \item \textbf{Actions}: An action \gls{rl:a} is a description of the agent's action in the environment. The \textbf{action space} is the set of all valid actions in the environment. Some environments have \textbf{discrete action spaces} whereas others have \textbf{continuous action spaces}, which can influence the applicability of some \gls{RL} algorithms (see \autoref{ssec:algorithms}). For the latter, the action space is real, $\gls{rl:A}\in\gls{set:R}$.
 
     % Policies
-    \item Policies: A policy is a rule which determines what action the agent decides to take in the environment. A policy can be \textbf{deterministic}, in which case it is denoted by $\gls{rl:a}[_t]=\gls{rl:mu}(\gls{rl:s}[_t])$, or \textbf{stochastic}, in which case it is denoted by $\gls{rl:a}[_t]\sim\gls{rl:pi}(\cdot|\gls{rl:s}[_t])$. Deterministic policies are straightforward, an example is an \gls{MLP} (see \autoref{ssec:mlps}). Stochastic policies are separated further into \textbf{categorical policies} (used in discrete action spaces) and \textbf{diagonal Gaussian policies} used in continuous action spaces. Categorical stochastic policy neural networks are trained in the same way as a classifier. % For a neural network (...)
+    \item \textbf{Policies}: A policy is a rule which determines what action the agent decides to take in the environment. A policy can be \textbf{deterministic}, in which case it is denoted by $\gls{rl:a}[_t]=\gls{rl:mu}(\gls{rl:s}[_t])$, or \textbf{stochastic}, in which case it is denoted by $\gls{rl:a}[_t]\sim\gls{rl:pi}(\cdot|\gls{rl:s}[_t])$. Deterministic policies are straightforward, an example is an \gls{MLP} (see \autoref{ssec:mlps}). Stochastic policies are separated further into \textbf{categorical policies} (used in discrete action spaces) and \textbf{diagonal Gaussian policies} used in continuous action spaces. Categorical stochastic policy neural networks are trained in the same way as a classifier. % For a neural network (...)
     
     % Rewards and Returns
-    \item Rewards \& Returns: A reward $\gls{rl:r}[_t]$ is a signal received by the agent at each time step \gls{rl:t}[t]. There are two variants of rewards, \textbf{discounted} and \textbf{undiscounted}. The \textbf{finite-horizon undiscounted} return is the sum of all rewards received within a finite horizon T,
+    \item \textbf{Rewards, Punishments \& Returns}: A reward $\gls{rl:r}[_t]$ is a signal received by the agent at each time step \gls{rl:t}[t]. There are two variants of rewards, \textbf{discounted} and \textbf{undiscounted}. The \textbf{finite-horizon undiscounted} return is the sum of all rewards received within a finite horizon T,
           \begin{equation}
               R(\tau)=\sum_{t=0}^{T} r_t.
           \end{equation}
@@ -31,73 +32,102 @@ The key concepts and terms used in \gls{RL} are heavily influenced by the field 
     The intuition of the latter equation is evident, as we wish to place more importance on the immediate rewards from the environment rather than the future rewards. In the case of an \textbf{infinite-horizon} environment this factor is mandatory, as, without it, there would be no incentive for the agent to reach the objective state sooner rather than later, in an excessively large time. Mathematically the infinite-horizon sum of rewards may not converge to a finite value, without the use of the discount factor. 
 
     % Trajectories
-    \item Trajectories: A trajectory is a sequence of states and actions taken by the agent in the environment,
+    \item \textbf{Trajectories}: A trajectory is a sequence of states and actions taken by the agent in the environment,
     \begin{equation}
-        \gls{rl:tau}=\{(\gls{rl:s}[_0],\gls{rl:a}[_0]), (\gls{rl:s}[_1],\gls{rl:a}[_1]),...\}.
+        \gls{rl:tau}=\{\gls{rl:s}[_0], \gls{rl:a}[_0], \gls{rl:s}[_1], \gls{rl:a}[_1],...\},
     \end{equation}
-    The initial state of the environment, $\gls{rl:s}[_0]$, is determined by the initial-state distribution, denoted by $\gls{rl:rho0}$,
+    where the initial state of the environment, $\gls{rl:s}[_0]$, is determined by the initial-state distribution, denoted by $\gls{rl:rho0}$,
     \begin{equation}
         \gls{rl:s}[_0]\sim\gls{rl:rho0}(\cdot{}).
     \end{equation}
 
-    \item Trajectories: A trajectory is a sequence of states and actions taken by the agent in the environment,
+    \item \textbf{The \gls{RL} problem} is formalised through the assumption that the policy is inherently stochastic and structured by some underlying probability distribution. This allows the definition of the probability of a $T$-step trajectory as:
 
     \begin{equation}
-        P(\tau \mid \pi)=\rho_{0}\left(s_{0}\right) \prod_{t=0}^{T-1} P\left(s_{t+1} \mid s_{t}, a_{t}\right) \pi\left(a_{t} \mid s_{t}\right)
+        P(\tau \mid \pi)=\rho_{0}\left(s_{0}\right) \prod_{t=0}^{T-1} P\left(s_{t+1} \mid s_{t}, a_{t}\right) \pi\left(a_{t} \mid s_{t}\right),
     \end{equation}
+
+    which is the product of all probabilities of the states and actions taken by the agent, given the policy \gls{rl:pi}. The probabilities of each state-action pair in the trajectory are assumed to be independent of each other, by virtue of the Markovian property which is a foundational assumption in \gls{RL}. The formalism of this property is discussed further in \autoref{ssec:mdp}. The expected return for a chosen measure of performance (See \autoref{sec:ML-performance} for common performance measures in regression and classification) is given by:
 
     \begin{equation}
-        J(\pi)=\int_{\tau} P(\tau \mid \pi) R(\tau)=\underset{\tau \sim \pi}{\mathrm{E}}[R(\tau)] .
+        J(\pi)=\int_{\tau} P(\tau \mid \pi) R(\tau)=\underset{\tau \sim \pi}{\mathrm{E}}[R(\tau)].
     \end{equation}
+
+    The end-goal in \gls{RL} is to derive a policy which maximises the expected return (or ``reward''), which is equivalent to finding a policy which minimises the negative expected return (or ``punishment''). This is known as the ``policy optimisation problem'' and is given by:
 
     \begin{equation}
-        \pi^{*}=\arg \max _{\pi} J(\pi),
+        \gls{rl:pi}^{\ast}=\arg \max _{\gls{rl:pi}} \gls{ml:J}(\gls{rl:pi}).
     \end{equation}
 
-    \item Advantage Functions: 
+    \item \textbf{Value functions} are a central concept in \gls{RL} which is an operator that acts on the state space (and sometimes action space) and returns the value of the expected return given those inputs. There are four key value functions in \gls{RL}, which are defined as follows:
+    \begin{itemize}
+        \item The \textbf{on-policy value function} is denoted by $\gls{rl:V}^{\gls{rl:pi}}(\gls{rl:s})$ and is defined as the expected return for being in a given state $\gls{rl:s}$ and acting on a policy $\gls{rl:pi}$ for the remainder of the trajectory \gls{rl:tau}:
+        \begin{equation}
+            \gls{rl:V}^{\gls{rl:pi}}(\gls{rl:s})
+            =
+            {\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
+            \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s}\rbrack,
+        \end{equation}
+        
+        \item The \textbf{on-policy action-value function} is denoted by $\gls{rl:Q}^{\gls{rl:pi}}(\gls{rl:s}, \gls{rl:a})$ and is defined as the expected return for being in a given state \gls{rl:s} taking a given action \gls{rl:a} and acting on a policy \gls{rl:pi} for the remainder of the trajectory \gls{rl:tau}:
+        \begin{equation}
+            \gls{rl:Q}^{\gls{rl:pi}}(\gls{rl:s}, \gls{rl:a})
+            =
+            {\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
+            \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s},~\gls{rl:a}[_0]=\gls{rl:a}\rbrack,
+        \end{equation}
+
+        \item The \textbf{optimal value function} is denoted by $\gls{rl:V}^{\ast}(\gls{rl:s})$ and is defined as the expected return for being in a given state $\gls{rl:s}$ and acting on the optimal policy $\gls{rl:pi}[^\ast]$ for the remainder of the trajectory \gls{rl:tau}:
+        \begin{equation}
+            \gls{rl:V}^{*}(\gls{rl:s})
+            =
+            \max_{\gls{rl:pi}}{\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
+            \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s}\rbrack,
+        \end{equation}
+
+        \item The \textbf{optimal action-value function} is denoted by $\gls{rl:Q}^{\ast}(\gls{rl:s}, \gls{rl:a})$ and is defined as the expected return for being in a given state $\gls{rl:s}$ taking a given action, $\gls{rl:a}$ and acting on the optimal policy $\gls{rl:pi}[^\ast]$ for the remainder of the trajectory \gls{rl:tau}:
+        \begin{equation}
+            \gls{rl:Q}^{\ast}(\gls{rl:s}, \gls{rl:a})
+            =
+            \max_{\gls{rl:pi}}{\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
+            \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s},~\gls{rl:a}[_0]=\gls{rl:a}\rbrack.
+        \end{equation}
+    \end{itemize}
+
+    The optimal and non-optimal variants of the value functions exhibit two key connections which are utilised in the derivation of \gls{RL} algorithms. The first is that: 
     \begin{equation}
-        A^{\pi}(s, a)=Q^{\pi}(s, a)-V^{\pi}(s)
+        \gls{rl:V}^{\gls{rl:pi}}(\gls{rl:s})=\mathop{\gls{E}}_{\gls{rl:a}\sim\gls{rl:pi}}\lbrack\gls{rl:Q}^{\gls{rl:pi}}(\gls{rl:s}, \gls{rl:a})\rbrack,
     \end{equation}
-
-    \item Bellman Equations:
+    which states that the on-policy value function $\gls{rl:V}^{\gls{rl:pi}}(\gls{rl:s})$ is equal to the expected value of the on-policy action-value function $\gls{rl:Q}^{\gls{rl:pi}}(\gls{rl:s}, \gls{rl:a})$, given a policy \gls{rl:pi}, for all actions \gls{rl:a} permissible in state \gls{rl:s}.
+    The second is that:
+    \begin{equation}
+        \gls{rl:V}^{\ast}(\gls{rl:s})=\max_{\gls{rl:a}}\gls{rl:Q}^{\ast}(\gls{rl:s}, \gls{rl:a}),
+    \end{equation}
+    which states that the optimal value function $\gls{rl:V}^{\ast}(\gls{rl:s})$ is equal the maximum of the optimal action-value function $\gls{rl:Q}^{\ast}(\gls{rl:s}, \gls{rl:a})$, given a policy \gls{rl:pi}, for all actions \gls{rl:a} permissible in state \gls{rl:s}. These two connections are used to derive the \gls{RL} algorithms discussed in \autoref{ssec:algorithms}.
     
+    \item Advantage Functions: The advantage function is a measure of how much better an action \gls{rl:a} is than the average action in a given state \gls{rl:s}. It is defined as:
+    \begin{equation}
+        A^{\pi}(s, a)=Q^{\pi}(s, a)-V^{\pi}(s),
+    \end{equation}
+
+    which states that the advantage function is equal to the difference between the action-value function and the value function for a given state and action.
+
+    \item \textbf{Bellman Equations:} The Bellman equations are a set of equations which describe the temporal relationship between the value functions at different time steps. They are given by:
     \begin{equation}
         \begin{aligned}
         &V^{\pi}(s)=\underset{\substack{a \sim \pi \\ s^{\prime} \sim P}}{\mathrm{E}}\left[r(s, a)+\gamma V^{\pi}\left(s^{\prime}\right)\right],\\
         &Q^{\pi}(s, a)=\underset{s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+\gamma \underset{a^{\prime} \sim \pi}{\mathrm{E}}\left[Q^{\pi}\left(s^{\prime}, a^{\prime}\right)\right]\right],
         \end{aligned}
     \end{equation}
-
     \begin{equation}
         \begin{aligned}
         &V^{*}(s)=\max _{a} \underset{s^{\prime} \sim P}{ } \mathrm{E}\left[r(s, a)+\gamma V^{*}\left(s^{\prime}\right)\right],\\
         &Q^{*}(s, a)=\underset{s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+\gamma \max _{a^{\prime}} Q^{*}\left(s^{\prime}, a^{\prime}\right)\right] .
         \end{aligned}
     \end{equation}
-
-    % While the line between these two formulations of return are quite stark in RL formalism, deep RL practice tends to blur the line a fair bit—for instance, we frequently set up algorithms to optimize the undiscounted return, but use discount factors in estimating value functions.
 \end{itemize}
 
-\begin{equation}
-    \gls{rl:V}^{\gls{rl:pi}}(\gls{rl:s})
-    =
-    {\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
-    \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s}\rbrack,
-\end{equation}
 
-\begin{equation}
-    \gls{rl:Q}^{\gls{rl:pi}}(\gls{rl:s}, \gls{rl:a})
-    =
-    {\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
-    \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s},~\gls{rl:a}[_0]=\gls{rl:a}\rbrack,
-\end{equation}
-
-\begin{equation}
-    \gls{rl:V}^{*}(\gls{rl:s})
-    =
-    \max_{\gls{rl:pi}}{\displaystyle \mathop{\mathbb{E}}_{\gls{rl:tau}\sim\gls{rl:pi}}}
-    \lbrack R(\gls{rl:tau})~|~\gls{rl:s}[_0]=\gls{rl:s}\rbrack,
-\end{equation}
 
 
 
@@ -127,79 +157,73 @@ A \gls{MDP} is a discrete-time stochastic process which defines a mathematical f
 
 Similarly in the case of an \gls{MDP} (\autoref{ssec:mdp}), the 7-tuple described can sometimes be found in literature as an 8-tuple of the form $\tupleft\gls{rl:S},\gls{rl:A},\gls{rl:obs:set},\gls{rl:P},\gls{rl:R}, \gls{rl:obs:fn}, \gls{rl:rho0}, \gls{rl:discount}\tupright$.
 
-% \subsection{Model-Free vs Model-Based}\label{ssec:model}
 
-Continuous control \cite{Recht2019}
-% \begin{itemize}
-%     \item states and observations,
-%     \item action spaces,
-%     \item policies,
-%     \item trajectories,
-%     \item different formulations of return,
-%     \item the RL optimization problem,
-%     \item and value functions.
-% \end{itemize}
+\subsection{Model-free vs. model-based}\label{ssec:algorithms}
 
+Reinforcement learning algorithms can be broadly classified into two categories: model-free and model-based. Model-free algorithms do not use a model of the environment, while model-based algorithms rely on a model to make predictions. Each category has several sub-types of algorithms.
 
-% \begin{equation}
-%     \gls{rl:a}[_\gls{rl:t}] = \gls{rl:mu}
-% \end{equation}
+Model-free algorithms are generally easier to implement and require less training data. However, they can be less efficient and may not converge to the optimal solution. Model-based algorithms can require more training data but can be more efficient and may find the optimal solution.
 
+Some popular model-free reinforcement learning algorithms include Q-learning, SARSA, and TD learning (\autoref{ssec:temporal_difference_learning}). Some popular model-based reinforcement learning algorithms include Dyna-Q, Monte Carlo planning, and Temporal Difference planning.
 
-% $\displaystyle \mathop{\mathbb{E}}_{x\in A}$
+\subsection{Temporal Difference (TD) Learning}\label{ssec:temporal_difference_learning}
 
+TD learning is a powerful approach to learning in control problems. In TD learning, the agent uses its experience to estimate the value of a given policy. This estimate is then used to improve the policy. TD learning has several advantages over other methods, including the ability to be implemented on-line and the ability to use limited data efficiently. However, the jury is still out on which method is better in terms of convergence rate and overall efficiency \cite{Sutton1998}.
 
+\subsection{Policy Optimisation}\label{ssec:policy_optimisation}
 
-
-\subsection{Policy Optimisation}\label{ssec:algotypes}
-
-\subsubsection{Policy Optimisation}
-
-Policy optimisation is the process of optimising the policy \gls{rl:pi} to maximise the expected return $\gls{ml:J}(\gls{rl:pi}_{\gls{fn:param}})=\gls{E} [\gls{rl:R}(\gls{rl:tau})]$. Here, the finite-horizon undiscounted return $\gls{rl:R}(\gls{rl:tau})$ is used. The foundation of this class of algorithm relies on the derivation of an expression, or surrogate expression, for the gradient of the expected return. The method of optimisation is gradient ascent on the chosen expression,
+Policy optimisation is the process of optimising the policy \gls{rl:pi} to maximise the expected return $\gls{ml:J}(\gls{rl:pi}_{\gls{fn:param}})=\gls{E} [\gls{rl:R}(\gls{rl:tau})]$. Here, the finite-horizon undiscounted return $\gls{rl:R}(\gls{rl:tau})$ is used. The foundation of this class of algorithms relies on the derivation of an expression, or surrogate expression, for the gradient of the expected return. The method of optimisation is gradient ascent on the chosen expression,
 
 \begin{equation}
     \theta_{k+1}=\theta_{k}+\alpha \nabla_{\theta} J\left(\pi_{\theta_{k}}\right)|_{\theta_{k}}
 \end{equation}
 
-(see \autoref{dl:optimisation} for further explanation)
+See \autoref{dl:optimisation} for further details on alternative formulations of the update step, in the optimisation algorithms for artificial neural networks, a common choice of model for policy optimisation in \gls{RL}. Policy graident methods often make use of
+
+\begin{equation}
+    \nabla_{\theta} J\left(\pi_{\theta}\right)=\underset{\tau \sim \pi_{\theta}}{\mathrm{E}}\left[\sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}\left(a_{t} \mid s_{t}\right) A^{\pi_{\theta}}\left(s_{t}, a_{t}\right)\right],
+\end{equation}
+
+\begin{equation}
+    \theta_{k+1}=\theta_{k}+\alpha \nabla_{\theta} J\left(\pi_{\theta_{k}}\right)
+\end{equation}
+
+This equation results in gradients being weighted by the log-probabilities of each action in proportion to the sum of all rewards ever obtained $\gls{rl:R}(\gls{rl:tau})$. This however does not make sense when considering cause and effect. Agents should not be reinforcing actions based on past rewards (causes), but rather on the future rewards obtained (effects). An alternative form of policy gradient called ``reward-to-go policy gradient'', 
+\begin{equation}
+    \begin{gathered}
+    \nabla_{\theta} J\left(\pi_{\theta}\right)=\underset{\tau \sim \pi_{\theta}}{\mathrm{E}}\left[\sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}\left(a_{t} \mid s_{t}\right) \sum_{t^{\prime}=t}^{T} R\left(s_{t^{\prime}}, a_{t^{\prime}}, s_{t^{\prime}+1}\right)\right] ,
+    \end{gathered}
+    \label{eq:policy_gradient}
+\end{equation}
+
+which utilises a modified weight for the log-probabilities, which is the ``reward-to-go'',
+
+\begin{equation}
+    \hat{R}_{t} \doteq \sum_{t^{\prime}=t}^{T} R\left(s_{t^{\prime}}, a_{t^{\prime}}, s_{t^{\prime}+1}\right).
+\end{equation}
+
+It should be noted that \autoref{eq:policy_gradient} exhibits different forms with different target weights instead of the advantage function $A^{\pi_{\theta}}\left(s_{t}, a_{t}\right)$, however this varies between implementations of the various algorithms (See \autoref{sec:pg:derivation} for derivation). Some key algorithms that utilise policy gradient methods include the following:
 
 \begin{enumerate}
 
     % VANILLA POLICY-GRADIENT
-    \item \textbf{\gls{VPG}} 
-    \begin{equation}
-        \nabla_{\theta} J\left(\pi_{\theta}\right)=\underset{\tau \sim \pi_{\theta}}{\mathrm{E}}\left[\sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}\left(a_{t} \mid s_{t}\right) A^{\pi_{\theta}}\left(s_{t}, a_{t}\right)\right],
-    \end{equation}
-    (See \autoref{sec:pg:derivation} for derivation)
-    \begin{equation}
-        \theta_{k+1}=\theta_{k}+\alpha \nabla_{\theta} J\left(\pi_{\theta_{k}}\right)
-    \end{equation}
-
-    This equation results in gradients being weighted by the log-probabilities of each action in proportion to the sum of all rewards ever obtained $\gls{rl:R}(\gls{rl:tau})$. This however does not make sense when considering cause and effect. Agents should not be reinforcing actions on the basis on past rewards (causes), but rather on the future rewards obtained (effects). 
-
-    An alternative form of policy gradient, called ``reward-to-go policy gradient'', 
-    \begin{equation}
-        \begin{gathered}
-        \nabla_{\theta} J\left(\pi_{\theta}\right)=\underset{\tau \sim \pi_{\theta}}{\mathrm{E}}\left[\sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}\left(a_{t} \mid s_{t}\right) \sum_{t^{\prime}=t}^{T} R\left(s_{t^{\prime}}, a_{t^{\prime}}, s_{t^{\prime}+1}\right)\right] ,
-        \end{gathered}
-    \end{equation}
-
-    utilises a modifed weight for the log-probabilities, which is the ``reward-to-go'',
-
-    \begin{equation}
-        \hat{R}_{t} \doteq \sum_{t^{\prime}=t}^{T} R\left(s_{t^{\prime}}, a_{t^{\prime}}, s_{t^{\prime}+1}\right).
-    \end{equation}
+    \item \textbf{\Gls{VPG}}. Policy gradient functions are used in pushing up the probability of actions that lead to a higher return, and subsequently down for those which steer towards lower rewards. This algorithm is called \gls{VPG}, which is on-policy and can be applied to environments with either discrete or continuous action spaces. A stochastic policy is trained in an on-policy manner by \gls{VPG}. This implies that it explores by sampling activities based on the most recent version of its stochastic policy. The amount of chance involved in action selection is determined by both starting conditions and the training method. As the update rule pushes it to take advantage of rewards it has already discovered, the policy's randomness typically decreases over time, possibly trapping it in local optima. The fundamental idea behind policy gradients is to raise the chances of actions that result in a higher return and lower the chances of actions that result in a lower return until the desired policy is reached \cite{Sutton1998, Sutton2000}.
 
     % TRUST REGION POLICY OPTIMISATION
-    \item \textbf{\gls{TRPO}}, a method of \gls{RL} which focuses on optimisation of a control policy, with guranteed monotonic improvement, using a theoretically-justified scheme. It is effective in highly nonlinear policy models such as \glspl{ANN} \cite{Schulman2015}. This method is not used in contemporary \gls{RL} practice, but has provided a useful theoretical foundation for trust-based policy optimisation algorithms. For example, the definition of \gls{TRPO} often precedes the definition of \gls{PPO} in literature, as it has some of the benefits of \gls{TRPO}, but is much simpler to implement, and is characterised by superior exmpirical sample complexity \cite{Schulman2017}.
+    \item \textbf{\Gls{TRPO}}, a method of \gls{RL} which focuses on optimisation of a control policy, with guaranteed monotonic improvement, using a theoretically-justified scheme. It is effective in highly nonlinear policy models such as \glspl{ANN} \cite{Schulman2015}. This method is not used in contemporary \gls{RL} practice but has provided a useful theoretical foundation for trust-based policy optimisation algorithms. For example, the definition of \gls{TRPO} often precedes the definition of \gls{PPO} in literature, as it has some of the benefits of \gls{TRPO}, but is much simpler to implement, and is characterised by superior exmpirical sample complexity \cite{Schulman2017}.
     
     % PROXIMAL POLICY OPTIMISATION
-    \item \textbf{\glsentryfull{PPO}} is a family of policy gradient methods in \gls{RL} which alternates between sampling the environment and optimising a surrogate objective function using \gls{SGD}.
-    
+    \item \textbf{\Glsentryfull{PPO}} is a family of policy gradient methods in \gls{RL} which alternates between sampling the environment and optimising a surrogate objective function using \gls{SGD}. They make use of several epochs of stochastic gradient ascent to perform each policy change. These methods are not only stable and reliable like trust-region methods, but they're much simpler to implement. You would only need to make minor modifications for it to become a vanilla policy gradient implementation. They are also applicable in more general settings (for example, when using a joint architecture for the policy and value function), and usually result in better overall performance. This method is indicative of a clipped surrogate objective function is a simple way of enforcing a constraint on the policy gradient. In particular, it clips the magnitude of the gradient to be less than a given value. This can be useful when the policy gradient is getting close to saturation, which can happen when the learning rate is too large \cite{Schulman2017}. 
 
+    \item \textbf{\Glsentryfull{DDPG}} is a policy gradient method that uses a target network in order to approximate the maximum of $Q_{\phi}(\gls{rl:s},\gls{rl:a})$ over all actions. This target network is found by Polyak averaging the policy parameters throughout training. \glsposs{DDPG} policy learning is easy to follow. It aims at obtaining deterministic policy $\gls{rl:mu}_{\gls{fn:param}}(\gls{rl:s})$ that results in the action that maximizes $Q_{\phi}(\gls{rl:s},\gls{rl:a})$. When the action space is continuous and differentiable with respect to actions, then we can just do gradient ascent while only focusing on policy parameters in order to find the solution \cite{Silver2014, Lillicrap2015}:
+
+    \begin{equation}
+        \max_{\theta} \underset{s \sim {\mathcal D}}{{\mathrm E}}\left[ Q_{\phi}(s, \mu_{\theta}(s)) \right].
+    \end{equation}
+    
+    \gls{DDPG} is an on-policy algorithm, meaning that the agents learn from the actions they select and not from a roll-out of the environment. This can be problematic for exploration, as the agent may get stuck in a suboptimal state if it does not explore enough. To encourage exploration, noise is added to the actions at training time. The most common type of noise used is OU Noise, however, more recent studies have shown that Gaussian noise works just as well. An advantage of \gls{DDPG} is that it can be easily adapted to work with environments that have discrete action spaces. To do this, we simply need to change the policy network so that it outputs a probability distribution over actions instead of deterministically selecting an action. We can then use a technique called the Gumbel-softmax trick \cite{Jang2016} to sample from this distribution and get a discrete action. As is common with on-policy algorithms, it means that the agents learn from the actions they select and not from a roll-out of the environment (entire trajectory). This can be problematic for exploration, as the agent may get stuck in a suboptimal state if it does not explore enough. To encourage exploration, noise is added to the actions at training time. The original authors suggest \gls{OU} noise \cite{Silver2014}, however, more recent studies have shown that Gaussian noise works just as well \cite{Cicek2021}. 
 \end{enumerate}
 
-\subsubsection{Policy Optimisation}
 
 % \subsection{Taxonomy of Reinforcement Learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -216,14 +240,15 @@ Policy optimisation is the process of optimising the policy \gls{rl:pi} to maxim
 % \subsection{Deep deterministic policy gradient (DDPG)}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Algorithms}\label{ssec:algorithms}
+% \subsection{Algorithms}\label{ssec:algorithms}
 
 
 \newpage\begin{table}[htp!]
     \renewcommand{\arraystretch}{1.4}
     \centering
+    \captionsetup{format=hang} % hanging captions
     \caption{
-        \textbf{}
+        \textbf{Comparison of the popular \gls{RL} algorithms.} These algorithms are compared in operator type, action space, and whether they are on- or off-policy. Citations to the original authors are provided.
     }
     \label{tab:rl:algorithms}
     \begin{tabularx}{\textwidth}{lllllX}

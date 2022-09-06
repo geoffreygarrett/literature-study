@@ -1,0 +1,1094 @@
+C H A P T E R
+
+
+
+
+A Brief History of Spacecraft
+
+Missions to Asteroids and
+
+Protoplanets
+
+Beth E. Clark1, Maria A. Barucci2, Xiao-Duan Zou3,
+
+Marcello Fulchignoni2, Andrew Rivkin4, Carol Raymond5, Makoto Yoshikawa6, Linda T. Elkins-Tanton7, Hal Levison8
+
+1Department of Physics & Astronomy, Ithaca College, Ithaca, NY, United States;
+
+2LESIA-Observatoire de Paris, CNRS, Universite Pierre et Marie Curie, Universite Paris
+
+Diderot, France; 3Planetary Science Institute, Tucson, AZ, United States; 4The Johns Hopkins University Applied Physics Laboratory, Laurel, MA, United States; 5Jet Propulsion Laboratory,
+
+Pasadena, CA, United States; 6Japan Aerospace Exploration Agency (JAXA), Sagamihara, Kanagawa, Japan; 7School of Earth and Space Exploration, Arizona State University, Tempe,
+
+AZ, United States; 8Southwest Research Institute, Boulder, CO, United States
+
+There are hundreds of thousands of known asteroids, yet only 14 have been visited by spacecraft thus far, and 9 of those were targets of opportunity. The remaining five asteroids (Braille, Eros, Itokawa, Vesta, and Ceres) were visited by four missions dedicated to asteroid research (Deep Space 1, Near Earth Asteroid RendezvouseShoemaker [NEAR-Shoemaker], Hayabusa, and Dawn, respectively). In fact, of these five asteroids, Vesta and Ceres are perhaps better defined as protoplanets because of their sizes and the emerging evidence for their physical and chemical evolution. Two more near- Earth asteroids (NEAs) will be visited in 2018, followed by even more visits in 2023 and 2030. This asteroid mission chronology is listed in Table 1.1. This chapter will tell the story of these asteroid missions and visit each of them in turn to brieﬂy review some of the exciting science results. The story begins with asteroid 951 Gaspra and continues down the list in Table 1.1, according to the target asteroid name presented in chronological order.
+
+Primitive Meteorites and Asteroids https://doi.org/10.1016/B978-0-12-813325-5.00001-X
+
+
+
+
+Copyright © 2018 Elsevier Inc. All rights reserved.
+TABLE 
+
+1.1 Past, Present (Light Gray), and Future (Dark Gray) Missions to Asteroids
+
+Asteroid Target
+
+Spectral Class
+
+Mission
+
+Galileo
+
+Galileo
+
+NEAR-Shoemaker
+
+Deep Space 1
+
+951 Gaspra
+
+243 Ida and Dactyl
+
+253 Mathilde
+
+9699 Braille
+
+NEAR-Shoemaker
+
+433 Eros
+
+Cassini
+
+Stardust
+
+Hayabusa
+
+New Horizons
+
+Rosetta
+
+Rosetta
+
+Dawn
+
+Chang’e 2
+
+Dawn OSIRIS-REx
+
+Hayabusa 2
+
+Lucy
+
+Psyche
+
+2685 Masursky
+
+5535 Annefrank
+
+25143 Itokawa
+
+132524 APL
+
+2867 Steins
+
+21 Lutetia
+
+4 Vesta
+
+4179 Toutatis
+
+1 Ceres 101955 Bennu
+
+162173 Ryugu
+
+Jupiter trojans
+
+16 Psyche
+
+Year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2015 2018
+
+
+
+
+
+
+
+
+
+
+Agency
+
+NASA
+
+NASA
+
+NASA
+
+NASA
+
+NASA
+
+NASA
+
+NASA
+
+JAXA
+
+NASA
+
+ESA
+
+ESA
+
+NASA
+
+CNSA
+
+NASA NASA
+
+JAXA
+
+NASA
+
+NASA
+
+S
+
+S
+
+C
+
+Q
+
+S
+
+Unknown
+
+S
+
+S
+
+S
+
+E
+
+M or C
+
+V
+
+S
+
+C B
+
+C
+
+D
+
+M
+
+1.1 GALILEO: 951 GASPRA
+
+The Galileo spacecraft was launched by NASA in 1989 on a trajectory to Jupiter and the Galilean moons. The spacecraft was equipped with an orbiter and an entry probe to measure the atmosphere of Jupiter. One part of the spacecraft was kept rotating at 3 revolutions per minute for stability, and this part held six scientific instruments, including several for measuring electromagnetic fields and particles. The spacecraft was powered by two radioisotope thermoelectric generators (RTGs), harnessing the energy from the decay of plutonium-238 at about 500 W. Learning about the RTGs on Galileo, the public grew very alarmed and considered them an unacceptable launch risk. Antinuclear groups sought a court injunction to prohibit the launch, but this was not successful. The spacecraft was launched by the Space Shuttle Atlantis, on the STS-34 mission from Kennedy Space Center, on October 18, 1989.
+
+The spacecraft payload consisted of 10 science instruments, plus the atmospheric probe. The instruments used for nonparticles and field measurements included a camera system, a Near-Infrared Mapping Spectrometer (NIMS), an ultraviolet spectrometer, and a photopolarimeter-radiometer. The main science camera was a solid state imaging (SSI) camera, making Galileo one of the first spacecraft missions to use a charge-coupled device (CCD) for imaging. The NIMS was sensitive from 0.7 to 5.2 microns. The mission was almost crippled, however, when the high-gain antenna (HGA) on board failed to open up to its operational configuration, and the project was thereafter severely restricted in terms of the volume of data that could be transmitted to Earth. This problem was largely overcome by careful use of data compression, the low-gain antenna (LGA), data storage buffers, and frequent downlink with the Deep Space Network, allowing Galileo to complete its main mission and achieve most of its science objectives. The spacecraft arrived at Jupiter, its main target, in December of 1995 and became the first spacecraft to orbit Jupiter. In total, the mission operated for almost 14 years, sending unprecedented coverage of the Jupiter system back to Earth.
+
+On its way to Jupiter, Galileo ﬂew (at 8 km/s) to within 1600 km of main-belt asteroid 951 Gaspra on October 29, 1991, obtaining the first ever close-up images of an asteroid surface. Because of the loss of the HGA, the data were downlinked slowly over a 13-month period. The first images, obtained by the SSI camera, were relayed to Earth in early November 1991, and consisted of four images taken at wavelengths of 0.40, 0.56, 0.89, and 0.99 microns from a range of 16,065 km at 164 m/pixel (Belton et al., 1992). Playback of all the imaging data obtained during the ﬂyby was completed in November of 1992, and in total, 951 Gaspra appears in 57 images and in 7 color filters (Helfenstein et al., 1994). Shape models of 951 Gaspra indicate a body with dimensions of 18.2 ${\times}$ 10.5 ${\times}$ 8.9 km in diameter, and images of the surface reveal a scarcity of craters larger than 1.5 km in diameter (Fig. 1.1).
+
+Gaspra does show a large number of small craters in the highest resolution imaging from Galileo, and the surface is further characterized by several large ﬂat areas and concavities, giving Gaspra a very angular appearance (Figs. 1.1 and 1.2). It is uncertain whether these concavities and ﬂat areas resulted from impacts or whether they are surface facets that were first exposed when Gaspra broke off its parent asteroid.
+951 Gaspra is classified based on ground-based telescopic observations as an S-type asteroid (Tholen and Barucci, 1989), one of the most abundant asteroid classes in the inner main asteroid belt. The surface mineralogy of S-type asteroids is rich in olivine, pyroxene, and ironenickel metal, consistent with ordinary chondrites (OCs) and/or stony-iron meteorites (Chapman et al., 1975; Clark, 1993). Analyses of the Galileo images across the phase angle range of 33{\textemdash}51 degrees place the geometric albedo of Gaspra at 0.22 ${\pm}$ 0.06 at 0.55 microns, consistent with ground-based telescopic measurements and with identification in the S-class (Helfenstein et al., 1994; Tholen and Barucci, 1989). Color variations of about ${\pm}$5% (accompanied by subtle albedo variations) are detected over the spectral range of the SSI camera and are systematic with respect to longitude (Fig. 1.2). Some color variations correlated with fresher crater morphology hint at space weathering effects. This is because simple grain-size effects cannot fully explain the increase in redness, decrease in 1-micron absorption band depth, and decrease in albedo that are observed in areas not affected by recent cratering (Belton et al., 1992; Clark, 1993; Helfenstein et al., 1994).
+
+1.2 GALILEO: 243 IDA
+
+Asteroid 243 Ida was the second asteroid to be visited by spacecraft, as Galileo ﬂew by in 1993 on its way to Jupiter. 243 Ida is a member of the Koronis family of the inner main asteroid belt. The first images of Ida reveal a very irregularly shaped object, with ellipsoid dimensions measuring 59.8 ${\times}$ 25.4 ${\times}$ 18.6 km in diameter. This works out to a mean radius of 15.7 km and a volume of 16,100 ${\pm}$ 1900 km3 (Belton et al., 1996) (Fig. 1.3). Over 18 different time periods, the SSI recorded 96 images of asteroid Ida, providing coverage of 95% of the asteroid surface. The SSI camera obtained multicolor images in four passbands at spatial resolutions up to 105 m/pixel (Belton et al., 1996).
+
+243 Ida’s surface has been exposed to cratering processes long enough to have reached equilibrium, meaning that the surface is disturbed by new impacts at the same rate as older craters erode away (due to meteorite and micrometeorite bombardment), at least for craters with diameters up to about 1 km (Belton et al., 1994). This indicates that Ida may have a substantial regolith, up to approximately 100 m deep (Chapman, 1996). Several dozen large (40{\textemdash}150 m across) boulders (or blocks) have been described on Ida, presumably deposited by impact ejection. Ejecta blocks are considered to be evidence of a younger surface because they are expected to be easily broken down by impact processes at the surface. Thus, it is probable that the ejecta blocks on 243 Ida’s surface either formed or were exposed recently (Lee et al., 1996).
+
+243 Ida and other bright members of the Koronis family are S-type asteroids. The observed spectral similarities of Koronis family members and the observed distribution of spin states in this family have been interpreted to indicate a young age for the Koronis family, relative to the age of the solar system (Binzel, 1988). Analysis of the data returned from the Galileo ﬂyby (e.g., Chapman, 1996) pointed to S-type asteroids like 243 Ida as the source of the OCs.
+
+1.3 GALILEO: DACTYL
+
+As some of the first images of 243 Ida were beamed down to Earth, line by line, using the LGA on board the spacecraft, it became very clear that Ida was not alone in space (Fig. 1.3). As the images formed in front of their eyes, investigators from the Galileo science team were astonished to find that a small, irregularly shaped moon hovered close to 243 Ida (Belton et al., 1996). This discovery is the first confirmed detection of an asteroid satellite. Subsequently named Dactyl (after the Dactylsdcreatures that inhabited Mount Ida in Greek mythology), the orbit determination of Ida’s small satellite permitted very precise mass and density determination of the asteroid (see Burns, 2002). Dactyl is small, relative to Ida, and roughly spherical with a diameter of 1.4 km. Measurements of Dactyl’s orbit allowed calculations of 243 Ida’s mass as 4.2 ${\pm}$ 0.6 ${\times}$ 1019 g and 2.6 ${\pm}$ 0.5 g/cm3 for 243 Ida’s bulk density (Belton et al., 1996). 243 Ida’s bulk density is low compared with the average density of OCs, which ranges from 3.0 to 3.8 g/cm3 (Wilkison and Robinson, 2000; Carry, 2012). 243 Ida’s density would imply that 243 Ida has moderate to low FeeNi metal content, unless the bulk porosity is unusually high. OCs are divided into several groups based on their Fe content, which affects their bulk densities such that the H chondrites have the highest densities and the highest volumes of FeeNi metal. 243 Ida and Dactyl are similar enough in color and brightness characteristics that a common origin is indicated. In fact, there is a general consensus that these two bodies (Ida and Dactyl) originated from the catastrophic breakup of the Koronis parent body. It is also possible that the formation of asteroidesatellite systems may be relatively common in such events. After the discovery of Dactyl, more asteroids were discovered to have moons using ground-based optical and radar telescopes. The second asteroid moon was discovered around 45 Eugenia in 1998 (Merline et al., 2002). More than 320 minor planets are now known to have satellites.
+
+1.4 NEAR-SHOEMAKER: 253 MATHILDE
+
+Launched on February 17, 1996, the NEAR-Shoemaker spacecraft was the first Discovery Program mission, and it incorporated a payload designed to conduct the first detailed orbital investigation of an asteroid, NEA 433 Eros (Veverka et al., 2000). The NEAR-Shoemaker craft was a robotic space probe designed by the Johns Hopkins University Applied Physics Laboratory. The spacecraft carried an X-ray/gamma-ray spectrometer, a multispectral imaging (MSI) camera fitted with a CCD imaging detector, a near-infrared imaging spectrograph (NIS), a laser rangefinder, and a magnetometer. A radio science experiment was also performed using the spacecraft tracking system to map the gravity field of the asteroid. The total mass of the instruments was 56 kg, and they required 80 W power. At launch from Cape Canaveral, the spacecraft weighed about 800 kg.
+
+On the way to 433 Eros, NEAR ﬂew within 1212 km of main-belt asteroid 253 Mathilde on June 27, 1997 (Veverka et al., 1997). The data obtained during the ﬂyby include 534 frames from the MSI camera (Fig. 1.4); however, to conserve power the MSI was the only instrument turned on. The highest resolution images were 160 m/pixel, obtained during closest approach. 253 Mathilde has a mean diameter of 53 ${\pm}$ 2.6 km (Veverka et al., 1997). 253 Mathilde was observed at a phase angle range of 40{\textemdash}136 degrees, allowing craters to stand out in relief across the surface. The most prominent crater, named Karoo, is approximately 33 km in diameter, presenting evidence of a remarkably severe impact that does not seem to be accompanied by large-scale fracturing (Veverka et al., 1997). Two other large craters, Ishikari (29.3 km) and Damodar (20 km) (Fig. 1.5), have diameters that rival the asteroid’s average radius (Veverka et al., 1999). The impacts appear to have spalled large volumes off the asteroid, as suggested by the angular edges of the craters (Veverka et al., 1999). No differences in brightness or color were visible in the craters, and there was no appearance of layering, so the asteroid’s interior must be very homogeneous. There are indications of material movement along the downslope direction.
+
+1.4 NEAR-SHOEMAKER: 253 MATHILDE
+
+253 Mathilde was classified based on ground-based spectrophotometry as a C-type carbonaceous asteroid (Chapman et al., 1975). Analysis of the MSI images place the asteroid’s geometric albedo at 0.047 ${\pm}$ 0.005 at 0.55 microns, consistent with a composition similar to the darkest carbonaceous chondrite (CC) meteorites, such as the CM chondrites (Clark et al., 1999). After closest approach, when the spacecraft was receding, multicolor hemispherical coverage was obtained at about 500 m/pixel resolution, using MSI’s seven color filters, covering the spectral range of 0.4{\textemdash}1.1 microns. These data also indicate a surface spectrum consistent with low-albedo CCs and do not show marked deviations in color across the surface in the low-resolution color mosaics.
+
+253 Mathilde is known to have a very slow rotation period of 17.4 days (Mottola et al., 1995), and the NEAR ﬂyby was too fast to observe the asteroid rotate more than a few degrees. However, the MSI images allowed a shape determination, with uncertainties dominated by the unseen hemisphere (Veverka et al., 1997). The resulting volume together with radio tracking data that provided an estimate of the mass of 253 Mathilde yield mean density values between 1.1 and 1.5 g/cm3. This is less than half of the average density measured for CM meteorites, indicating that Mathilde’s interior structure may be porous and underdense (Veverka et al., 1997). Subsequent studies have estimated that to match the density of 253 Mathilde with a known type of group of chondrites, 253 Mathilde would have to have a porosity greater than 40% (Britt and Consolmagno, 2000).
+
+1.5 DEEP SPACE 1: 9969 BRAILLE
+
+The first launch of NASA’s New Millennium Program, dedicated to testing advanced technologies, was Deep Space 1 (DS1). The main objective of the mission was technology demonstration, including autonomous navigation and solar electric propulsion. Its target was the Mars-crossing asteroid 9969 Braille, and the ﬂyby on July 29, 1999 was a partial success. Technical difficulties led to a ﬂyby distance of 26 km for 9969 Braille rather than the planned distance of 240 m. As part of an extended mission, the spacecraft was then targeted toward Comet 19P/Borrelly (Rayman and Varghese, 2001).
+
+The only instrument returning data during the Braille encounter was the Miniature Integrated Camera and Imaging Spectrometer (MICAS). Two medium-resolution CCD images were returned by MICAS before closest approach at a phase angle of 98 degrees (Fig. 1.6), as well as three 1.25{\textemdash}2.6 mm spectra at a phase angle of 82 degrees (Fig. 1.7).
+
+The infrared (1.25{\textemdash}2.6 mm) spectra from DS1 indicate a 2-mm absorption and 1.6-mm reﬂectance peak, typical of silicate asteroids and similar to pyroxene minerals. Buratti et al. (2004) favored a Q-type interpretation for 9969 Braille’s spectrum, with OCs the most likely analog. Lazzarin et al. (2001) also found a strong spectral similarity to the L- type OCs from 0.45 to 0.82 mm spectroscopy, with appropriate asteroid classes ranging from the V type to Q type. However, the geometric albedo reported for 9969 Braille
+
+1.6 NEAR-SHOEMAKER: 433 EROS
+
+(0.34) by Buratti et al. was noted as “unusually high” and perhaps indicates a relatively fresh surface or material that differs from that represented in the Earthly collection of meteorites. Oberst et al. (2001) used spacecraft data and ground-based photometry to estimate a size of 2.1 ${\times}$ 1 ${\times}$ 1 km in diameter for Braille, with photometric properties and geometric albedo similar to asteroid (4) Vesta.
+
+1.6 NEAR-SHOEMAKER: 433 EROS
+
+Based on ground-based telescopic observations, the Amor NEA 433 Eros is spectrally classified as an S-type asteroid, meaning the surface mineralogy is dominated by silicates such as pyroxene and olivine, and, possibly, metallic FeeNi (Chapman et al., 1975; Chapman, 1996). During opposition, Eros is a relatively bright asteroid in the sky (reaching up to eighth and, rarely, seventh visual magnitudedaccording to ephemeris calculations). With a mean effective diameter of approximately 17 km, Eros is the second largest NEA, making it an important member of the NEA population. In addition, dynamical studies show that as an Amor (Mars-crosser asteroid), Eros is expected to remain in its current orbit for only a few hundred million years before the orbit is perturbed by gravitational interactions, at which point Eros may evolve into an Earth-crosser (Michel et al., 1996).
+
+The NEAR-Shoemaker spacecraft approached asteroid 433 Eros for orbit insertion in early January of 1999. However, a spacecraft propulsion anomaly occurred and suddenly the first Eros encounter became a ﬂyby with a hurriedly prepared observation sequence carried out over the winter holidays in 1998. The closest approach was on December 23, 1998, when the spacecraft ﬂew within 3800 km of the asteroid. Fortunately, observations that were very important for the subsequent planning of the orbital mission were obtained during the ﬂyby, allowing estimates of the mass, shape, and spin state of asteroid 433 Eros. After a yearlong navigational tour back toward Eros, NEAR-Shoemaker was inserted successfully into orbit around 433 Eros on February 14, 2000.
+
+The majority of the 433 Eros imaging data were obtained from a 200-km terminator orbit at a phase angle of about 90 degrees and a spatial resolution of about 25 m/pixel. During approach, however, the near-infrared spectrometer (NIS) obtained spectra from 0.8 to 2.4 microns at spatial resolutions of about 1 km per spectrum at phase angles as small as 1 degree. Because shadows are minimized, low phase angle conditions are ideal for spectral mapping.
+
+The orbital path of 433 Eros ranges from 1.13 to 
+
+1.73 AU, crossing the path of Mars, and the orbital period is 1.76 Earth years. 433 Eros’ rotation pole is inclined 88 degrees to the normal of its orbital plane, such that when NEAR ﬂew by in December of 1998, the southern latitudes of the asteroid were in sunlight. By February of 2000, the sun illuminated the northern latitudes and the north polar region. By combining coverage of the southern hemisphere obtained during the December 1998 ﬂyby with that of the northern hemisphere obtained in 2000, the science team was able to construct a complete three-dimensional model of the shape of 433 Eros (Thomas et al., 2001; Zuber et al., 2000). 433 Eros is a highly irregularly shaped body, with dimensions 34 ${\times}$ 13 ${\times}$ 13 km in diameter, a challenging shape for shape modeling, cartography, or global mosaics (see Fig. 1.8). Since 2001, Gaskell et al. (2008) have employed a technique that combines stereo and photoclinometry analysis of imaging data to publish a very widely used shape model of Eros that captures the smallest topographic relief visible in imaging data (Gaskell et al., 2008).
+
+Visible on the surface of Eros are craters, blocks, ridges (also called “dorsa”), slumps, slides, and remnant scars of older craters (e.g., Charlois Regio). Many of these landforms are consistent with the idea that the regolith on Eros is partly mobiledit moves around on the surface, propelled, by a combination of gravitational and nongravitational forces (Cheng et al., 2007; Veverka et al., 2001). One of the most surprising landforms found on 433 Eros are the so-called “ponds” of relatively fine-grained, sorted, regolith materials that occupy gravitational low areas, clustered within 30 degrees of 433 Eros’ equator (see Fig. 1.9). These pond deposits appear to be smooth down to a spatial resolution of 1.2 cm/pixel. Such deposits had no precedent in any lunar or asteroidal images ever obtained by spacecraft. Robinson et al. (2001) find that the color properties of pond deposits are distinctly different from those of the ambient surroundings. The ponds are relatively blue, relatively bright, and show a deeper 1-micron absorption band due to olivine and pyroxene. These color properties may be explained by a simple grain-size effect or by a separation of fresher material from a more weathered background or even by a concentration of silicate-rich material from silicate plus metallic iron regolith (where less metallic iron results in brighter, bluer material) (Robinson et al., 2001; Riner et al., 2008). Robinson et al. discuss possible formation scenarios that could explain the morphology, color, and locations of these deposits. Their favored explanation is electrostatic levitation followed by downslope movement, resulting in concentrations of finer particles in gravitational lows. A subsequent study by Richardson et al. (2005) favors impact-induced seismic shaking of a fractured surface. Richardson et al. (2005) also present evidence that the ponds (and the craters) on 433 Eros are consistent with an exposure age of 400 ${\pm}$ 200 Myr and less than a meter of mobilized regolith at the surface of 433 Eros.
+
+Clark et al. (2001) combine imaging and spectroscopy observations of 433 Eros’ largest crater, Psyche, a 5.3 km crater, to investigate surface processes in an area of high albedo contrast. Psyche and other craters exhibit distinctive brightness contrast patterns that are best explained by downslope motion of dark regolith material overlying a substrate of brighter material. At spatial scales of 620 m per spectrum, crater wall materials exhibit albedo contrasts of 32%{\textemdash}40%, with associated color contrasts of only 4%{\textemdash}8%. Several possible causes are examined in Clark et al. (2001), and the only mechanisms that explain all the observations are an enhancement of a dark spectrally neutral component (such as troilite or carbon) and/or lunar-like optical maturation (space weathering). For a full exploration of space weathering on asteroid surfaces, see Clark et al. (2002). Riner et al. (2008) also present a comprehensive study of the color imaging properties of Eros and find that bright materials, average regolith, and dark soils all fall on a spectral mixing line that is consistent with space weathering effects.
+
+McCoy et al. (2001) attempted to synthesize mineralogical and chemical results from the X-ray/gamma-ray spectrometer, the multispectral imager, and the near-infrared spectrometer on the NEAR-Shoemaker spacecraft. These workers found that the best match for 433 Eros is an OC meteorite that has been altered at the surface of the asteroid or perhaps a primitive achondrite that was derived from OC material (McCoy et al., 2001).
+
+On February 12, 2001, when NEAR-Shoemaker had successfully completed its year of investigating 433 Eros from orbit, the mission ended with a gentle controlled descent of the spacecraft down to the surface of 433 Eros, returning extremely high spatial resolution images up to the last moment of possible contact with the Earth (Veverka et al., 2001). In all, 70 descent images were obtained. The pictures were obtained when the spacecraft was as close as 120 m, revealing features as small as 1 cm across. Descent image mosaics reveal a landing area with very few small craters and an abundance of ejecta blocks (some boulders may show evidence of fracturingdsee the mosaic of the last four images in Fig. 1.10).
+
+The descent trajectory was designed to maximize the number of images returned from altitudes below 5 km, while minimizing the impact velocity. To downlink the data, the HGA had to maintain constant contact with the Earth. Because the NEAR-Shoemaker spacecraft had fixed radio antennas, this limited the possibilities for pointing the camera. Simulations showed that descent trajectories to landing sites along the smaller axis of 433 Eros were less sensitive to spacecraft orbit determination timing errors than to those on the long axis, hence the longitude of the touchdown site was selected so that the spacecraft could maintain continuous Earth contact with the imager pointed at 433 Eros during descent (Veverka et al., 2001).
+
+Dr. Joseph Veverka tells the descent story: “Before the descent, the NEAR spacecraft was in a near-circular 34 km by 36 km retrograde orbit. A de-orbit burn of 2.57 m/s performed on 12 February at 15:14 UTC changed the orbit inclination from 180 degrees to 135 degrees relative to 433 Eros’ equator. Four additional braking maneuvers were pre-programmed to execute at fixed intervals during the 4.5-h controlled descent. The time of impact from Doppler tracking
+
+1.7 CASSINI-HUYGENS: 2685 MASURSKY was determined to be 19:44:16 UTC. Post-landing analysis indicated a vertical impact velocity of 1.5 to 1.8 m/s and a transverse impact velocity of 0.1 ms-11ms-1 to 0.3 m/s. The touchdown site was determined to be at 35.78 S, 279.58 W, about 500 m from the nominal site.” (Veverka et al., 2001).
+
+However, since 2001, there has been a renewed effort to determine the exact location of the landing site using reconstructed pointing information, and as a result, the location of the final landing site has been updated and pinpointed to be in a crater at 
+
+41.626 S, 80.421 E (x = 0.82 ${\pm}$ 0.01, y = 4.85 ${\pm}$ 0.01, z = -4.37 ${\pm}$ 0.01), about 200 m south of the previous estimate (Barnouin et al., 2012).
+
+
+
+1.7 CASSINI-HUYGENS: 2685 MASURSKY
+
+The CassinieHuygens mission, launched in 1997 toward the Saturn system, was a joint effort of NASA, the European Space Agency (ESA), and the Italian Space Agency (ASI). The CassinieHuygens spacecraft was equipped with 18 instruments, 12 on the Cassini orbiter and 6 on the Huygens probe (for a detailed description of the instrument panoplies, see the special issues of Space Science Reviews 104 (2002) and 114{\textemdash}115 (2004)).
+The Cassini probe (NASA) became the first artificial satellite of Saturn on July 1, 2004, after an interplanetary voyage that included ﬂybys of Earth, Venus, and Jupiter. On its way to Jupiter, the Cassini spacecraft entered the asteroid belt in mid-November 2000 and ﬂew at a distance of 1.6 million kilometers past asteroid 2685 Masursky (Fig. 1.11). The asteroid 2685 Masursky is named for renowned planetary geologist Harold Masursky (1923{\textemdash}90), a member of the Science Team feasibility and phase A studies of the CassinieHuygens mission. Harold Masursky was a scientist and driving force in the historic Mercury and Apollo planetary exploration programs, the Viking mission to Mars, and the Voyager mission to the outer solar system.
+
+On December 25, 2004, the Huygens probe (an ESA craft) separated from the orbiter and landed on Saturn’s moon Titan on January 14, 2005. This was the first landing ever accomplished in the outer solar system. Cassini continued to study the whole Saturn system over the subsequent 13 years, until the mission “Grand Finale” in September 2017, when the probe dove into the planet’s atmosphere.
+
+Tolis Christou, a graduate student at Queen Mary and Westfield College in London, was the first to realize that the Cassini spacecraft would ﬂy by the asteroid 2685 Masursky, which is dynamically associated with the Eunomia family of S-type asteroids (Lazzaro et al., 2004). The Cassini project decided to take the opportunity to observe the asteroid (from a large distance) and to test Cassini’s automated object-targeting capabilities.
+
+1.8 STARDUST: 5535 ANNEFRANK
+
+On January 23, 2000, the Cassini Imaging Science Subsystem collected a series of wideangle and narrow-angle images of the asteroid through a variety of spectral and polarizing filters (Porco et al., 2004) between 7.0 and 5.5 h before closest approach, from a distance of 1.6 million km with a highest spatial resolution of 3{\textemdash}4 km/pixel. The size of 2685 Masursky, seen at a Sun-asteroid-spacecraft phase angle of 90 degrees, has been measured to be roughly 15{\textemdash}20 km in diameter, assuming a spherical shape (Fig. 1.12).
+
+1.8 STARDUST: 5535 ANNEFRANK
+
+The Stardust spacecraft was launched by NASA in February 1999, with a mission objective of collecting coma samples from Comet Wild 2. An encounter with asteroid 5535 Annefrank was included before the Wild 2 encounter as a dress rehearsal and test of operations. The 5535 Annefrank encounter occurred on November 2, 2002 at a distance of 3079 km (Fig. 1.13).
+
+Because Stardust was not equipped with a spectrometer, our understanding of 5535 Annefrank’s composition is derived from Earth-based measurements. Duxbury et al. (2004) report independent measurements by Weissman and Binzel that place 5535 Annefrank in the S spectral class. This is consistent with the photometric work of Hillier et al. (2011) and the orbit of 5535 Annefrank within the Flora dynamical class, which is dominated by S-type asteroids. The albedos reported in Duxbury et al. and Hillier et al., 0.21 ${\pm}$ 0.03 and 0.279 ${\pm}$ 0.092, respectively, are consistent with one another and with the S-class assignment. Nesvorný et al. (2002) suggested that the Flora family may be a source region for the L chondrites, providing a plausible composition for 5535 Annefrank.
+
+Most of the instruments on Stardust were designed to support the mission objective of collecting a coma sample. Therefore, only one instrument was suitable for use at 5535 Annefrank: the navigation camera (NAVCAM). A total of 72 images were taken by the
+NAVCAM over a 26 min period, with the best resolution 185 m/pixel and phase angles ranging from 47 to 135 degrees (Fig. 1.13). Roughly 40% of the surface was imaged by Stardust (Duxbury et al., 2004; Hillier et al., 2011; Stryk and Stooke, 2016). Images from Stardust were fit by Duxbury et al. to an ellipsoid with diameters of 6.6 ${\times}$ 5.0 ${\times}$ 3.4 ${\pm}$ 2.0 ${\times}$ 1.0 ${\times}$ 0.4 km.
+
+(2004)
+
+The coarse spatial resolution provided by Stardust and the small size of 5535 Annefrank results in great uncertainty in the data interpretation. The main result of the 5535 Annefrank encounter is in its comparison with previous data. Duxbury et al. (2004) suggested that the object could be composed of a rubble pile. Stryk and Stooke (2016) reject that interpretation based on newly processed images and argue that lighting on a more coherent (but still irregular) body could provide the appearance of a contact binary (or multiple) given the processing available to the Stardust team. Stryk and Stooke suggest 5535 Annefrank resembles “a miniature Gaspra rather than a large Itokawa.”
+
+1.9 HAYABUSA: 25143 ITOKAWA
+
+The Hayabusa mission was launched in May 2003 on an M-V rocket from the Uchinoura Space Center in Kimotsuki, Kagoshima Prefecture, Japan and arrived at target asteroid 25143 Itokawa in September 2005 (Fig. 1.14). The mission encountered the smallest asteroid ever observed by a spacecraft: the NEA Asteroid 25143 Itokawa, which has a maximum dimension of approximately 500 m (Fujiwara et al., 2006a). Hayabusa was powered by ion engines that functioned for more than 1000 h over the life of the mission. The main objective of the mission was to study the asteroid from a hovering position, 20 km above the surface for approximately 2 months, and then to descend to the surface, using target markers as homing beacons. At close range, the goal was to fire a projectile into the surface and capture the impact ejecta as it rebounded from the surface, thus obtaining a sample that would be stored in a capsule at the end of the collection horn. The spacecraft carried a telescopic optical navigation camera that doubled as the Asteroid Multiband Imaging Camera
+
+1.9 HAYABUSA: 25143 ITOKAWA
+
+(ONC-T/AMICA), two wide-view cameras (ONC-W1 and W2), a near-infrared spectrometer (NIRS), a light detection and ranging (LIDAR), an X-ray ﬂuorescence spectrometer (XRS), target markers, a sampler, a reentry capsule, and a small rover: the MIcro/Nano Experimental Robot Vehicle for Asteroid (MINERVA).
+
+This array of instrumentation allowed excellent characterization of the asteroid. The surface of 25143 Itokawa has been classified into two main units: a rough terrain containing abundant rocky boulders jumbled together and a smooth terrain where well-sorted finer materials reside (the MUSES-Sea is an example) (Saito et al., 2006; Yano et al., 2006). The estimated bulk density of 25143 Itokawa is very low (1.95 g/cm3) (Abe et al., 2006) compared with the range for other S-type asteroids (2.25{\textemdash}3.75 g/cm3) (Carry, 2012). This low density together with the contact binary appearance and boulder-rich surface suggest that 25143 Itokawa may be a rubble-pile body (Abe et al., 2006; Fujiwara et al., 2006a,b; Cheng et al., 2007; Barnouin-Jha et al., 2008). Approximately 38 candidate crater structures on 25143 Itokawa are identified by Hirata et al. (2009). These workers suggest that the peculiar surface morphology of 25143 Itokawa (its low-gravity curved surface topped by a layer of boulders) has resulted in the strangeness of its crater distribution (Hirata et al., 2009). The surface texture and morphology of boulders on Itokawa suggest that some are breccias (Noguchi et al., 2010).
+
+Over the course of the mission, the Hayabusa craft overcame a long list of problems. The launch was delayed twice. The solar panels were damaged by a large solar ﬂare, reducing the power available to the ion engines. The rover “MINERVA” was deployed but failed to reach the surface. En route to 25143 Itokawa in 2005, two reaction wheels (out of a total of three) that controlled the spacecraft attitude failed; in July 2005, the X-axis wheel failed, and in October, the Y-axis wheel failed. Engineers were still able to turn the spacecraft on all three axes by clever use of thrusters. Because of the failure of the reaction wheels, however, spacecraft pointing was not very stable. Nutation of the spacecraft was quite visible in ground tracks of the LIDAR obtained in November 2005 (Barnouin-Jha et al., 2008). In addition, several times during the mission, it was necessary to use neutral xenon gas from the neutralizers of the ion engines as a propellant for thrust to stabilize the spin of the spacecraft. One of the landing rehearsals failed because the autonomous software did not account for the complex shape of Itokawa, which led the spacecraft astray during approach to the surface, resulting in a pass to within 60 m of the surface before entering complete darkness caused by a shadow cast by the shape of the asteroid. The spacecraft entered a safe mode to escape the shadowed region it entered and travelled back away along the entry path. There were fuel leakages, and there was a loss of communication that lasted for several months.
+
+Despite these difficulties, the operation engineers at the Japanese Aerospace Exploration Agency (JAXA) valiantly and steadfastly worked to maintain control of the spacecraft and navigate it to the MUSES-Sea Regio for the sampling event. The Hayabusa sampling site in the MUSES-Sea on asteroid 25143 Itokawa was chosen based on the relative smoothness of the surface and the absence of very large blocks or boulders that could have damaged the spacecraft. Because communication delays prohibited real-time commanding from Earth, autonomous optical navigation was utilized to descend to the surface of 25143 Itokawa. Unfortunately, on the way down, the autonomous sampling sequence was aborted and pellets were not fired at the surface on one (possibly both) sampling attempt(s). However, on return of the sample capsule, the JAXA HAYABUSA team found tiny (<10 mm) grains (total mass of less than a milligram) that probably drifted into the sampling horn during the sampling event(s), even though analysis of the spacecraft telemetry indicates that the sampling bullets were not fired into the regolith as planned. The team subsequently found larger grains (30{\textemdash}180 mm in diameters), and the grains were analyzed by the initial analysis team.
+
+Analysis of the grains soon confirmed their origin to be the surface of Itokawa, establishing Hayabusa as the FIRST ASTEROID SAMPLE RETURN MISSION (Amos, 2010). The grains from 25143 Itokawa that Hayabusa returned tell us amazing things about the composition and thermal history of this asteroid and reveal that surface and space weathering processes are active, despite the small size of Itokawa (500 m in the largest dimension) (Noguchi et al., 2011, 2014; Yada et al., 2014). Studies of these grains indicate that Itokawa’s surface includes olivine- rich minerals, potentially similar to LL5 or LL6 chondrites. Chemical and Oxygen isotope compositions and synchrotron radiation X-ray diffraction and transmission and scanning electron microscope analyses are also consistent with equilibrated LL OCelike material (Nakamura et al., 2011, 2012, 2014). These results are the best evidence to date that OCs, the most abundant meteorites found on Earth, come from S-type asteroids (Nakamura et al., 2011).
+
+Many of the grains show the effects of collisions at very small scales: the surfaces of the grains are dominated by fractures, and fracture planes contain sub-mm-sized craters and a large number of sub-mm- to several-mm-sized adhered particles, some of which are composed of glass (Nakamura et al., 2012). Formation of these structures is inferred to be hypervelocity collisions of micrometeorites at the surface of Itokawaddown to nanometer scales. In addition, the mineral chemistry of the grains indicates that Itokawa’s surface particles may have suffered long-term thermal annealing and subsequent impact shock, suggesting that Itokawa may be made of reassembled pieces of a once larger asteroid (Nakamura et al., 2011, 2014). Detailed X-ray diffraction and field-emission electron microprobe analyses of the mineral chemistry of Itokawa dust particles are shown to be consistent with cooling processes expected in a 50-km parent asteroid that cooled from a peak temperature of approximately 800 C (Nakamura et al., 2014). Cosmic ray and solar wind studies find large amounts of solar
+
+ helium, neon, and argon trapped in the grains caused by implantations of solar wind particles into the grains. Short residence times of less than 8 million years are implied from estimates of cosmic-ray-produced 21-Neon (Nagao et al., 2011), suggesting that Itokawa is continuously losing its surface materials into space at a rate of tens of centimeters per million years. The lifetime of Itokawa is thus inferred to be much shorter than the age of our solar system (Nagao et al., 2011).
+
+1.10 NEW HORIZONS: 132524 APL
+
+The New Horizons spacecraft was launched by NASA in January 2006 en route to Pluto, which it ﬂew past in 2015. On June 13, 2006, New Horizons made its closest approach to an asteroid, approximately 102,000 km from an object in the main asteroid belt that was then named 2002 JF56. This ﬂyby was an observation of opportunity, and was not planned at the time of the launch, but was a chance encounter discovered en route. In January 2007, 2002 JF56 was numbered and given the name 132524 APL after the Applied Physics Laboratory of Johns Hopkins University, the institution that built New Horizons.
+
+The characterization of 132524 APL was largely carried out by ground-based observations. Tubiana et al. (2007) report photometric and spectroscopic observations with European Southern Observatory (ESO) Very Large Telescope (VLT) from May 2006, indicating that it is an S-type asteroid with an estimated diameter of 2.3 km. The published spectra do not go longward of 0.9 mm, and a suggested meteorite analog cannot be identified beyond those generally suggested for S-type asteroids: OCs or stony-iron meteorites.
+
+While New Horizons carried a number of instruments, only the Ralph instrument, composed of a visible imager Multi-spectral Visible Imaging Camera (MVIC) and a nearinfrared spectrometer Linear Etalon Imaging Spectral Array (LEISA), was operating at the time of the encounter. 132524 APL was observed twice with the MVIC panchromatic framing array, at 35 and 13 h before closest approach (Fig. 1.15). At 9 and 8 h before closest approach, MVIC was again used to observe 132524 APL, this time with a scanning array. Finally, three four-color scans were taken at 60, 20, and 8 min before closest approach using the red, blue, CH4, and NIR filters. These scans were obtained at phase angles of 49, 78, and 89 degrees (Olkin et al., 2006). Fig. 1.15 shows asteroid 132524 APL to be an irregularly shaped body, but no albedo variations or color variations can be distinguished on the surface.
+
+1.11 ROSETTA: 2867 STEINS
+
+The Rosetta mission was selected in 1993 by the ESA as a cornerstone mission in the ESA program Horizon 2000. The goal of the mission was a comet rendezvous with in situ investigation and two asteroid ﬂybys. The Rosetta mission was a cooperative project between ESA, various European national space agencies, and NASA. The mission was named after a plate of volcanic basalt currently in the British Museum in London, called the Rosetta Stone. As the Rosetta Stone provided the key to unravel the mysteries of the civilization of ancient Egypt, the mission was designed to unlock the mysteries of the oldest building blocks of our solar system. The aim of the mission was to investigate the origin of the solar system through the composition of planetesimals and their evolution over the last 4.6 billion years. A large set of complementary instruments were on board Rosetta, including the Philae lander. These instruments were designed to perform 25 experiments to obtain the most detailed study of a comet ever performed (Shulz et al., 2009).
+
+The complete Rosetta mission scenario is reported in Fig. 1.16. The original mission was programmed for launch in January 2003 toward the short period comet 46P/Wirtanen with ﬂybys of the asteroids 140 Siwa and 4979 Otawara. However, due to problems with the Ariane V launcher, ESA decided to postpone the launch of Rosetta with a new launch window at the end of February 2004. The new baseline of the Rosetta mission included a long orbital rendezvous with the comet 67P/ChurymoveGerasimenko and one or two asteroid ﬂybys (in the time span 2008{\textemdash}10). Several single or double ﬂyby scenarios were designed by ESA, depending on the total DV available after the spacecraft interplanetary orbit insertion maneuver. In December 2003, the asteroid 2513 Baetsle was included on the basis of the prelaunch resource budget as the baseline target due to the minimum extra DV required to reach it (only 19 m/s).
+
+The mission was launched successfully on March 2, 2004 by an Ariane V rocket from Kourou (French Guiana). The spacecraft started its journey to the comet 67P/Churyumove Gerasimenko and reached its target in mid-2014 after its aphelion passage, after three Earth and one Mars gravity assist and two asteroid ﬂybys. Because of the optimal launch conditions, the available remaining DV was enough to ﬂy by two asteroids. To help in the selection of the best targets for scientific return, Barucci et al. (2005) investigated the available data on the physical properties of all the possible candidates and recommended to ESA’s Rosetta Project a new mission baseline, including the ﬂyby of asteroids 2867 Steins and 21 Lutetia, both located in the inner main belt, for their high potential scientific return.
+
+On September 5, 2008, the ﬂyby of 2867 Steins took place at a relative velocity of 8.6 km/s with a closest approach distance of 803 km. On June 10, 2010, the ﬂyby of 21 Lutetia was performed at a velocity of 15.0 km/s with a closest approach distance of 3168.2 km. Four instruments performed at Lutetia and Steins: imaging (OSIRIS, Keller et al., 2007); spectrometric observations in the ultraviolet (Alice, Stern et al., 2007); spectroscopic observations through the visible and infrared (VIRTIS, Coradini et al., 2007); and spectroscopic observations in the millimeter range (MIRO, Gulkis et al., 2007) (Fig. 1.17).
+
+2867 Steins was very poorly known at the time of its selection for the ﬂyby. On the basis of the first visible and near-infrared spectral analysis, it was associated with E-type taxonomy (Barucci et al., 2005). Later on it was also observed using polarimetry giving a high albedo (Fornasier et al., 2008) and by SPITZER (Barucci et al., 2008) confirming its composition similar to the rare E-type class (which are potentially related to the Aubrite meteorites or the enstatite chondrites [ECs]).
+
+2867 Steins was observed by the Rosetta OSIRIS imaging system (Keller et al., 2007), with the narrow-angle camera and the wide-angle camera (WAC) acquiring resolved images from 4 h before closest approach at a distance of about 60,000 km. The camera captured 60% of the surface at a best spatial resolution of about 80 m/pixel, revealing 2867 Steins to be a diamond-shaped object with dimensions of 6.8 ${\times}$ 5.7 ${\times}$ 4.4 (${\pm}$0.1) km in diameter (Fig. 1.18) (Keller et al., 2010). No satellite was detected. The asteroid has a rotational period of 6.04681 ${\pm}$ 0.00002 h, with the pole almost perpendicular to the ecliptic plane. The integrated geometric albedo is 0.41 ${\pm}$ 0.02. 2867. Steins exhibits a complex surface with a large crater of 2.1 km in diameter located near the south pole and a series of circular features (catena) of
+250{\textemdash}600 m in diameter that extend from this crater to the north side, indicating these catena may be linked to the impact that caused the larger crater (Keller et al., 2010).
+
+Based on analysis of the images, 2867 Steins can be considered a rubble-pile body, reshaped by the YarkovskyeO’KeefeeRadzievskiiePaddack (YORP) spin-up thermal effect. In fact, 2867 Steins has an equatorial ridge (Keller et al., 2010). This ridge may have formed by centrifugal acceleration as the asteroid was spun up by the YORP effect, causing the migration of the regolith from the polar regions toward the equator, where the ridge is located. From the cumulative distribution of crater sizes, the surface age is estimated to have an upper limit of w
+
+1.3 Ga.
+
+
+
+1.12 ROSETTA: 21 LUTETIA
+
+The spectra, obtained by the imaging spectrometer VIRTIS-M, observing from 200 to 5000 nm, and the camera system, observing with 11 filters from 220 to 960 nm, confirmed that the surface composition is similar to typical E-type asteroids. The spectra show reddening at wavelengths <1000 nm and are almost ﬂat and featureless at wavelengths >1000 nm with strong bands at 490 nm. The spectra are compatible with a mixture of the mineralogical components enstatite, oldhamite, and small amounts of a low-iron silicate mineral. The mean thermal inertia of 110 J/(m2 K s1/2), which implies a thick layer of regolith, was measured with a surface temperature value between 185 and 225 K (Leyrat et al., 2010). More details are presented in Barucci et al. (2015).
+
+1.12 ROSETTA: 21 LUTETIA
+
+21 Lutetia was first observed by the InfraRed Astronomical Satellite (IRAS) satellite, which measured an albedo of 0.22 ${\pm}$ 0.02, allowing an estimate of the diameter to be 95.8 ${\pm}$ 4.1 km (Tedesco and Veeder, 1989). Many Earth-based telescopic spectroscopic studies provided contradictory taxonomic classifications for 21 Lutetia: from M-type to C-type. Other observations, such as polarimetry (Belskaya and Lagerkvist, 1996), radar albedo (Magri et al., 1999), and the presence of the 3 mm feature diagnostic of aqueous hydration (Rivkin et al., 2011) suggested a similarity to CCs.
+
+The camera systems on board Rosetta observed 21 Lutetia on July 10, 2010 for about 10 h around closest approach with different filters covering more than 50% of the surface centered on the north pole with a resolution of 60 m/pixel (Sierks et al., 2011). The enveloping ellipsoid dimensions are 121 ${\pm}$ 1 ${\times}$ 101 ${\pm}$ 1 ${\times}$ 75 ${\pm}$ 13 km in diameter with north pole ecliptical coordinates of 51.8 degrees ${\pm}$ 0.4 degrees and þ10.8 degrees ${\pm}$ 0.4 degrees (Sierks et al., 2011) and a rotational period of 8.168271 ${\pm}$ 0.000002 h. Combining the estimated volume with the uncertainty due to the fact that a large fraction of the asteroid’s southern hemisphere was not visible during the ﬂyby and with the mass obtained by the Radio Science Investigation of 1.7 ${\times}$ 1018 kg ${\pm}$ 1% (Pätzold et al., 2011), a bulk density of 3.4 ${\pm}$ 0.3 g/cm3 was computed. This value is relatively high for a CC parent body (see Carry, 2012 and Barucci et al., 2015 for a full discussion of the meaning of this density value). The measured visible albedo is 0.19 ${\pm}$ 0.02 with variations in reﬂectivity up to 30% on the surface, correlated with geographic morphologies (Sierks et al., 2011).
+
+The images (Fig. 1.19) reveal that the surface of 21 Lutetia has a complex geology, dominated by impact craters and many different structures such as pits, scarps, ejecta, faults, boulders, and craters. Thomas et al. (2012) identified and described in detail many features on the surface. The largest depression is the Massilia craterelike structure, with a diameter of 57 km and a rim, which appears deformed by grooves and pit chains, indicating modification by subsequent impacts. The surface of 21 Lutetia shows abundant impact craters, with a rate varying across the imaged surface. The oldest surface seems older than 3.5 billion years, but some younger smooth areas have also been observed (Barucci et al., 2015). An apparently thick regolith layer, which is revealed by the unique landslide structures present in the walls of some craters, probably covers most of the surface of the asteroid. The thickness of the regolith has been estimated to be about 600 m in the Baetica region, in the north pole crater cluster. This region of 21 Lutetia shows evidence of landslides, one of which seems to be a debris slide or avalanche about 10 km wide. The landslides seem to be the most recently formed surfaces on 21 Lutetia. The regions with the thickest layers of regolith are estimated to be around 100 million years old. 21 Lutetia also possesses a remarkable set of lineaments, some of which are >80 km long. The presence of boulders implies complex impact mechanisms: the craterforming impact highly fractured the surface and successive impacts struck the fractured material, which resulted in several episodes of shock and modification (Kuppers et al., 2012). The surface temperature measured by the visible infrared thermal imaging spectrometer (VIRTIS) (Coradini et al., 2011) shows a variation between 170 and 245 K, correlated with topographic features. A thermal inertia of 20{\textemdash}30 J/(m2 K s1/2), measured both by VIRTIS and the microwave instrument MIRO (Gulkis et al., 2012), suggests some small-scale roughness with a surface layer of high porosity (>40%).
+
+The VIRTIS imaging spectrometer shows that the surface of 21 Lutetia has ﬂat and featureless visible and near-infrared spectra (Coradini et al., 2011) that do not allow discrimination between a CC and/or EC nature. The 3 mm water band was not detected by the VIRTIS instrument on the 50% of 21 Lutetia’s surface that was observed. Although other portions of 21 Lutetia’s surface, not accessible to Rosetta instruments, show the hydration feature (Rivkin et al., 2011). Analogies with existing meteorites remain inconclusive. Barucci et al. (2012) assemble all the available data from the UV to the mid-infrared, including polarimetry, and concluded that the complex composition can be explained with local variations connected to different compositions and different surface textures. Barucci et al. conclude that the surface is probably composed of different chondrite-like materials, and this is supported by the existence of polymict breccias in the Earthly meteorite collections. Some regions in the southern hemisphere could be dominated by CCs with the presence of aqueous altered materials, whereas the northern hemisphere could be similar to a mixture of enstatite and CCs. The UV ALICE spectrometer observed 21 Lutetia from 70 to 205 nm (Stern et al., 2011) and found a drop between 180 and 160 nm, which is the strongest feature detected in the spectra; however, no interpretation has yet been proposed to explain this feature. Weiss et al. (2012) synthesize the analyses of all available data (the high density of 3.4 ${\pm}$ 0.3 g/cm, the porosity, and the hypothesized chondritic composition) and conclude that 21 Lutetia could have experienced an early thermal metamorphism event and have a partially differentiated metallic core covered by a primitive chondrite crust. The complex geology of the surface, the age of the surface, and the high bulk density suggest that asteroid 21 Lutetia is most likely a primordial object which might retain a record of an early metamorphic/melting process. For more details we refer the reader to Barucci et al. (2015) and Weiss et al. (2012).
+
+1.13 DAWN: 4 VESTA
+
+NASA’s ion-propelled Dawn mission launched in 2007 to explore the two most massive objects in the main asteroid belt, protoplanet 4 Vesta and dwarf planet 1 Ceres, to understand the conditions and processes extant at the earliest epoch of solar system formation. Dawn arrived at 4 Vesta in July 2011 and used its ion engines to maneuver to orbits optimized for visible and infrared mapping with the spectrometer (VIR), color and multiangle imaging using the Framing Camera (FC), and gamma ray and neutron spectroscopy and radio science, respectively (Russell and Raymond, 2011). The Dawn spacecraft is shown in Fig. 1.20 and its three instruments in Fig. 1.21. Dawn observed V-type 4 Vesta for 14 months in a series of orbits that descended to within 200 km of the surface (Fig. 1.22), determining its dimensions to be 569 ${\times}$ 554.5 ${\times}$ 452.86 km in diameter, with a mean radius of 264 km (Konopliv et al., 2014) (Fig. 1.23). Dawn mapped the topography of 4 Vesta at 100-m spatial scale and <10 m height accuracy and imaged the surface at <20 m/pixel resolution. This mapping revealed a heavily cratered surface and determined there were two giant impact basins in Vesta’s south polar region, Rheasilvia and
+
+1.13 DAWN: 4 VESTA
+
+Veneneia. These impacts appear to have created the unexpected planetary-scale troughs seen in the equatorial region and northern hemisphere (Buczkowski et al., 2012).
+
+4 Vesta has been linked with the primitive achondrite howarditeeeucriteediogenite (HED) meteorites since its reﬂectance spectrum was matched to the laboratory spectra of eucrites (McCord et al., 1970). Discovery of numerous small 4 Vesta-like asteroids (“vestoids”) orbiting near resonance escape hatches (Binzel and Xu, 1993) explained why so many pieces of 4 Vesta fell to Earth. Dawn’s exploration of 4 Vesta has firmly established the petrologic 4 VestaeHED connection (McSween et al., 2013). Based on mineralogy from VIR spectra (De Sanctis et al., 2012) and on elemental chemistry from the gamma ray and neutron detector (GRaND; Prettyman et al., 2013), Dawn found that the Vestan surface is dominated by howardite-like compositionsda brecciated mixture of Mg-pyroxene-rich basaltic eucrites and diogenites (ultramafic cumulates with magnesium-rich orthopyroxene and minor amounts of plagioclase). Moreover, depletions of siderophile elements in HEDs and models for the composition of the HED parent body predict a core of the size and mass fraction consistent with that inferred from Dawn’s gravity data (Russell et al., 2012; Konopliv et al., 2014), further strengthening the connection. Dawn mapped the 525-km Rheasilvia basin near the south pole of 4 Vesta and determined its age to be w1 Ga (Marchi et al., 2012); this age is consistent with the steep size distribution and tight orbital clustering of the vestoids (Marzari et al., 1999; Noguchi et al., 2011), providing a chronological link between impact events on 4 Vesta and excavation of the HEDs. These lines of evidence that establish the firm link between Vesta and the HEDs confirm that 4 Vesta formed with sufficient Al26 to melt and differentiate, indicating a formation time <
+
+1.5 Ma after the first solar system solids (CAIs) condensed.
+
+The presence of hydrated materials in unexpected concentrations on 4 Vesta indicates volatile delivery to the inner solar system by primitive bodies was an important process. Broad, dark regions of 4 Vesta have high hydrogen abundances as measured by GRaND (Prettyman et al., 2012) and an OH absorption feature at 2.8 mm in VIR spectra (De Sanctis et al., 2012). These characteristics can be explained by local enrichments of a few percent of exogenic CM CC in the regolith (McCord et al., 2012). The observed spectra match laboratory spectra of mixtures of eucrite with several % CM chondrite (Reddy et al., 2012b). Howardites typically contain a few % of clasts and fine dust of CM chondrite, and their bulk hydrogen abundances are similar to the GRaND measurements. Dawn also mapped pitted terrains in several young craters, thought to be the result of release of volatiles following impact events (Denevi et al., 2012), as well as networks of curvilinear gullies that have been interpreted to be caused by transient water ﬂow, sourced by impact-induced melting and ﬂow of subsurface ice lenses (Scully et al., 2015).
+
+1.14 CHANG’E: 4179 TOUTATIS
+
+On December 13, 2012, the Chang’e 2 spacecraft (Fig. 1.24) ﬂew by an Apollo-type Asteroid 4179 Toutatis. Chang’e 2 (CE-2) is the second robotic probe from the CNSA (China National Space Administration) to orbit the Moon. Launched on October 1, 2010, CE-2’s main mission was to survey the whole lunar surface from a 100 km orbit and collect highresolution images of inside the Sinus Iridum (planned landing area for Chang’e-3) and to test some crucial technologies for future lunar missions (Ye et al., 2013). After completing its primary objectives, CE-2’s mission was extended to explore the space environment from the EartheSun Lagrange point L2 and test China’s deep space tracking and control network. CE-2 was inserted into a Lissajous orbit around L2 on August 25, 2011 (Wu et al., 2012), and then in April 2012, it left for the final extended mission to ﬂy by an asteroid. The distance of closest approach with 4179 Toutatis was 770 ${\pm}$ 120 m, and the relative velocity was about 10.73 km/s (Huang et al., 2013a). During the ﬂyby, Chang’e 2 obtained 
+
+4.5 GB of optical images (Fig. 1.25). More than 400 of these photos resolve the disk of 4179 Toutatis.
+
+
+
+1.14 CHANG’E: 4179 TOUTATIS
+
+4179 Toutatis is an NEA that approaches Earth every 4 years and has been previously studied via earth-based telescopic observations. Based on photometric measurements of 4179 Toutatis from 25 Earth-based observing sites in 1992, Spencer et al. (1995) assembled light curves that suggest a period of 7.3 days, but the scatter on the curves indicates other periodicities and tumbling (Harris, 1994; Pravec et al., 2002). Radar observations (Hudson and Ostro 1995; 2003; Ostro et al., 1995, 1999) supported the evidence from optical observations that 4179 Toutatis has a complex spin state and is in a noneprincipal-axis rotation (Mueller et al., 2002). Rubincam (2000) and Scheeres et al. (2000) investigated the gravitational interactions and YORP effects on this asteroid and found that both effects are inﬂuencing its spin state. The radar images also shows that 4179 Toutatis has two different sized lobes, and the shape model from Ostro et al. (1995) has been verified by Chang’e 2 ﬂy by images. Takahashi et al. (2013) charted and fitted the changes in 4179 Toutatis’ angular momentum from December 1992 to December 2012 and found that the largest change in 4179 Toutatis’ spin state since 1992 was during its 2004 close encounter with Earth. Based on its visible and near-IR spectrum, 4179 Toutatis is an S-type asteroid, with a surface composition consistent with an L chondrite composition (Howell et al., 1994; Lupishko et al., 1995; Reddy et al., 2012a,b). The light curve and shape and spin-state model indicated that the surface of 4179 Toutatis might be covered with a layer of fine-grained regolith (Hudson et al., 1998).
+
+Chang’e 2 obtained images of 4179 Toutatis with its solar panel monitoring camera (a visible camera with limited calibration) from about 1 s after closest approach. The image frame size is 1024 ${\times}$ 1024, and the frame rate is 5 frames per second. The focal length of the optical system is 54 mm, and the Field of view (FOV) is 7.2 ${\times}$ 7.2 degrees (partly obscured by the solar panel). Chang’e 2 obtained more than 400 images of 4179 Toutatis, covering approximately half of the surface (Huang et al., 2013a). The highest resolution was about 3 m/pixel. The phase angle between the Sun, asteroid, and probe provides good illumination and visual angle (Huang et al., 2013c,d). Detailed imaging from Chang’e 2 reveals that 4179 Toutatis may be a potentially hazardous object (PHO).
+
+As shown in Fig. 1.25, 4179 Toutatis is an irregularly shaped body which has the appearance of an “uneven peanut.” It has a contact binary structure, and there are a number of craters, concavities, lumps, and boulders on its surface. Authors suggest that 4179 Toutatis is likely a rubble-pile body and its two lobes possibly formed from contact binaries (Huang et al., 2013aed; Zhu et al., 2014; Ji et al., 2016). Zou et al. (2014) compared the similarities and differences in both the radar model (Hudson et al., 2003) and the CE-2 images, where eight obvious similarities and differences are analyzed; they also discussed about the possible cause of the differences. Zhao et al. (2015) investigated the spin states, angular momentum, and rotational period; the spin states and rotational period results are consistent with previous research, and the angular momentum has remained nearly unchanged for 2 decades. The dimensional measurements of 4179 Toutatis were updated by Bu et al. to 4354 ${\times}$ 1835 ${\times}$ 2216 ${\pm}$ w56 m. Jiang et al. (2015) identified more than 200 boulders over the imaged area and used the cumulative boulder size frequency distribution to estimate a surface crater retention age of approximately 1.6 ${\pm}$ 
+
+0.3 Gyr.
+
+Many topographic features have been analyzed (Huang et al., 2013aed; Zou et al., 2014; Zhu et al., 2014; Ji et al., 2016; Bu et al., 2015; Zheng et al., 2016). High-resolution images revealed a giant basin on the surface of the big lobe, the existence of scarps, craters, and boulders, as well as direct evidence of regolith.
+
+(2015)
+
+1.15 DAWN: 1 CERES
+
+After spending about 14 months at 4 Vesta in 2011{\textemdash}12, Dawn arrived at 1 Ceres in March 2015 and used its ion engines to maneuver to mapping orbits (Fig. 1.26) optimized for visible and infrared hyperspectral mapping, color and multiangle imaging, and gamma ray/neutron spectroscopy and radio science (Russell and Raymond, 2011). Dawn’s instruments are illustrated in the section on 4 Vestadsee Fig. 1.21.
+
+Dawn observed 1 Ceres, classified as a C-type body, during a 16-month primary mission and completed a 12-month extended mission in June 2017. The dark surface of Ceres (average albedo = 0.09) is heavily cratered and punctuated by bright areas, called faculae (see Fig. 1.27). Dawn mapped Ceres’ surface globally to w35 m/pixel with the FC panchromatic filter, revealing an unexpectedly, rough surface for its presumed icy composition. The surface includes heavily cratered terrain in the north and smoother areas in several midlatitude regions. Domes are prevalent in several regions, and fractures of all sizes dominate the landscape. Dawn determined 1 Ceres to be triaxial with dimensions 966.2 ${\times}$ 962.0 ${\times}$ 891.8 km in diameter, with a mean radius of 470 km (Park et al., 2016). Topography ranges from -7.3 to þ9.5 km on a best-fit biaxial ellipsoid of 482 ${\times}$ 446 km. There is a large highland named Hanami planum that hosts the Occator crater that hosts the brightest material seen on the surface, as well as several deep planitia; craters larger than w300 km radius are not observed.
+
+The average surface composition of 1 Ceres measured by VIR is dominated by ammoniated Mg-rich phyllosilicates, the phyllosilicate serpentine, MgeCa-rich carbonate, and a dark component (De Sanctis et al., 2015). No evidence of olivine or pyroxene has been found. The surface composition is remarkably uniform (Ammannito et al., 2016); but the brightest areas (faculae) in several craters have a composition rich in Na-carbonate with ammonium carbonates or chlorides (De Sanctis et al., 2016). These faculae are often found within craters whose ejecta display a blue visible slope (observed by the Dawn Framing Camera), indicating their relative youth (Stephan et al., 2017). The ammoniated clays found all over 1 Ceres’ surface indicate extensive watererock interaction. The ubiquitous presence of ammoniated clays on Ceres’ surface indicates a global episode of alteration, requiring extensive water mobility, presumed to be a global subsurface ocean (Ammannito et al., 2016). The presence of ammonia may indicate that Ceres itself, or the material from which 1 Ceres formed, migrated from the colder environment of the outer solar system and scattered inward toward its current position in the main asteroid belt by giant planet migration (Raymond and Izodoro, 2017).
+
+As revealed by nuclear spectroscopy data from the GRaND instrument and also seen by VIR, the elemental composition of 1 Ceres indicates widespread water ice and products of aqueous alteration are delivered to the surface from 1 Ceres’ interior (Prettyman et al., 2017). An ice table resides at shallow depth in polar regions, receding to a few meters depth at the equator. The elemental composition of Ceres’ ice-free regolith in the equatorial region is similar to CI and CM meteorites, which are considered analogs for Ceres (McSween et al., 2017). However, primitive meteorites likely experienced isochemical aqueous alteration on smaller parent bodies, whereas 1 Ceres appears to be moderately chemically fractionated (Castillo-Rogez and Young, 2017). As evidence of this difference, the iron abundance in 1 Ceres’ regolith is lower than the average value for CI and CM chondrites, which is consistent with sinking of metal-rich particles in a global ocean (Prettyman et al., 2017).
+
+Shape and gravity data indicate a partially differentiated interior with a strong 40-km thick crust of low density (w1.250 g/cm3), overlying a weaker hydrated silicate interior of density close to CI chondrites (w2.450 g/cm3), as illustrated in Fig. 1.28 (Park et al., 2016; Fu et al., 2017; Ermakov et al., 2017). A strong lithified deep interior below 100 km cannot be excluded by the data. The degree of chemical fractionation points to an early formation time for 1 Ceres, within a few million years of CAIs (Castillo-Rogez et al., 2017), when the live Al26 needed for radiogenic heating persisted in the accretionary environment. However, partial physical differentiation points to the role of hydrothermal circulation in an early forming subsurface ocean in moderating internal heating (Fu et al., 2017; Travis 2017). Evidence for a relict ocean at present might be found in the weak hydrated silicate layer inferred by Fu et al. (2017).
+
+The surface of 1 Ceres presents compelling evidence of recent brine-driven geologic activity. The steep-sided Ahuna Mons, the largest mountain on 1 Ceres, has been interpreted to be a cryovolcano, constructed when material, in which viscosity was decreased by the presence of a few percent of briny ﬂuid, erupted onto the surface (Ruesch et al., 2016; see Fig. 1.29). Ahuna Mons displays bright streaks of sodium carbonateerich composition on its ﬂanks (Zambon et al., 2016), also consistent with sourcing from a brine reservoir. Cryovolcanism, possibly induced by impacts, may also contribute to ﬂows and bright deposits in young impact craters such as Occator (Nathues et al., 2017; see Fig. 1.30). Other bright deposits that are seen across the surface of Ceres (Stein et al., 2017) appear to be excavated from 1 Ceres’ crust, suggesting they contain a significant fraction of material of oceanic origin.
+
+1.15 DAWN: 1 CERES
+As if 1 Ceres was not interesting enough, aliphatic organic material was found in a localized deposit in and around a northern-hemisphere crater called Ernutet (Fig. 1.31) (De Sanctis et al., 2017), which also displays a unique red color. Several smaller more dilute deposits of organic material have also been found. The endogenic versus exogenic origin of these materials remains a mystery at this time (Pieters et al., 2017); however, an endogenic hypothesis is favored.
+
+1.16 OSIRIS-REX: 101955 BENNU
+
+The goal of the Origins, Spectral Interpretation, Resource Identification, and Security Regolith Explorer (OSIRIS-REx) mission is to return the first pristine samples of primitive, carbonaceous asteroidal material for analysis in terrestrial laboratories. This mission plans to return a minimum of 60 g of bulk regolith material from the carbonaceous, near-Earth asteroid (101955) Bennu. This amount is sufficient for the detailed molecular, organic, and mineralogical analyses required to achieve the science objectives of the mission and still archive 90% of the returned material for future investigations. Analyses of these samples will improve our scientific knowledge of the initial stages of planet formation and perhaps the origin of life.
+
+OSIRIS-REx was launched in September of 2016, ﬂew by the Earth in September of 2017, and arrives at 101,955 Bennu in November of 2018. The target asteroid Bennu was chosen for its orbital properties and the high likelihood that its compositional properties represent pristine primitive solar system material. Bennu is known to be 492 ${\pm}$ 20 m in diameter, with a shape approximating a “spinning top” (Nolan et al., 2013). Bennu’s light curve reveals a rotation period of 4.3 h (Hergenrother et al., 2013). Analyses of albedo and spectral observations place Bennu in the B-type asteroid spectral class and find that Bennu is most similar to CM and CI CCs (Clark et al., 2011).
+
+Optical astrometry from 1999 to 2013 and radar measurements in 1999, 2005, and 2011 have revealed the Yarkovsky effect on Bennu’s orbit, showing a mean semimajor axis drift rate of 284 ${\pm}$ 1.5 m/year (Chesley et al., 2014). The known physical characterization of Bennu allows modeling of this drift rate as the result of a force due to thermal emission, yielding a bulk density of 1260 ${\pm}$ 70 kg/m3, indicating a macroporosity in the range 30%{\textemdash}50% (assuming bulk densities of likely analog meteorites). This porosity suggests that Bennu may have a rubble-pile internal structure. In 2135, Bennu’s close approach to Earth is likely to be closer than the Moon, leading to strong effects on its subsequent orbit. Calculations find numerous potential impacts in subsequent years, from 2175 to 2196. The highest individual impact probability is 9.5 ${\times}$ 10 -5 in 2196 (Chesley et al., 2014), making Bennu an object of interest to watch and a PHO for planet Earth in the future.
+
+The OSIRIS-REx spacecraft (see Fig. 1.32) is a maneuverable hovering vehicle that is capable of investigating any region on 101955 Bennu at scales down to a few centimeters. The payload suite documents the textural, mineralogical, and geochemical heterogeneity of the regolith at the sampling site in situ. For a detailed description of the instrument panoplies, see Lauretta et al. (2017).
+The shape and geological properties of Bennu will be measured by the OSIRIS-REx Camera Suite (OCAMS). The shape, rotation state, and surface topography of Bennu will be characterized by the OSIRIS-REx Laser Altimeter (OLA), contributed by the Canadian Space Agency. Radio Science using the spacecraft telemetry signal will determine the asteroid mass, density, and gravity field. The spectral properties of Bennu are measured in the visible and near-infrared (0.4{\textemdash}4 mm) by the OSIRIS-REx Visible-Infrared Spectrometer (OVIRS) and in the midinfrared (4{\textemdash}50 mm) by the OSIRIS-REx Thermal Emission Spectrometer (OTES). OSIRIS-REx also carries a student experiment whose primary goal is the education of science and engineering students (Masterson et al., 2017). This payload suite provides characterization of Bennu at sufficient spatial resolution to resolve geological features and decipher its geologic history, resulting in well-defined context of the returned samples.
+
+OSIRIS-REx will execute a complex ﬂight plan designed to provide (1) observations suf- ficient for complete global characterization and (2) observations sufficient for detailed characterization of up to 12 potential sampling sites. The timeline of mission phases from launch to sample return is illustrated in Fig. 1.33. Global OCAMS imaging data obtained early in the proximity phases of the mission will be used for shape model determination using a stereo-photoclinometry approach (Gaskell et al., 2008), and hazard assessment using a block distribution approach (e.g., Mazrouei et al., 2014). As the spacecraft approaches the asteroid, the shape model will be refined using OLA, the laser altimeter (Daly et al., 2017). During the Detailed Survey phase of the mission, the OCAMS will obtain color imaging data that will be used to search for high spatial resolution color properties related to composition and/or surface space weathering processes. The OTES spectrometer will obtain global coverage at seven different times of day to map out the surface thermal inertia, and the OVIRS spectrometer will obtain 3 day-side global surveys to map water, organics, and detected minerals. REXIS will measure solar X-ray-induced ﬂuorescence from Bennu to map the distribution of elements across its surface. REXIS is capable of detecting ﬂuorescence photons of 0.5{\textemdash}7.5 keV energy, enabling the detection of O, Fe, and Mg.
+Following Reconnaisance of the potential sampling sites (see Fig. 1.33), and following Rehearsal of the descent sequences, OSIRIS-REx will perform a gentle touch-and-go (TAG) maneuver to gather bulk regolith and surface material using the TAG Sample Acquisition Mechanism (TAGSAM) (see Fig. 1.34). Five TAGSAM engineering development unit sampler heads were built, tested, and demonstrated to acquire the required sample mass (60 g) from a wide range of potential asteroid surfaces. Documentation of any contamination of the sample is achieved using witness plates on TAGSAM and the sample return capsule (SRC). OSIRIS- REx departs 101955 Bennu in 2021 and returns the samples to Earth in 2023 using a SRC with heritage from the Stardust mission.
+
+(B)
+
+(A)
+
+(C)
+
+1.17 HAYABUSA2: 162173 RYUGU
+
+An OSIRIS-REx TAGSAM sampling site will have to satisfy four selection criteria. It will have to be safe so that the spacecraft can descend to the surface without harm. It has to be accessible such that the OSIRIS-REx ﬂight dynamics team can accurately deliver the spacecraft to the chosen sampling site. It has to be sampleable, such that enough gravel-sized material is present at the surface of Bennu for the sampling mechanism to capture between 60 and 2000 g of material and stow it successfully. In addition, the chosen sampling site must be of high scientific value.
+
+Science value will be determined largely by examination of the w150 compositional maps of 101955 Bennu that will be created using the data from the OVIRS and OTES spectrometers. These instruments are sensitive to a wide range of components observed in CC meteorites, making them the ideal suite of instruments for mapping 101955 Bennu.
+
+By obtaining a sample from the surface of 101955 Bennu, the goal is to study material that was left over from the formation of the solar system in its most pristine state and that has not been heated up or processed in the past four and a half billion years. Material of the highest science value to sample site selection may be very close in composition to what we see in interstellar environments or in circumstellar environments, such as aliphatic hydrocarbons and polycyclic aromatic hydrocarbonsdcomponents that are very primitive and/or pristine. OSIRIS-REx will search for organic molecules and areas on Bennu where hydrated minerals occur in close proximity to anhydrous minerals. Such discoveries will indicate how pristine and primitive the samples are. Documenting compositional and thermophysical properties of the sampling site will provide context for the returned samples. When returned to Earth, samples of Bennu will provide information about the early formation time of the solar system and, possibly, about the origin of life on Earth.
+
+1.17 HAYABUSA2: 162173 RYUGU
+
+Haybusa2 (Fig. 1.35) is an asteroid sample-return mission by JAXA. It is a follow-on mission of Hayabusa, so the spacecraft architecture is similar to Hayabusa. However, while the main purpose of Hayabusa was technological demonstration, the main purpose of Hayabusa2 is science. The important difference between these two missions is the target asteroid type. The target of Hayabusa2 is 162173 Ryugu (1999 JU3), which is a C-type asteroid. From the science point of view, C-type asteroids are quite important because they contain organic material and water. As for engineering, many parts of the Hayabusa2 spacecraft were modified to prevent the problems that occurred on the original Hayabusa spacecraft. Hayabusa2 incorporates some challenging new technologies such as creating a small crater on the surface of the asteroid (Tsuda et al., 2013; Yoshikawa et al., 2014).
+
+Hayabusa2 was launched on December 3, 2014 by the H-IIA launch vehicle from Tanegashima Space Center in Japan. Just one year later, it came back to the Earth for a gravity assist to change its orbit to reach 162173 Ryugu. Hayabusa2 will arrive at Ryugu in June or July 2018 and stay nearby for 1.5 years. At first, Hayabusa2 will observe 162173 Ryugu in detail, then release small rovers and a lander. Hayabusa2 will touch down to 162173 Ryugu twice to obtain samples of surface material. Finally, Hayabusa2 will release an impactor to create a small crater and will touch down to the crater to obtain samples of subsurface material. Leaving 162173 Ryugu at the end of 2019, Hayabusa2 will come back to the Earth, bringing samples of 162173 Ryugu by the end of 2020.
+
+162173 Ryugu (1999 JU3) has been observed many times, mainly by ground-based telescopes, and we know many of the physical parameters of 162173 Ryugu (Müller et al., 2017). At 900 m in diameter, Ryugu is larger than 25143 Itokawa (about 530m). The estimated shape is rather spherical. The spin period is about 7.6 h (shorter than 25143 Itokawa’s 12 h). This spin is not too fast for Hayabusa2 to touch down. It is difficult to determine the spin axis orientation because the shape of Ryugu is spherical. The best estimated value is l = 310{\textemdash}340 degrees and b = (-25) - (-55) degrees, where l and b are the ecliptic longitude and latitude, respectively. This means that the spin axis is rather inclined to the ecliptic plane, and Ryugu’s spin is retrograde. The albedo is about 0.05. Spectral observations have been obtained, classifying 162173 Ryugu as a C-type asteroid (Perna et al., 2017). The orbit of 162173 Ryugu is similar to that of 25143 Itokawa, with a perihelion just inside the orbit of the Earth and an aphelion just outside the orbit of Mars. The inclination of the orbit is low (like Itokawa). 162173 Ryugu’s orbital properties are suitable for a small sample-return spacecraft like Hayabusa2.
+
+Hayabusa2 has the following payload: three optical navigation cameras (ONC-T/W1/W2), a near infrared spectrometer (NIRS3), a thermal infrared imager (TIR), a laser altimeter (LIDAR), a sampling system (SMP), a small carry-on impactor (SCI), a deployable camera (DCAM3), three small rovers (MINERVA-II-1 A/1 B/2), a lander (MASCOT), and a reentry capsule (CPSL). Most of these payload elements have heritage from Hayabusa, but some of them are new (or highly modified from Hayabusa). NIRS3 is capable of detecting spectral features between 1.8 and 3.2 mm (compared with the 0.85{\textemdash}2.10 mm of the original NIRS of Hayabusa). This change is required to obtain the 3 mm region for detection of hydrated minerals. TIR, which has heritage from the Japanese Venus mission Akatsuki, covers 8{\textemdash}12 mm in the infrared.
+
+The small rovers called MINERVA-II have heritage from the MINERVA experiment on board Hayabusa, and they move on the surface of the asteroid by hopping. Hayabusa had only one MINERVA, and mission operators failed to land it on the surface of Itokawa. Hayabusa2 has two kinds of rovers: MINERVA-II and MINERVA-II-1 (rover A and rover B), so there are three small rovers in total. The lander MASCOT (Mobile Asteroid Surface Scout), which was provided by DLR (Deutsches Zentrum für Luft- und Raumfahrt) and CNES (Centre national d’etudes spatiales), has four science payloads to investigate the surface properties of the asteroid. These four payloads are a wide-angle visual camera (CAM); MicrOmega, which is a near-infrared imaging spectrometer/microscope for mineralogy and composition; a radiometer (MARA) for the measurement of the surface thermal properties; and a magnetometer (MAG) for characterization of the magnetization of the asteroid.
+
+Hayabusa2 will bring surface materials of 162173 Ryugu back to the Earth by the end of 2020. The reentry capsule will be brought to the curation facility on the JAXA Sagamihara Campus in Japan, where the samples of 162173 Ryugu surface materials will be removed from the reentry capsule. After the initial analysis, samples from 162173 Ryugu will be distributed to researchers all over the world (as done for Hayabusa). In summary, the nature of C-type asteroids will be comprehensively revealed by the remote sensing observations of asteroid 162173 Ryugu by instruments onboard Hayabusa2, by in situ observations from the rovers and lander, and by detailed laboratory analysis of returned samples.
+
+1.18 LUCY: JUPITER TROJANS
+
+The Lucy mission is the first reconnaissance of the Jupiter Trojan asteroid objects that hold vital clues to deciphering the history of the solar system (Fig. 1.36). Because of an unusual and fortuitous orbital configuration, Lucy, which has been selected as part of NASA’s Discovery Program, will perform an exhaustive landmark investigation that visits six of these primitive asteroids, covering both the Lagrangian points L4 and L5 swarms, all the known taxonomic types, the largest remnant of a catastrophic collision, and a nearly equal mass binary. Lucy will use a suite of high-heritage remote sensing instruments to map the geology, surface color and composition, thermal, and other physical properties of its targets at close range. Thus, Lucy, like the human fossil for which it is named, will revolutionize the understanding of our origins.
+
+Lucy will launch in 2021 and will have encounters from 2025 to 2033. It will visit 3548 Eurybates (Lagrangian pt. L4, C-type) in August of 2027, Polymele (Lagrangian pt. L4, P-type) in September of 2027, Leucus (Lagrangian pt. L4, D-type) in April of 2028, Orus (Lagrangian pt. L4, D-type) in November of 2028, and the Patroclus/Menoetius binary (Lagrangian pt. L5, P-types) in March of 2033. It will carry three capable remote sensing instruments that cover wavelengths from 0.4 to 100 mm. These will provide unprecedented information about the geology, surface color and composition, thermal, and other physical properties of its targets. Trojans are thought to be primitive, volatile, and organic-rich bodies that are gravitationally shepherded by Jupiter into its L4 and L5 Lagrange points. As a result, to zeroth order, they lead and follow Jupiter in its orbit by 60 degrees. The orbits of most Trojans are stable over 4.5 billion-year timescales, although a few are dynamically leaking out of the Lagrange regions (Levison et al., 1997).
+
+Despite their scientific importance, very little is known about these distant, as yet unexplored objects. The diameters and albedos have been measured radiometrically by the WISE spacecraft for almost 500 Trojans (Grav et al., 2012). The largest object in the swarms is 624 Hektor with a mean diameter of 227 km (Carry, 2012). Multiple studies estimate that there may be 300,000 to 1 million Trojans larger than 1 km (e.g., Jewitt et al., 2000; Yoshida and Nakamura, 2005), making the Trojans comparable to the population of the main belt (Ivezic et al., 2001).
+
+Almost nothing is known about Trojan composition. While both main-belt asteroids and comets are on orbits where they can contribute to our meteorite collections, Trojans are unlikely to deliver material to the Earth because of their close proximity to the orbit of Jupiter (Levison et al., 1997). Earth-based reﬂectance spectroscopy has failed to discover any absorption features of silicates or hydrated minerals on Trojans. Only a water ice feature near 3.2 mm and an organics feature near 3.4 mm have been observed in these objects (Brown, 2014). Whether the lack of additional spectral features is due to surface veneering, space weathering, and/or simply the averaging effects of spatially unresolved datasets collected from Earth is presently unclear. Lucy’s high-resolution mapping datasets would resolve this mystery by revealing, for example, exposed volatiles, minerals, and/or organics segregated into surface units.
+
+Trojans have predominately D- and P-type spectra, although there are a small number of C-types (Fig. 1.37; D-Meo and Carry, 2014). Trojan visible albedos are typically low, between 4% and 12% for objects with diameters >30 km (Grav et al., 2012). Visible albedos for D-types are slightly higher than for P- and C-types, but there is significant overlap between the populations. These differences are not understood. Their large variety is likely the result of mixing during the formation and early dynamical evolution of the giant planets (Fig. 1.38). And thus, through Lucy, these primitive objects will provide critical information about a wide swath of the early solar nebula from the JupitereSaturn zone to the Kuiper Belt. This is because most models for the capture of the Trojans into Jupiter’s L4 and L5 Lagrange points, be it through aerodynamic drag (Fleming and Hamilton, 2000) or through the migration of the giant planets (Morbidelli et al., 2005; Nesvorny et al., 2013), require that many of these objects formed far from the current location of Jupiter’s orbit and were delivered dynamically during the capture process.
+
+Because the Trojans occupy the same range of heliocentric distances and the same collisional environment, they also represent a unique opportunity to study the physical differences between the various spectral types in the same environment: Lucy’s tour will allow scientists to separate the effects of different evolutionary pathways from intrinsic physical differences.
+
+One of the most fascinating and important aspects of Trojans is that they show a surprisingly wide range of physical characteristicsdprobably because of their links with planet formation. However, it is only by sampling the full diversity of the Trojans that their true scientific potential can be realized. Lucy will investigate the full diversity of these objects, performing a detailed, up-close study of six Trojan asteroids (cf: Fig. 1.39). Another way of stating how well Lucy will cover the spectral diversity of the Trojan swarm is that the Lucy targets sample the same range of albedos as the population as a whole. Lucy will also visit individual objects of interest.
+
+The first example of objects of interest that Lucy will visit is Eurybates, which is the largest member of the only major disruptive collisional family in the Trojan swarms. One interesting aspect of this family is that it is comprised of C-type objects (Broz and Rozehnal, 2011). This is somewhat surprising because C-types make up only w2% of the swarm (D-Meo and Carry, 2013, Fig. 1.37). While a C-type Trojan family could be a statistical ﬂuke, it is also noteworthy that there are no known D-type families in the main asteroid belt either (Nesvorny et al., 2015). One explanation is that the characteristic that causes an object to be classified as a D-type is only skin deep and that when D-types break up, they expose their interiors, which look like C-types. This idea is supported by a population study by Wong et al. (2014) that suggests that the space weathering that causes D-type spectra can only occur far from the Sun (where these objects therefore presumably formed) and not at Trojan distances (where these objects currently are due to the effects of planet formation and/or migration). Thus, this weathering will not currently occur, and any material exposed since migrating to 5:2 AU will retain its C characteristics. Lucy will directly test this hypothesis by studying fresh craters on its targets.
+
+Lucy will also visit the Patroclus/Menoetius near-equal mass binary. The fact that the cold classical Kuiper Belt is observed to have a large binary fraction (Noll et al., 2014) strongly suggests that nearly equal mass binaries are a common outcome of the process that formed the first macroscopic planetesimals. This is likely to be true elsewhere in the solar system because binaries like these that were originally closer to the Sun are very unlikely to have survived the planet formation process (e.g., Parker and Kavelaars, 2012). This could explain why they are so rare among the planets. They survived in the cold classical Kuiper Belt because it is dynamically and collisionally the most pristine population known in the solar system. Equal mass binaries may turn out to be a dominant mode of planetesimal formation in the Kuiper Belt and elsewhere in the solar system.
+
+1.18 LUCY: JUPITER TROJANS
+
+Lucy’s combination of targets not only samples spectral diversity but collisional histories as well. Eurybates is the largest remnant of a catastrophic collision, while the fact that the Patroclus/Menoetius binary survived intact implies a low level of collisional evolution. Lucy’s smallest target Polymele (estimated to be 21 km by the WISE spacecraft; Grav et al., 2012) is likely to be a collisional fragment. So, the collisional histories of Lucy’s targets likely range from nearly pristine objects to one involved in a catastrophic collision to a collisional fragment.
+
+Lucy has a very simple mission architectureda series of targeted close ﬂybys (cf. Fig. 1.39). It will carry a sophisticated, capable, and proven suite of remote sensing instruments to map the geology, composition, surface albedo, color, and thermal properties of the mission targets at close range. Lucy’s payload comprises the following three complementary imaging/mapping instruments: (1) the Ralph visible wavelength multicolor imaging visible camera MVIC and IR mapping spectroscopy facility LEISA, (2) the LORRI high-resolution visible imager, and (3) the TES thermal IR spectrometer. These instruments will cover wavelengths from 0.4 to 100 mm.
+
+The LORRI instrument will be used for approach navigation and high-resolution panchromatic imaging. It will map the shapes, geology, and albedos of the targets. Its heritage comes directly from the LORRI instrument aboard New Horizons. Color imaging and near-infrared imaging spectroscopy will be provided by the Ralph instrument. These data will be used to map the distribution of compositional units, allowing study of mass movement, landform degradation, and subsurface structure. The Ralph has heritage from New Horizons’ Ralph. The visible channel of Ralph will return both panchromatic and broadband color images, whereas the near-infrared channel will supply spectral maps from 1 to beyond 3.6 mm. We chose this spectral range to achieve good sensitivity to the minerals, volatiles, and complex hydrocarbons that we would expect to be present, including, potentially, H2O, CH-stretch organics, CH3OH, and NH3.
+
+Temperature maps, which will determine thermal inertia and microphysical properties of the surfaces of our targets, will be produced using the TES instrument. This instrument is a single-channel spectrograph that covers wavelengths from 6 to 100 mm.
+
+In addition to these instruments, we will use Lucy’s radio subsystem to measure the Doppler frequency shift of the radio carrier as a result of the ﬂyby encounters. These data will allow us to determine the masses of our targets and, coupled with our imaging and ground-based observations, their density.
+
+Jupiter trojans have yet to be studied close up, making the Lucy mission one of discovery and exploration. Lucy will provide insights that extend well beyond the study of a class of primitive bodies because the Trojans provide a fossil record of planet formation. The Lucy mission will provide unique and critical knowledge of planetary origins, the source of volatiles and organics on the terrestrial planets, and the evolution of the planetary system as a whole.
+
+1.19 PSYCHE: 16 PSYCHE
+
+The Psyche mission has been selected as the 14th in the NASA Discovery program. This mission will investigate what is likely an exposed planetary metallic core, the asteroid 16 Psyche.
+
+Models show that among the accretionary collisions early in the solar system, some destructive “hit and run” impacts strip the silicate mantle from differentiated bodies (Asphaug and Reufer, 2014). This is the leading hypothesis for Psyche’s formation: it is a bare planetesimal core. If mission observations indicate that it is not a core, Psyche may instead be highly reduced, primordial metal-rich material that accreted closer to the Sun. Orbiting in the outer main belt at w3 AU, the M-type asteroid 16 Psyche has a geometric albedo of 0.23 ${\pm}$ 0.05, a radar albedo of 0.42, and an effective diameter of w235 km (Shepard et al., 2017). 16 Psyche is thought to be made almost entirely of FeeNi metal (Matter et al., 2013; Shepard et al., 2010). A 0.9 mm absorption feature suggests a few percent of its surface is high-magnesian orthopyroxene (Hardersen et al., 2005), and new results indicate hydrous features, likely hydrated silicates from chondritic impactors (Takir et al., 2016).
+
+The mission is led by Arizona State University, and the Jet Propulsion Laboratory is responsible for mission management, operations, and navigation. The mission will take advantage of the ﬂexibility of solar electric propulsion to efficiently travel to 16 Psyche and deliver the spacecraft to the four science orbits. The solar electric propulsion chassis will be built by Space Systems Loral in Palo Alto, California (Oh et al., 2016), with some additional subsystems contributed by the Jet Propulsion Laboratory. The mission plan calls for 21 months of operations at Psyche.
+
+1.19 PSYCHE: 16 PSYCHE
+
+The mission is scheduled to launch in 2022 and to be captured at 16 Psyche in 2026. Operations will closely model those of the Dawn mission at 4 Vesta, including a set of four orbital radii, stepping closer to the body as the shape and gravity field are better determined (Fig. 1.40).
+
+The mission has five objectives, which are as follows:
+
+1. Determine whether 16 Psyche is a core or if it is unmelted material. 2. Determine the relative ages of regions on the surface. 3. Determine whether small metal bodies incorporate the same light elements as are expected in the Earth’s high-pressure core.
+
+4. Determine whether Psyche was formed under conditions more oxidizing or more reducing than Earth’s core.
+
+5. Characterize Psyche’s topography and impact crater morphology.
+
+These objectives will be met by examining Psyche with three high-heritage instruments and radio science: a. Two block-redundant multispectral imagers (MSL Mastcam heritage) with clear and seven color filters to provide surface geology, composition, and topographic information. Lead: J.F. Bell, Arizona State University, with Malin Space Science Systems.
+
+b. A gamma-ray and neutron spectrometer (MESSENGER heritage) to detect, measure,
+
+and map Psyche’s surface elemental composition. Lead: D.J. Lawrence, Applied Physics Laboratory.
+
+c. Dual ﬂuxgate magnetometers in a gradiometer configuration on a boom to characterize the magnetic field. Investigation Lead: B.P. Weiss, Massachusetts Institute of Technology. Development Lead: C.T. Russell, UCLA.
+
+d. Radio science to map Psyche’s gravity field using the X-band telecomm system.
+
+Lead: M.T. Zuber, Massachusetts Institute of Technology.
+
+In addition, and separate from the science instruments and data transmission, Psyche is scheduled to ﬂy as a technology demonstration of the Deep Space Optical Communications package. The Optical Communications team is based at the Jet Propulsion Laboratory.
+Meteorites reveal that many differentiated bodies, including iron meteorite parent bodies, produced magnetic dynamos (Bryson et al., 2015, 2017; Elkins Tanton et al., 2011). Highenergy impacts were ubiquitous in the early solar system, so cores likely formed and reformed repeatedly.
+
+If the magnetometer detects a field, then Psyche is a core and had a core magnetic dynamo that solidified outside-in, allowing the cold solid exterior to record the magnetic field (Scheinberg et al., 2016). If it occurs, such a detection, of in situ magnetization at an asteroid, will be the first of its kind. Assuming that 16 Psyche formed as a fractionating core solidifying from the outside-in, one would expect to find surface Ni content of w4 wt% (or slightly lower if diluted with other material).
+
+Nickel of 6{\textemdash}12 wt% would indicate that the surface was the last material to solidify, and thus the core solidified inside-out. In such a case, no remanent magnetic field would be expected as there would have been no cool surface material to record the field while the dynamo was in effect. If very low nickel content is found, with no coherent magnetic field, then scientists may arrive at perhaps the most exciting hypothesis: Psyche never melted, but consists of highly reduced, primordial metal. This hypothesis would be further supported by the discovery of a lack of mantle silicates, but instead, reduced silicates mixed on a small scale throughout the surface. The likeliest place for such material to exist is closest to the Sun in the early disk, where temperatures were very hot (reducing) and light elements might have been volatilized away, leaving heavy elements and metals (Bottke et al., 2006).
+
+References Abe, S., Mukai, T., Hirata, N., Barnouin-Jha, O.S., Cheng, A.F., Demura, H., Gaskell, R.W., Hashimoto, T., Hiraoka, K., Honda, T., Kubota, T., Matsuoka, M., Mizuno, T., Nakamura, R., Scheeres, D.J., Yoshikawa, M., 2006. Mass and local topography measurements of Itokawa by Hayabusa. Science 312, 1344{\textemdash}1347.
+
+Ammannito, E., De Sanctis, M.C., Ciarniello, M., Frigeri, A., Carrozzo, F.G., Combe, J-Ph., Ehlmann, B.E., et al., 2016.
+
+Distribution of ammoniated magnesium phyllosilicates on Ceres. Science 353 aaf4279.
+
+Amos, J., November 16 , 2010. Japan probe collected particles from Itokawa asteroid. BBC Science and Environment
+
+News Volume 11763484.
+
+Asphaug, E., Reufer, A., 2014. Mercury and other iron-rich planetary bodies as relics of inefficient accretion. Nature
+
+Geoscience 7, 564{\textemdash}568.
+
+Barnouin, O.S., Gaskell, R.W., Ernst, C.M., 2012. Revisiting the NEAR-Shoemaker landing site. Abstract in Asteroids,
+
+Comets, Meteors 2012. #6419.
+
+Barnouin-Jha, O.S., Cheng, A.F., Mukai, T., Abe, S., Hirata, N., Nakamura, R., Gaskell, R.W., Saito, J., Clark, B.E.,
+
+2008. Small-scale topography of 25143 Itokawa from the Hayabusa laser altimeter. Icarus 198, 108{\textemdash}124.
+
+Barucci, M.A., Fulchignoni, M., Fornasier, S., et al., 2005. Asteroid target selection for the new Rosetta mission baseline 21 Lutetia and 2867 Steins. Astronomy and Astrophysics 430, 313{\textemdash}317.
+
+Barucci, M.A., Fornasier, F., Dotto, E., et al., 2008. Asteroids 2867 Steins and Lutetia: surface composition from far infrared observations with the Spitzer space telescope. Astronomy and Astrophysics 477, 665{\textemdash}670.
+
+Barucci, M.A., et al., 2012. Overview of Lutetia’s surface composition. Planetary and Space Science 66, 23{\textemdash}30. Barucci, et al., 2015. In: D-Meo, F., Bottke, B., Binzel, R.P. (Eds.), Asteroids IV. University of Arizona Press, Tucson,
+
+p. 433.
+
+Belskaya, I.N., Lagerkvist, C.-I., 1996. Physical properties of M class asteroids. Planetary and Space Science 44,
+
+783{\textemdash}794.
+
+Belton, M.J.S., Chapman, C.R., Veverka, J., Klaasen, K.P., Harch, A., Greeley, R., Greenberg, R., Head III, J.W., McEwen, A., Morrison, D., Thomas, P.C., Davies, M.E., Carr, M.H., Neukum, G., Fanale, F.P., Davis, D.R., Anger, C., Gierasch, P.J., Ingersoll, A.P., Pilcher, C.B., 1994. First Images of Asteroid 243 Ida. Science 265, 1543{\textemdash}1547.
+
+REFERENCES
+
+
+
+
+Belton, M.J.S., Veverka, J., Thomas, P., Helfenstein, P., Simonelli, D., Chapman, C., Davies, M.E., Greeley, R., Greenberg, R., Head, J., Murchie, S., Klaasen, K., Johnson, T.V., McEwen, A., Morrison, D., Neukum, G., Fanale, F., Anger, C., Carr, M., Pilcher, C., 1992. Calileo encounter with 951 Gaspra: first pictures of an asteroid. Science 257, 1647{\textemdash}1652.
+
+Belton, M.J.S., Chapman, C.R., Veverka, J., Klaasen, K.P., Harch, A., Greeley, R., Greenberg, R., Head III, J.W., McEwen, A., Morrison, D., Thomas, P.C., Davies, M.E., Carr, M.H., 1996. Galileo’s encounter with 243 Ida: an overview of the imaging experiment. Icarus 120, 1{\textemdash}19.
+
+Binzel, R.P., Xu, S., 1993. Chips off of asteroid 4 Vesta e Evidence for the parent body of basaltic achondrite meteorites. Science 260, 186{\textemdash}191.
+
+Binzel, R.P., 1988. Collisional evolution in the Eos and Koronis asteroid families: observational and numerical results.
+
+Icarus 73, 303{\textemdash}313.
+
+Bottke, W.F., Nesvorny, D., Grimm, R.E., Morbidelli, A., O’Brien, D.P., 2006. Iron meteorites as remnants of planetesimals formed in the terrestrial planet region. Nature 439, 821{\textemdash}824.
+
+Britt, D.T., Consolmagno, G.J., 2000. The porosity of dark meteorites and the structure of low-albedo asteroids. Icarus
+
+146, 213{\textemdash}219.
+
+Brown, M.E., 2014. A three-micron spectroscopic survey of Jupiter Trojan asteroids. Asteroids, Comets, Meteors
+
+2014, 62.
+
+Broz, M., Rozehnal, J., 2011. Eurybates the only family among the Trojans? Monthly Notices of the Royal Astronomical Society 414, 565{\textemdash}574.
+
+Bryson, J.F.J., Nichols, C.I.O., Herrero-Albillos, J., Kronast, F., Kasama, T., et al., 2015. Long-lived magnetism from solidification-driven convection on the pallasite parent body. Nature 517, 472{\textemdash}475.
+
+Bryson, J.F.J., Harrison, J., Neufeld, A., Nimmo, F., Herrero-Albillos, J., et al., 2017. Paleomagnetic evidence for dynamo activity driven by inward crystallisation of a metallic core. Earth and Planetary Science Letters 472, 152{\textemdash}163.
+
+Bu, Y., et al., 2015. New insights of asteroid 4179 Toutatis using China Chang’E-2 close ﬂyby optical measurements.
+
+The Astronomical Journal 149, 1{\textemdash}21.
+
+Buczkowski, D.L., Wyrick, D.Y., Iyer, K.A., Kahn, E.G., Scully, J.E.C., Nathues, A., Gaskell, R.W., Roatsch, T., Preusker, F., Schenk, P.M., Le Corre, L., Reddy, V., Yingst, R.A., Mest, S., Williams, D.A., Garry, W.B., Barnouin, O.S., Jaumann, R., Raymond, C.A., Russell, C.T., 2012. Large-scale troughs on Vesta: a signature of planetary tectonics. Geophysical Research Letters 39, L18205. https://doi.org/10.1029/2012GL052959.
+
+Buratti, B.J., Britt, D.T., Soderblom, L.A., Hicks, M.D., Boice, D.C., Brown, R.H., Meier, R., Nelson, R.M., Oberst, J., Owen, T.C., Rivkin, A.S., Sandel, B.R., Stern, S.A., Thomas, N., Yelle, R.V., 2004. 9969 Braille: deep Space 1 infrared spectroscopy, geometric albedo, and classification. Icarus 167, 129{\textemdash}135.
+
+Burns, J., 2002. Two bodies are better than one. Science 297, 942{\textemdash}943. Carry, B., 2012. Density of asteroids. Planetary and Space Science 73, 98{\textemdash}118. Castillo-Rogez, J.C., Young, E.D., 2017. Origin and evolution of volatile-rich asteroids. In: Elkins-Tanton, L.T.,
+
+Weiss, B.P. (Eds.), Planetesimals, Early Differentiation and Consequences for Planets, pp. 92{\textemdash}114.
+
+Castillo-Rogez, J., Raymond, C.A., Prettyman, T.H., McSween, H.Y., Ruesch, O., Fu, R., Mitri, G., Ermakov, A.I., De Sanctis, M.C., Toplis, M., Ammannito, E., Neveu, M., Russell, C.T., 2017. Evolution of Large Volatile-Rich Bodies: New Insights from Ceres. Lunar and Planetary Science Conference, abstract #2172.
+
+Chapman, C.R., 1996. S-type asteroids, ordinary chondrites, and space weathering: the evidence from Galileo’s ﬂybys of Gaspra and Ida. Meteoritics and Planetary Sciences 31, 699{\textemdash}725.
+
+Chapman, C.R., Morrison, D., Zellner, B., 1975. Surface properties of asteroids: a synthesis of polarimetry, radiometry, and spectrophotometry. Icarus 25, 104{\textemdash}130.
+
+Cheng, A.F., Barnouin-Jha, O., Hirata, N., Miyamoto, H., Nakamura, R., Yano, H., 2007. Fundamentally distinct outcomes of asteroid collisional evolution: Itokawa and Eros. Geophysical Research Letters 34, L09201. https:// doi.org/10.1029/2007GL029559.
+
+Chesley, S.R., Farnocchia, D., Nolan, M.C., Vokroulicky, D., Choads, P.W., Milani, A., Spoto, F., Rozitis, B., Benner, L.A.M., Bottke, W.F., Busch, M.W., Emery, J.P., Howell, E.S., Lauretta, D.S., Margot, J.-L., Taylor, P.A., 2014. Orbit and bulk density of OSIRIS-REx target asteroid (101955) Bennu. Icarus 235, 5{\textemdash}22.
+
+Clark, B.E., 1993. Spectral Reﬂectance Studies and Optical Surface Alteration in the Search for Links Between Meteorites and Asteroids (Ph.D. dissertation). University of Hawai’i.
+
+Clark, B.E., Veverka, J., Helfenstein, P., Thomas, P.C., Bell III, J.F., Harch, A., Robinson, M.S., Murchie, S.L.,
+
+McFadden, L.A., Chapman, C.R., 1999. NEAR photometry of asteroid 253 Mathilde. Icarus 140, 53{\textemdash}65.
+Clark, B.E., Lucey, P., Bell III, J.F., Peterson, C., Veverka, J., McConnochie, T., Robinson, M.S., Bussey, B., Murchie, S.L., Izenberg, N.I., Chapman, C.R., 2001. Space weathering on Eros: constraints from albedo and spectral measurements of Psyche crater. Meteoritics and Planetary Science 36, 1617{\textemdash}1637.
+
+Clark, B.E., Hapke, B., Pieters, C., Britt, D., 2002. Asteroid space weathering and regolith evolution. In: Asteroids III.
+
+Univ of Arizona Press, pp. 585{\textemdash}599.
+
+Clark, B.E., Binzel, R.P., Howell, E., Cloutis, E.A., Ockert-Bell, M.E., Christensen, P., Barucci, M.A., D-Meo, F., Lauretta, D., Connolly Jr., H., Soderberg, A., Hergenrother, C., Lim, L., 2011. Asteroid (101955) 1999 RQ36: spectroscopy from 0.4 to 2.5 mm and meteorite analogs. Icarus 216, 462{\textemdash}475.
+
+Coradini, A., Capaccioni, F., Drossart, P., et al., 2007. Virtis: an imaging spectrometer for the Rosetta mission. Space
+
+Science Reviews 128, 529{\textemdash}559.
+
+Coradini, A., et al., 2011. The surface composition and temperature of asteroid 21 Lutetia as observed by Rosetta/
+
+VIRTIS. Science 334, 492{\textemdash}494.
+
+Daly, M., et al., 2017. The OSIRIS-REx laser altimeter (OLA) investigation and instrument. Space Science Reviews.
+
+https://doi.org/10.1007/s11214-017-0375-3.
+
+D-Meo, F.E., Carry, B., 2014. Solar system evolution from compositional mapping of the asteroid belt. Nature 505,
+
+629{\textemdash}634.
+
+De Sanctis, M.C., Combe, J.-Ph., Ammannito, E., Palomba, E., Longobardo, A., McCord, T.B., Marchi, S., Capaccioni, F., Capria, M.T., Mittlefehldt, D.W., Pieters, C.M., Sunshine, J., Tosi, F., Zambon, F., Carraro, F., Fonte, S., Frigeri, A., Magni, G., Raymond, C.A., Russell, C.T., Turrini, D., 2012. Detection of widespread hydrated materials on Vesta by the VIR imaging spectrometer on board the DAWN mission. Astrophysical Journal 758, L36.
+
+De Sanctis, M.C., Ammanito, E., Raponi, E., Marchi, S., Mcord, T.B., et al., 2015. Ammoniated phyllosilicates with a likely outer Solar system origin on (1) Ceres. Nature 528, 241{\textemdash}244.
+
+De Sanctis, M.C., Raponi, A., Ammannito, E., Ciarniello, M., Toplis, M.J., McSween, H.Y., Castillo-Rogez, J.C., Ehlmann, B.L., Carrozzo, F.G., Marchi, S., Tosi, F., Zambon, F., Capaccioni, F., Capria, M.T., Fonte, S., Formisano, M., Frigeri, A., Giardino, M., Longobardo, A., Magni, G., Palomba, E., McFadden, L.A., Pieters, C.M., Jaumann, R., Schenk, P., Mugnuolo, R., Raymond, C.A., Russell, C.T., 2016. Nature 536, 54{\textemdash}57.12. De Sanctis, M.C., Ammannito, E., McSween, H.Y., Raponi, A., Marchi, S., Capaccioni, M., Capria, M.T., Carrozzo, F.G., Ciarniello, M., Fonte, S., Formisano, M., Frigeri, A., Giardino, M., Logobardo, A., Magni, G., McFadden, L.A., Palomba, E., Pieters, C.M., Tosi, F., Zambon, F., Raymond, C.A., Russell, C.T., 2017. Localized aliphatic organic material on the surface of Ceres. Science 355, 719{\textemdash}722.
+
+D-Meo, F.E., Carry, B., 2013. The taxonomic distribution of asteroids from multi-filter all-sky photometric surveys.
+
+Icarus 226, 723{\textemdash}741.
+
+D-Meo, F.E., Carry, B., 2014. Solar System evolution from compositional mapping of the asteroid belt. Nature 505, 629. Denevi, B.W., Blewett, D.T., Buczkowski, D.L., Capaccioni, F., Capria, M.T., De Sanctis, M.C., Garry, W.B., J.-Y., Marchi, S., McCoy, T.J., Nathues, A., O’Brien, D.P., Petro, N.E., Gaskell, R.W., Le Corre, L., Li, Pieters, C.M., Preusker, F., Raymond, C.A., Reddy, V., Russell, C.T., Schenk, P., Scully, J.E.C., Sunshine, J.M., Tosi, F., Williams, D.A., Wyrick, D., 2012. Pitted terrain on Vesta and implications for the presence of volatiles. Science 338, 246{\textemdash}249. https://doi.org/10.1126/science.1225374.
+
+Rubincam, D.P., 2000. Radiative spin-up and spin-down of small asteroids. Icarus 148 (1), 2{\textemdash}11. Duxbury, T.C., Newburn, R.L., Acton, C.H., Carranza, E., McElrath, T.P., et al., 2004. Asteroid 5535 Annefrank size,
+
+shape, and orientation: Stardust first results. Journal of Geophysical Research (Planets) 109, E02002.
+
+Elkins Tanton, L.T., Weiss, B.P., Zuber, M.T., 2011. Chondrites as samples of differentiated planetesimals. Earth and
+
+Planetary Science Letters 305, 1{\textemdash}10.
+
+Ermakov, A.I., Fu, R.R., Castillo-Rogez, J.C., Raymond, C.A., Park, R.S., Preusker, F., Russell, C.T., Smith, D.E., Zuber, M.T., 2017. Constraints on Ceres’ internal structure and evolution from its shape and gravity measured by the Dawn spacecraft. J. Geophys. Res. 122, 2267{\textemdash}2293.
+
+Fleming, H.J., Hamilton, D.P., 2000. On the origin of the Trojan asteroids: effects of Jupiters mass accretion and radial migration. Icarus 148, 479{\textemdash}493.
+
+Fornasier, S., Migliorini, A., Dotto, E., Barucci, M.A., 2008. Visible and near infrared spectroscopic investigation of
+
+E-type asteroids, including Steins, a target of the Rosetta mission. Icarus 196, 119{\textemdash}134.
+
+Fu, R., Ermakov, E., Marchi, S., Castillo-Rogez, J.C., Raymond, C.A., Hager, B.H., Zuber, M.T., King, S.D., Bland, M.T., De Sanctis, M.C., Preusker, F., Park, R.S., Russell, C.T., 2017. Earth and Planetary Science Letters 476, 153{\textemdash}164.
+
+REFERENCES
+
+
+
+
+Fujiwara, A., Kawaguchi, J., Yeomans, D.K., Abe, M., Mukai, T., Okada, T., Saito, J., Yano, H., Yoshikawa, M., Scheeres, D.J., Barnouin-Jha, O., Cheng, A.F., Demura, H., Gaskell, R.W., Hirata, N., Ikeda, H., Kominato, T., Miyamoto, H., Nakamura, A.M., Nakamura, R., Sasaki, S., Uesugi, K., 2006a. The rubble-pile asteroid Itokawa as observed by Hayabusa. Science 312, 1330{\textemdash}1334.
+
+Fujiwara, A., et al., 2006b. Hayabusa at asteroid Itokawa (Special Issue). Science 312 (5778), 1327{\textemdash}1353. Gaskell, R.W., Barnouin-Jha, O.S., Scheeres, D.J., Konopliv, A.S., Mukai, T., Abe, S., Saito, J., et al., 2008. Characterizing and navigating small bodies with imaging data. Meteoritics and Planetary Sciences 43 (6), 1049{\textemdash}1061.
+
+Grav, T., Mainzer, A.K., Bauer, J.M., Masiero, J.R., Nugent, C.R., 2012. WISE/NEOWISE observations of the Jovian
+
+Trojan population: taxonomy. The Astrophysical Journal 759, 49.
+
+Gulkis, S., Frerking, M., Crovisier, J., et al., 2007. MIRO: Microwave instrument for Rosetta orbiter. Space Science Reviews 128, 561{\textemdash}597.
+
+Gulkis, S., Keihm, S., Kamp, L., et al., 2012. Continuum and spectroscopic observations of asteroid (21) Lutetia at millimetre and submillimeter wavelengths with the MIRO instruments on the Rosetta spacecraft. Planetary and Space Science 66, 31{\textemdash}42.
+
+Hardersen, P.S., Gaffey, M.J., Abell, P.A., 2005. Near-IR spectral evidence for the presence of iron-poor orthopyroxenes on the surfaces of six M-type asteroids. Icarus 175, 141{\textemdash}158.
+
+Harris, A.W., 1994. Tumbling asteroids. Icarus 107, 209{\textemdash}211. Helfenstein, P., Veverka, J., Thomas, P., Simonelli, D., Lee, P., Klaasen, K., Johnson, T., Brenemen, H., Head, J., Murchie, S., Fanale, F., Robinson, M., Clark, B.E., Granahan, J., Garbeil, H., McEwen, A., Davies, M., Neukum, G., Mottola, S., Wagner, R., Belton, M., Chapman, C., Pilcher, C., 1994. Galileo photometry of asteroid 951 Gaspra. Icarus 107, 37{\textemdash}60.
+
+Hergenrother, C.W., Nolan, M.C., Binzel, R.P., Cloutis, E.A., Barucci, M.A., Michel, P., Scheeres, D.J., et al., 2013. Lightcurve, color and phase function photometry of the OSIRIS-REx target asteroid (101955) Bennu. Icarus 226 (1), 663{\textemdash}670.
+
+Hirata, N., Barnouin-Jha, O.S., Honda, C., Nakamura, R., Miyamoto, H., Sasaki, S., Demura, H., Nakamura, A.M., Michikami, T., Gaskell, R.W., Saito, J., 2009. A survey of possible impact structures on 25143 Itokawa. Icarus 200, 486{\textemdash}502.
+
+Hillier, J.K., Bauer, J.M., Buratti, B.J., 2011. Photometric modeling of asteroid 5535 Annefrank from Stardust observations. Icarus 211, 546.
+
+Howell, E., Britt, D., Bell, J., Binzel, R., Lebofsky, L., 1994. Visible and near-infrared spectral observations of 4179 Toutatis. Icarus 111, 468{\textemdash}474.
+
+Huang, J.C., Ji, J.H., Ye, P.J., et al., 2013a. The ginger-shaped asteroid 4179 Toutatis: new observations from a successful ﬂyby of Chang’E-2. NaturedScientific Reports 3, 3411.
+
+Huang, J.C.W., et al., 2013b. The approaching strategy and imaging technology of 4179 Toutatis ﬂyby mission of
+
+Chang’E-2. Science China Technological Sciences 43, 478{\textemdash}486 (in Chinese).
+
+Huang, J.C., Wang, X.L., Meng, L.Z., et al., 2013c. Engineering parameter analysis for Chang’E-2 satellite ﬂying by asteroid 4179 Toutatis. Science China Technological Sciences 43, 596{\textemdash}660 (in Chinese).
+
+Huang, J.C., Wang, X.L., Meng, L.Z., et al., 2013d. Approach strategy and imaging technology for Chang’E-2 satellite
+
+ﬂying by asteroid 4179 Toutatis. Science China Technological Sciences 43, 478{\textemdash}486 (in Chinese).
+
+Hudson, R.S., Ostro, S.J., 1995. Shape and non-principal axis spin state of asteroid 4179 Toutatis. Science 270, 84{\textemdash}86. Hudson, R.S., Ostro, S.J., Scheeres, D.J., 2003. High-resolution model of asteroid 4179 Toutatis. Icarus 161, 346{\textemdash}355. Hudson, R.S., Ostro, S.J., 1998. Photometric properties of Asteroid 4179 Toutatis from lightcurves and a radar-derived physical model. Icarus 135 (2), 451{\textemdash}457.
+
+Ivezic, Z., et al., 2001. Solar system objects observed in the sloan digital sky survey commissioning data. The Astronomical Journal 122, 2749{\textemdash}2784.
+
+Jewitt, D.C., Trujillo, C.A., Luu, J.X., 2000. Population and size distribution of small Jovian Trojan asteroids.
+
+Astronomical Journal 120, 1140{\textemdash}1147.
+
+Jiang, Y., Ji, J., Huang, J., Marchi, S., Li, Y., Ip, W.H., 2015. Boulders on asteroid Toutatis as observed by Chang’e 2.
+
+Scientific Reports 5, 16029.
+
+Ji, J., Jiang, Y., Zhao, Y., Wang, S., Yu, L., 2016. Chang’e 2 spacecraft observations of asteroid 4179 Toutatis. Earth and
+
+Planetary Astrophysics IAU Symposium 318, 144{\textemdash}152.
+
+Keller, H.U., Barbieri, C., Lamy, P., et al., 2007. OSIRIS the scientific camera system onboard Rosetta. Space Science
+
+Reviews 128, 433{\textemdash}506.
+Keller, H.U., Barbieri, C., Koschny, D., et al., 2010. E-Type asteroid (2867) Steins as imaged by OSIRIS on board
+
+Rosetta. Science 327, 190.
+
+Konopliv, A.S., Asma, S.W., Park, R.S., Bills, B.G., Centinello, F., Chamberlin, A.B., Ermakov, A., Gaskell, R.W., Rambaux, N., Raymond, C.A., Russell, C.T., Smith, D.E., Tricarico, P., Zuber, M.T., 2014. The Vesta gravity field, spin pole and rotation period, landmark positions, and ephemeris from the Dawn tracking and optical data. Icarus 240, 103{\textemdash}117.
+
+Kuppers, M., Moissl, R., Vincent, J.-B., et al., 2012. Boulders on Lutetia. Planetary and Space Science 66, 71{\textemdash}78. Lauretta, D.S., Balram-Knutson, S.S., Beshore, E., Boynton, W.V., Drouet d’Aubigny, C., DellaGiustina, D.N., Enos, H.L., Golish, D.R., Hergenrother, C.W., Howell, E.S., Bennett, C.A., Morton, E.T., Nolan, M.C., Rizk, B., Roper, H.L., Bartels, A.E., Bos, B.J., Dworkin, J.P., Highsmith, D.E., Lorenz, D.A., Lim, L.F., Mink, R., Moreau, M.C., Nuth, J.A., Reuter, D.C., Simon, A.A., Bierhaus, E.B., Bryan, B.H., Ballouz, R., Barnouin, O.S., Binzel, R.P., Bottke, W.F., Hamilton, V.E., Walsh, K.J., Chesley, S.R., Christensen, P.R., Clark, B.E., Connolly, H.C., Crombie, M.K., Daly, M.G., Emery, J.W., Scheeres, D.J., Messenger, S., Nakamura-Messenger, K., Righter, K., Sanford, S.A., 2017. OSIRIS-REx: sample return from asteroid (101955) Bennu. Space Science Reviews. https://doi.org/10.1007/s11214-017-0405-1.
+
+J.P., McCoy, T.J., McMahon,
+
+Lazzarin, M., Fornasier, S., Barucci, M.A., Birlan, M., 2001. Groundbased investigation of asteroid 9969 Braille, target of the spacecraft mission Deep Space 1. Astronomy and Astrophysics 375, 281{\textemdash}284.
+
+Lazzaro, D., Angeli, C.A., Carvano, J.M., et al., 2004. S3OS2: the visible spectroscopic survey of 820 asteroids. Icarus
+
+172 (1), 179{\textemdash}220.
+
+Lee, P., Veverka, J., Thomas, P.C., Helfenstein, P., Belton, M.J.S., Chapman, C.R., Greeley, R., Pappalardo, R.T., et al.,
+
+1996. Ejecta blocks on 243 Ida and on other asteroids. Icarus 120, 87{\textemdash}105.
+
+Levison, H.F., Shoemaker, E.M., Shoemaker, C.S., 1997. Dynamical evolution of Jupiters Trojan asteroids. Nature 385, 42{\textemdash}44. Leyrat, C., Fornasier, S., Barucci, A., Magrin, S., Lazzarin, M., Fulchignoni, M., Jorda, L., Belskaya, I., Marchi, S., Barbieri, C., Keller, U., Sierks, H., Hviid, S., 2010. Search for Steins’ surface inhomogeneities from OSIRIS Rosetta images. Planetary and Space Science 58, 1097{\textemdash}1106.
+
+Lupishko, D., Vasilyev, S., Efimov, J.S., Shakhovskoj, N., 1995. UBVRI-polarimetry of asteroid 4179 Toutatis. Icarus
+
+113, 200{\textemdash}205.
+
+Magri, C., Ostro, S.J., Rosema, K.D., Thomas, M.L., Yeomans, D.K., 1999. Mainbelt asteroids: results of Arecibo and
+
+Goldstone radar observations of 37 objects during 1980{\textemdash}1995. Icarus 140, 379{\textemdash}407.
+
+Marchi, S., McSween, H.Y., O’Brien, D.P., Schenk, P., De Sanctis, M.C., Gaskell, R., Jaumann, R., Mottola, S., Preusker, F., Raymond, C.A., Roatsch, T., Russell, C.T., 2012. The violent collisional history of asteroid 4 Vesta. Science 336, 690{\textemdash}694. https://doi.org/10.1126/science.1218757.
+
+Marzari, F., Farinella, P., Davis, D.R., 1999. Origin, aging, and death of asteroid families. Icarus 142, 63{\textemdash}77. Masterson, R.A., Chodas, M., Bayley, L., Allen, B., Hong, J., Biswas, P., McMenamin, C., Stout, K., Bokhour, E., Bralower, H., Carte, D., Chen, S., Jones, M., Kissel, S., Schmidt, F., Smith, M., Sondecker, G., Lim, L.F., Lauretta, D.S., Grindlay, J.E., Binzel, R.P., 2018. Regolith X-ray imaging spectrometer (REXIS) Aboard the OSIRIS-REx Asteroid Sample Return Mission. Space Sci. Rev 214, 48{\textemdash}74. Springer.
+
+Matter, A., Delbo, M., Carry, B., Ligori, S., 2013. Evidence of a metal-rich surface for the asteroid (16) Psyche from interferometric observations in the thermal infrared. Icarus 226, 419{\textemdash}427.
+
+Mazrouei, S., Daly, M.G., Barnouin, O.S., Ernst, C.M., D-Souza, I., 2014. Block distributions on Itokawa. Icarus 229,
+
+181{\textemdash}189.
+
+McCord, T.B., Adams, J.B., Johnson, T.V., 1970. Asteroid Vesta: spectral reﬂectivity and compositional implications.
+
+Science 168, 1445{\textemdash}1447.
+
+McCord, T.B., Li, J.-Y., Combe, J.-P., McSween, H.Y., Jaumann, R., Reddy, V., Tosi, F., Williams, D.A., Blewett, D.T., Turrini, D., Palomba, E., Pieters, C.M., de Sanctis, M.C., Ammannito, E., Capria, M.T., Le Corre, L., Longobardo, A., Nathues, A., Mittlefehldt, D.W., Schröder, S.E., Hiesinger, H., Beck, A.W., Capaccioni, F., Carsenty, U., Keller, H.U., Denevi, B.W., Sunshine, J.M., Raymond, C.A., Russell, C.T., 2012. Dark material on Vesta from the infall of carbonaceous volatile-rich material. Nature 491, 83{\textemdash}86.
+
+McCoy, T.J., Burbine, T.H., McFadden, L.A., Starr, R.D., Gaffey, M.J., Nittler, L.R., Evans, L.G., Izenberg, N., Lucey, P., Trombka, J.I., Bell III, J.F., Clark, B.E., Clark, P.E., Squyres, S.W., Chapman, C.R., Boynton, W.V., Veverka, J., 2001. The composition of 433 Eros: A mineralogical-chemical synthesis. Meteoritics and Planetary Science 36, 1661{\textemdash}1672.
+
+McSween Jr., H.Y., Binzel, R.P., De Sanctis, M.C., et al., 2013. Dawn; the VestaeHED connection; and the geologic context for eucrites, diogenites, and howardites. Meteoritics and Planetary Science 48, 2090{\textemdash}2104. https:// doi.org/10.1111/maps.12108.
+
+REFERENCES
+
+
+
+
+McSween, H.Y., Emery, J.P., Rivkin, A.S., Castillo-Rogez, J.C., Prettyman, T.H., De Sanctis, M.C., Pieters, C.M., Raymond, C.A., Russell, C.T., 2017. Carbonaceous Chondrites as analogs for the composition and alteration of Ceres. Meteoritics and Planetary Science 1{\textemdash}12. https://doi.org/10.1111/maps.12947.
+
+Merline, W.J., et al., 2002. Asteroids Do Have Satellites. In: Bottke Jr., W.F., et al. (Eds.), Asteroids III. Univ. of Arizona
+
+Press, Tucson, AZ.
+
+Michel, P., Farinella, P., Froeschlé, C., 1996. The orbital evolution of the asteroid Eros and implications for collision with the Earth. Nature 380 (6576), 689{\textemdash}691.
+
+Morbidelli, A., Levison, H.F., Tsiganis, K., Gomes, R.S., 2005. Chaotic capture of Jupiter’s Trojan asteroids in the early solar system. Nature 435, 462.
+
+Mottola, S., Sears, W.D., Erikson, A., et al., 1995. The slow rotation of 253 Mathilde. Planetary and Space Science 43,
+
+1609{\textemdash}1613.
+
+Mueller, B.E., Samarasinha, N.H., Belton, M.J., 2002. The diagnosis of complex rotation in the light curve of 4179 Toutatis and potential applications to other asteroids and bare cometary nuclei. Icarus 158, 305{\textemdash}311.
+
+Müller, T.G., et al., 2017. Hayabusa-2 mission target asteroid 162173 Ryugu (1999 JU3): searching for the object’s spinaxis orientation. Astronomy and Astrophysics 599, A103.
+
+Nagao, K., Okazaki, R., Nakamura, T., Miura, Y., Osawa, T., Bajo, K.I., Matsuda, S., Ebihara, M., Ireland, T.R., Kitajima, F., Naraoka, H., Noguchi, T., Tsuchiyana, A., Yurimoto, H., Zolenshy, M., Uesugi, M., Shirai, K., Abe, M., Yada, T., Ishibashi, Y., Fujimura, A., Mukai, T., Ueno, M., Okada, T., Yoshikawa, M., Kawaguchi, J., 2011. Science 333, 1123{\textemdash}1131.
+
+Nakamura, T., Noguchi, A.T., Tanaka, M., Zolensy, M., Kimura, M., Tsuchiyama, A., Nakato, A., Ogami, T., Ishida, H., Uesugi, M., Yada, T., Shirai, K., Fujimura, A., Okazaki, R., Sanford, S., Ishibashi, Y., Abe, M., Okada, T., Ueno, M., Mukai, T., Yoshikawa, M., Kawaguchi, J.I., 2011. Science 333, 1113{\textemdash}1116.
+
+Nakamura, E., Makashima, A., Moriguti, T., Kobayashi, K., Tanaka, R., Kunihiro, T., Tsujimori, T., Sakaguchi, C., Kitagawa, H., Tsutomu, T., Yachi, Y., Yada, T., Abe, M., Fujimura, A., Ueno, M., Mukai, T., Yoshikawa, M., Kawaguchi, J.I., 2012. Space environment of an asteroid preserved on micrograins returned by the Hayabusa spacecraft. Proceedings of the National Academy of Sciences. https://doi.org/10.1073/pnas.1116236109E624- E529.
+
+Nakamura, T., Nakato, A., Ishida, H., Wakita, S., Noguchi, T., Zolensky, M.E., Tanaka, M., Kimura, M., Tshuchiyama, A., Ogami, T., Hashimotot, T., Konno, M., Uesugi, M., Yada, T., Shirai, K., Fujimura, A., Okazaki, R., Sandford, S., Ishibashi, Y., Abe, M., Okada, T., Ueno, M., Kawaguchi, J.I., 2014. Mineral chemistry of MUSES-C Regio inferred from analysis of dust particles collected from the first- and second-touchdown sites on asteroid Itokawa. Meteoritics and Planetary Science 49, 215{\textemdash}227.
+
+Nathues, A., Hoffmann, M., Platz, T., Thangjam, G.S., Cloutis, E.A., Reddy, V., Le Corre, L., Li, J.-Y., Mengel, K., Rivkin, A., Applin, D.M., Schaefer, M., Christensen, U., Sierks, H., Ripken, J., Schmidt, B.E., Heisinger, H., Sykes, M.V., Sizemore, H.G., Preusker, F., Russel, C.T., 2016. FC Images of dwarf planet ceres reveal a complicated geological history. Planetary and Space Science 134, 122.
+
+Nathues, A., Platz, T., Thangjam, G., Hoffmann, M., Mengel, K., Cloutis, E.A., Le Corre, L., Reddy, V., Kallisch, J.,
+
+Crown, D.A., 2017. Evolution of Occator crater on (1) ceres. Astronomical Journal 153, 112.
+
+Nesvorný, D., Morbidelli, A., Vokrouhlický, D., Bottke, W.F., 2002. The Flora family: a case of the dynamically dispersed collisional swarm? Icarus 157, 155{\textemdash}172.
+
+Nesvorny, D., Vokrouhlick, D., Morbidelli, A., 2013. Capture of Trojans by Jumping Jupiter. The Astrophysical Journal 768, 45.
+
+Nesvorny, D., Broz, M., Carruba, C., 2015. Identification and dynamical properties of asteroid families. In: D-Meo, F.,
+
+Bottke, B., Binzel, R.P. (Eds.), Asteroids IV. University of Arizona Press, Tucson.
+
+Noguchi, T., Tsuchiyama, A., Hirata, N., Demura, H., Nakamura, R., Miyamoto, H., Yano, H., Nakamura, T., Saito, J., Sasaki, S., Hashimoto, T., Kubota, T., Ishiguro, M., Zolensky, M.E., 2010. Surface morphological features of boulders on Asteroid 25143 Itokawa. Icarus 206, 319{\textemdash}326.
+
+Noguchi, T., Nakamura, T., Kimura, M., et al., 2011. Incipient space weathering observed on the surface of Itokawa dust particles. Science 333, 1121{\textemdash}1125. https://doi.org/10.1126/science.1207794.
+
+Noguchi, T., Kimura, M., Hashimoto, T., Konno, M., Nakamura, T., Zolensky, M.E., Okazaki, R., Tanaka, M., Tsuchiyama, A., Nakato, A., Ogami, T., Ishida, H., Sagae, R., Tsujimoto, S., Matsumoto, T., Matsuno, J., Fujimura, A., Abe, M., Yada, T., Mukai, T., Ueno, M., Okada, T., Shirai, K., Ishibashi, Y., 2014. Space weathered rims found on the surfaces of the Itokawa dust particles. Meteoritics and Planetary Sciences 49, 188{\textemdash}214.
+Nolan, M.C., Magri, C., Howell, E.S., Benner, L.A.M., Giorgini, J.D., Hergenrother, C.W., Hudson, R.S., et al., 2013. Shape model and surface properties of the OSIRIS-REx target asteroid (101955) Bennu from radar and lightcurve observations. Icarus 226 (1), 629{\textemdash}640.
+
+Noll, K.S., Benecchi, S.D., Ryan, E.L., Grundy, W.M., 2014. Ultra-Slow Rotating Outer Main Belt and Trojan Asteroids: Search for Binaries. 45th Lunar and Planetary Science Conference, at The Woodlands, Texas. LPI (abstract) Contribution No. 1777, p. 1703.
+
+Oberst, J., Mottola, S., Di Martino, M., Hicks, M., Buratti, B., Soderblom, L., Thomas, N., 2001. A model for rotation and shape of asteroid 9969 braille from ground-based observations and images obtained during the Deep Space 1 (DS1) ﬂyby. Icarus 153, 16{\textemdash}23.
+
+Oh, D., Goebel, D., Polanskey, C., Snyder, S., Carr, G., et al., 2016. Psyche: journey to a metal world. In: Presented at
+
+52nd AIAA/ASME/SAE/ASEE Joint Propulsion Conference, Salt Lake City, UT.
+
+Olkin, C.B., Reuter, D., Lunsford, A., Binzel, R.P., Stern, S.A., 2006. The new Horizons distant ﬂyby of asteroid 2002
+
+JF56. Bulletin of the American Astronomical Society 38, 59.22.
+
+Ostro, S.J., et al., 1995. Radar images of asteroid 4179 Toutatis. Science 270, 80{\textemdash}83. Ostro, S.J., et al., 1999. Asteroid 4179 Toutatis: 1996 radar observations. Icarus 137, 122{\textemdash}139. Park, R.S., Konopliv, A.S., Bills, B.G., Rambaux, N., Castillo-Rogez,
+
+J.C., Raymond, C.A., Vaughan, A.T., Ermakov, A.I., Zuber, M.T., Fu, R.R., Toplis, M.J., Russell, C.T., 2016. A partially differentiated interior for (1) Ceres deduced from its gravity field and shape. Nature 537, 515{\textemdash}517.
+
+Parker, A.H., Kavelaars, J.J., 2012. Collisional evolution of ultra-wide trans-Neptunian binaries. The Astrophysical
+
+Journal 744, 139.
+
+Pätzold, M., Andert, T.P., Asmar, S.W., et al., 2011. Asteroid 21 Lutetia: low mass, high density. Science 334, 491{\textemdash}492. Perna, D., et al., 2017. Spectral and rotational properties of near-Earth asteroid (162173) Ryugu, target of the Hayabusa2 sample return mission. Astronomy and Astrophysics 599, L1.
+
+Pieters, C.M., Nathues, A., Thangiam, G., Hoffmann, M., Platz, T., De Sanctis, M.C., Ammannito, E., Tosi, F., Zambon, F., Pasckert, J.H., Hiesinger, H., Jaumann, R., Schröder, S., Castillo-Rogez, J.C., Ruesch, O., McFadden, L.A., O’Brien, D.P., Sykes, M., Raymond, C.A., Russell, C.T., 2017. Geologic constraints on the origin of red organic-rich material on ceres. Submitted to Meteoritics and Planetary Science. https://doi.org/10.1111/maps. 13008
+
+Porco, C.C., et al., 2004. Cassini imaging science: instrument characteristics and anticipated scientific investigations at
+
+Saturn. Space Science Reviews 115, 363.
+
+Pravec, P., Harris, A.W., Michalowski, T., 2002. Asteroid rotations. Asteroids III. In: Bottke Jr., W.F., Cellino, A.,
+
+Paolicchi, P., Binzel, R.P. (Eds.). Univ of Arizona Press, pp. 113{\textemdash}122.
+
+Prettyman, T.H., Mittlefehldt, D.W., Yamashita, N., Lawrence, D.J., Beck, A.W., Feldman, W.C., McCoy, T.J., McSween, H.Y., Toplis, M.J., Titus, T.N., Tricarico, P., Reedy, R.C., Hendricks, J.S., Forni, O., Le Corre, L., Li, J-Y., Mizzon, H., Reddy, V., Raymond, C.A., Russell, C.T., 2012. Elemental mapping by Dawn reveals exogenic H in Vesta’s regolith. Science 338, 242.
+
+Prettyman, T.H., Mittlefehldt, D.W., Feldman, W.C., Hendricks, J.S., Lawrence, D.J., Peplowski, P.N., Toplis, M.J., Yamashita, N., Beck, A., Le Corre, L., McCoy, T.J., McSween, H.Y., Reedy, R.C., Titus, T.N., Mizzon, H., Reddy, V., Joy, S.P., Polanskey, C.A., Rayman, M.D., Raymond, C.A., Russell, C.T., 2013. Neutron absorption measurements constrain eucrite-diogenite mixing in Vesta’s regolith. In: 44th Lunar and Planetary Science Conference abstract 3023.
+
+Prettyman, T.H., Yamashita, N., Toplis, M.J., McSween, H.Y., Schorghofer, N., Marchi, S., Feldman, W.C., Castillo- Rogez, J., Forni, O., Lawrence, D.J., Ammannito, E., Ehlmann, B.L., Sizemore, H.G., Joy, S.P., Polanskey, C.A., Rayman, M.D., Raymond, C.A., Russell, C.T., 2017. Extensive water ice within Ceres’ aqueously altered regolith: evidence from nuclear spectroscopy. Science 355 (6320), 55{\textemdash}59. https://doi.org/10.1126/science.aah6765.
+
+Rayman, M.D., Varghese, P., 2001. The deep space 1 extended mission,. Acta Astronautica 48, 693{\textemdash}705. Raymond, S.N., Izodoro, A., 2017. Origin of water in the inner Solar System: planetesimals scattered inward during
+
+Jupiter and Saturn’s rapid gas accretion. Icarus 297, 134{\textemdash}148.
+
+Reddy, V., Sanchez, J.A., Gaffey, M.J., Abell, P.A., Corre, L.L., Hardersen, P.S., 2012a. Composition of near-earth asteroid (4179) Toutatis. Icarus 221, 1177{\textemdash}1179.
+
+Reddy, V., Le Corre, L., O’Brien, D.P., Nathues, A., Cloutis, E.A., Durda, D.D., Bottke, W.F., Bhatta, M.U., Nesvorny, D., Buczkowski, D., Scully, J.E.C., Palmer, E.M., Sierks, H., Mann, P.J., Becker, K.J., Beck, A.W., Mittlefehldt, D., Li, J.-Y., Gaskell, R., Russell, C.T., Gaffey, M.J., McSween, H.Y., McCord, T.B., Combe, J.-P.,
+
+REFERENCES
+
+
+
+
+Blewett, D., 2012b. Delivery of dark material to Vesta via carbonaceous chondritic impacts. Icarus 221, 544{\textemdash}559. https://doi.org/10.1016/j.icarus.2012.08.011.
+
+Richardson, J.E., Melosh, H.J., Greenberg, R.J., O’Brien, D.P., 2005. The global effects of impact-induced seismic activity on fractured asteroid surface morphology. Icarus 179, 325{\textemdash}349.
+
+Riner, M.A., Robinson, M.S., Eckart, J.M., Desch, S.J., 2008. Global survey of color variations on 433 Eros: implications for regolith processes and asteroid environments. Icarus 198 (1), 67{\textemdash}76.
+
+Rivkin, A.S., Clark, B.E., Ockert-Bell, M., et al., 2011. Observations of 21 Lutetia in the 2-4 mm region with the NASA
+
+IRTF. Icarus 216, 62{\textemdash}68.
+
+Robinson, M.S., Thomas, P.C., Veverka, J., Murchie, S., Carcich, B., 2001. The nature of ponded deposits on Eros. Nature 413, 396{\textemdash}400.
+
+Ruesch, O., Nathues, A., Jaumann, R., Quick, L.C., Bland, M.T., Bowling, T.J., Byrne, S., Castillo-Rogez, J.C., Hiesinger, H., Krohn, K., McFadden, L.A., Neesemann, A., Otto, K., Schenk, P., Scully, J., Sykes, M.V., Williams, D.A., Raymond, C.A., Russell, C.T., 2017. Faculae on Ceres: Possible Formation Mechanisms. Lunar and Planetary Science Conference, Vol. 48, p. 2435.
+
+Ruesch, O., Platz, T., Schenk, P., McFadden, L.A., Castillo-Rogez, J.C., Quick, L.C., Byrne, S., Preusker, F.,
+
+O’Brien, D.P., Schmedemann, N., Williams, D.A., 2016. Cryovolcanism on ceres. Science 353 aaf4286.
+
+Russell, C.T., Raymond, C.A., 2011. The Dawn mission to Vesta and ceres. Space Science Reviews 163, 3{\textemdash}23. Russell, C.T., Raymond, C.A., Coradini, A., McSween, H.Y., Zuber, M.T., Nathues, A., De Sanctis, M.C., Jaumann, R., Konopliv, A.S., Preusker, F., Asmar, S.W., Park, R.S., Gaskell, R., Keller, H.U., Mottola, S., Roatsch, T., Scully, J.E.C., Smith, D.E., Tricarico, P., Toplis, M.J., Christensen, U.R., Feldman, W.C., Lawrence, D.J., McCoy, T.J., Prettyman, T.H., Reedy, R.C., Sykes, M.E., Titus, T.N., 2012. Dawn at Vesta: testing the protoplanetary paradigm. Science 336, 684{\textemdash}686. https://doi.org/10.1126/science.1219381.
+
+Saito, J., Miyamoto, H., Nakamura, R., Ishiguro, M., Michikami, T., Nakamura, A.M., Demura, H., Sasaki, S., Hirata, N., Honda, C., Yamamoto, A., Yokota, Y., Fuse, T., Yoshida, F., Tholen, D.J., Gaskell, R.W., Hashimoto, T., Kubota, T., Higuchi, Y., Nakamura, T., Smith, P., Hiraoka, K., Honda, T., Kobayashi, S., Furuya, M., Matsumoto, N., Nemoto, E., Yukishita, A., Kitazato, K., Dermawan, B., Sogame, A., Terazono, J., Shinohara, C., Akiyama, H., 2006. Detailed images of asteroid 25143 Itokawa from Hayabusa. Science 312, 1341{\textemdash}1344.
+
+Scheeres, D.J., Ostro, S.J., Werner, R.A., Asphaug, E., Hudson, R.S., 2000. Effects of gravitational interactions on asteroid spin states. Icarus 147 (1), 106{\textemdash}118.
+
+Scheinberg, A., Elkins Tanton, L.T., Schubert, G., Bercovici, D., 2016. Core solidification and dynamo evolution in a mantle-stripped planetesimal. Journal of Geophysical Research 121, 2{\textemdash}20.
+
+Schultz, R., 2009. RosettadOne comet rendezvous and two asteroid ﬂybys. Solar System Research 43 (4), 343{\textemdash}352.
+
+Springer.
+
+Scully, J.E.C., Russell, C.T., Yin, A., Jaumann, R., Carey, E., Castillo-Rogez, J., McSween, H.Y., Raymond, C.A., Reddy, V., L-Corre, L., 2015. Geomorphological evidence for transient water ﬂow on Vesta. Earth and Planetary Science Letters 411, 151{\textemdash}163. https://doi.org/10.1016/j.epsl.2014.12.004.
+
+Shepard, M.K., Clark, B.E., Ockert-Bell, M., Nolan, M.C., Howell, E.S., et al., 2010. A radar survey of M- and X-class asteroids II. Summary and synthesis. Icarus 208, 221{\textemdash}237.
+
+Shepard, M.K., Richardson, J., Taylor, P.A., Rodriguez-Ford, L.A., Conrad, A., et al., 2017. Radar observations and shape model of asteroid 16 Psyche. Icarus 281, 388{\textemdash}403.
+
+Sierks, H., et al., 2011. Images of asteroid 21 Lutetia: a remnant planetesimal from the early solar system. Science 334,
+
+487{\textemdash}490.
+
+Spencer, J.R., et al., 1995. The light curve of 4179 Toutatis: evidence for complex rotation. Icarus 117, 71{\textemdash}89. Stein, N., Ehlmann, B., Palomba, E., De Sanctis, M.C., Nathues, A., Hiesinger, H., Ammannito, E., Raymond, C.A., Jaumann, R., Longobardo, A., Russell, C.T., 2017. The formation and evolution of bright spots on Ceres. Icarus. https://doi.org/10.1016/j.icarus.2017.10.014.
+
+Stephan, K., Jaumann, R., Krohn, K., Schmedemann, N., Zambon, F., Tosi, F., Carrozzo, F.G., McFadden, L.A., Otto, K., De Sanctis, M.C., Ammannito, E., Matz, K.-D., Roatsch, T., Preusker, F., Raymond, C.A., Russell, C.T., 2017. An investigation of the blueish material on Ceres. Geophysical Research Letters 44, 1660{\textemdash}1668.
+
+Stern, S.A., Slater, D.C., Scherrer, J., et al., 2007. Alice: the Rosetta ultraviolet imaging spectrograph. Space Science
+
+Reviews 128, 507{\textemdash}527.
+Stern, S.A., Parker, J.W., Feldman, P.D., et al., 2011. Ultraviolet discoveries at asteroid (21) Lutetia) by the Rosetta
+
+Alice ultraviolet spectrometer. The Astronomical Journal 141, 199{\textemdash}202.
+
+Stryk, T., Stooke, P.J., 2016. The surface of asteroid 5535 Annefrank. Lunar and Planetary Science Conference 47, 1148. Takahashi, Y., Busch, M.W., Scheeres, D.J., 2013. Spin state and moment of inertia characterization of 4179 Toutatis.
+
+The Astronomical Journal 146, 95{\textemdash}104.
+
+Takir, D., Reddy, V., Sanchez, J., Shepard, M.K., Emery, J., 2016. Detection of water and/or hydroxyl on asteroid (16)
+
+Psyche. The Astronomical Journal 153, 31{\textemdash}37.
+
+Tedesco, Veeder, 1989. IRAS Minor Planet Survey. PL-TR-92-2049. Phillips Laboratory, Hanscom AF Base, MA. Tholen, D., Barucci, M.A., 1989. In: Binzel, R.P., Gehrels, T., Matthews, M.S. (Eds.), Asteroids II. University of Arizona
+
+Press, Tucson, pp. 298{\textemdash}315.
+
+Thomas, P., Joseph, J., Carcich, B., Clark, B.E., Veverka, J., Miller, J.K., Owen, W., Williams, B., Robinson, M., 2001.
+
+The shape of Eros from NEAR imaging data. Icarus 145, 348{\textemdash}350.
+
+Thomas, N., Barbieri, C., Keller, H.U., et al., 2012. The geomorphology of (21) Lutetia: results from the OSIRIS imaging system onboard ESA’s Rosetta spacecraft. Planetary and Space Science 66, 96{\textemdash}124.
+
+Travis, B.J., 2017. On the long-term habitability of Ceres. In: Astrobiology Science Conference (AbSciCon) 2017.
+
+Abstract #3620.
+
+Tsuda, Y., Yoshikawa, M., Abe, M., Minamino, H., Nakazawa, S., 2013. System design of the Hayabusa2-Asteroid sample return mission to 1999 JU3. Acta Astronautica 91, 356{\textemdash}362.
+
+Tubiana, C., Duffard, R., Barrera, L., Boehnhardt, H., 2007. Photometric and spectroscopic observations of (132524) 2002 JF56: ﬂy-by target of the New Horizons mission. Astronomy and Astrophysics 463 (3), 1197{\textemdash}1199.
+
+Veverka, J., Thomas, P., Harch, A., Clark, B.E., Bell III, J.F., Carcich, B., Joseph, J., Chapman, C., Merline, W., Izenberg, N.,
+
+Robinson, M., Malin, M., McFadden, L.A., Murchie, S., Hawkins III, S.E., Farquhar, R., Cheng, A., 1997. NEAR’s ﬂyby of 253 Mathilde: images of a C Asteroid. Science 278, 2109{\textemdash}2114. Veverka, J., et al., 1999. NEAR encounter with asteroid 253 Mathilde: overview. Icarus 140 (1), 3{\textemdash}16. Veverka, J., Robinson, M.S., Thomas, P., Murchie, S., Bell III, J.F., Izenberg, N., Chapman, C., Harch, A., Bell, M., Carcich, B., Cheng, A., Clark, B.E., Domingue, D., Dunham, D., Farquhar, R., Gaffey, M.J., Hawkins, E., Joseph, J., Kirk, R., Li, H., Lucey, P., Malin, M., Martin, P., McFadden, L., Merline, W.J., Miller, J.K., Owen Jr., W.M., Peterson, C., Prokter, L., Warren, J., Wellnitz, D., Williams, B.G., Yeomans, D.K., 2000. NEAR at Eros: imaging and spectral results. Science 289, 2088{\textemdash}2097.
+
+Veverka, J., Farquhar, B., Robinson, M., Thomas, P., Murchie, S., Harch*, A., Antreasian, P.G., Chesley, S.R., Miller, J.K., Owen Jr., W.M., Williams, B.G., Yeomans, D., Dunham, D., Heyler, G., Holdridge, M., Nelson, R.L., Whittenburg, K.E., Ray, J.C., Carcich, B., Cheng, A., Chapman, C., Bell III, J.F., Bell, M., Bussey, B., Clark, B.E., Domingue, D., Gaffey, M.J., Hawkins, E., Izenberg, N., Joseph, J., Kirk, R., Lucey, P., Malin, M., McFadden, L., Merline, W.J., Peterson, C., Prockter, L., Warren, J., Wellnitz, D., 2001. The landing of the NEAR-Shoemaker spacecraft on asteroid 433 Eros. Nature 413, 390{\textemdash}393.
+
+Weiss, B.P., Elkins-Tanton, L.T., Barucci, M.A., et al., 2012. Possible evidence for partial differentiation of asteroid
+
+Lutetia from Rosetta. Planet. Space Science 66, 137{\textemdash}146.
+
+Wilkison, M., Robinson, M.S., 2000. Meteoritics and PIanetaty Science 35, 1203{\textemdash}1213. Wong, I., Brown, M.E., Emery, J.P., 2014. The differing magnitude distributions of the two Jupiter Trojan color populations. The Astronomical Journal 148, 112.
+
+Wu, W.R., Cui, P.Y., Qiao, D., et al., 2012. Design and performance of exploring trajectory to Sun-Earth L2 point for
+
+Chang’E-2 mission. Chinese Science Bulletin 57, 1987{\textemdash}1991 (in Chinese).
+
+Yada, T., Fujimura, A., Abe, M., Nakamura, T., Noguchi, T., Okazaki, R., Nagao, K., Ishibashi, Y., Shirai, K., Zolensky, M.E., Sandford, S., Okada, T., Uesugi, M., Karouji, Y., Ogawa, M., Yakame, S., Ueno, M., Mukai, T., Yoshikawa, M., Kawaguchi, J.I., 2014. Hayabusa-returned sample curation in the planetary material sample curation facility of JAXA. Meteoritics and Planetary Science 49, 135{\textemdash}153.
+
+Yano, H., Kubota, T., Miyamoto, H., Okada, T., Scheeres, D., Takagi, Y., Yoshida, K., Abe, M., Abe, S., Barnouin- Jha, O., Fujiwara, A., Hasegawa, S., Hashimoto, T., Ishiguro, M., Kato, M., Kawaguchi, J., Mukai, T., Saito, J., Sasaki, S., Yoshikawa, M., 2006. Touchdown of the Hayabusa Spacecraft at the Muses Sea on Itokawa. Science 312, 1350{\textemdash}1353.
+
+Ye, J.P., Huang, J.C., Zhang, Y.X., et al., 2013. Technology achievements for Chang’E-2 mission and the prospects of
+
+Chinese deep space exploration. Science China Technological Sciences 43, 467{\textemdash}477 (in Chinese).
+
+FURTHER READING
+
+
+
+
+Yoshida, F., Nakamura, T., 2005. Size Distribution of Faint Jovian L4 Trojan Asteroids. Astronomical Journal 130,
+
+2900{\textemdash}2911.
+
+Yoshikawa, M., Watanabe, S., Tsuda, Y., Kuninaka, H., 2014. Hayabusa2-The next asteroid sample return mission of
+
+Japan. Transitions of the JSASS Aerospace Technonlogy Japan 12 (ists29), Tk_29eTk_33.
+
+Zambon, F., Raponi, A., Tosi, F., De Sanctis, M.C., McFadden, L.A., Carrozzo, F.G., Longobardo, A., Ciarniello, M., Krohn, K., Stephan, K., Palomba, E., Pieters, C.M., Ammannito, E., Raymond, C.A., Russell, C.T., 2016. Spectral analysis of Ahuna Mons mission’s visible-infrared spectrometer. Geophysical Research Letters 44, 97{\textemdash}104. Zhao, Y., Ji, J., Huang, J., Hu, S., Hou, X., Li, Y., Ip, W.H., 2015. Orientation and rotational parameters of asteroid 4179 e-2’s close ﬂyby. Monthly Notices of the Royal Astronomical Society 450 (4),
+
+0 Toutatis: new insights from Chang 3620{\textemdash}3632.
+
+Zheng, C., Ping, J., Wang, M., 2016. Hierarchical classification for the topography analysis of Asteroid (4179) Toutatis from the Chang’E-2 images. Icarus 278, 119{\textemdash}127.
+
+Zhu, M.H., Fa, W., Ip, W.H., Huang, J., Liu, T., Meng, L., Yan, J., Xu, A., Tang, Z., Wang, X., Qiao, D., 2014. Morphology of asteroid (4179) Toutatis as imaged by Chang’E-2 spacecraft. Geophysical Research Letters 41 (2), 328{\textemdash}333.
+
+Zou, X.D., et al., 2014. The preliminary analysis of the 4179 Toutatis snapshots of the Chang’E-2 ﬂyby. Icarus 229,
+
+348{\textemdash}354.
+
+Zuber, M.T., Smith, D.E., Cheng, A.F., Garvin, J.B., Aharonson, O., Cole, T.D., Dunn, P.J., Guo, Y., Lemoine, F.G., Neumann, G.A., Rowlands, D.D., Torrence, M.H., 2000. The shape of 433 Eros from the NEAR laser rangefinder. Science 289, 1788{\textemdash}1793.
+
+Further Reading Bus, S.J., Vilas, F., Barucci, M.A., 2002. Visible-wavelength spectroscopy of asteroids. Asteroids III 169{\textemdash}182. Carr, M.H., Neukum, G., Fanale, F.P., Davis, D.R., Anger, C., Gierasch, P.J., Ingersoll, A.P., Pilcher, C.B., 1994. First images of asteroid 243 Ida. Science 265, 1543{\textemdash}1547.
+
+Funato, Y., Makino, J., Hut, P., Kokubo, E., Kinoshita, D., 2004. The formation of Kuiper-belt binaries through exchange reactions. Nature 427, 518{\textemdash}520.
+
+Goldreich, P., Lithwick, Y., Sari, R., 2002. Formation of Kuiper-belt binaries by dynamical friction and three-body encounters. Nature 420, 643{\textemdash}646.
+
+Lee, E.A., Astakhov, S.A., Farrelly, D., 2007. Production of trans-Neptunian binaries through chaos-assisted capture.
+
+Monthly Notices of the Royal Astronomical Society 379, 229{\textemdash}246.
+
+Mann, R.K., Jewitt, D., Lacerda, P., 2007. Fraction of contact binary Trojan asteroids. The Astronomical Journal 134,
+
+1133{\textemdash}1144.
+
+Marchis, F., et al., 2006. A low density of 0.8 g cm-3 for the Trojan binary asteroid (617) Patroclus. Nature 439,
+
+565{\textemdash}567.
+
+Marchis, F., et al., 2014. The puzzling mutual orbit of the binary Trojan asteroid (624) Hektor. The Astrophysical Journal 783, L37.
+
+Nesvorny, D., Youdin, A.N., Richardson, D.C., 2010. formation of Kuiper belt binaries by gravitational collapse. The
+
+Astronomical Journal 140, 785{\textemdash}793.
+
+Noll, K.S., Grundy, W.M., Stephens, D.C., Levison, H.F., Kern, S.D., 2008. Evidence for two populations of classical trans-neptunian objects: the strong inclination dependence of classical binaries. Icarus 194, 758{\textemdash}768.
+
+Noll, K.S., Grundy, W.M., Buie, M.W., Levison, H.F., 2017. AAS/Division for Planetary Sciences Meeting Abstract 49,
+
+110.40.
+
+Noll, K.S., Weaver, H., Storrs, A., Zellner, B., 1995. Imaging of asteroid 4179 Toutatis with the Hubble space telescope.
+
+Icarus 113, 353{\textemdash}359.
+
+Schultz, R., et al. (Eds.), 2009. Rosetta: ESA’s Mission to the Origin of the Solar System. Springer.
+

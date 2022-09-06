@@ -1,0 +1,653 @@
+The Planetary Science Journal, 2:171 (13pp), 2021 October © 2021. The Author(s). Published by the American Astronomical Society.
+
+https://doi.org/10.3847/PSJ/abf840
+
+Harold F. Levison1 Richard Binzel5 Will Grundy9 John Spencer1
+
+, William Bottke1 , Victoria E. Hamilton1 , Thomas S. Statler12
+
+Lucy Mission to the Trojan Asteroids: Science Goals , James F. Bell III3
+
+, Simone Marchi1
+
+, Keith S. Noll2
+
+, Catherine B. Olkin1
+
+, Dan Britt6
+
+, Michael Brown7
+
+, Marc Buie1
+
+, Phil Christensen3
+
+, Carly Howett1 , S. Alan Stern1
+
+, Stefano Mottola10 , Jessica Sunshine13
+
+, Martin Pätzold11 , Harold Weaver14
+
+1 Southwest Research Institute, 1050 Walnut Street, Suite 300, Boulder, CO 80302, USA
+
+2 NASA/Goddard Space Flight Center, Greenbelt, MD 20771, USA
+
+, Edward Bierhaus4 , Joshua Emery8 ,
+
+, Dennis Reuter2 , and Ian Wong5
+
+, ,
+
+3 Arizona State University, School of Earth & Space Exploration, Box 876004, Tempe, AZ 85287-6004, USA
+
+4 Lockheed Martin, Space Support Building, MS S811012257, S. Wadsworth Boulevard, Littleton, CO 80125-8504, USA
+
+5 Department of Earth, Atmospheric, and Planetary Sciences, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA
+
+7 Division of Geological and Planetary Sciences, California Institute of Technology, Pasadena, CA 91125, USA
+
+8 Department of Astronomy and Planetary Science, Northern Arizona University, NAU Box 6010, Flagstaff, AZ 86011, USA
+
+6 Department of Physics, University of Central Florida, Orlando, FL, USA
+
+9 Lowell Observatory, 1400 W. Mars Hill Road, Flagstaff AZ 86001, USA
+
+10 Institute of Planetary Research, DLR Rutherfordstr. 2, D-12489 Berlin, Germany
+
+11 Rheinisches Institut für Umweltforschung an der Universität zu Köln, Department Planetary Research, Aachenerstrasse 209, 50931 Köln, Germany
+
+12 NASA Headquarters, 300 Hidden Figures Way SW, Washington, DC 20546, USA 13 University of Maryland, Department of Astronomy, College Park, MD 20742, USA
+
+14 Johns Hopkins University Applied Physics Laboratory (APL) Space Exploration Sector, 11100 Johns Hopkins Road, Laurel, MD 20723-6099, USA
+
+Received 2021 March 8; revised 2021 April 13; accepted 2021 April 14; published 2021 August 24
+
+Abstract
+
+The Lucy Mission is a NASA Discovery-class mission to send a highly capable and robust spacecraft to investigate seven primitive bodies near both the L4 and L5 Lagrange points with Jupiter: the Jupiter Trojan asteroids. These planetesimals from the outer planetary system have been preserved since early in solar system history. The Lucy mission will ﬂy by and extensively study a diverse selection of Trojan asteroids, including all the recognized taxonomic classes, a collisional family member, and a near equal-mass binary. It will visit objects with diameters ranging from roughly 1 km to 100 km. The payload suite consists of a color camera and infrared imaging spectrometer, a high-resolution panchromatic imager, and a thermal infrared spectrometer. Additionally, two spacecraft subsystems will also contribute to the science investigations: the terminal tracking cameras will supplement imaging during closest approach and the telecommunication subsystem will be used to measure the mass of the Trojans. The science goals are derived from the 2013 Planetary Decadal Survey and include determining the surface composition, assessing the geology, determining the bulk properties, and searching for satellites and rings. Unified Astronomy Thesaurus concepts: Jupiter trojans (874); Flyby missions (545)
+
+1. Introduction
+
+Jupiter Trojan asteroids have yet to be studied close up, making them one of the last accessible stable small-body reservoirs in the solar system not yet visited by a spacecraft. Owing to the critical role they play in understanding the formation and evolution of the solar system, Trojans have been a high priority for space missions for over a decade. This is evidenced by calls for reconnaissance in the 2013 Planetary Decadal Survey, Vision and Voyages, that identified a Trojan survey as one of the highest-priority planetary missions. The Lucy mission fulfills this goal.
+
+Our mission is called Lucy in recognition of the inﬂuence that the primitive Australopithecus afarensis hominin fossil “Lucy” has had in advancing the understanding of the history of our species. The Lucy name embodies the goal that this mission will similarly advance our understanding of the formation and evolution of our solar system.
+
+The Trojan asteroids were long thought to be a population that formed near  Jupiterʼs orbital distance, representing the composition of the nebula near that location (Yoder 1979; Kary & Lissauer 1995; Marzari & Scholl 1998; Fleming & Hamilton 2000; Barucci et al. 2002). Thus, it is a surprise that Earth-based observations show that they are different from one another (these differences are explored below). This unexpected diversity may be understood in the context of a class of models developed within the last 15 yr or so, which suggest that the objects currently found in the Trojan swarms were originally formed far beyond their current home (at ∼15–30 au), and were transported to their current locations by early orbital evolution of the giant planet orbits (Tsiganis et al. 2005). According to this hypothesis, any objects originally trapped in the L4 and L5 Lagrange points were lost during the early phase of giant planet migration, and were subsequently restocked with objects scattered in from the outer protoplanetary disk (Morbidelli et al. 2005; Nesvorný et al. 2013). These models suggest that the observed diversity of Trojans is the result of the fact that they originated over a large range of heliocentric distances with varying physical and compositional conditions. Understanding the diversity of Trojans, by interrogating as many observables as possible, will allow us to determine whether these ideas are true, and if true, allow us to constrain the orbital evolution of the giant planets. If Lucy proves these ideas incorrect, it will provide vital clues to develop new hypotheses. In any case, Lucy will allow us to disentangle multiple and complex factors of origin and subsequent evolution of the solar system.
+
+
+Lucy will accomplish its mission with a series of targeted close ﬂybys of seven Trojans and one main-belt asteroid (Figure 1). Lucy’s 11.6yr journey begins with its launch in 2021 October. Lucy has a 23 day launch period between 2021 October 16 and 2021 November 7. It will launch on an Atlas V 401 launch vehicle (LV) from Cape Canaveral directly onto an Earth escape trajectory. Initially, the LV inserts the spacecraft into a heliocentric orbit with a period of ∼1yr and an aphelion slightly above 1.16 au. Lucy uses two Earth gravity assists (EGAs), set up by two Deep Space Maneuvers, to reach Jupiter’s L4 Trojan swarm. On its way to the Trojans, the spacecraft will intercept main-belt asteroid (52246) Donaldjohanson (named in honor of the discoverer of the Lucy fossil) on 2025 April 20. This encounter is planned as an in-ﬂight demonstration of the spacecraft’s capability and to reduce mission risk prior to the Trojan encounters, but Donaldjohanson is also interesting as a scientific target because of its membership in the ∼130±30 Myr-old Erigone collisional family (Nesvorný et al. 2006; Vokrouhlický 2006; Bottke et al. 2015b). After target (3548)Eurybates and its satellite Queta (Noll et al. 2020b) in the L4 swarm for an encounter on 2027 August 12. Thirty-four days later, Lucy will encounter (15094)Polymele on 2027 September 15. Lucy will finish its exploration of the L4 swarm by encountering (11351)Leucus and (21900)Orus on 2028 April 18 and 2028 November 11, respectively. A detailed description of the geometry and concept of operations of the encounters can be found in a companion paper (Olkin et al. 2021).
+
+possible for a spacecraft to visit both the L4 and L5 swarms on consecutive orbits. Following the last L4 encounter with Orus, Lucy returns to Earth for an EGA that sets up an encounter with the final Trojan targets, (617) Patroclus and its binary companion, (617) I Menoetius, on 2033 March 2. The encounter date can be adjusted using the final EGA altitude to arrive in the L5 cluster so that the relative position of Patroclus and Menoetius optimizes the viewing geometry.
+
+The Lucy mission has 17 Level 1 science requirements (R-1– R-17; Table 1) that specify the Trojan targets of the mission and the science data to be collected. The science objectives break down into five areas: target diversity, surface composition, geology, bulk properties, and satellite search, each covered in a section below. In this paper, we describe the broad science objectives that motivate these requirements.
+
+2. Diversity of Trojan Asteroids
+
+Lucy’s first Level 1 requirement, R-1, specifies its multiple targets and emphasizes a foundational theme of the Lucy mission: that is to understand a diverse, never-before-visited population, it is necessary to have a broad sample of objects that span as many axes of physical properties as possible (Tables 2–3). We consider three examples of how the Lucy targets sample the diversity present in the Trojans: color, size, and collisional history.
+
+A histogram of visible spectral slope (Figure 2) shows a clear bimodal distribution of Trojans. This color bimodality is a property qualitatively shared with Centaurs and smaller, dynamically excited transneptunian objects (TNOs; Wong & Brown 2017; Nesvorný & Vokrouhlický 2020) suggestive of possible genetic links. Lucy targets span the range of color in the Trojans and will help identify the source of spectral diversity.
+
+The size-frequency distribution (SFD) of Trojans is well measured down to diameters of less than 10km (Emery et al. 2015; Yoshida & Terai 2017). There is a break in the slope of the
+
+
+
+
+encountering Donaldjohanson, Lucy will
+
+Lucy then takes advantage of a fortunate geometric characteristic of our planetary system: an object on an orbit with a perihelion near Earth’s orbit and an aphelion near Jupiter’s has an orbital period of roughly half that of Jupiter. This means that it is
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Descriptor
+
+Requirement
+
+Table 1
+
+Lucy Level 1 Requirements
+
+Target selection Shape and geology Shape and geology Elevation models Landform degradation Cratering Cratering Satellites Compositional units Exposed materials Exposed materials Spectral range Spectral resolution Compositional variations Compositional variations Mass determination Thermal properties
+
+Targets: Patroclus, Meneotius, Eurybates, Leucus, Polymele, and Orus Pan images: full rotation spaced by 1/25 to 1/13 of a rotation Pan images: series of phase angles separated by 15°–25° Pan images: area 100 km2; resolution 200 m, two stereo emission angles Pan images: area 500 km2; equator to 60° lat.; resolution 100 m Pan images: area 700 km2; resolve craters d>7 km Pan images: area 10 km2; resolve craters d>70 m Search: satellites d2 km, >p Color images: full rotation spaced by 1/6 to 1/3 of a rotation Color images: area 700 km2; resolution 1.5 km Color images: area 150 km2; resolution 600 m Spec: spectral range 1.0–3.8 μm Spec: detect features with spectral depth 4% and width of 70 nm Spec: full rotation spaced by 1/6 to 1/3 of a rotation Spec: resolution (r) and areal coverage (A) satisfy r Targets: mass accuracy 25%, for r  1000 kg m−3 Thermal: 1 unilluminated surface; 3 sunlit with 1 at <30° from subsolar point
+
+1470.6 0.473
+
+( A2
+
+km within RSz v
+
+)
+
+R-
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+
+Section
+
+Section 2 Section 3 Section 3 Section 4 Section 4 Section 4 Section 4 Section 6 Section 5 Section 5 Section 5 Section 5 Section 5 Section 5 Section 5 Section 3 Section 5
+
+Note. Abridged versions of full Level 1 Requirements are shown. Panchromatic and Spectra are abbreviated as “Pan” and “Spec,” respectively.
+
+SFD at »d 80 km with a steep slope for larger objects and a shallower slope at smaller sizes. This broken SFD is taken to indicate a primordial size distribution with a shallower tail of collisionally evolved objects (Morbidelli et al. 2009a). Interestingly, the Trojan SFD (Morbidelli et al. 2009b) matches the SFD of dynamically excited TNOs (Fraser & Brown 2014), again suggestive of possible common origins for these two groups of objects. Lucy will observe Trojan targets ranging over two orders of magnitude in size that span the transition in the SFD slope thereby directly probing the physical basis of this phenomenon. And by determining the crater SFD down to crater diameters as 70m, Lucy will constrain the impactor population small as >d SFD to objects down to the 10m scale.
+
+The survival of the near-equal-mass Patroclus–Menoetius binary (Merline et al. 2001; Nesvorný et al. 2018) in the Trojans suggests it could be a relatively pristine representative of the early solar system and a possible link to TNOs, where equalmass binaries are common (Noll et al. 2020a). At the other extreme, Eurybates is the largest member of the eponymous catastrophic collisional family (Nesvorný et al. 2015; Holt et al. 2020) and its small satellite, Queta (Noll et al. 2020b), may be a collision fragment that remained in orbit (Durda et al. 2004). The possibility to contrast objects with very different collisional histories is a powerful feature of the Lucy mission.
+
+3. Interior Structure and Bulk Properties
+
+The interior structure and bulk properties of Lucy’s targets are addressed by requirements R-2, 3, and 16. Together, these can be used to determine the density, one of the key diagnostics that will test hypotheses of the origin and dynamical evolution of the Trojan asteroids. Lucy will determine the mass of its targets from the gravitational field interaction with the spacecraft. Volume will be determined from Lucy imaging complemented by Earthbased measurements. Mass and volume uncertainties (±25% and ±22%, respectively) are allocated to meet the science goal of determining the density to±33% for r = 1000 kg m−3. Estimates of the density can be used to constrain the bulk composition, porosity, and interior structure of the Lucy targets.
+
+3.1. Mass
+
+Lucy will directly measure the masses, M, of its targets using radio-Doppler tracking of the spacecraft with the X-band telecommunications system. Mass determination by radio- Doppler tracking and ranging is a powerful and precise direct measurement (Anderson 1971; Pätzold et al. 2001), and has been performed at many ﬂybys of small bodies and satellites (Anderson et al. 1992; Andert et al. 2010; Pätzold et al. 2011, 2014). In addition to accurately measuring the carrier frequency, it is also necessary to reconstruct the close approach distance during the ﬂyby from optical navigation for an accurate mass determination. The estimated mass determination uncertainties for all Trojan targets are much smaller than the requirement of±25% for the baseline bulk density of 1000 kg m−3 and the ﬂyby distance of 1000 km with the exception of Polymele. Lucy must target Polymele at a close approach distance of 434 km to ensure that the mass determination meets the±25% uncertainty allocation (R-16). The system masses for the Patroclus–Menoetius binary (Msys = 1.41±0.03 × 1018 kg; Grundy et al. 2018) and Eurybates and its satellite Queta 1.4×1017 kg; Noll et al. 2020c; Brown et al. 2021) ( »Msys have been determined from their orbits, but Lucy will validate and likely reduce the uncertainties of these determinations. With careful astrometric observation of the individual components, Patroclus and Menoetius, relative to their barycenter, the mass ratio of the two components may be derived.
+
+the orbit of
+
+3.2. Volume and Density
+
+Volume determination from imaging is limited to the portion of the ﬂyby when the target is resolved. As an example, this time period is about one week for Eurybates ( ~d =vrel 5.7 km s−1, time scales with d and vrel) when using the highresolution imager, Lucy LOng Range Reconnaissance Imager (L’LORRI; see Table 1 in the companion paper, Olkin et al. (2021) for additional details). During this time, Lucy will obtain images of each target every 1/13 rotation and measurements of limb profiles and stereo-photogrammetric analysis will be assembled to construct an overall 3D shape model for volume km,
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Table 2
+
+Lucy Target Properties: Orbital e
+
+0.089 0.095 0.064 0.037 0.139 0.187
+
+0.078
+
+0c i (°) q (au)
+
+4.73 4.68 4.95 4.94 4.49 1.94
+
+Encounter (JD-246000) b Renc (au)
+
+5.67 5.69 5.65 5.31 5.38 2.07
+
+5.67 5.38
+
+Object
+
+Heliocentric (3548) Eurybates (15094) Polymele (11351) Leucus (21900) Orus (617) Patroclus (52246) Donaldjohanson Satellite/Binarya (3548) I Queta (617) I Menoetius a (au)
+
+5.20 5.17 5.29 5.13 5.22 2.38 (km) 2292 688.5
+
+Notes. a Binary/satellite orbit, a given in km. b Heliocentric distance at encounter. c Fixed zero eccentricity solution (Grundy et al. 2018).
+
+Lucy Target Properties: Size and Lightcurve
+
+Table 3
+
+Object
+
+(3548) Eurybates (3548) I Queta (15094) Polymele (11351) Leucus (21900) Orus (617) Patroclus (617) I Menoetius (52246)
+
+Donaldjohanson a deff (km) 63.9(3) 1.2(4)b 21.1(1) 40.4(4) 50.8(8)c 113(3)c 104(3)c
+
+3.9
+
+Trot (hr)
+
+Amplitude
+
+(mag)
+
+Reference
+
+8.702724(9)
+
+L
+
+11.5(1)
+
+445.683(7) 13.48617(7) 102.78432(15) 102.78432(15)
+
+251(1)
+
+0.20 L 0.09 0.61
+
+0.07
+
+1.7
+
+(1), (2)
+
+(1), (4)
+
+(3)
+
+(5)
+
+(1), (2) (6), (7) (6), (7) (8), (9)
+
+Notes. Uncertainty in last digit(s) shown in parentheses. (1) Grav et al. (2012), (2) Mottola et al. (2016), (3) Noll et al. (2020b), (4) Mottola et al. (2021a, in preparation), (5) Mottola et al. (2020), (6) Buie et al. (2015), (7) (Grundy et al. 2018), (8) (Masiero et al. 2012), (9) Mottola et al. (2021a, in preparation). a Effective diameter from WISE thermal radiometry except where noted. b Relative brightness to Eurybates, assuming same albedo. c Volume equivalent diameter from occultation-derived axes.
+
+determination (R-2,3). A fraction of each object, determined by the spin pole orientation, may not be illuminated during the Lucy ﬂybys. Leucus’ slow rotation further reduces the fraction of the object that will be sufficiently resolved by Lucy to constrain the volume. As a result, Lucy has no requirement to measure the volume to any particular level of accuracy. Instead, we require that the observations needed to determine the volume be taken (R-2,3).
+
+Given the above risks to determining the volume with Lucy, it is beneficial to supplement the volume determination with Earth-based observations. Lightcurves are one method that can be used to estimate an object’s shape. Lightcurves observed over time, as viewing and illumination geometries change, can be inverted to estimate a shape model (Ďurech et al. 2011; Mottola et al. 2020). Stellar occultations are another important tool for constraining the plane-of-sky shape of an object; with enough stations (see Figure 3), the resulting plane-of-sky shape can be quite accurate (Buie et al. 2015; Buie 2021). Finally, there is the observation of the object’s thermal radiometry which is a function of its physical diameter and albedo, and the its surface (Mainzer et al. 2011). physical properties of
+
+
+
+
+Figure 2. Visible color slopes of Trojans are bimodal, as shown in this histogram (Wong et al. 2014; Schemel & Brown 2021). The Lucy targets fall as indicated, sampling this color range. The black symbol is the combined, unresolved color of the Patroclus–Menoetius binary.
+
+Combining all these complementary observational techniques often produces excellent synergistic results that can signifi- cantly reduce the uncertainty inherent in any one method (Ďurech et al. 2011), see Figure 3.
+
+By measuring mass and volume of its targets, Lucy will determine the density of each body. We estimate that in most cases the density will be known to better than 33% for objects with densities of r  1000 kg m−3. The current density data for Trojan asteroids is limited to three resolved binary systems (Merline et al. 2002; Marchis et al. 2006; Noll et al. 2020a) with well-determined orbits (see Section 6), two of which are Lucy targets. The bulk density of the near-equal-component (617) kg m−3 (Berthier et al. 2020; Grundy Patroclus is r = 800 1000 et al. 2018). Eurybates’ density is roughly 1100 kg m−3, assuming it is a sphere with a diameter of 64 km (Noll et al. 2020c; Brown et al. 2021). (624) Hektor’s bulk density is 2800 kg m−3; it is poorly constrained, owing to differing estimates of the bilobed primary (Marchis et al. 2014; the volume of Descamps 2015). For Patroclus and Eurybates, the most significant improvement to knowledge of density is likely to come from an improved volume determination by Lucy.
+
+r< <
+
+
+
+
+–
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Figure 3. Convex shape model of Leucus (light gray and with black silhouette) compared with stellar occultation chords (red and black) observed on (a) 11 November 2018 and (b) 12 December 2019 (adapted from Mottola et al. 2020). Multiple chords reveal a complex, nonellipsoidal shape. x, y, and z body-fixed axes are indicated by red, green, and blue arrows respectively.
+
+More generally, the bulk densities (Baer et al. 2011; Carry 2012) and rotation rates of small bodies (Pravec et al. 2002), along with analysis of the density and structure of likely meteorite analogs (Consolmagno et al. 2008), indicate that many small bodies are relatively low-density objects (Britt et al. 2002). Composition and the level of internal porosity are the critical factors that determine the density of small bodies.
+
+3.3. Meteorite Analogs
+
+From cosmogonic considerations, it is usually assumed that small bodies that formed beyond the snow line started with roughly equal proportions of condensed ices and mineralcontaining rock (Lodders 2003). The rock composition of small bodies can be inferred from meteorite analogs with similar spectral behavior. For Trojans, the closest analogs are CM, CI, and Tagish Lake carbonaceous chondrites that have visible-near- IR spectral signatures that mimic the spectra of C-, P-, and D-type asteroids (Gilmour et al. 2019). Ices constitute a lower-density component of asteroids. Water ice is the dominant component, but other condensed volatiles may also be present. Micron-scale microporosity in meteorites can range from a few percent to as much as 40% (Macke et al. 2011), but even after adjusting for meteorite microporosity and adjusting the relative ice/rock ratio, the bulk density of small bodies tends to be lower than their typical meteorite analogs. This suggests that, in addition to microporosity, asteroids have substantial large-scale porosity, or macroporosity. Although macroporosities have been inferred for only a modest number of small bodies, most of these range from 20% to more than 70% (Consolmagno et al. 2008; Carry 2012; Noll et al. 2020a). In the face of this large range of possible porosity, additional observational constraints, such as spatially resolved colors and spectra from Lucy’s L’Ralph instrument, will be needed to supplement density when it comes to inferring bulk composition.
+
+4. Geology
+
+Spacecraft exploration has revealed that small bodies in the solar system have diverse and geologically complex surfaces. Resolved observations have been gathered for small bodies that span orders of magnitude in size, have variable surface compositions, and belong to distinct populations from near- Earth asteroids to trans-Neptunian objects. These data reveal complex surface geologic processes at all scales, from the generation of surface submeter blocks and regolith (Lauretta et al. 2019) to regional compositional variations (De Sanctis et al. 2015; Grundy et al. 2020), to large-scale cratering and mass wasting (Jaumann et al. 2012; Buczkowski et al. 2016), and highly irregular shapes (Murdoch et al. 2015; Spencer et al. 2020). This multifaceted complexity hints at a range of formation and geological processes controlling landforms, shapes, and surface compositional variability. Lucy will probe these processes with a comprehensive set of observations.
+
+4.1. Digital Terrain Models
+
+Digital terrain models (DTM) will provide valuable information to study the geology of Lucy’s targets. The role of global shape models has been discussed in Section 3. Here we focus on the more localized, higher-resolution DTMs that will be obtained at variable spatial and vertical resolutions and coverage, depending on the specific target and ﬂyby conditions including spacecraft velocity and close approach distance, phase angle, target pole position and spin rate. These investigations will rely on panchromatic imaging from multiple angles (R-4) making it least 100 km2 and at a possible to derive DTMs over at horizontal spatial resolution less than 200m. The anticipated vertical resolution is on the same order as the horizontal resolution.
+
+DTMs will be derived from stereo imaging for each primary target to study in detail local geology, including crater shapes, exposed vertical layering in crater walls, mass wasting, lineaments, and other possible landforms, such as pits resulting
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Figure 4. Selected examples of geological features that may be relevant to Trojan asteroids are shown. Panel A identifies regions on Lutetia (Sierks et al. 2011) that show mass wasting, blocky surfaces (B), and lineaments and ridges (C, D). Individual features are identified by arrows labeled with lower case letters. Vesta (Denevi et al. 2012) exhibits pitted terrains on the ﬂoor of the impact crater Cornelia and sinuous gullies on the crater walls (E). Ceres (Sizemore et al. 2019) exhibits landslidelike mass wasting (F).
+
+from the sublimation of subsurface volatiles. All these features have been observed on small bodies (see Figure 4), and may also be present on Trojan asteroids. For instance, vertical layering has been observed on Vesta (Jaumann et al. 2014); mass wasting and ponding has been observed on the surface of Eros (Roberts et al. 2014); mass wasting and lineaments have been found on Lutetia (Massironi et al. 2012); and sublimations pits have been seen on Vesta and Ceres (Denevi et al. 2012; Sizemore et al. 2017).
+
+4.2. Regional Mosaics
+
+The ensemble of panchromatic imaging will be used to produce regional mosaics with various degrees of resolution, and larger coverage than local DTMs (R-5-7). These data will enable the assessment of crater morphology and landform degradation (e.g., due to ejecta blanketing or other mass wasting processes) over an area of at least of 500 km2 and at a resolution better than 100m (R-5).
+
+Crater morphology is diagnostic of subsurface bulk properties (e.g., material strength and stratification), and overall degradation due to impact-induced seismic shaking and regolith displacement (Marchi et al. 2015). Additional mass wasting processes may be associated with subsurface volatiles (e.g., water ice) mobilized by impact excavation/heating as observed at various locations on Ceres (Sizemore et al. 2017). Lucy has a requirement to investigate the variation of crater morphology as a function of latitude (R-5). Unlike rocky asteroids previously observed by spacecraft, the Jupiter Trojan asteroids orbit at a solar range that results in low enough nearsurface temperatures to permit water ice to be stable on billion year timescales, and the latitudinal dependence of surface temperature may drive latitudinal-dependent geological crater morphology and probe existence and distribution of subsurface volatiles (Combe et al. 2019).
+
+Regional mosaics will also be used to derive the crater SFDs both at local scale (10 km2, crater larger than 70 m in diameter; R-6), and at regional scale (low resolution, 700 km2, craters larger than 7 km in diameter; R-7). Impact craters are a nearly
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Figure 5. Cumulative number of craters per unit area on Trojan asteroids for surfaces of 
+
+4.4 Gyr (red dashed line) and 100 Myr (blue solid line) assuming the current impact probability and velocity of the Trojans, and using the impactor size distribution (Bottke et al. 2015a) and impact rate temporal evolution (O’Brien et al. 2014) from the main melt. We also adopt the scaling law of Holsapple & Housen (2007) for a target strength of 106 N m−2. The horizontal dashed lines indicate the crater density at which there should be one crater per hemisphere for each Lucy target. The solid black line indicates crater saturation.
+
+universal feature on all small bodies observed by spacecraft to date (Marchi et al. 2015). Craters enable a suite of investigations: crater population statistics constrain the surface age from the crater retention age (e.g., Hartmann 1966), their morphologies are a function of target properties (Housen et al. 2018), and smaller craters are a proxy for the Trojan asteroid population that is too small to be observed by telescopes. Current telescopic measurements of the Trojan asteroid SFD extend to objects with diameters d 2 km (Yoshida & Terai 2017). Assuming a crater-to-impactor diameter ratio of 20km are derived from an 10:1, craters smaller than »d unsampled portion of the SFD. Lucy’s requirements that address the crater SFD by resolving craters across more than two orders of magnitude (from 70 m to 7 km in diameter) will provide constraints on surface crater retention ages, and past collisional evolution (Marchi et al. 2015). A preliminary collisional model (Figure 5) indicates that Trojan asteroids with a surface age as young as 100Myr should have accumulated approximately two craters larger than 70m per km2 (that is, approximately 20 craters per 10 km2). Roughly 100× more craters are expected to have formed over the last 4.4Gyr (not taking into account crater preservation and erasing processes). In addition, detection of 70m craters would constrain Trojan asteroid SFD down to small and unobservable diameter limit of ∼7m which will enable an evaluation of the importance of nongravitational effects on the stability of Trojans (Hellmich et al. 2019). Similar inferences of impactor populations from craters have been performed for MBAs and Cold Classical
+
+Levison et al. TNOs (Marchi et al. 2014; Singer et al. 2019) enabling comparisons of these distinct small-body populations.
+
+5. Surface Composition and Thermal Properties
+
+5.1. Photometric Properties
+
+During the ﬂybys of the targets, Lucy will use several instruments to acquire resolved imagery of the asteroids’ surfaces from a wide range of illumination and observation geometries. Measurements of the brightness distribution on the surface under such varying conditions will enable us to establish a photometric model for the target and to look for correlations between the model parameters and the physical properties of the surface regolith (Li et al. 2019). Spatial variations of the photometric properties will be put in the context of the morphology and geology of the targets to identify possible evolutionary processes (Schröder et al. 2017). Near-closest-encounter images will encompass zero-phase illumination, which will enable the characterization of the opposition effect (Belskaya & Shevchenko 2000), while preand post-encounter far-field imaging at large phase angles will help constrain the degree of unresolved roughness of the surface. Furthermore, the establishment of a photometric model will represent a prerequisite for the analysis, interpretation, and comparison of heterogeneous multicolor and spectral data, by allowing their representation under a reference illumination geometry. An accurate photometric model will also allow us to provide precise estimates for the albedo and phase integral of the targets. In addition to being diagnostic of the composition of the surface, those quantities are crucial for establishing the thermal balance and assess the thermal evolution of the objects.
+
+5.2. Color Imaging
+
+Color imaging is a proven technique for investigating compositional heterogeneity and regolith properties on planetary surfaces at relatively high spatial resolution (Chapman 1996; Olkin et al. 2017; DellaGiustina et al. 2020). The Multispectral Visible Imaging Camera (MVIC) will image the Lucy targets through five color filters (violet 377–489 nm; green 478–525 nm; orange 522–632 nm; phyllosilicate 627–758 nm; and near- IR 753–914 nm) (Olkin et al. 2021).
+
+Observations will be made over a range of spatial resolutions. Low-resolution observations at different rotational phases will determine the global distribution of color units. Observations at the regional (1.5 km resolution) and local (600 m resolution) scales will be used to search for small regions of freshly exposed materials and correlations of color with geologic features.
+
+Primary surface compositional units (minerals,
+
+ices, and complex organic molecules) can be delineated by color imaging (Thangjam et al. 2013; Nathues et al. 2016). A relevant feature for low-albedo asteroids is the absorption at 700 nm in Febearing phyllosilicates (Hamilton et al. 2019; Vilas 1994). Lucy’s “phyllosilicate” filter is designed specifically to search for this band (Figure 6).
+
+The space environment can modify the surfaces of airless bodies. The spectral effects of these interactions vary due to primary surface composition and style of interaction, but generally include changes in albedo and color (e.g., Brunetto et al. 2015; Pieters & Noble 2016). Color imaging can therefore be an effective means of investigating surface processing on Lucy’s targets. Trojan asteroids have been hypothesized to have
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Figure 6. Spectral range of the two components of the L’Ralph instrument (MVIC and LEISA) and spectra of species of ices, tholins, and minerals which maybe visible on Trojan asteroids.
+
+Figure 7. Infrared color–color plot of Trojan asteroids with the Lucy targets identified (Emery et al. 2011). Orus and Leucus belong to the more red group. The other targets are in the less-red group (when classified by these infrared colors). Polymele is the faintest of the Lucy targets and therefore has higher photometric uncertainties (see also Figure 2).
+
+an icy or differently processed interior overlain by an icefree irradiation mantle (Guilbert-Lepoutre 2014; Wong & Brown 2015). If so, color maps of the surface may reveal exposures of fresh, subsurface material that can be used to constrain bulk composition (Chapman 1996). Indeed, R-6 and R-7 were specifically designed to see craters younger than 100 Myr, assuming the impact model shown in Figure 5.
+
+The colors of Trojan asteroids at both visible and near-infrared (NIR) wavelengths, as determined from telescopic observations, reveal the presence of two distinct color groups: a “red” group analogous to the asteroidal D-type (and comparable to “gray” Centaurs) and a “less-red” group analogous to the asteroidal P and C-types (Szabó et al. 2007; Roig et al. 2008; Emery et al. 2011; Grav et al. 2012); see Figures 2 and 7. In this regard, the Lucy targets Orus and Eurybates are a very interesting pair for understanding the diversity of Trojans. These two objects have similar sizes, orbital eccentricities, and inclinations (Tables 2, 3), but very different colors. The similar sizes and orbits guarantee that these objects have experienced nearly equivalent solar radiation and collisional environments, at least since their formation and/or
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Figure 8. Combined infrared spectra of red and less-red Trojans (Emery et al. 2015; Brown 2016) are shown along with the spectral bandpasses of the MVIC color filters and the spectral range of the LEISA imaging spectrometer. Both groups show evidence of spectral features beyond 2.5 μm. Lucy will be able to investigate the distribution of spectrally active material on the surfaces of the mission targets.
+
+delivery to their current orbits. Color differences therefore can be they represent different physical/ interpreted to mean that compositional classes.
+
+It is notable that whereas red Trojans dominate the population at large diameters, the fraction of less-red objects increases at smaller sizes (Wong et al. 2014). Wong & Brown (2015) suggest that both color groups have similar interior colors, and that impacts on red Trojans expose their less-red interiors. If this scenario is correct, we might expect fresh surface units on the red Lucy targets (Orus and Leucus) to have a less-red color than surrounding terrain. If abundant subsurface ice exists (Guilbert- Lepoutre 2014), spectral maps of fresh exposures on the Lucy targets will test this hypothesis (R-10, 11).
+
+5.3. Near Infrared Spectroscopy
+
+Compositions of primitive objects reﬂect the conditions in the solar nebula in the region in which they formed providing clues to the structure of the protoplanetary disk. Determining the compositions of Trojan asteroids is, therefore, important for understanding solar system history. Mapping surface compositions enables investigation into potential surface processing from exposure to the space environment during an object’s dynamical evolution, as well as the identification of exposed fresh material. The materials most important for understanding Trojan histories—H2O and other ices, organics, anhydrous minerals, and hydrated minerals—have strong, diagnostic absorption features in the NIR.
+
+Ground-based spectra of Trojan asteroids (Figure 8), including < 2.5 m (Emery et al.
+
+the Lucy targets, are featureless at l m for
+
+2015; Sharkey et al. 2019). The absence of features at these wavelengths enables limits to be placed on the abundances of ices, crystalline silicates, and hydrated minerals (Yang & Jewitt 2007; Emery et al. 2011; Sharkey et al. 2019). The Trojans show evidence of absorptions in the 3–4 μm spectral the less-red than the red (Emery & region, stronger Brown 2003; Brown 2016), enabling even stronger constraints on abundances of ices and hydrated minerals, and suggesting the red slopes of Trojans are not due to organics (Emery & Brown 2004). Brown (2016) reports an absorption at m~3.1 m in several less-red Trojans, which may be due to H2O frost or NH-bearing material. The spectral region between 2.5 and 2.95 μm contains strong absorptions of ices and hydrated silicates, but is completely inaccessible to ground-based telescopes, so no data currently exist of Trojan asteroids in this wavelength range. Fine-grained silicates have, however, been detected on Trojan asteroids from an emissivity feature at midinfrared wavelengths (Emery et al. 2006).
+
+The Linear Etalon Imaging Spectral Array (LEISA) will measure NIR spectral images of Lucy targets from 1 to 3.6 μm with a sensitivity sufficient to detect absorptions deeper than 4% (Olkin et al. 2021) (R-12). The spectral resolution of 10 nm will resolve absorption features of ices, organics, anhydrous minerals, and hydrated minerals that occur in the LEISA spectral range (R-13; Figure 6). The center of the OH feature at 2.8 μm and the 3.4 μm organic absorption feature will be resolved with 10 and 20 elements, respectively, which are adequate for detection and characterization (De Sanctis et al. 2017). Observations when the targets do not fill the LEISA FOV will be used to search for global-scale compositional
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October variations on the surfaces (R-14). Regional and local scale observations will be used to search for compositional anomalies resulting from freshly exposed materials, as a window into the interior compositions of the Lucy targets (R-15).
+
+5.4. Thermal Infrared Observations
+
+Surface temperatures provide important input for understanding the stability of materials detected (or not detected) on planetary surfaces (Spencer & Denk 2010; Capria et al. 2014; Tosi et al. 2014), and temperature anomalies often indicate interesting surface processes (Howett et al. 2010). Temperature maps are therefore valuable companions to compositional and geologic maps used to investigate correlations and anomalies. Observations in the thermal infrared, particularly at multiple times of day, enable determination of thermal inertia, which, in turn, gives insight into the grain size and porosity of the regolith (Rozitis et al. 2020).
+
+inertias. Compacted regions of
+
+Thermal inertia estimates have been published for a few Trojan asteroids, and they are comparable to or lower than the lunar value (100 J m−2 K−1 s−1/2; Mueller et al. 2010). Spectral emissivity peaks in the 10 and 20 μm spectral regions indicate fine-grained (∼1 μm) silicates, in a high-porosity regolith (Emery et al. 2006; Vernazza et al. 2012), consistent with the low-thermal the regolith and exposures of ices could lead to regions of different thermal inertias than their surroundings. Widespread ices do not appear to be present on the surfaces of Trojan asteroids, as indicated by the featureless NIR spectra described above. However, Guilbert-Lepoutre (2014) find that Trojans could support water ice ∼10 m below a dusty mantle at their equators, and as close as 10 cm to the surface in polar regions or even at the surface in isolated cold traps. If ice exists below the regolith, we may expect to see it in exposures of subsurface material on the Lucy targets.
+
+The Lucy Thermal Emission Spectrometer (L’TES) is a point spectrometer that will measure thermal ﬂux spectra of the Lucy targets over the range 7–100 μm (Olkin et al. 2021). From these spectra, surface temperatures will be determined with an accuracy 2 K for temperatures 75 K. L’TES is required to observe the thermal ﬂux at 4 locations, including at least one nightside measurement and at least one observation within 30° of the subsolar point (R-17).
+
+6. Satellites, Rings, and Activity
+
+6.1. Satellites and Rings
+
+The discovery of (243) Ida’s satellite Dactyl during the Galileo ﬂyby in 1993 (Belton et al. 1996) was the first confirmed detection of a satellite for any small body other than Pluto. Since then, there has been an explosion in the number and variety of satellites that have now been found in every small-body population (Merline et al. 2002; Noll et al. 2008, 2020a; Margot et al. 2015). Asteroids are also known to exhibit activity (Jewitt et al. 2015) and rings have been found around the TNO Haumea, the Centaur Chariklo, and possibly the Centaur Chiron (Braga-Ribas et al. 2014; Ortiz et al. 2015, 2017). Taken together, the possibility of satellites and other near-asteroid material must be considered during any small-body ﬂyby. Two of the Lucy mission targets, Patroclus and Eurybates, are already known to have satellites (Merline
+
+
+
+
+
+
+
+1 3
+
+)
+
+=R Hill
+
+( a M M3
+
+Satellites are stable within a fraction of the Hill sphere of the system, with the stable inner third of the Hill radius sometimes referred to as the Szebehely radius (Szebehely 1967, 1978). where a is The Hill radius is given by the semimajor axis and M1 and Me are the masses of the primary and the Sun respectively. The vast majority of known small-body satellites orbit at distances from the primary of just a few percent or less of the Hill radius. At Trojan distances from the Sun and for a density of r = 1000 kg m−3, the 1 (where r1 is the r Szebehely radius is equivalent to asteroid radius). The region of stable orbits extends inwards to » 2.44 r 1. The known rings around the Roche limit at »r r3 1. Lucy will travel well three small bodies all have ring within the Hill sphere of each Trojan target with close approach distances of
+
+s
+
+»R Sz
+
+
+
+
+Roche r30 1.
+
+Levison et al. et al. 2001; Noll et al. 2020b), thus the need to plan for satellite observations as part of the Lucy mission ﬂybys is essential.
+
+min sat km2
+
+d
+
+Lucy’s requirements include a search of the full Szebehely . This search will be sphere for satellites with accomplished by Lucy using L’LORRI (R-17), but it is possible to supplement this with Earth-based observations from the Hubble Space Telescope (HST), Keck, and other observatories. Observations with HST can detect satellites with d 1 km over the Szebehely sphere outside of an inner region where scattered light from the primary dominates the background. Searches have been conducted for all of the Lucy Trojan targets yielding the detection of a previously unknown satellite of Eurybates shown in Figure 9 (Noll et al. 2020b, 2020c). This = d km body in a relatively satellite, Queta, is a sat = 0.11 , near the limit of what is detectable wide orbit, using Earth-based observatories. Satellites of similar or larger size at angular separations of 0 5 or greater were not detected at the epoch of the HST observations (Noll et al. 2018). HST observations also constrain large companions at smaller angular separations, but with a complex trade off between relative size and orientation.
+
+a R
+
+0.4
+
+1.2
+
+
+
+Hill
+
+Earth-based observations of lightcurves and stellar occultations can also, in principle, reveal the presence of satellites and rings, but a positive detection would require a combination of unlikely circumstances and larger aperture telescopes than are typically employed. The Lucy L’LORRI satellite search will occur on either inbound or outbound from close approach depending on where the solar phase angle is lowest. The search will occur in two separate phases, a distant search and a closein search to cover both the full Szebehely sphere and satellites or rings that are at small separations from the primary. During the encounter, there will be many images obtained for other purposes that will also be available to search for and track any satellites or other orbital material that may be present.
+
+6.2. Activity thought
+
+Activity has not been observed in any Jupiter Trojan, although it has been observed in various closely related objects. Some Centaurs, to share an outer protoplanetarynebular origin with the Trojans, display dust and gas that appears to be thermally driven and is of unknown (and likely diverse) origin (Jewitt 2009). However, Trojans’ stable orbits reduce thermal forcing. Some main-belt asteroids (sometimes called main-belt comets) have also been observed to display episodic dust activity driven by collisions and other forms of mass shedding (Jewitt et al. 2015; Sanchez et al. 2019), which may be more relevant to to Trojans. Lucy’s science goal
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Figure 9. (3548) Eurybates imaged with the Hubble Space Telescope (HST) Wide Field Camera 3 (WFC3) using the F350LP filter on 2020 July 19 is shown on the left. The outer green circular boundary shows the Szebehely radius for a density of r = 1100 kg m−3. The red arrow indicates Queta. The outer portion of the Szebehely sphere does not show any other satellites to diameters below 1 km. Near the distance of the Lucy ﬂyby (cyan circle) and closer, scattered light from Eurybates precludes searches for small satellites. The position of Queta at nine epochs is shown in the panel on the right in a frame with north up and east to the left (Noll et al. 2020b, 2020c). (Note that the viewing geometry has changed over the period of observation so the points cannot be expected to fall on a single ellipse.) An orbit fit yields a=2350±10 km, e=0.125±0.009, and T=82.46±0.1 days (Brown et al. 2021; Levison et al. 2021)
+
+The authors thank the entire Lucy mission team for their hard work and dedication.
+
+ORCID iDs https://orcid.org/0000-0001-5847-8099 https://orcid.org/0000-0002-5846-716X
+
+https://orcid.org/0000-0002-6013-9384
+
+https://orcid.org/0000-0003-2548-3291 https://orcid.org/0000-0002-2006-4074 https://orcid.org/0000-0001-5890-9821
+
+https://orcid.org/0000-0002-9995-7341 https://orcid.org/0000-0002-1804-7814
+
+https://orcid.org/0000-0003-1377-813X
+
+https://orcid.org/0000-0002-8255-0545
+
+https://orcid.org/0000-0003-0854-745X
+
+https://orcid.org/0000-0001-9625-4723
+
+https://orcid.org/0000-0001-9265-9475 https://orcid.org/0000-0002-8296-6540
+
+https://orcid.org/0000-0001-
+
+https://orcid.org/0000-0003-1869-4947
+
+https://orcid.org/0000-0002-0457-3872 https://orcid.org/0000-0003-3479-856X https://orcid.org/0000-0002-6829-5680 https://orcid.org/0000-0003-4452-8109
+
+https://orcid.org/0000-0003-4909-9542
+
+https://orcid.org/0000-0001-5018-7537
+
+https://orcid.org/0000-0002-9413-8785 https://orcid.org/0000-0003-0951-7762
+
+https://orcid.org/0000-0001-9665-8429
+
+understand the volatile inventory of Trojans will be indirectly tested by constraining current activity and searching for surface features indicative of outgassing.
+
+7. Conclusions
+
+The Lucy mission will investigate a diverse set of Trojan targets in a single 12 yr mission. The mission targets span the full range of spectral types and visible and infrared albedo, diameters, and rotation periods that span almost 2 orders of magnitude, and shapes that range from near-circular to highly elongated and irregular. By investigating this range of properties, Lucy will elicit relationships that will address questions of origin and evolution of the early solar system.
+
+Lucy will derive the densities of its targets from radio science mass determination and volume measurements from imaging. These densities will be compared with known densities in other small-body populations to identify affinities and carry out detailed compositional investigations of the surfaces of the targets.
+
+From the first resolved imaging of the Trojan asteroids, geological features will be identified on each of our Trojan asteroids. Imaging will allow an estimate of the surface age and will constrain the small impactor population from the crater SFD.
+
+The surface composition of Trojans will allow resolved mapping of color and composition units across the Trojan asteroids. Of particular interest is the potential for observations of freshly exposed materials in the crater ejecta.
+
+To understand the impact of Lucy in context, it is worth noting that a total of eight main-belt asteroids have been visited by all planetary spacecraft missions ﬂown to date. These investigations have revolutionized our understanding of the asteroid belt and terrestrial planet formation. Lucy, on its own, will visit almost as many Trojan objects in a single mission. Lucy will do for the Trojans what has taken decades and multiple missions to accomplish for the much nearer and more accessible main-belt asteroids.
+
+Harold F. Levison Catherine B. Olkin Keith S. Noll Simone Marchi James F. Bell III Edward Bierhaus Richard Binzel William Bottke Dan Britt Michael Brown Marc Buie Phil Christensen Joshua Emery Will Grundy Victoria E. Hamilton 8675-2083 Carly Howett Stefano Mottola Martin Pätzold Dennis Reuter John Spencer Thomas S. Statler S. Alan Stern Jessica Sunshine Harold Weaver Ian Wong
+
+References
+
+Anderson, J. D., Armstrong, J. W., Campbell, J. K., et al. 1992, SSRv, 60, 591 Anderson, J. D. 1971, in Proc. of IAU Colloq. 12, Physical Studies of Minor
+
+Planets, ed. T. Gehrels (Washington, DC: NASA), 577
+
+Andert, T. P., Rosenblatt, P., Pätzold, M., et al. 2010, GeoRL, 37, L09202 Baer, J., Chesley, S. R., & Matson, R. D. 2011, AJ, 141, 143
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Barucci, M. A., Cruikshank, D. P., Mottola, S., & Lazzarin, M. 2002, in Asteroids III, ed. W. F. Bottke, Jr. et al. (Tucson, AZ: Univ. Arizona Press), 273
+
+Belskaya, I. N., & Shevchenko, V. G. 2000, Icar, 147, 94 Belton, M. J. S., Mueller, B. E. A., D’Amario, L. A., et al. 1996, Icar, 120,
+
+
+
+
+Berthier, J., Descamps, P., Vachier, F., et al. 2020, Icar, 352, 113990 Bottke, W. F., Brož, M., & O’Brien, D. P. 2015a,
+
+in Asteroids IV, ed. P. Michel, F. E. D-Meo, & W. F. Bottke (Tucson, AZ: Univ. Arizona Press), 701
+
+Bottke, W. F., Vokrouhlický, D., Walsh, K. J., et al. 2015b, Icar, 247, 191 Braga-Ribas, F., Sicardy, B., Ortiz, J. L., et al. 2014, Natur, 508, 72 Britt, D. T., Yeomans, D., Housen, K., & Consolmagno, G. 2002, in Asteroids
+
+III, ed. W. F. Bottke, Jr. (Tucson, AZ: Univ. Arizona Press), 485
+
+Brown, M. E. 2016, AJ, 152, 159 Brown, M. E., Levison, H. F., Noll, K. S., et al. 2021, PSJ, 2, 170 Brunetto, R., Loefﬂer, M. J., Nesvorný, D., Sasaki, S., & Strazzulla, G. 2015, in Asteroids IV, ed. P. Michel, F. E. D-Meo, & W. F. Bottke (Tucson, AZ: Univ. Arizona Press), 597
+
+Buczkowski, D. L., Schmidt, B. E., Williams, D. A., et al. 2016, Sci, 353,
+
+aaf4332
+
+Buie, M. W., Keeney, B. A., Strauss, R. H., et al. 2021, PSJ, in press Buie, M. W., Olkin, C. B., Merline, W. J., et al. 2015, AJ, 149, 113 Capria, M. T., Tosi, F., De Sanctis, M. C., et al. 2014, GeoRL, 41, 1438 Carry, B. 2012, P&SS, 73, 98 Chapman, C. R. 1996, M&PS, 31, 699 Combe, J.-P., Raponi, A., Tosi, F., et al. 2019, Icar, 318, 22 Consolmagno, G., Britt, D., & Macke, R. 2008, ChEG, 68, 1 De Sanctis, M. C., Ammannito, E., McSween, H. Y., et al. 2017, Sci, 355, 719 DellaGiustina, D. N., Burke, K. N., Walsh, K. J., et al. 2020, Sci, 370,
+
+eabc3660
+
+Denevi, B. W., Blewett, D. T., Buczkowski, D. L., et al. 2012, Sci, 338, 246 D-Sanctis, M. C., Russell, C. T., Raymond, C. A., et al. 2015, IAUGA, 29,
+
+
+
+
+Descamps, P. 2015, Icar, 245, 64 Durda, D. D., Bottke, W. F., Enke, B. L., et al. 2004, Icar, 167, 382 Ďurech, J., Kaasalainen, M., Herald, D., et al. 2011, Icar, 214, 652 Emery, J. P., & Brown, R. H. 2003, Icar, 164, 104 Emery, J. P., & Brown, R. H. 2004, Icar, 170, 131 Emery, J. P., Burr, D. M., & Cruikshank, D. P. 2011, AJ, 141, 25 Emery, J. P., Cruikshank, D. P., & Van Cleve, J. 2006, Icar, 182, 496 Emery, J. P., Marzari, F., Morbidelli, A., French, L. M., & Grav, T. 2015, in Asteroids IV, ed. P. Michel, F. E. D-Meo, & W. F. Bottke (Tucson, AZ: Univ. Arizona Press), 203
+
+Fleming, H. J., & Hamilton, D. P. 2000, Icar, 148, 479 Fraser, W. C., Brown, M. E., Morbidelli, A. r., Parker, A., & Batygin, K. 2014,
+
+ApJ, 782, 100
+
+Gilmour, C. M., Herd, C. D. K., & Beck, P. 2019, M&PS, 54, 1951 Grav, T., Mainzer, A. K., Bauer, J. M., Masiero, J. R., & Nugent, C. R. 2012,
+
+ApJ, 759, 49
+
+Grundy, W. M., Bird, M. K., Britt, D. T., et al. 2020, Sci, 367, aay3705 Grundy, W. M., Noll, K. S., Buie, M. W., & Levison, H. F. 2018, Icar,
+
+305, 198
+
+Guilbert-Lepoutre, A. 2014, Icar, 231, 232 Hamilton, V. E., Simon, A. A., Christensen, P. R., et al. 2019, NatAs, 3, 332 Hartmann, W. K. 1966, Icar, 5, 406 Hellmich, S., Mottola, S., Hahn, G., Kührt, E., & de Niem, D. 2019, A&A,
+
+630, A148
+
+Holsapple, K. A., & Housen, K. R. 2007, Icar, 187, 345 Holt, T. R., Nesvorný, D., Horner, J., et al. 2020, MNRAS, 495, 4085 Housen, K. R., Sweet, W. J., & Holsapple, K. A. 2018, Icar, 300, 72 Howett, C. J. A., Spencer, J. R., Pearl, J., & Segura, M. 2010, Icar, 206, 573 Jaumann, R., Nass, A., Otto, K., et al. 2014, Icar, 240, 3 Jaumann, R., Williams, D. A., Buczkowski, D. L., et al. 2012, Sci, 336, 687 Jewitt, D. 2009, AJ, 137, 4296 Jewitt, D., Hsieh, H., & Agarwal, J. 2015, in Asteroids IV, ed. P. Michel,
+
+F. E. D-Meo, & W. F. Bottke (Tucson, AZ: Univ. Arizona Press), 221
+
+Kary, D. M., & Lissauer, J. J. 1995, Icar, 117, 1 Lauretta, D. S., Dellagiustina, D. N., Bennett, C. A., et al. 2019, Natur,
+
+568, 55
+
+Levison, H. F., Marchi, S., Noll, K., et al. 2021, in IEEE Aerospace Conf. (50100) (Piscataway, NJ: IEEE), doi:10.1109/AERO50100.2021.9438453
+
+Li, J.-Y., Schröder, S. E., Mottola, S., et al. 2019, Icar, 322, 144
+
+Levison et al.
+
+Lodders, K. 2003, ApJ, 591, 1220 Macke, R. J., Consolmagno, G. J., & Britt, D. T. 2011, M&PS, 46, 1842 Mainzer, A., Bauer, J., Grav, T., et al. 2011, ApJ, 731, 53 Marchi, S., Bottke, W. F., O’Brien, D. P., et al. 2014, P&SS, 103, 96 Marchi, S., Chapman, C. R., Barnouin, O. S., Richardson, J. E., & Vincent, J. B. 2015, in Asteroids IV, ed. P. Michel, F. E. D-Meo, & W. F. Bottke (Tucson, AZ: Univ. Arizona Press), 725
+
+Marchis, F., Durech, J., Castillo-Rogez, J., et al. 2014, ApJL, 783, L37 Marchis, F., Wong, M. H., Berthier, J., et al. 2006, IAUC, 8732, 1 Margot, J.-L., Pravec, P., Taylor, P., Carry, B., & Jacobson, S. 2015, in Asteroids IV, ed. P. Michel, F. E. D-Meo, & W. F. Bottke (Tucson, AZ: Univ. Arizona Press), 355
+
+Marzari, F., & Scholl, H. 1998, A&A, 339, 278 Masiero, J. R., Mainzer, A. K., Grav, T., et al. 2012, ApJL, 759, L8 Massironi, M., Marchi, S., Pajola, M., et al. 2012, P&SS, 66, 125 Merline, W. J., Close, L. M., Siegler, N., et al. 2001, IAUC, 7741, 2 Merline, W. J., Weidenschilling, S. J., Durda, D. D., et al. 2002, in Asteroids
+
+III, ed. W. F. Bottke, Jr. (Tucson, AZ: Univ. Arizona Press), 289
+
+Morbidelli, A., Bottke, W. F., Nesvorný, D., & Levison, H. F. 2009a, Icar,
+
+204, 558
+
+Morbidelli, A., Levison, H. F., Bottke, W. F., Dones, L., & Nesvorný, D.
+
+2009b, Icar, 202, 310
+
+Morbidelli, A., Levison, H. F., Tsiganis, K., & Gomes, R. 2005, Natur,
+
+435, 462
+
+Mottola, S., Hellmich, S., Buie, M. W., et al. 2020, PSJ, 1, 73 Mottola, S., Marchi, S., Buie, M. W., et al. 2016, AAS/DPS Meeting, 48,
+
+208.04
+
+Mueller, M., Marchis, F., Emery, J. P., et al. 2010, Icar, 205, 505 Murdoch, N., Sánchez, P., Schwartz, S. R., & Miyamoto, H. 2015, Asteroid
+
+Surface Geophysics (Tucson, AZ: Univ. Arizona Press), 767
+
+Nathues, A., Hoffmann, M., Platz, T., et al. 2016, P&SS, 134, 122 Nesvorný, D., Bottke, W. F., Vokrouhlický, D., et al. 2006, in IAU Symp. 229, Asteroids, Comets, Meteors, ed. D. Lazzaro, S. Ferraz-Mello, & J. A. Fernández (Cambridge: Cambridge Univ. Press), 289
+
+Nesvorný, D., Brož, M., & Carruba, V. 2015, in Asteroids IV, ed. P. Michel,
+
+F. E. D-Meo, & W. F. Bottke (Tucson, AZ: Univ. Arizona Press), 297
+
+Nesvorný, D., Vokrouhlický, D., Alexand ersen, M., et al. 2020, AJ, 160, 46 Nesvorný, D., Vokrouhlický, D., Bottke, W. F., & Levison, H. F. 2018, NatAs,
+
+2, 878
+
+Nesvorný, D., Vokrouhlický, D., & Morbidelli, A. 2013, ApJ, 768, 45 Noll, K., Grundy, W., Buie, M., Levison, H. F., & Marchi, S. 2018, AAS/DPS
+
+Meeting, 50, 217.04
+
+Noll, K., Grundy, W. M., Nesvorný, D., & Thirouin, A. 2020a, in Trans- Neptunian Binaries (2018), ed. D. Prialnik et al. (Amsterdam: Elsevier), 201 Noll, K. S., Brown, M. E., Levison, H. F., et al. 2020c, MPEC, 2020–T164,
+
+https://minorplanetcenter.net/mpec/K20/K20TG4.html
+
+Noll, K. S., Brown, M. E., Weaver, H. A., et al. 2020b, PSJ, 1, 44 Noll, K. S., Grundy, W. M., Chiang, E. I., Margot, J. L., & Kern, S. D. 2008,
+
+Binaries in the Kuiper Belt (Tucson, AZ: Univ. Arizona Press)
+
+O’Brien, D. P., Marchi, S., Morbidelli, A., et al. 2014, P&SS, 103, 131 Olkin, C., Levison, H., Vincent, M., et al. 2021, PSJ, 2, 172 Olkin, C. B., Spencer, J. R., Grundy, W. M., et al. 2017, AJ, 154, 258 Ortiz, J. L., Duffard, R., Pinilla-Alonso, N., et al. 2015, A&A, 576, A18 Ortiz, J. L., Santos-Sanz, P., Sicardy, B., et al. 2017, Natur, 550, 219 Pätzold, M., Andert, T. P., Asmar, S. W., et al. 2011, Sci, 334, 491 Pätzold, M., Andert, T. P., Tyler, G. L., et al. 2014, Icar, 229, 92 Pätzold, M., Häusler, B., Wennmacher, A., et al. 2001, A&A, 375, 651 Pieters, C. M., & Noble, S. K. 2016, JGRE, 121, 1865 Pravec, P., Harris, A. W., & Michalowski, T. 2002, in Asteroids III, ed.
+
+W. F. Bottke, Jr. et al. (Tucson, AZ: Univ. Arizona Press), 113
+
+Roberts, J. H., Kahn, E. G., Barnouin, O. S., et al. 2014, M&PS, 49, 1735 Roig, F., Ribeiro, A. O., & Gil-Hutton, R. 2008, A&A, 483, 911 Rozitis, B., Emery, J. P., Siegler, M. A., et al. 2020, JGRE, 125, e06323 Sanchez, J. A., Reddy, V., Thirouin, A., et al. 2019, ApJL, 881, L6 Schemel, M., & Brown, M. E. 2021, PSJ, 2, 40 Schröder, S. E., Mottola, S., Carsenty, U., et al. 2017, Icar, 288, 201 Sharkey, B. N. L., Reddy, V., Sanchez, J. A., Izawa, M. R. M., & Emery, J. P.
+
+2019, AJ, 158, 204
+
+Sierks, H., Lamy, P., Barbieri, C., et al. 2011, Sci, 334, 487 Singer, K. N., McKinnon, W. B., Gladman, B., et al. 2019, Sci, 363, 955 Sizemore, H. G., Platz, T., Schorghofer, N., et al. 2017, GeoRL, 44, 6570 Sizemore, H. G., Schmidt, B. E., Buczkowski, D. A., et al. 2019, JGRE,
+
+124, 1650
+
+
+
+
+The Planetary Science Journal, 2:171 (13pp), 2021 October
+
+Levison et al.
+
+Spencer, J. R., & Denk, T. 2010, Sci, 327, 432 Spencer, J. R., Stern, S. A., Moore, J. M., et al. 2020, Sci, 367, aay3999 Szabó, G. M., Ivezić, Ž., Jurić, M., & Lupton, R. 2007, MNRAS, 377,
+
+Vernazza, P., Delbo, M., King, P. L., et al. 2012, Icar, 221, 1162 Vilas, F. 1994, Icar, 111, 456 Vokrouhlický, D., Brož, M., Bottke, W. F., Nesvorný, D., & Morbidelli, A.
+
+
+
+
+Szebehely, V. 1967, Theory of Orbits, The Restricted Problem of Three Bodies
+
+(New York: Academic Press)
+
+Szebehely, V. 1978, C-Mec, 18, 383 Thangjam, G., Reddy, V., Le Corre, L., et al. 2013, M&PS, 48, 2199 Tosi, F., Capria, M. T., De Sanctis, M. C., et al. 2014, Icar, 240, 36 Tsiganis, K., Gomes, R., Morbidelli, A., & Levison, H. F. 2005, Natur, 435, 459
+
+2006, Icar, 182, 118
+
+Wong, I., & Brown, M. E. 2015, AJ, 150, 174 Wong, I., & Brown, M. E. 2017, AJ, 153, 145 Wong, I., Brown, M. E., & Emery, J. P. 2014, AJ, 148, 112 Yang, B., & Jewitt, D. 2007, AJ, 134, 223 Yoder, C. F. 1979, Icar, 40, 341 Yoshida, F., & Terai, T. 2017, AJ, 154, 71
+
+
+
+
