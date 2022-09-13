@@ -2,10 +2,7 @@
 \chapter{Orbital Mechanics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-At the core of astrodynamics, the two-body restricted problem describes the
-motion of a secondary body of negligible mass orbiting a central body, with no
-other sources of acceleration in the system. This problem is described by
-Newton's equation of planetary motion
+At the core of astrodynamics, the two-body restricted problem describes the motion of a secondary body of negligible mass orbiting a central body, with no other sources of acceleration in the system. This problem is described by Newton's equation of planetary motion:
 
 \begin{equation}
     \ddot{\mathbf{r}}=-\frac{\mu}{r^3}\mathbf{r},
@@ -25,12 +22,7 @@ Newton's equation of planetary motion
 \section{Reference Frames}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-There are various categories of reference frames used within astrophysics and
-astrodynamics. Some frames are outdated in nature, but are however
-still documented and commonly used to ensure the usability of historical
-empirical data. This section will cover the generalised taxonomy of these
-reference frames, with mention of common frames and where they fit within the
-taxonomy.
+There are various categories of reference frames used within astrophysics and astrodynamics. Some frames are outdated in nature but are however still documented and commonly used to ensure the usability of historical empirical data. This section will cover the generalised taxonomy of these reference frames, with a mention of common frames and where they fit within the taxonomy.
 
 \begin{figure}[h]
     \centering
@@ -40,15 +32,7 @@ taxonomy.
     \label{fig:frames_rh}
 \end{figure}
 
-Unless stated otherwise, one should assume that all orthogonal reference frames
-used within astrodynamics are right-handed, defined by
-$\mathbf{X}\cross{\mathbf{Y}}=\mathbf{Z}$ as illustrated in
-\autoref{fig:frames_rh}. The contemporary reference systems used in astronomy
-and astrophysics are defined International Astronomical Union (IAU). Due to the
-long history of the field, there are many others outside of the IAU's
-standardised frames which are still used for a multitude of reasons, one being
-the need to ensure accessibility to older observations which were made in the
-older alternative systems.
+Unless stated otherwise, one should assume that all orthogonal reference frames used within astrodynamics are right-handed, defined by $\mathbf{X}\cross{\mathbf{Y}}=\mathbf{Z}$ as illustrated in \autoref{fig:frames_rh}. The contemporary reference systems used in astronomy and astrophysics are defined International Astronomical Union (IAU). Due to the long history of the field, there are many others outside of the IAU's standardised frames which are still used for a multitude of reasons, one being the need to ensure accessibility to older observations which were made in the older alternative systems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Earth-centred inertial (ECI)\label{ssec:frame_intertial}}
@@ -67,15 +51,7 @@ older alternative systems.
 \subsection{Inertial\label{ssec:frame_intertial}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-An inertial reference frame is a non-rotating frame with a non-accelerating
-origin. All inertial reference frames are in a state of constant rectilinear
-motion with respect to one another. Strictly speaking, "inertial" is used in
-place of "quasi-inertial", as no reference frame we use is truly
-non-accelerating. This approximation is accepted due to the near negligible
-acceleration these frames' origins. From this point forwards, "inertial" will be
-used in place of "quasi-inertial". There are two frames which are used in
-astrophysics as the lowest level in the hierarchy, namely J2000 (a.k.a. EME2000)
-and the International Celestial Reference Frame (ICRF).
+An inertial reference frame is a non-rotating frame with a non-accelerating origin. All inertial reference frames are in a state of constant rectilinear motion with respect to one another. Strictly speaking, "inertial" is used in place of "quasi-inertial", as no reference frame we use is truly non-accelerating. This approximation is accepted due to the nearly negligible acceleration of these frames' origins. From this point forwards, "inertial" will be used in place of "quasi-inertial". There are two frames which are used in astrophysics at the lowest level in the hierarchy, namely J2000 (a.k.a. EME2000) and the International Celestial Reference Frame (ICRF).
 
 \textcolor{red}{Include illustrations for the J2000 (EMEJ2000) frame and the
 origin of its definition. Explain how ICRS was an interaction on this frame.
@@ -86,13 +62,7 @@ frame, leading to the next subsection on BCI.}
 \subsection{Body-centered inertial (BCI)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Body-centered inertial (BCI) reference frames are frames which have their
-origins at the center of mass of a body, the $Z_C$-axis is directed along the
-(counter clockwise positive) spin-axis of the body, the $X_C$-axis passes
-through the ascending node of the intersection between the ecliptic and the
-equator of the body. The $Y_C$-axis then passes through the equatorial plane
-perpendicular to $X_C$ and $Z_C$-axis to complete the rectangular coordinate
-system.
+The Body-centered inertial (BCI) reference frames are frames which have their origins at the centre of mass of a body, the $Z_C$-axis is directed along the (counter clockwise positive) spin-axis of the body, and the $X_C$-axis passes through the ascending node of the intersection between the ecliptic and the equator of the body. The $Y_C$-axis then passes through the equatorial plane perpendicular to $X_C$ and $Z_C$-axis to complete the rectangular coordinate system.
 
 \begin{figure}[!htp]
     \centering
@@ -284,12 +254,10 @@ The Keplerian, a.k.a. the classical orbital elements are the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Orbital Perturbations}
+\newpage\section{Orbital Perturbations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to account for perturbations such as a non-spherical body, atmospheric
-drag, propulsive thrust, solar radiation pressure, and other celestial objects
-outside the two-body formulation, \autoref{eq:newtons_equation_planetary} can be
-rewritten as
+
+Orbital perturbations are a component of perturbation theory which seeks to find an approximate solution to a given problem by starting with an exact solution of a simpler problem and then (for example) formulating a description of the deviation from that simpler solution. In the context of orbital mechanics, perturbation theory is used to account for perturbations such as a non-spherical body, atmospheric drag, propulsive thrust, solar radiation pressure, and other celestial objects outside the two-body formulation, \autoref{eq:newtons_equation_planetary} can be rewritten as:
 
 \begin{equation}
     \ddot{\mathbf{r}}=\frac{\mu}{|\mathbf{r}|^3}\mathbf{r}+\mathbf{p},
@@ -301,9 +269,13 @@ where $\mathbf{p}$ is the net perturbative accelerations from all sources other 
 \subsection{Cowell's method}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Cowell's Method is a numerical integration technique used to calculate the motion of a body under the influence of a perturbing force. It is named after British astronomer Philip H. Cowell, who developed the method in the early 20th century. The technique is based on Newton's laws of motion and can be used to calculate the trajectory of a body under the influence of any type of perturbing force, including gravity, friction, or air resistance.
+
+To use Cowell's method, the equations of motion for the body must first be derived. These equations take the form of a set of coupled first-order differential equations, one equation for each component of the body's motion. In vector form, Cowell's method can be expressed as:
+
 \begin{equation}
     \begin{aligned}
-        \ddot{\mathbf{r}}=\dv{\dot{\mathbf{r}}}{t}=-\frac{\mu}{r^3}\mathbf{r} + \mathbf{p}
+        \ddot{\mathbf{r}}=\dv{\dot{\mathbf{r}}}{t}=-\frac{\mu}{r^3}\mathbf{r} + \mathbf{a}_{\mathrm{per}}
     \end{aligned}
 \end{equation}
 
@@ -311,9 +283,30 @@ where $\mathbf{p}$ is the net perturbative accelerations from all sources other 
 \subsection{Encke's method}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Encke's Method is a numerical integration technique used to solve for the deviation of a perturbed orbit from a reference orbit. It is advantageous because perturbations are generally small in magnitude, and the method is much less affected by extreme perturbations than Cowell's Method, allowing for larger time steps during integration, with less resultant error.  Its disadvantage is that it is more complex, and cannot be used indefinitely without occasionally updating the osculating orbit and continuing from there, a process known as `rectification' \cite{Wakker2015}.
+
+\begin{equation}
+    \ddot{\delta} \mathbf{r}=\mu\left(\frac{\boldsymbol{\rho}}{\rho^3}-\frac{\mathbf{r}}{r^3}\right)+\mathbf{a}_{\mathrm{per}}
+\end{equation}
+\begin{equation*}
+    \begin{aligned}
+        \text{where, }
+        \ddot{\mathbf{r}} &= \mathbf{a}_{\mathrm{per}}-\frac{\mu}{r^3} \mathbf{r}, \text{  for the perturbed orbit and} \\
+        \ddot{\boldsymbol{\rho}} &=-\frac{\mu}{\rho^3} \boldsymbol{\rho}, \text{  for the unperturbed orbit,} \\
+        \delta \mathbf{r} &= \mathbf{r}-\boldsymbol{\rho} \\
+        \ddot{\delta \mathbf{r}} &= \ddot{\mathbf{r}}-\ddot{\boldsymbol{\rho}}
+    \end{aligned}
+\end{equation*}
+
+\begin{equation}
+    r(\nu)=\frac{a\left(1-e^2\right)}{1+e \cos (\nu)}
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Variational Equations: Lagrange Planetary}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Lagrange planetary equations have the advantage of being relatively simple to use and understand. They are also very accurate for predicting the positions and velocities of planets in orbit. However, they can lead to singularities in the equations when applied to certain types of orbits, which can make them difficult to work with mathematically. The Lagrange Planetary equations are defined as:
 
 \begin{equation}
     \begin{aligned}
@@ -354,10 +347,10 @@ where $\mathbf{p}$ is the net perturbative accelerations from all sources other 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Satellite Collision Probability}
+\newpage\subsection{Satellite Collision Probability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Patera \cite{Patera2001} discusses a general method for calculating satellite collision probability which does not make any simplifying assumptions. The process reduces the two-dimensional integral to a one-dimensional integral involving only a simple exponential function in the integrand. This computational efficiency is particularly advantageous when large numbers of collision probability evaluations are performed. The ability to handle asymmetric space objects is beneficial in computing collision probabilities of geostationary satellites with large rectangular solar panels. In many cases, it is possible to mitigate collision risk by reorientating an entire satellite or its appendages. This manoeuvre is far less risky than performing a collision avoidance manoeuvre. Patera provides an accurate and efficient method to calculate orbital collision probability. Their method begins with the three-dimensional Gaussian which discribes the uncertainty in the relative position between two objects:
+Patera \cite{Patera2001} discusses a general method for calculating satellite collision probability which does not make any simplifying assumptions. The process reduces the two-dimensional integral to a one-dimensional integral involving only a simple exponential function in the integrand. This computational efficiency is particularly advantageous when large numbers of collision probability evaluations are performed. The ability to handle asymmetric space objects is beneficial in computing collision probabilities of geostationary satellites with large rectangular solar panels. In many cases, it is possible to mitigate collision risk by reorientating an entire satellite or its appendages. This manoeuvre is far less risky than performing a collision avoidance manoeuvre. Patera provides an accurate and efficient method to calculate orbital collision probability. Their method begins with the three-dimensional Gaussian which describes the uncertainty in the relative position between two objects:
 
 \begin{equation}
     \begin{aligned}
@@ -366,28 +359,50 @@ Patera \cite{Patera2001} discusses a general method for calculating satellite co
     \label{eq:collision_3d_gaussian}
 \end{equation}
 
-which when transformed into the encounter frame and integrated over the relative velocity direction, reduces to the two-dimensional Gaussian:
+The original frame defining the density of the relative position uncertainty (\autoref{eq:collision_3d_gaussian}) is related to the encounter frame through the transformation:
+
+\begin{equation}
+    \boldsymbol{x}_{\text {sigma}}=U \boldsymbol{x}_{\text {encounter}},
+\end{equation}
+
+where $U$ is the transformation matrix. The uncertainty in the original position is then transformed to the two-dimensional encounter frame, providing the two-dimensional Gaussian:
 
 \begin{equation}
     h(\boldsymbol{x})=\left(1 / 2^{\frac{3}{2}} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a}\right) \exp \left[-e x^{2}-f y^{2}-g x y\right],
     \label{eq:collision_2d_gaussian}
 \end{equation}
 
-where \autoref{eq:collision_3d_gaussian} and \autoref{eq:collision_2d_gaussian} are related by:
+where parameters $a, e, f$, and $g$ in \autoref{eq:collision_2d_gaussian} are defined by:
 
-\begin{equation}
-    \boldsymbol{x}_{\text {sigma }}=U \boldsymbol{x}_{\text {encounter }}.
-\end{equation}
-
-The parameters $a, e, f$, and $g$ are defined by
 \begin{equation}
     \begin{aligned}
         a&=\frac{U_{13}^{2}}{2 \sigma_{x}^{2}}+\frac{U_{23}^{2}}{2 \sigma_{y}^{2}}+\frac{U_{33}^{2}}{2 \sigma_{z}^{2}} \\
         e&=\frac{U_{11}^{2}}{2 \sigma_{x}^{2}}+\frac{U_{21}^{2}}{2 \sigma_{y}^{2}}+\frac{U_{31}^{2}}{2 \sigma_{z}^{2}}-\frac{c^{2}}{4 a} \\
-        f&=\frac{U_{12}^{2}}{2 \sigma_{x}^{2}}+\frac{U_{22}^{2}}{2 \sigma_{y}^{2}}+\frac{U_{32}^{2}}{2 \sigma_{z}^{2}}-\frac{d^{2}}{4 a}\\
-        g&=\frac{U_{11} U_{12}}{\sigma_{x}^{2}}+\frac{U_{21} U_{22}}{\sigma_{y}^{2}}+\frac{U_{31} U_{32}}{\sigma_{z}^{2}}-\frac{c d}{2 a}
-\end{aligned}
+        f&=\frac{U_{12}^{2}}{2 \sigma_{x}^{2}}+\frac{U_{22}^{2}}{2 \sigma_{y}^{2}}+\frac{U_{32}^{2}}{2 \sigma_{z}^{2}}-\frac{d^{2}}{4 a} \\
+        g&=\frac{U_{11} U_{12}}{\sigma_{x}^{2}}+\frac{U_{21} U_{22}}{\sigma_{y}^{2}}+\frac{U_{31} U_{32}}{\sigma_{z}^{2}}-\frac{c d}{2 a}.
+    \end{aligned}
+    \label{eq:collision_2d_gaussian:params1}
 \end{equation}
+
+The parameters $c$ and $d$ in \autoref{eq:collision_2d_gaussian:params1} are defined by:
+
+\begin{equation}
+    \begin{alignat}{2}
+        c&=\frac{U_{11} U_{13}}{\sigma_{x}^{2}}+\frac{U_{21} U_{23}}{\sigma_{y}^{2}}+\frac{U_{31} U_{33}}{\sigma_{z}^{2}} \label{eq:collision_2d_gaussian:c} \\
+        d&=\frac{U_{12} U_{13}}{\sigma_{x}^{2}}+\frac{U_{22} U_{23}}{\sigma_{y}^{2}}+\frac{U_{32} U_{33}}{\sigma_{z}^{2}}. \label{eq:collision_2d_gaussian:d} 
+    \end{alignat}
+\end{equation}
+
+
+\begin{figure}
+    \centering
+    \captionsetup{format=hang} % hanging captions
+    \includegraphics[width=0.5\textwidth]{graphics/encounter-frame.png}
+    \caption{\textbf{The two-dimensional Gaussian in the encounter frame}. The uncertainty in relative position between the two objects, denoted by $h(\boldsymbol{x})$. The second object's location $\boldsymbol{q}$ has no uncertainty as all uncertainty is attributed solely to the first object, for visualisation purposes, which is nominally located at the origin. Diagram taken from Patera \cite{Patera2001}.}
+    \label{fig:collision_2d_gaussian}
+\end{figure}
+
+The second object's location $\boldsymbol{q}$ has no uncertainty as it is attributed solely to the first object, for visualisation purposes, which is nominally located at the origin. For a collision to occur, the actual position of the first object must lie within the hard-body circle for a collision to occur, thus the total collision probability is obtained by integrating $h(\boldsymbol{x})$ over the hard-body circle. 
 
 \begin{equation}
     \operatorname{prob}=\iint h(\boldsymbol{x}) u(\boldsymbol{x}-\boldsymbol{q}) \mathrm{d} \boldsymbol{x}
