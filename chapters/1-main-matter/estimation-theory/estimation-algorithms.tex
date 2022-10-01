@@ -240,7 +240,7 @@ by Rudolf E. Kalman \cite{Kalman1960, Kalman1961} and Richard S. Bucy \cite{Kalm
 \end{equation*}
 }}
 
-\newpage\begin{table}[htp!]
+\begin{table}[htp!]
 \renewcommand{\arraystretch}{1.4}
 \centering
 \caption{
@@ -265,7 +265,7 @@ Updated (a posteriori) state estimate       & \updatedstate          \\
 Updated (a posteriori) estimate covariance  & \updatedcovariance     \\
 Measurement post-fit residual               & \postfitresidual       \\
 \hline
-\multicolumn{2}{l}{\where}                                           \\
+% \multicolumn{2}{l}{\where}                                           \\
 \hline\hline
 \end{tabularx}
 \end{table}
@@ -382,13 +382,13 @@ sample mean and covariance of the posterior sigma points,
    \bm{\rho}_i = \bm{z}_i - h(\bar{\bm{x}}_{i|i+1})
 \end{equation}
 
-\begin{figure}[h]
-    \centering
-    \def\svgwidth{0.75\linewidth}
-    \import{graphics/}{ukf.pdf_tex}
-    \caption{Definition of a right-handed reference frame.}
-    \label{fig:frames_rh}
-\end{figure}
+% \begin{figure}[h]
+%     \centering
+%     \def\svgwidth{0.75\linewidth}
+%     \import{graphics/}{ukf.pdf_tex}
+%     \caption{Definition of a right-handed reference frame.}
+%     \label{fig:frames_rh}
+% \end{figure}
 
 \subsubsection{Joint versus Dual Filtering}
 

@@ -113,6 +113,7 @@ data types observed with the DSN \cite{Berner2020}:
 
 \begin{figure}[h]
     \centering
+    \captionsetup{format=hang} % hanging captions
     \includegraphics[width=0.85\linewidth]{graphics/n-way.PNG}
     \caption{
         \textbf{Schematic of \textit{n}-way observable data types} that are
@@ -147,6 +148,7 @@ the frequency of the signal, accuracies can range between 0.05 and 0.2 mrad
     \centering
     \begin{subfigure}{.48\textwidth}
         \centering
+        \captionsetup{format=hang} % hanging captions
         \includegraphics[width=.99\linewidth]{graphics/vlbi.PNG}
         \caption{
             \textbf{Measuring angles with VLBI}. Differential signal arrival time,
@@ -157,6 +159,7 @@ the frequency of the signal, accuracies can range between 0.05 and 0.2 mrad
     \end{subfigure}\hspace{0.03\textwidth}
     \begin{subfigure}{.48\textwidth}
         \centering
+        \captionsetup{format=hang} % hanging captions
         \includegraphics[width=.99\linewidth]{graphics/monopulse.PNG}
         \caption{
             \textbf{Measuring angles with the monopulse technique}. Antenna beams of a
@@ -203,11 +206,12 @@ RTLT ranging, namely \textit{tone-ranging systems} and \textit{code ranging
     systems}, as depicted in \autoref{fig:ranging-methods}. Both systems have their
 own advantages and disadvantages. Tone-ranging measurements suffer from
 ambiguity which can be mitigated through the use of additional sub-harmonic
-tones, whereas code-ranging requires greater acquisition time for weak signals,
+tones, whereas code-ranging requires greater acquisition time for weak signals
 unless a pre-steering Doppler shift is used \cite[p.~197]{Montenbruck2000}.
 
 \begin{figure}
     \centering
+    \captionsetup{format=hang} % hanging captions
     \includegraphics[width=1.0\linewidth]{graphics/ranging-method.PNG}
     \caption{
         \textbf{Primary physical principles behind Round-trip Light time (RTLT)
@@ -227,9 +231,12 @@ downlink signal that is phase coherent with the uplink signal.
 \autoref{tab:turnaround-ratios} provides the recommended spacecraft transponder
 turnaround ratios for various uplink and downlink frequency bands.
 
-Doppler measurements are typically integrated of a period of about 60 seconds
-\cite{}, however periods in the lower range of 1-10 seconds \cite{}, or larger
-periods such as 1000 seconds may also be chosen \cite{}.
+Doppler measurements are typically integrated over a period of about 60 seconds, however periods in the lower range of 1-10 seconds, or larger
+periods such as 1000 seconds may also be chosen.
+
+% Doppler measurements are typically integrated of a period of about 60 seconds
+% \cite{}, however periods in the lower range of 1-10 seconds \cite{}, or larger
+% periods such as 1000 seconds may also be chosen \cite{}.
 
 
 \cite{Soffel1989}
@@ -384,6 +391,7 @@ exposure center in the camera-fixed frame is defined by:
 
 \begin{figure}[htp]
     \centering
+    \captionsetup{format=hang} % hanging captions
     \includegraphics[width=0.55\linewidth]{graphics/landmark_geometry.PNG}
     \caption{
         \textbf{Relative geometrical relationship between spacecraft and landmarks

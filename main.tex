@@ -13,6 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % in kalman filtering
+\usepackage[clean]{svg}
 \usepackage{multirow}
 \usepackage{varwidth}
 \usepackage{array,tabularx}
@@ -65,6 +66,7 @@
 \newglossary{symbols}{sym}{sbl}{List of Symbols}
 
 \newcommand{\eqdesc}[1]{\ensuremath{\gls{#1} &=} \text{\glsdesc{#1}}}
+\DeclareMathOperator{\arctantwo}{arctan2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT
@@ -124,8 +126,9 @@
 \input{chapters/0-front-matter/introduction.tex}
 \input{chapters/1-main-matter/machine-learning/machine-learning.tex}
 \input{chapters/1-main-matter/orbital-mechanics.tex}
-% \input{chapters/1-main-matter/dynamic-modelling.tex}
-% \input{chapters/1-main-matter/estimation-theory/estimation-theory.tex}
+\input{chapters/1-main-matter/dynamic-modelling.tex}
+\input{chapters/1-main-matter/estimation-theory/estimation-theory.tex}
+\input{chapters/1-main-matter/conclusion.tex}
 
 % \input{chapters/1-main-matter/numerical-analysis.tex}
 % \input{chapters/1-main-matter/trajectory-optimization.tex}

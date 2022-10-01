@@ -10,41 +10,51 @@
 \subsubsection{Modified Equinoctial to Keplerian\label{mee2kep}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{equation}
-    a = \frac{p}{1-f^2-g^2}
-\end{equation}
+The conversion from $\gls{om:oe:equinoctial}$ to $\gls{om:oe:cartesian}$ is given by \cite{EquinoctalElements}:
 
-\begin{equation}
-    e = \sqrt{f^2 + g^2}
-\end{equation}
-
-\begin{equation}
-    i = 2\tan^{-1}{\sqrt{h^2+k^2}}=\textrm{atan2}(2\sqrt{h^2+k^2},1-h^2-k^2)
-\end{equation}
-
-\begin{equation}
-    i = 2\tan^{-1}{\sqrt{h^2+k^2}}=\textrm{atan2}(2\sqrt{h^2+k^2},1-h^2-k^2)
-\end{equation}
-
-\begin{equation}
-    \omega=\tan^{-1}(g/f)-\tan^{-1}(k/h)=\textrm{atan2}(gh-fk, fh+gk)
-\end{equation}
-
-\begin{equation}
-    \Omega=\textrm{atan2}(k, h)
-\end{equation}
-
-\begin{equation}
-    \theta = L-(\Omega+\omega)=L-\tan^{-1}(g/f)
-\end{equation}
-
-\begin{equation}
-    u = \omega+\theta = \textrm{atan2}(h\sin{L}-k\cos{L},h\cos{L}+k\sin{L})
-\end{equation}
+\begin{subequations}
+    \begin{align}
+        \begin{split} a&=\frac{p}{1-f^2-g^2}\end{split}                                                                     \\
+        \begin{split} e&=\sqrt{f^2+g^2}\end{split}                                                                          \\
+        \begin{split} i&=2 \arctan\left(\sqrt{h^2+k^2}\right)=\arctantwo\left(2 \sqrt{h^2+k^2}, 1-h^2-k^2\right)\end{split} \\
+        \begin{split} \omega&=\arctan(g / f)-\arctan(k / h)=\arctantwo(g h-f k, f h+g k)\end{split}                         \\
+        \begin{split} \nu&=L-(\Omega+\omega)=L-\arctan(g / f)\end{split}                                                    \\
+        \begin{split} \Omega&=\arctantwo (k, h)\end{split}                                                                  \\
+        \begin{split} u&=\omega + \nu=\arctantwo(h \sin L-k \cos L, h \cos L+k \sin L) \end{split}
+    \end{align}
+\end{subequations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Modified Equinoctial to Cartesian\label{mee2rec}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{subequations}
+    \begin{align}
+        \begin{split}
+            \mathbf{r}=\left[\begin{array}{c}
+                    \frac{r}{s^2}\left(\cos L+\alpha^2 \cos L+2 h k \sin L\right) \\
+                    \frac{r}{s^2}\left(\sin L-\alpha^2 \sin L+2 h k \cos L\right) \\
+                    \frac{2 r}{s^2}(h \sin L-k \cos L)
+                \end{array}\right]
+        \end{split} \\
+        \begin{split}
+            \mathbf{v}=\left[\begin{array}{c}
+                    -\frac{1}{s^2} \sqrt{\frac{\mu}{p}}\left(\sin L+\alpha^2 \sin L-2 h k \cos L+g-2 f h k+\alpha^2 g\right)  \\
+                    -\frac{1}{s^2} \sqrt{\frac{\mu}{p}}\left(-\cos L+\alpha^2 \cos L+2 h k \sin L-f+2 g h k+\alpha^2 f\right) \\
+                    \frac{2}{s^2} \sqrt{\frac{\mu}{p}}(h \cos L+k \sin L+f h+g k)\end{array}\right]
+        \end{split}
+    \end{align}
+\end{subequations}
+\begin{equation*}
+    \begin{aligned}
+        \text{where, }
+        \alpha^2 & =h^2-k^2             \\
+        s^2      & =1+h^2+k^2           \\
+        r        & =\frac{p}{w}         \\
+        w        & =1+f \cos L+g \sin L
+    \end{aligned}
+\end{equation*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Cartesian to Modified Equinoctial\label{rec2mee}}

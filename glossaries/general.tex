@@ -62,11 +62,11 @@
 
 % NOTATION
 \newglossaryentry{np:a}{
-	type=notation:np,
-	name=\ensuremath{a},
-	text=\ensuremath{a},
-	sort=a,
-	description={A scalar (integer or real)}}
+    type=notation:np,
+    name=\ensuremath{a},
+    text=\ensuremath{a},
+    sort=a,
+    description={A scalar (integer or real)}}
 
 \newglossaryentry{np:vec:a}{
     type=notation:np,
@@ -251,7 +251,7 @@
     text=\ensuremath{a_{-i}},
     sort=azi,
     description={All elements of vector \gls{np:vec:a} except $i$}}
-    
+
 \glsadd{ix:sub}
 \glsadd{ix:sub:t}
 \glsadd{ix:negsub}
@@ -365,6 +365,11 @@
 \newacronym{RRELU}{RReLU}{randomised leaky rectified linear unit}
 \newacronym{ELU}{ELU}{exponential linear unit}
 \newacronym{SIREN}{SIREN}{sinusoidal representation network}
+\newacronym{CUDA}{CUDA}{Compute Unified Device Architecture}
+\newacronym{TFLOP}{TFLOP}{trillion floating point operations per second}
+\newacronym{FLOP}{FLOP}{floating point operations per second}
+\newacronym{GPU}{GPU}{graphics processing unit}
+\newacronym{VRAM}{VRAM}{video random access memory}
 
 \newglossaryentry{dl:layer}{
     type=notation:dl,
@@ -392,143 +397,143 @@
 \newglossary{notation:rl}{ndl}{sbl}{reinforcement learning}
 
 \newglossaryentry{rl:s}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{s},
-    sort=a, 
+    sort=a,
     description={A state}}
 
 \newglossaryentry{rl:r}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{r},
-    sort=r, 
+    sort=r,
     description={A reward (a.k.a. return)}}
 
 \newglossaryentry{rl:discount}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\gamma},
-    sort=g, 
+    sort=g,
     description={The discount factor}}
 
 \glsadd{rl:s}
 
 \newglossaryentry{rl:a}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{a},
-    sort=b, 
+    sort=b,
     description={An action}}
 
 \newglossaryentry{rl:rho0}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\rho_0},
-    sort=rho, 
+    sort=rho,
     description={The distribution of \gls{rl:s}[_0]}}
 
 \glsadd{rl:a}
 
 \newglossaryentry{rl:obs:fn}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{O},
-    sort=O, 
+    sort=O,
     description={The observation probability function}}
 
 \newglossaryentry{rl:obs:set}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\myset{O}},
-    sort=O, 
+    sort=O,
     description={The set of observations}}
 
 
 \newglossaryentry{rl:o}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{o},
-    sort=o, 
+    sort=o,
     description={An observation}}
 
 \glsadd{rl:o}
 
 \newglossaryentry{rl:S}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\myset{S}},
-    sort=S, 
+    sort=S,
     description={The set of all valid nonterminal states, a.k.a. ``the state space''}}
 
 \glsadd{rl:S}
 
 \newglossaryentry{rl:S:plus}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\myset{S}^+},
-    sort=S, 
+    sort=S,
     description={The set of all valid states, including the terminal state}}
 
 \glsadd{rl:S:plus}
 
 \newglossaryentry{rl:A}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\myset{A}},
-    sort=A, 
+    sort=A,
     description={The set of all valid actions}}
 
 \glsadd{rl:A}
 
 \newglossaryentry{rl:R}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{R},
-    sort=R, 
+    sort=R,
     description={The reward function}}
 
 \glsadd{rl:R}
 
 \newglossaryentry{rl:P}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{{P}},
-    sort=P, 
+    sort=P,
     description={The transition propabaility function (i.e. the dynamics)}}
 
 \glsadd{rl:R}
 
 \newglossaryentry{rl:t}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{t},
     text={},
-    sort=t, 
+    sort=t,
     description={A discrete time step}}
 
 \glsadd{rl:R}
 
 \newglossaryentry{rl:V}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{V},
-    sort=V, 
+    sort=V,
     description={The value function}}
 
 \newglossaryentry{rl:Q}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{Q},
-    sort=Q, 
+    sort=Q,
     description={The action-value function}}
 
 \newglossaryentry{rl:s0}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{s_0},
-    sort=s0, 
+    sort=s0,
     description={The initial state}}
 
 \newglossaryentry{rl:tau}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\tau},
-    sort=tau, 
+    sort=tau,
     description={The trajectory, i.e. the sequence of states and actions in the world}}
 
 \newglossaryentry{rl:pi}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\pi},
-    sort=pi, 
+    sort=pi,
     description={A stochastic policy}}
 
 \newglossaryentry{rl:mu}{
-    type=notation:rl, 
+    type=notation:rl,
     name=\ensuremath{\mu},
-    sort=mu, 
+    sort=mu,
     description={A deterministic policy}}
 
 \glsadd{rl:V}
@@ -544,9 +549,168 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newglossary{notation:om}{ndl}{sbl}{orbital mechanics}
 
+\newacronym{ICRF}{ICRF}{International Celestial Reference Frame}
+\newacronym{ICRS}{ICRS}{International Celestial Reference System}
+\newacronym{IAU}{IAU}{International Astronomical Union}
+\newacronym{NAIF}{NAIF}{Navigation and Ancillary Information Facility}
+\newacronym{VLBI}{VLBI}{very-long-baseline interferometry}
+\newacronym{BCI}{BCI}{body-centred inertial}
+\newacronym{ECI}{ECI}{Earth-centred inertial}
+\newacronym{VOP}{VOP}{variation of parameters}
+
+\newglossaryentry{om:a}{
+    type=notation:om,
+    name=\ensuremath{a},
+    sort=a,
+    text=\ensuremath{a},
+    description={The orbital semi-major axis}
+}
+\newglossaryentry{om:b}{
+    type=notation:om,
+    name=\ensuremath{b},
+    sort=b,
+    text=\ensuremath{b},
+    description={The orbital semi-minor axis}
+}
+\newglossaryentry{om:p}{
+    type=notation:om,
+    name=\ensuremath{p},
+    sort=p,
+    text=\ensuremath{p},
+    description={The semi-latus rectum}
+}
+\newglossaryentry{om:e}{
+    type=notation:om,
+    name=\ensuremath{e},
+    sort=e,
+    text=\ensuremath{e},
+    description={The orbital eccentricity}
+}
+\newglossaryentry{om:i}{
+    type=notation:om,
+    name=\ensuremath{i},
+    sort=i,
+    text=\ensuremath{i},
+    description={The orbital inclination}
+}
+\newglossaryentry{om:mu}{
+    type=notation:om,
+    name=\ensuremath{\mu},
+    sort=i,
+    text=\ensuremath{\mu},
+    description={The gravitational parameter}
+}
+\newglossaryentry{om:argp}{
+    type=notation:om,
+    name=\ensuremath{\omega},
+    sort=o,
+    text=\ensuremath{\omega},
+    description={The argument of periapsis}
+}
+\newglossaryentry{om:raan}{
+    type=notation:om,
+    name=\ensuremath{\Omega},
+    sort=O,
+    text=\ensuremath{\Omega},
+    description={The right ascension of the ascending node}
+}
+\newglossaryentry{om:nu}{
+    type=notation:om,
+    name=\ensuremath{\nu},
+    sort=n,
+    text=\ensuremath{\nu},
+    description={The true anomaly}
+}
+\newglossaryentry{om:M}{
+    type=notation:om,
+    name=\ensuremath{M},
+    sort=M,
+    text=\ensuremath{M},
+    description={The mean anomaly}
+}
+\newglossaryentry{om:r}{
+    type=notation:om,
+    name=\ensuremath{r},
+    sort=r,
+    text=\ensuremath{r},
+    description={Position}
+}
+\newglossaryentry{om:r:vec}{
+    type=notation:om,
+    name=\ensuremath{\myvec{r}},
+    sort=rv,
+    text=\ensuremath{\myvec{r}},
+    description={Position vector}
+}
+\newglossaryentry{om:v}{
+    type=notation:om,
+    name=\ensuremath{v},
+    sort=v,
+    text=\ensuremath{v},
+    description={Velocity}
+}
+\newglossaryentry{om:v:vec}{
+    type=notation:om,
+    name=\ensuremath{\myvec{v}},
+    sort=vv,
+    text=\ensuremath{\myvec{v}},
+    description={Velocity vector}
+}
+\newglossaryentry{om:a:per}{
+    type=notation:om,
+    name=\ensuremath{\mathbf{a}_{\textrm{per}}},
+    sort=aper,
+    text=\ensuremath{\mathbf{a}_{\textrm{per}}},
+    description={Perturbative acceleration vector}
+}
+\newglossaryentry{om:tp}{
+    type=notation:om,
+    name=\ensuremath{t_p},
+    sort=t_p,
+    text=\ensuremath{t_p},
+    description={The time since periapsis passage}
+}
+
 \newglossaryentry{om:G}{
-    type=notation:om, 
+    type=notation:om,
     name=\ensuremath{G},
-    sort=G, 
+    sort=G,
     text=\ensuremath{G},
-    description={The Cavendish (a.k.a. gravitational) constant, $6.67430{\times}10^{-11} \text{N}{\cdot}\text{m}^2{\cdot}\text{kg}^{-2}$}}
+    description={The Cavendish (a.k.a. gravitational) constant, $6.67430{\times}10^{-11} \text{N}{\cdot}\text{m}^2{\cdot}\text{kg}^{-2}$}
+}
+
+\newglossaryentry{om:oe}{
+    type=notation:om,
+    name=\textrm{\OE},
+    sort=OE,
+    description={A set of six orbital elements constraining a restricted two-body orbital state}
+}
+
+\newglossaryentry{om:oe:cartesian}{
+    type=notation:om,
+    name=\ensuremath{\gls{om:oe}_C},
+    sort=OEC,
+    description={The set of Cartesian orbital elements}
+}
+
+\newglossaryentry{om:oe:keplerian}{
+    type=notation:om,
+    name=\ensuremath{\gls{om:oe}_K},
+    sort=OEK,
+    description={The set of Keplerian (a.k.a. classical) orbital elements}
+}
+
+\newglossaryentry{om:oe:equinoctial}{
+    type=notation:om,
+    name=\ensuremath{\gls{om:oe}_M},
+    sort=OEM,
+    description={The set of modified equinoctial orbital elements}
+}
+
+
+\newglossaryentry{om:h}{
+    type=notation:om,
+    name=\ensuremath{h},
+    sort=h,
+    description={Angular momentum}
+}

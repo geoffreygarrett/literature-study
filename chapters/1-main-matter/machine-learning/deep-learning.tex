@@ -7,8 +7,8 @@ biologically inspired artificial neurons, also known as \textbf{perceptrons}. A
 brief history of these biologically inspired models is covered in
 \autoref{ssec:perceptrons} with adapted notation from the field of \gls{DL}.
 Although not all practices in \gls{DL}, strictly speaking, make use of
-\glspl{MLP}, they are a fundamental concept which must be understood in the
-stepping stones towards concepts of higher complexity in the field.
+\glspl{MLP}, they are a fundamental concept which must be understood as the
+stepping stones toward concepts of higher complexity in the field.
 \autoref{ssec:mlps} covers this concept, extending directly on their composite
 component: perceptrons.
 
@@ -866,9 +866,9 @@ First proposed by Goodfellow et al. \cite{Goodfellow2014} \glspl{GAN} have provi
     \item \textbf{Image classification}: Image classification is the task of assigning a label to an image. This can be done by training a classifier on real images and then using this classifier to label new images. \Glspl{GAN} have been used for image classification by training a \gls{GAN} to generate images from a given class label and then using this model to classify new images.
 \end{itemize}
 
-\subsection{Deep Learning in Space Exploration}
+\subsection{Deep Learning in Space Exploration}\label{ssec:dl-space}
 
-Disregarding the disagreements on whether space should be privatised or remain only in the public sector, the uncertain economic returns of space exploration are well known to be a key hindrance to progress in the field. Space exploration is expensive, and this uncertainty of return is unattractive to profit-seeking companies, leaving stakeholders far and few between. As a result, the most successful results from \gls{DL} are rarely used in space exploration due to neural networks not being human-readable~\cite {esa_ai}. Interpretation of neural networks have come a far way, however, but requires a deep understanding of the problem domain for an effective understanding of how the network is attempting to optimise for its given task~\cite{Montavon2018, Sheu2020, goh2021multimodal, molnar_2022}. The tasks most interpretable tend to be those most relatable to the human mind, such as language processing \cite{belinkov-etal-2020-interpretability, DBLP:journals/corr/abs-2108-04840}, and visual pattern recognition \cite{DBLP:journals/corr/abs-1802-00121}.
+Disregarding the disagreements on whether space should be privatised or remain only in the public sector, the uncertain economic returns of space exploration are well known to be a key hindrance to progress in the field. Space exploration is expensive, and this uncertainty of return is unattractive to profit-seeking companies, leaving stakeholders far and few between. As a result, the most successful results from \gls{DL} are rarely used in space exploration due to neural networks not being human-readable~\cite {esa_ai}. Interpretation of neural networks has come a far way, however, but requires a deep understanding of the problem domain for an effective understanding of how the network is attempting to optimise for its given task~\cite{Montavon2018, Sheu2020, goh2021multimodal, molnar_2022}. The tasks most interpretable tend to be those most relatable to the human mind, such as language processing \cite{belinkov-etal-2020-interpretability, DBLP:journals/corr/abs-2108-04840}, and visual pattern recognition \cite{DBLP:journals/corr/abs-1802-00121}.
 
 \gls{DL} in space exploration has been a popular topic of research in recent
 years, some examples of the learning tasks have followed directly from
@@ -919,7 +919,10 @@ promising methods in the following areas:
     % \item \textbf{Trajectory sequence planning}
     % \item \textbf{Spacecraft autonomous control}
 \end{itemize}
-%
+
+There are various obstacles imposed on behalf of the field of spaceflight, which are not often faced by computer scientists for general applications of \glspl{DNN}. The use of \glspl{GPU} for the parallel computations described in \autoref{ssec:mlps} is pertinent for computational efficiency in applications of \glspl{DNN}. A key obstacle in spaceflight is the stringent constraints placed on the resilience of hardware in radiation-prone environments. Recent research has been done on the available hardware for the application of \gls{AI} \cite{Kosmidis2019, Murphy2021, Wilson2022} with a \gls{GPU} spaceflight demonstrator being developed \cite{White2018}. As of now, the most promising \gls{GPU} hardware for space applications which satisfies the ``Series 300 level of qualification'' for space applications is that of Aitech's S-A1760 radiation-characterised space \gls{AI} general purpose \gls{GPU} system with 256 \gls{CUDA} cores and 1.3 \gls{TFLOP} and 32GB eMMC 5.1 \gls{VRAM} (determining model sizes permissible in computation) which utilises the NVIDIA Jetson TX2i system-on-module. Hardware-in-the-loop verification of \gls{AI} algorithms are also being verified on the NVIDIA Jetson variants \cite{Wilson2022}. There are further promising hardware units which may become space-proven in the near future which outperform the TX2i, which are designed for autonomous machines, such as the NVIDIA Xavier AGX \cite{Murphy2021}, with a superior 11 \glspl{TFLOP} and 64GB eMMC 5.1 \gls{VRAM}. The NVIDIA Xavier AGX is yet to be space-proven however.
+
+
 %been toward autonomy in docking
 %\cite{}, navigation, and environment modelling~\cite{IzzoGeodesyNet2021,
 %IzzoBennu2021}. The former two are tasks coupled within a joint

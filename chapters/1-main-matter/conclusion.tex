@@ -1,0 +1,158 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Discussion and Planning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary of Insights}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The primary objective of this paper is to determine a navigation policy used by a spacecraft in optimally navigating a small celestial body or protoplanet with initially unknown or highly unconstrained physical characteristics. The motive behind this goal is to subsequently minimise the time to characterise a small celestial body and maximise the efficacy of observations in characterising its physical characteristics as discussed in \autoref{chap:introduction}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Small bodies (and protoplanets) in the Solar System}\label{ssec:insight:small-bodies}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Samples from the distribution of small bodies (and protoplanets) across the Solar System were discussed in \autoref{sec:historical_missions_to_small_bodies}, selected by their presence in past and future planned space missions. It was mentioned in the \autoref{chap:introduction} that the term ``small body'' refers to all Solar System objects that avoided accretion by the Sun, a planet, or any of their moons thereof, as defined by Planetary Science and Astrobiology Decadal Survey. These include the categories: ``Martian moons, Trojan asteroids, irregular satellites, comets, Centaurs, and trans-Neptunian objects in the Kuiper belt, Scattered Disk, Detached Scattered Disk, and Oort cloud''. Furthermore, the subclassification of asteroids was encountered during \autoref{sec:historical_missions_to_small_bodies}, where the three composition classes of asteroids were seen to contain C-, M- and S-types. These classes were named referring to the primarily identified carbonaceous, metallic and silicaceous compositions and relate to how far an asteroid the Sun they formed. 
+
+Space missions are often met with unexpected opportunities to observe and characterise small bodies by the very nature of the objective: exploration. For example, during Galileo's flyby of 243 Ida in 1993 discussed in \autoref{ssec:dactyl}, it was discovered that Ida had a small moon which was later named Dactyl. Opportunities such as that of Dactyl's discovery present the importance of furthering autonomous exploration technologies to increase the scientific return of space missions, improving our understanding of the Solar System.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Hardware limitations in spaceflight}\label{ssec:insight:hardware-limitations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The time restraints of \gls{DNN} optimisation on-board a spacecraft is determined by the current state-of-the-art space qualified \glspl{GPU}.
+As of now, there is only one commercially available \gls{GPU} that is space qualified. Aitech's S-A1760 radiation-characterised space \gls{AI} general purpose \gls{GPU} (which uses the NVIDIA Jetson TX2i system-on-module) system with 256 \gls{CUDA} cores, 1.3 \glspl{TFLOP} and 32 GB of \gls{VRAM} discussed in \autoref{ssec:dl-space}. The value of 1.3 \glspl{TFLOP} provides this work with a baseline for the computational time requirements for evaluating and optimising a \gls{DNN} on board a spacecraft. Furthermore, the value of 32GB of \gls{VRAM} provides a baseline for the memory constraints of a (or multiple) \glspl{DNN} size onboard a spacecraft. This memory constraint is directly related to the table filling strategy of backpropagation discussed at the end of \autoref{ssec:mlps}. It should be noted that the values given for the \glspl{FLOP} specifications of \glspl{GPU} are generally provided in 32-bit floating point numerical representations, as 64-bit precision is not generally used for \gls{ML} applications involving \glspl{DNN}. The reason for this is that given a consistent \gls{DNN} architecture, the evaluation time and storage requirements for all weights and biases increase storage requirements on the \gls{VRAM} of a \gls{GPU}. Therefore, one will either need to reduce their model size which results in a loss of capacity and therefore ability to capture complexity as discussed in \autoref{ssec:capacity_overfitting_underfitting} or use a \gls{GPU} with more \gls{VRAM}. The loss of precision is not a concern for this work as the impact on simulated results due to the uncertainty in the physical characteristics of a small celestial body is of a far higher magnitude. Often even half-precision (16-bit) is used for \gls{ML} applications involving \glspl{DNN}, improving the efficiency of training. On a side note, this does not mean that the precision of observations and estimated parameters will be held to the same restriction, as this is outside the loop of the \gls{DNN} optimisation. It would also be no hard task to convert a model that has learning using a lower precision to that of a higher, which would potentially tackle a majority of the optimisation time over a large dataset, improving the efficiency of the training process. The secondary training period would be aimed at reducing the quantization noise incurred from the initial training period with low precision as noted in \autoref{dl:optimisation}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Parametrisation of State and Environment}\label{ssec:insight:state-environment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Two key concepts of reinforcement learning discussed in \autoref{ssec:key_concepts_and_terminology} were the states and actions of a learning agent which parametrise the environment influencing the agent, and the agents influence the environment respectively. The problem that can arise from over-parametrisation of these relates to that of the ``Curse of dimensionality'' coined by Richard E. Bellman mentioned in \autoref{chap:dynamic_modelling} and \autoref{point:curse_of_dimensionality_1}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The conflicting optimums of risk and reward}\label{ssec:insight:conflicting-optimums}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Autonomy and Earth-based observations}\label{ssec:insight:autonomy-earth-based}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Reinforcement Learning Algorithm}
+
+- With consideration of the computational feasibility of space-grade hardware, what reinforcement learning algorithm should be used to determine the optimal navigation policy?
+
+\subsection{Estimation Algorithm}
+
+- With consideration of the computational feasibility of space-grade hardware and the training time of a reinforcement learning algorithm, what estimation algorithm should be used to determine the optimal navigation policy?
+
+\subsection{State Representation}
+
+- What orbital state representation provides the learning algorithm with the fastest improvement in performance? 
+
+\subsection{Reward \& Punishment}
+
+- What information metric should be used to measure optimality in a policy's performance in its ability to characterise a small body?
+- What lookahead sliding window should be used for calculating conjunction probabilities?
+- Should the agent be punished for its risk of leaving the vicinity of the small body or is the lack of its ability to characterise with increased distance from the small body sufficient influence of equivalent behaviour?
+
+\subsection{Information vs. Preservation}
+
+\subsection{Swarm Navigation}
+
+- The constant state dimension for each member of the Swarm, and how to weight the nearest neighbour's relative state in the Swarm's state representation (Collision Risk vs. Spacial Weighting). It may be beneficial to hierarchically cluster other members of the swarm by their relative state, or collision risk and then weight the nearest neighbour's relative state by the cluster it belongs to. 
+
+\textbf{State}
+
+\section{Research Definition}
+
+\subsection{Research Problem}
+
+The established research problem, given the literature survey and identified gaps in contemporary practices, in the autonomous navigation, guidance and control of a spacecraft in the vicinity of a small body (or protoplanet) is as follows:
+
+\autoref{chap:introduction}
+
+\begin{quote}
+    
+\end{quote}
+
+\newpage\subsection{Research Question(s)}
+
+Given the research problem, the research question focuses on a quantitative evaluation of the rapidly converging fields of machine learning and space exploration, with a holistic approach across the two fields. The \textbf{top-level} research question is as follows:
+
+\begin{quote}
+    What practical techniques from the progressively intersecting fields of reinforcement learning and space exploration yield an optimal guidance and control policy for the generalised characterisation of a small body (or protoplanet) with initially highly unconstrained physical characteristics by (an) autonomous spacecraft?
+\end{quote}
+
+This question, although specific in its objective, can be broken down further given the surveyed literature which has identified key components of the relevant ``practical techniques''. These are ordered by a bottom-up approach, starting with the most fundamental choice of techniques and working up to the most abstract.
+ 
+\begin{quote}
+    What are the appropriate probability models that define the physical characteristics of small bodies and protoplanets as observed in our Solar System, is there observable dependence between subsets of these characteristics?
+\end{quote}
+
+The importance of capturing the underlying distribution of small bodies and protoplanets in our Solar System is paramount to the success of the research question. To be able to ``generalise'' as discussed in \autoref{ssec:capacity_overfitting_underfitting} is a key desired ability in machine learning. Furthermore, it is a component of paramount importance in the research question as we aim to obtain a policy that can perform as expected on previously unseen samples of small bodies and protoplanets in future discoveries by providing an appropriate ``training'' landscape of possible encounters. Without this, any quantitative analyses of the derived policies, chosen learning algorithms, or required observations and estimation algorithms, are meaningless, as it is not a true reflection of the performance of these components in the real world. After all, there is no such thing as a ``Free Lunch'' in machine learning as discussed in \autoref{ssec:capacity_overfitting_underfitting}: ``our goal is to understand what kinds of distributions are relevant to the real world that an \gls{AI} agent experiences.'' Alternatively, we could infinitely draw from distributions which exceed the bounds of the real world, but this would result in wasted computational resources, a large portion of its hypothesis space would be wasted on capturing patterns which do not extend to the real world. Finally, in regions of the distribution which \textbf{are} representative of the real world, the policy will perform poorly, having only under fitted the complexity of that region with a subset of its hypothesis space. This effect is illustrated by \autoref{fig:underfitting} as opposed to the desired effect in \autoref{fig:appropriate-capacity}, upon considering the omission of a subset of data points in the key region of the minima. 
+
+\begin{quote}
+    What metric is most effective in evaluating the performance of the spacecraft guidance and control policy in characterising the physical characteristics of a given small body or protoplanet?
+\end{quote}
+
+% \begin{quote}
+%     What primary performance metric is most effective in evaluating the performance of the spacecraft guidance and control policy in characterising the physical characteristics of a given small body or protoplanet?
+% \end{quote}
+
+
+The performance metric determines what behaviour is learned by the algorithm and was discussed in \autoref{sec:ML-performance} in the context of regression and classification machine learning tasks. The problem with these contemporary performance metrics is that they do not capture 
+
+In order to evaluate a performance metric 
+
+- assume PPO
+- eval metric
+- eval punishments
+- eval conjunctions
+- eval lookahead
+- eval state representation
+
+
+- continual learning onboard, as characterisation of the body is carried out?
+
+
+\begin{quote}
+    Under careful consideration of the computational restraints imposed by space qualified \glspl{GPU}, what reinforcement learning algorithm, or category thereof, is best suited to an optimal guidance and control policy of a spacecraft?
+\end{quote}
+
+\begin{quote}
+    What class of reinforcement learning algorithm performs be used to determine the optimal guidance and control policy?
+\end{quote}
+
+
+- With consideration of the computational feasibility of space-grade hardware, what reinforcement learning algorithm should be used to determine the optimal navigation policy?
+
+\begin{quote}
+    What class of reinforcement learning algorithm performs be used to determine the optimal guidance and control policy?
+\end{quote}
+
+\begin{enumerate}
+    \item What estimation algorithm should be used to determine the optimal navigation policy?
+    \item What orbital state representation provides the learning algorithm with the fastest improvement in performance? 
+    \item What information metric should be used to measure optimality in a policy's performance in its ability to characterise a small body?
+    \item What lookahead sliding window should be used for calculating conjunction probabilities?
+    \item Should the agent be punished for its risk of leaving the vicinity of the small body or is the lack of its ability to characterise with increased distance from the small body sufficient influence of equivalent behaviour?
+\end{enumerate}
+
+\section{Thesis Plan}
+
+\begin{enumerate}
+    \item Establish probability distribution models for the distributions of homogenous physical characteristics across all categories of catalogued small bodies and protoplanets in the Solar System.
+    \begin{itemize}
+        \item Collect all available data on the physical characteristics of all catalogued small bodies and protoplanets in the Solar System.
+        \item Select a common set of physical characteristics across all samples to be modelled by the probability distributions.
+    \end{itemize}
+\end{enumerate}
+
+
+and select their resulting environment model representations,
+and the environment models which utilise these characteristics in the dynamical simulation.
+
+\begin{itemize}
+
+\end{itemize}
+
+
+Linked, Autonomous, Interplanetary Satellite Orbit Navigation (LiAISON) - \cite{Hill2006}

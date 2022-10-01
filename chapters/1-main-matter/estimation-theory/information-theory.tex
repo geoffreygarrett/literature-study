@@ -7,15 +7,15 @@
 The self-information (a.k.a. \textit{information content},~\textit{surprisal},
 or \textit{Shannon information}) is a quantity used in information theory which
 is derived from the probability of a certain event occurring from a random
-variable. The self-information was defined by Claude Shannon~\cite{} such that
-the following axioms were met:
+variable. The self-information was defined by Claude Shannon such that
+the following axioms were met \cite{ElementaryInformationTheory1979}:
 
 \begin{enumerate}
     \item An event that is 100\% probable is perfectly unsurprising and
     therefore yields no information content.
     \item The less probable an event is, the more surprising, and therefore the
     more information it yields.
-    \item The total information of independently measured events, is the
+    \item The total information of independently measured events is the
     sum of their respective self-information.
 \end{enumerate}
 
@@ -23,20 +23,20 @@ the following axioms were met:
     I(x):=-\log_b(p(x))
 \end{equation}
 
-\cite{ElementaryInformationTheory1979}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Entropy (average information)}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Claude Shannon argued
+
+% \begin{equation}
+%     H(x)=\gls{E}\;[I(x)]
+% \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Entropy (average information)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Claude Shannon argued
-
-\begin{equation}
-    H(x)=\gls{E}\;[I(x)]
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage\subsection{Kullback-Leibler divergence (information gain)\label{sec:kl_div}}
+\subsection{Kullback-Leibler divergence (information gain)\label{sec:kl_div}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Kullback-Leibler divergence (a.k.a. \textit{relative entropy} and
@@ -68,9 +68,9 @@ analytically (\autoref{app:norm_kl}) to be:
 One noteworthy characteristic of the KL-divergence is its asymmetry, that is
 $D_{KL}(P\;||\;Q)\neq{}D_{KL}(Q\;||\;P)$. This means that KL-divergence makes
 for a poor \textit{distance} metric as is commonly done with, for example,
-squared-errors. This may at first present KL-divergence as a suboptimal choice
+squared errors. This may at first present KL-divergence as a suboptimal choice
 as a general metric, however when considering the relation between the posterior
-and the priori, the relative information gain when travelling from one to the
+and the priori, the relative information gained when travelling from one to the
 other \textbf{is} inherently asymmetric by their very nature. For example, for
 the case of
 
@@ -83,12 +83,12 @@ the case of
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage\subsection{Jensen-Shannon divergence (information radius)}
+\subsection{Jensen-Shannon divergence (information radius)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Jensen-Shannon divergence (a.k.a. \textit{information radius} and
 \textit{total divergence to the average}) is based on the KL-divergence
-(\autoref{sec:kl_div}), however it has been extended with the differences that
+(\autoref{sec:kl_div}), however, it has been extended with the differences that
 it is symmetric, and always has a finite value~\cite{Endres2003, Fuglede2004}.
 
 

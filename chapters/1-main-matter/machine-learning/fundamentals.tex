@@ -49,6 +49,8 @@ An example of a field which has undergone dramatic changes in a short period, wi
     \item \textbf{Density estimation} or \textbf{probability mass function estimation} involves the task of learning a function $p_\text{model}:\gls{set:R}^n\rightarrow{}\gls{set:R}$, where $p_\text{model}(\mathbf{x})$ is interpreted as a probability distribution function from which $\mathbf{x}$ was drawn. Effectively the algorithm learns the structure of the data that it has been provided with. Most of the aforementioned tasks involve learning this distribution function, at least implicitly. For example for the missing value imputation task, if $x_i$ is missing, and all other values $x_{-i}$ are given, then the algorithm learns the distribution $p(x_i|\mathbf{x}_{-i})$ which involves $p(\mathbf{x})$ implicitly.
 \end{itemize}
 
+A key consideration to be made in the formulation of a learning task is the \textbf{feature space} presented to the learning algorithm as input. The feature space is the set of all possible inputs that the learning algorithm can be provided with. Careful consideration of this concept is important for two reasons; avoidance of the ``Curse of dimensionality'' \label{point:curse_of_dimensionality_1} and improved ``learnability'' of a task. 
+
 %An ongoing trend in society is the augmentation of responsibility in intelligent
 %algorithms through autonomy, evident by the advent of semi-autonomous cars,
 %autonomous cyber-security \cite{Taeihagh2019}, autonomous industrial site
@@ -246,7 +248,7 @@ which it is generally expected to learn some pattern of interest.
     \item \textbf{Reinforcement learning} are learning algorithms which rely exclusively on a series of reinforcements from their environment. These reinforcements can be positive (rewards) or negative (punishments). This category is discussed further in \autoref{sec:reinforcement_learning}.
 \end{itemize}
 
-\subsection{Capacity, Overfitting and Underfitting\label{sec:capoverunder}}
+\subsection{Capacity, Overfitting and Underfitting}\label{ssec:capacity_overfitting_underfitting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The primary objective in \gls{ML} is to find a model which performs well on previously \textit{unseen data}, which has not been used during the training or fitting of a model. This ability of the learning algorithm is referred to as its ability to \textit{generalise}.
 
@@ -276,7 +278,7 @@ One technique of controlling the capacity of an algorithm is to control its \tex
     \label{fig:capacity}
 \end{figure}
 
-\subsubsection{No Free Lunch Theorem}
+\subsubsection{No Free Lunch Theorem}\label{ssec:no_free_lunch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The \gls{NFLT}, sometimes abbreviated as \gls{NFL}, is a simple but important concept in \gls{ML} and optimisation~\cite{Wolpert1997}. The theorem suggests that an optimisation technique will perform equally well as any other when averaging its performance over the set of all possible problems. This implies that there is no single best technique for addressing an arbitrary problem. Luke states the following in \textit{essentials of metaheuristics}~\cite{luke2012essentials}:

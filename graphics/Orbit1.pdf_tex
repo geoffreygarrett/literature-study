@@ -1,0 +1,67 @@
+%% Creator: Inkscape 1.1.2 (0a00cf5339, 2022-02-04), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Orbit1.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{416.25bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.9009009)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Orbit1.pdf}}%
+    \put(0.03120362,0.34631535){\color[rgb]{0.09019608,0.67058824,0.20392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Longitude of ascending node $\Omega$\end{tabular}}}}%
+    \put(0.45770341,0.51425083){\color[rgb]{0.37647059,0.15686275,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Argument of periapsis $\omega$\end{tabular}}}}%
+    \put(0.06541824,0.53906128){\color[rgb]{0.76078431,0.03921569,0.03921569}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}True anomaly $\nu$\end{tabular}}}}%
+    \put(0.51118076,0.15741731){\color[rgb]{0,0.49019608,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Inclination $i$\end{tabular}}}}%
+    \put(0.37720697,0.08974686){\color[rgb]{0.9254902,0.25098039,0.25098039}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Ascending node\end{tabular}}}}%
+    \put(0.90844656,0.37726919){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Reference direction $\gamma$\\\end{tabular}}}}%
+    \put(0.19713883,0.84731014){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Celestial body\end{tabular}}}}%
+    \put(0.03995298,0.23089074){\rotatebox{-8.50482183}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Plane of reference\end{tabular}}}}}%
+    \put(0.15999428,0.04414971){\rotatebox{21.13394082}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Orbit\end{tabular}}}}}%
+  \end{picture}%
+\endgroup%
