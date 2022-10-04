@@ -11,7 +11,7 @@ The primary objective of this paper is to determine a navigation policy used by 
 \subsection{Small bodies (and protoplanets) in the Solar System}\label{ssec:insight:small-bodies}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Samples from the distribution of small bodies (and protoplanets) across the Solar System were discussed in \autoref{sec:historical_missions_to_small_bodies}, selected by their presence in past and future planned space missions. It was mentioned in the \autoref{chap:introduction} that the term ``small body'' refers to all Solar System objects that avoided accretion by the Sun, a planet, or any of their moons thereof, as defined by Planetary Science and Astrobiology Decadal Survey. These include the categories: ``Martian moons, Trojan asteroids, irregular satellites, comets, Centaurs, and trans-Neptunian objects in the Kuiper belt, Scattered Disk, Detached Scattered Disk, and Oort cloud''. Furthermore, the subclassification of asteroids was encountered during \autoref{sec:historical_missions_to_small_bodies}, where the three composition classes of asteroids were seen to contain C-, M- and S-types. These classes were named referring to the primarily identified carbonaceous, metallic and silicaceous compositions and relate to how far an asteroid the Sun they formed. 
+Samples from the distribution of small bodies (and protoplanets) across the Solar System were discussed in \autoref{sec:historical_missions_to_small_bodies}, selected by their presence in past and future planned space missions. It was mentioned in the \autoref{chap:introduction} that the term ``small body'' refers to all Solar System objects that avoided accretion by the Sun, a planet, or any of their moons thereof, as defined by Planetary Science and Astrobiology Decadal Survey. These include the categories: ``Martian moons, Trojan asteroids, irregular satellites, comets, Centaurs, and trans-Neptunian objects in the Kuiper belt, Scattered Disk, Detached Scattered Disk, and Oort cloud''. Furthermore, the subclassification of asteroids was encountered during \autoref{sec:historical_missions_to_small_bodies}, where the three composition classes of asteroids were seen to contain C-, M- and S-types. These classes were named referring to the primarily identified carbonaceous, metallic and silicaceous compositions and relate to how far an asteroid the Sun they formed.
 
 Space missions are often met with unexpected opportunities to observe and characterise small bodies by the very nature of the objective: exploration. For example, during Galileo's flyby of 243 Ida in 1993 discussed in \autoref{ssec:dactyl}, it was discovered that Ida had a small moon which was later named Dactyl. Opportunities such as that of Dactyl's discovery present the importance of furthering autonomous exploration technologies to increase the scientific return of space missions, improving our understanding of the Solar System.
 
@@ -25,7 +25,7 @@ As of now, there is only one commercially available \gls{GPU} that is space qual
 \subsection{Parametrisation of State and Environment}\label{ssec:insight:state-environment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Two key concepts of reinforcement learning discussed in \autoref{ssec:key_concepts_and_terminology} were the states and actions of a learning agent which parametrise the environment influencing the agent, and the agents influence the environment respectively. The problem that can arise from over-parametrisation of these relates to that of the ``Curse of dimensionality'' coined by Richard E. Bellman mentioned in \autoref{chap:dynamic_modelling} and \autoref{point:curse_of_dimensionality_1}.
+Two key concepts of reinforcement learning discussed in \autoref{ssec:key_concepts_and_terminology} were the states and actions of a learning agent which parametrise the environment influencing the agent, and the agent's influence the environment respectively. The problem that can arise from over-parametrisation of these relates to that of the ``Curse of dimensionality'' coined by Richard E. Bellman mentioned in \autoref{chap:dynamic_modelling} and \autoref{point:curse_of_dimensionality_1}. This phenomenon arises from analysing and organising data in high-dimensional space. When dimensionality increases, the volume of the space increases dramatically such that the available data becomes sparse. The typical effect of this in machine learning is felt when attempting to model patterns in the feature space of the experiences provided to the algorithm. As the feature space dimensionality grows, the quantity of data required for accurate generalisation grows exponentially. For this reason, it was discussed in \autoref{chap:dynamic_modelling} that the rotational dynamics of the spacecraft would not be included in the action space and that the thrust control action space of the spacecraft would be parametrised by the RSW frame (described in \autoref{fig:relative_orbital_frame}). Not only does this subsequently reduce the requirements on the simulated data required for training, but it also reduces the complexity of the learning task, allowing for a more efficient training process. This reduction in complexity arises from the omission of the RSW frame transformation from the learning task. This is best illustrated by the Gaussian \gls{VOP} \autoref{eq:vop:gauss:kep}, whereby it is immediately clear on how to influence the osculating orbit in the RSW action space, rather than needing to
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The conflicting optimums of risk and reward}\label{ssec:insight:conflicting-optimums}
@@ -45,7 +45,7 @@ Two key concepts of reinforcement learning discussed in \autoref{ssec:key_concep
 
 \subsection{State Representation}
 
-- What orbital state representation provides the learning algorithm with the fastest improvement in performance? 
+- What orbital state representation provides the learning algorithm with the fastest improvement in performance?
 
 \subsection{Reward \& Punishment}
 
@@ -57,7 +57,7 @@ Two key concepts of reinforcement learning discussed in \autoref{ssec:key_concep
 
 \subsection{Swarm Navigation}
 
-- The constant state dimension for each member of the Swarm, and how to weight the nearest neighbour's relative state in the Swarm's state representation (Collision Risk vs. Spacial Weighting). It may be beneficial to hierarchically cluster other members of the swarm by their relative state, or collision risk and then weight the nearest neighbour's relative state by the cluster it belongs to. 
+- The constant state dimension for each member of the Swarm, and how to weight the nearest neighbour's relative state in the Swarm's state representation (Collision Risk vs. Spacial Weighting). It may be beneficial to hierarchically cluster other members of the swarm by their relative state, or collision risk and then weight the nearest neighbour's relative state by the cluster it belongs to.
 
 \textbf{State}
 
@@ -70,10 +70,12 @@ The established research problem, given the literature survey and identified gap
 \autoref{chap:introduction}
 
 \begin{quote}
-    
+
 \end{quote}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage\subsection{Research Question(s)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Given the research problem, the research question focuses on a quantitative evaluation of the rapidly converging fields of machine learning and space exploration, with a holistic approach across the two fields. The \textbf{top-level} research question is as follows:
 
@@ -82,12 +84,12 @@ Given the research problem, the research question focuses on a quantitative eval
 \end{quote}
 
 This question, although specific in its objective, can be broken down further given the surveyed literature which has identified key components of the relevant ``practical techniques''. These are ordered by a bottom-up approach, starting with the most fundamental choice of techniques and working up to the most abstract.
- 
+
 \begin{quote}
     What are the appropriate probability models that define the physical characteristics of small bodies and protoplanets as observed in our Solar System, is there observable dependence between subsets of these characteristics?
 \end{quote}
 
-The importance of capturing the underlying distribution of small bodies and protoplanets in our Solar System is paramount to the success of the research question. To be able to ``generalise'' as discussed in \autoref{ssec:capacity_overfitting_underfitting} is a key desired ability in machine learning. Furthermore, it is a component of paramount importance in the research question as we aim to obtain a policy that can perform as expected on previously unseen samples of small bodies and protoplanets in future discoveries by providing an appropriate ``training'' landscape of possible encounters. Without this, any quantitative analyses of the derived policies, chosen learning algorithms, or required observations and estimation algorithms, are meaningless, as it is not a true reflection of the performance of these components in the real world. After all, there is no such thing as a ``Free Lunch'' in machine learning as discussed in \autoref{ssec:capacity_overfitting_underfitting}: ``our goal is to understand what kinds of distributions are relevant to the real world that an \gls{AI} agent experiences.'' Alternatively, we could infinitely draw from distributions which exceed the bounds of the real world, but this would result in wasted computational resources, a large portion of its hypothesis space would be wasted on capturing patterns which do not extend to the real world. Finally, in regions of the distribution which \textbf{are} representative of the real world, the policy will perform poorly, having only under fitted the complexity of that region with a subset of its hypothesis space. This effect is illustrated by \autoref{fig:underfitting} as opposed to the desired effect in \autoref{fig:appropriate-capacity}, upon considering the omission of a subset of data points in the key region of the minima. 
+The importance of capturing the underlying distribution of small bodies and protoplanets in our Solar System is paramount to the success of the research question. To be able to ``generalise'' as discussed in \autoref{ssec:capacity_overfitting_underfitting} is a key desired ability in machine learning. Furthermore, it is a component of paramount importance in the research question as we aim to obtain a policy that can perform as expected on previously unseen samples of small bodies and protoplanets in future discoveries by providing an appropriate ``training'' landscape of possible encounters. Without this, any quantitative analyses of the derived policies, chosen learning algorithms, or required observations and estimation algorithms, are meaningless, as it is not a true reflection of the performance of these components in the real world. After all, there is no such thing as a ``Free Lunch'' in machine learning as discussed in \autoref{ssec:capacity_overfitting_underfitting}: ``our goal is to understand what kinds of distributions are relevant to the real world that an \gls{AI} agent experiences.'' Alternatively, we could infinitely draw from distributions which exceed the bounds of the real world, but this would result in wasted computational resources, a large portion of its hypothesis space would be wasted on capturing patterns which do not extend to reality. Finally, in regions of the distribution which \textbf{are} representative of the real world, the policy will perform poorly, having only under fitted the complexity of that region with a subset of its hypothesis space. This effect is illustrated by \autoref{fig:underfitting} as opposed to the desired effect in \autoref{fig:appropriate-capacity}, upon considering the omission of a subset of data points in the key region of the minima.
 
 \begin{quote}
     What metric is most effective in evaluating the performance of the spacecraft guidance and control policy in characterising the physical characteristics of a given small body or protoplanet?
@@ -98,9 +100,9 @@ The importance of capturing the underlying distribution of small bodies and prot
 % \end{quote}
 
 
-The performance metric determines what behaviour is learned by the algorithm and was discussed in \autoref{sec:ML-performance} in the context of regression and classification machine learning tasks. The problem with these contemporary performance metrics is that they do not capture 
+The performance metric determines what behaviour is learned by the algorithm and was discussed in \autoref{sec:ML-performance} in the context of regression and classification machine learning tasks. The problem with these contemporary performance metrics is that they do not capture
 
-In order to evaluate a performance metric 
+In order to evaluate a performance metric
 
 - assume PPO
 - eval metric
@@ -130,29 +132,106 @@ In order to evaluate a performance metric
 
 \begin{enumerate}
     \item What estimation algorithm should be used to determine the optimal navigation policy?
-    \item What orbital state representation provides the learning algorithm with the fastest improvement in performance? 
+    \item What orbital state representation provides the learning algorithm with the fastest improvement in performance?
     \item What information metric should be used to measure optimality in a policy's performance in its ability to characterise a small body?
     \item What lookahead sliding window should be used for calculating conjunction probabilities?
     \item Should the agent be punished for its risk of leaving the vicinity of the small body or is the lack of its ability to characterise with increased distance from the small body sufficient influence of equivalent behaviour?
 \end{enumerate}
 
-\section{Thesis Plan}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage\section{Thesis Plan}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{enumerate}
-    \item Establish probability distribution models for the distributions of homogenous physical characteristics across all categories of catalogued small bodies and protoplanets in the Solar System.
+    \item Establish the raw dataset (L0: Raw) representative of the probability distribution for the physical characteristics and model parameters across all categories of catalogued small bodies and protoplanets in the Solar System. \textcolor{blue}{[2 weeks]}
+          \begin{enumerate}
+              \item \textcolor{orange}{[week 1/2]} Collect all up-to-date available data on the physical characteristics\footnote{\url{https://ssd.jpl.nasa.gov/tools/sbdb_query.html}} and shape models\footnote{\label{note1}\url{https://3d-asteroids.space/asteroids/}}\footnote{\label{note2}\url{https://3d-asteroids.space/comets/}} of all catalogued small bodies in the Solar System and document sources. 
+              \item \textcolor{orange}{[week 1/2]} Clean the collected data, assimilating all physical characteristics and paths to the corresponding small body shape files (where available), and document the format of the data.
+              \item \textcolor{orange}{[week 1/2]} Select a parameter set to be used across all catalogued small bodies containing the common set of parameters defining the physical characteristics, rotation, shape and gravitational potential models (i.e. set degree and order for spherical harmonics, or select quantity of mascons). Leave samples with missing data in the dataset.
+          \end{enumerate}
+    At this point, it will become clear (after the preliminary inspection of available data) that there is a significant amount of missing data in the dataset, specifically in the gravitational potential model, and that the data may not be uniformly distributed across all classes of small bodies.
+
+    \item For bodies with no constrained gravitational potential models, use a polyhedral gravitational potential model \cite{Werner1996}, calculate the equivalent spherical harmonic coefficients (for a constant predetermined degree and order) for either constant \cite{Werner1997}, linearly varying \cite{Chen2019a} or the polynomial contrast \cite{Chen2019b} assumption of density distribution (L1: Dataset processed with assumed mass distribution of bodies). For bodies where mass is not constrained, draw it from a probability distribution representative of that body's known composition, spectral or orbit class (L2: Dataset processed with synthesized mass and assumed mass distribution of small bodies). This will form \textcolor{blue}{[2-3.5 weeks]}
+    \begin{enumerate}
+        \item \textcolor{orange}{[week 1/2]} Implement (and verify) code for the expansion of spherical harmonics coefficients from a given polyhedral gravitational potential model for constant, linear varying and polynomial contrast density distribution.
+        \item \textcolor{orange}{[week 1/2]} Investigate bodies with unconstrained masses and determine what sets of probability distributions should be available to draw from in order to synthesize the mass of the bodies with unconstrained mass, representative of the population probability distribution.
+        \item \textcolor{orange}{[week 2/2]} For each small body, homogenise the body shape models to the highest vertices count available, and add the results to the dataset. This can be achieved with the use of Blender with a surface subdivision modifier and is done in order to avoid capturing non-realistic frequencies in the higher-order and -degree spherical harmonics due to the polyhedral shape. 
+        \item \textcolor{orange}{[week 2/2]} For each small body, calculate the equivalent spherical harmonic coefficients for a given degree and order for each density distribution assumption, adding the results to the dataset.
+    \end{enumerate}
+    
+    There are two cases which may arise from the currently processed dataset:
     \begin{itemize}
-        \item Collect all available data on the physical characteristics of all catalogued small bodies and protoplanets in the Solar System.
-        \item Select a common set of physical characteristics across all samples to be modelled by the probability distributions.
+        \item \textbf{Case A:} The higher-order spherical harmonics exhibit very low influence on the gravitational potential model for a significant part of the dataset. This would pose an imbalance in the distribution of cases encountered by the reinforcement learning algorithm, as some cases may be vastly more complex than others. A solution to this would be to distribute rock models\footnote{\url{https://www.blendernation.com/2020/04/21/free-download-rock-pack-vol-2/}} across the surface of some bodies in order to represent bodies that exhibit a rock rubble covered surface. This can be carried out easily with Blender's (an open source software) Python API \footnote{\url{https://docs.blender.org/api/current/index.html}}. This would form a third level in the data processing, involving the synthesis of fine shape augmentation (L3: Dataset processed with synthesized mass, assumed mass distribution, and synthesized fine features of small bodies) \textcolor{orange}{[+1.5 week]}
+        \item \textbf{Case B:} The higher-order spherical harmonics exhibit sufficient influence on the gravitational potential model for a sufficient part of the dataset. There is no need to modify the shape models to induce more representation by higher-order spherical harmonic coefficients.
     \end{itemize}
+
+    At this point, a dataset of a consistent set of parameters will be available for all small bodies in the Solar System with constrained body shapes (representative of the population distribution) ready to be used in the environments of a small body characterisation reinforcement learning problem.
+
+    \item Establish the estimation framework for the spacecraft in the small body characterisation problem. The intervals at which least-squares solutions are provided from Earth-based observation become a free parameter in the reinforcement learning environment, in order to further tune the level of autonomy of the spacecraft and find more compare effectiveness of policies. The spacecraft (or swarm) will utilise sequential estimation using a selected Kalman filter. \textcolor{blue}{[4 weeks]}
+    \begin{enumerate}
+        \item \textcolor{orange}{[week 1/4]} Set up the observables for Earth-based tracking of the spacecraft (or swarm) for both \gls{DSN} and/or \gls{ESTRACK} stations. The integration intervals used for Doppler tracking observables will be assumed as 60 and 1000 seconds \cite{Dirkx2019}. 
+        \item \textcolor{orange}{[week 1/4]} Construct realistic noise functions for the observables, based on the \gls{DSN} noise characteristics \cite[p.~33]{Thorton2003}.
+        \item \textcolor{orange}{[week 2/4]} Investigate the state of affairs of the \gls{EKF} in Tudat, and if necessary, refactor (or add another) standalone interface (if need be) and validate with unit tests.
+        \item \textcolor{orange}{[week 3/4]} Write functional standalone code for the \gls{UKF}, and validate using unit tests. Using the \gls{UKF} in practice will require components in Tudat to be deep-copyable, which is currently not a feature. This will require the implementation of deep copy constructors for the dynamics simulator, and possibly other components.
+        \item \textcolor{orange}{[week 3/4]} Ensure that the Kalman filters implemented have copy constructors to facilitate deep copying when used in the reinforcement learning environment.
+        \item \textcolor{orange}{[week 3/4]} Test the estimation framework with Marie's orbital design (or with Eros if a binary asteroid system is deemed to entail work exceeding the scope of the work) and analyse the results of the constrained parameters over time.
+    \end{enumerate}
+    % \item \textcolor{orange}{[week 2/4]} Document the previous steps and manage references for the final report.
+    % to use the filter at a higher level as part of the later implemented open-loop simulation API.
+
+    \item Compare performance metrics by running a global optimisation routine in the test case used in the previous step to determine the optimal spacecraft trajectory. This will be used as a baseline (closed-loop solution) for the reinforcement learning policy (open-loop solution) to compare against. The optimisation problem will use the improved Sims Flanaga formulated by Yam et al. \cite{Yam2010} \textcolor{blue}{[3 weeks]}
+    \begin{enumerate}
+        \item \textcolor{orange}{[week 1/3]} Evaluate the implementation of the Sundman transform in Tudat, in order to propagate in the s-domain, where $s_0=0$ and $ds=dt/r$. Attempt this by only controlling $dt$ given the dependent variable of the position of the spacecraft. This may require the implementation of a new propagator in Tudat, and the implementation of a new state derivative model for the spacecraft dynamics. If the estimated workload exceeds the scope of the work, time domain propagation will be used instead.
+        \item \textcolor{orange}{[week 2/3]} Formulate the optimisation problem by parametrising the spacecraft thrust in the RSW frame with $\Delta{V}$ impulses across an assumed mission duration.
+        \item \textcolor{orange}{[week 2/3]} Implement and investigate alternative performance metrics and constraints by running a global optimisation routine (particle swarm optimisation favoured by Izzo).
+        \item \textcolor{orange}{[week 3/3]} Evaluate and compare the results of performance metrics and constraints for the closed-loop solution.
+    \end{enumerate}
+
+    \item Use \gls{PPO} as a baseline reinforcement learning algorithm to evaluate characterisation performance metrics and their resultant optimal policies for guidance and control of an autonomous spacecraft in the vicinity of a small body or protoplanet generated by distributions obtained in (1). \textcolor{blue}{[2 weeks]}
+          \begin{enumerate}
+              \item \textcolor{orange}{[week 1/2]} Implement an interface for closed-loop control of the dynamics simulator of Tudat (this is already done on a private branch for the most part).
+              \item \textcolor{orange}{[week 1/2]} Implement unit tests for arbitrary spacecraft guidance and control policies with the new interface and ensure consistency in the results with the validated open-loop interface of the dynamics simulator.
+              \item \textcolor{orange}{[week 2/2]} Construct a problem environment for the reinforcement learning algorithm ensuring compatibility with the \gls{PPO} algorithm in the environment.
+          \end{enumerate}
+
+    
+
+    % synthesize the selected gravitational potential model (spherical harmonics) 
+    % Assuming an initial gravitational potential models for all bodies with shape models available (1635 asteroids shape models avilable\footnotemark[note1] and 5 comets\footnotemark[note2]). Using the known mass of the bodies (otherwise draw from the distribution of masses of the bodies in the same class), generate a gravitational potential model of each body using the spherical harmonics to a consistent order and degree. \textcolor{blue}{[2 weeks]}
+    %       \begin{enumerate}
+    %           \item \textcolor{orange}{[week 1/2]} Generate a gravitational potential model for each body with a shape model available using the spherical harmonics method.
+    %           \item \textcolor{orange}{[week 1/2]} Generate a gravitational potential model for each body with a shape model available using the mascon method.
+    %       \end{enumerate}
+    % Using a homogenous polyhedral gravitational potential model from
+    
+    % according to the model selected and parameters thereof.
+    
+    % a gravitational potential model (potent) Generate synthetic gravitational potential models according to the selected representation
+    % (1635 asteroids shape models avilable\footnotemark[note1])
+    
+    % This will be form part of the discussion in the thesis, where assumptions will be made about the missing data. 
+          
+              
+    %           across all samples to be modelled by the probability distributions, and the environment models to be used in the simulation environment.
+    %           \item \textcolor{orange}{[week 2/2]} Depending on the quantity of data available, select a validation strategy (training, testing and validation data separation). Fit appropriate standard probability distributions to the data and evaluate the goodness-of-fit with respect to the validation samples of the physical characteristics.
+    %                 % \item[\[week 2\]] 
+    %       \end{enumerate}
+    %     %   Document sources, tabulate data, clean data (check for missing data and inconsistencies), and analyse plots for correlations between physical characteristics.
+    %       The direction following the results of the above steps will be determined by the results of the goodness-of-fit analysis. If the 
+    %       \begin{itemize}
+    %         \item \textbf{Case A}: The quantity of samples which contain the set of desired attributes is sufficient to select a subset of samples with an equal representation of all small body orbit classes (i.e. ``Centaur'', ``Inner Main-belt Asteroid'', ``Jupiter Trojan'', ``Halley-type Comet'',...) and composition classes (i.e. ``Carbonaceous'', ``Chondritic'', ``Iron'', ``Silicate'',...) to be used as the training cases for the reinforcement learning agent. No synthetic data will be required and therefore probability density functions will not be generated. If the quantity of samples is more than sufficient (computationally infeasible to train, test and validate the policy's performance across the population), \textbf{stratified sampling will be used to obtain a homogeneous subpopulation (strata) that maintains the representation of the entire population of small bodies in the Solar System.} 
+    %         \item \textbf{Case B}: The quantity of samples which contain the set of desired attributes (missing ) is insufficient to select a subset of samples with an equal representation of all small body orbit classes (i.e. ``Centaur'', ``Inner Main-belt Asteroid'', ``Jupiter Trojan'', ``Halley-type Comet'',...) and composition classes (i.e. ``Carbonaceous'', ``Chondritic'', ``Iron'', ``Silicate'',...) to be used as the training cases for the reinforcement learning agent. \textbf{Synthetic data (further samples obtained from probability models) will be required.}
+            
+    %         % There are a lot of missing data attributes from the desired set across all samples
+            
+    %         , and the data is not normally distributed. In this case, we will need to use a more complex model to capture the underlying distribution of the data. This could be a mixture of probability distributions, or a more complex distribution such as a Dirichlet distribution. This will be determined by the results of the goodness-of-fit analysis.
+    %       \end{itemize}
+
+
 \end{enumerate}
 
 
 and select their resulting environment model representations,
 and the environment models which utilise these characteristics in the dynamical simulation.
-
-\begin{itemize}
-
-\end{itemize}
-
 
 Linked, Autonomous, Interplanetary Satellite Orbit Navigation (LiAISON) - \cite{Hill2006}

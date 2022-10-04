@@ -276,16 +276,13 @@ simplicity,
 optimality, tractability and robustness
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.8\linewidth]{graphics/lkf.PNG}
-    \caption{CEKF flow diagram for process of tracking and data prediction including all equations \cite{3}.}
-    \label{fig:LKF}
+    \centering \includegraphics[width=0.8\linewidth]{graphics/lkf.PNG} \caption{CEKF flow diagram for process of tracking and data prediction including all equations \cite{3}.} \label{fig:LKF}
 \end{figure}
 
 
 \subsubsection{Extended Kalman Filter}
 
-However, the application of the KF to nonlinear systems can be complex. The most common approach is the Extended Kalman Filter (EKF), which linearises all nonlinear models to apply the traditional linear Kalman filter. Although the EKF (in its many forms) is a widely used filtering strategy, over thirty years of experience with it has led to a consensus within the tracking and control community that it is challenging to implement, difficult to tune, and only reliable for systems which are almost linear on the time scale of the update intervals.
+However, the application of the KF to nonlinear systems can be complex. The most common approach is the \gls{EKF}, which linearises all nonlinear models to apply the traditional linear Kalman filter. Although the EKF (in its many forms) is a widely used filtering strategy, over thirty years of experience with it has led to a consensus within the tracking and control community that it is challenging to implement, difficult to tune, and only reliable for systems which are almost linear on the time scale of the update intervals.
 
 \begin{equation}
    \hat{\bm{x}}_{i}^- = f({\bm{x}}_{i-1}^+,\bm{u}_{i})
@@ -310,8 +307,9 @@ non-linear system.
 
 \subsubsection{Unscented Kalman Filter}
 
+The \gls{UKF}
 First and second-order terms of the nonlinear system captured through the
-addition of the unscented transform (UT).
+addition of the \gls{UT}.
 
 Proposed by Julier and Uhlmann in 1997~\cite{Julier1997}
 
