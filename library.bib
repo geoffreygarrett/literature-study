@@ -12,6 +12,516 @@
   keywords        = {Deep Space Network,Pseudonoise ranging,Range measurement,Sequential ranging},
   mendeley-groups = {Thesis Refactored}
 }
+@article{Khoi2021,
+  abstract  = {In Reinforcement Learning, the reward is one of the main components to optimize the strategy. While other approaches are based on a simple scalar reward to get an optimal policy, we propose a model learning the designated reward in numerous conditions. Our method, which we call multi-objective exploration for proximal policy optimization (MOE-PPO), alleviates the dependence on the reward design by executing the Preferent Surrogate Objective (PSO). We also make full use of Curiosity Driven Exploration to increase exploration ability. Our experiments test MOE-PPO in the Super Mario Bros environment designed by OpenAIGym with three criteria to illustrate our approach's effectiveness. The result shows that MOE-PPO outperforms other on-policy algorithms under many conditions.},
+  author    = {Nguyen Do Hoang Khoi and Cuong Pham Van and Hoang Vu Tran and Cao Dung Truong},
+  doi       = {10.1109/ATIGB50996.2021.9423319},
+  isbn      = {9781728186580},
+  journal   = {Proceedings of 2020 Applying New Technology in Green Buildings, ATiGB 2020},
+  keywords  = {multi-objective exploration (MOE),proximal policy optimization (PPO),reinforcement learning,super mario game},
+  month     = {3},
+  pages     = {105-109},
+  publisher = {Institute of Electrical and Electronics Engineers Inc.},
+  title     = {Multi-Objective Exploration for Proximal Policy Optimization},
+  year      = {2021}
+}
+@article{Nesnas2021,
+   abstract = {Autonomy is becoming increasingly important for the robotic exploration of unpredictable environments. One such example is the approach, proximity operation, and surface exploration of small bodies. In this article, we present an overview of an estimation framework to approach and land on small bodies as a key functional capability for an autonomous small-body explorer. We use a multi-phase perception/estimation pipeline with interconnected and overlapping measurements and algorithms to characterize and reach the body, from millions of kilometers down to its surface. We consider a notional spacecraft design that operates across all phases from approach to landing and to maneuvering on the surface of the microgravity body. This SmallSat design makes accommodations to simplify autonomous surface operations. The estimation pipeline combines state-of-the-art techniques with new approaches to estimating the target’s unknown properties across all phases. Centroid and light-curve algorithms estimate the body–spacecraft relative trajectory and rotation, respectively, using a priori knowledge of the initial relative orbit. A new shape-from-silhouette algorithm estimates the pole (i.e., rotation axis) and the initial visual hull that seeds subsequent feature tracking as the body gets more resolved in the narrow field-of-view imager. Feature tracking refines the pole orientation and shape of the body for estimating initial gravity to enable safe close approach. A coarse-shape reconstruction algorithm is used to identify initial landable regions whose hazardous nature would subsequently be assessed by dense 3D reconstruction. Slope stability, thermal, occlusion, and terra-mechanical hazards would be assessed on densely reconstructed regions and continually refined prior to landing. We simulated a mission scenario for approaching a hypothetical small body whose motion and shape were unknown a priori, starting from thousands of kilometers down to 20 km. Results indicate the feasibility of recovering the relative body motion and shape solely relying on onboard measurements and estimates with their associated uncertainties and without human input. Current work continues to mature and characterize the algorithms for the last phases of the estimation framework to land on the surface.},
+   author = {Issa A.D. Nesnas and Benjamin J. Hockman and Saptarshi Bandopadhyay and Benjamin J. Morrell and Daniel P. Lubey and Jacopo Villa and David S. Bayard and Alan Osmundson and Benjamin Jarvis and Michele Bersani and Shyam Bhaskaran},
+   doi = {10.3389/frobt.2021.650885},
+   issn = {22969144},
+   journal = {Frontiers in Robotics and AI},
+   keywords = {autonomous approach and landing,autonomous small-body navigation,pole and shape estimation,small-body autonomy,small-body feature tracking,small-sat autonomy,spacecraft autonomy},
+   month = {11},
+   publisher = {Frontiers Media S.A.},
+   title = {Autonomous Exploration of Small Bodies Toward Greater Autonomy for Deep Space Missions},
+   volume = {8},
+   year = {2021},
+}
+
+@report{Desai2018,
+   abstract = {It is commonly believed that an agent making decisions on behalf of two or more principals who have different utility functions should adopt a Pareto optimal policy, i.e. a policy that cannot be improved upon for one principal without making sacrifices for another. Harsanyi's theorem shows that when the principals have a common prior on the outcome distributions of all policies, a Pareto optimal policy for the agent is one that maximizes a fixed, weighted linear combination of the principals' utilities. In this paper, we derive a more precise generalization for the sequential decision setting in the case of principals with different priors on the dynamics of the environment. We refer to this generalization as the Negotiable Reinforcement Learning (NRL) framework. In this more general case, the relative weight given to each principal's utility should evolve over time according to how well the agent's observations conform with that principal's prior. To gain insight into the dynamics of this new framework, we implement a simple NRL agent and empirically examine its behavior in a simple environment.},
+   author = {Nishant Desai and Andrew Critch and Stuart Russell},
+   title = {Negotiable Reinforcement Learning for Pareto Optimal Sequential Decision-Making},
+   year = {2018},
+}
+
+@report{Nguyen2018,
+   abstract = {This paper introduces a new scalable multi-objective deep reinforcement learning (MODRL) framework based on deep Q-networks. We develop a high-performance MODRL framework that supports both single-policy and multi-policy strategies, as well as both linear and non-linear approaches to action selection. The experimental results on two benchmark problems (two-objective deep sea treasure environment and three-objective Mountain Car problem) indicate that the proposed framework is able to find the Pareto-optimal solutions effectively. The proposed framework is generic and highly modularized, which allows the integration of different deep reinforcement learning algorithms in different complex problem domains. This therefore overcomes many disadvantages involved with standard multi-objective reinforcement learning methods in the current literature. The proposed framework acts as a testbed platform that accelerates the development of MODRL for solving increasingly complicated multi-objective problems.},
+   author = {Thanh Thi Nguyen and Ngoc Duy Nguyen and Peter Vamplew and Saeid Nahavandi and Richard Dazeley and Chee Peng Lim},
+   keywords = {deep learning,multi-objective,multi-policy,reinforcement learning,single-policy},
+   title = {A Multi-Objective Deep Reinforcement Learning Framework},
+   year = {2018},
+}
+
+@article{Hayes2022,
+  abstract  = {Real-world sequential decision-making tasks are generally complex, requiring trade-offs between multiple, often conflicting, objectives. Despite this, the majority of research in reinforcement learning and decision-theoretic planning either assumes only a single objective, or that multiple objectives can be adequately handled via a simple linear combination. Such approaches may oversimplify the underlying problem and hence produce suboptimal results. This paper serves as a guide to the application of multi-objective methods to difficult problems, and is aimed at researchers who are already familiar with single-objective reinforcement learning and planning methods who wish to adopt a multi-objective perspective on their research, as well as practitioners who encounter multi-objective decision problems in practice. It identifies the factors that may influence the nature of the desired solution, and illustrates by example how these influence the design of multi-objective decision-making systems for complex problems.},
+  author    = {Conor F. Hayes and Roxana Rădulescu and Eugenio Bargiacchi and Johan Källström and Matthew Macfarlane and Mathieu Reymond and Timothy Verstraeten and Luisa M. Zintgraf and Richard Dazeley and Fredrik Heintz and Enda Howley and Athirai A. Irissappane and Patrick Mannion and Ann Nowé and Gabriel Ramos and Marcello Restelli and Peter Vamplew and Diederik M. Roijers},
+  doi       = {10.1007/S10458-022-09552-Y/FIGURES/8},
+  issn      = {15737454},
+  issue     = {1},
+  journal   = {Autonomous Agents and Multi-Agent Systems},
+  keywords  = {Multi-objective decision making,Multi-objective multi-agent systems,Multi-objective planning,Multi-objective reinforcement learning},
+  month     = {4},
+  pages     = {1-59},
+  publisher = {Springer},
+  title     = {A practical guide to multi-objective reinforcement learning and planning},
+  volume    = {36},
+  url       = {https://link.springer.com/article/10.1007/s10458-022-09552-y},
+  year      = {2022}
+}
+
+@report{Belakaria2021,
+  abstract = {We consider the problem of black-box multi-objective optimization (MOO) using expensive function evaluations (also referred to as experiments), where the goal is to approximate the true Pareto set of solutions by minimizing the total resource cost of experiments. For example, in hardware design optimization, we need to find the designs that trade-off performance , energy, and area overhead using expensive computational simulations. The key challenge is to select the sequence of experiments to uncover high-quality solutions using minimal resources. In this paper, we propose a general framework for solving MOO problems based on the principle of output space entropy (OSE) search: select the experiment that maximizes the information gained per unit resource cost about the true Pareto front. We appropriately instantiate the principle of OSE search to derive efficient algorithms for the following four MOO problem settings: 1) The most basic single-fidelity setting, where experiments are expensive and accurate; 2) Handling black-box constraints which cannot be evaluated without performing experiments; 3) The discrete multi-fidelity setting, where experiments can vary in the amount of resources consumed and their evaluation accuracy; and 4) The continuous-fidelity setting, where continuous function approximations result in a huge space of experiments. Experiments on diverse synthetic and real-world benchmarks show that our OSE search based algorithms improve over state-of-the-art methods in terms of both computational-efficiency and accuracy of MOO solutions.},
+  author   = {Syrine Belakaria and Aryan Deshwal and Janardhan Rao Doppa},
+  journal  = {Journal of Artificial Intelligence Research},
+  pages    = {667-715},
+  title    = {Output Space Entropy Search Framework for Multi-Objective Bayesian Optimization},
+  volume   = {72},
+  year     = {2021}
+}
+
+@article{Yang2019,
+  abstract = {We introduce a new algorithm for multi-objective reinforcement learning
+              (MORL) with linear preferences, with the goal of enabling few-shot adaptation
+              to new tasks. In MORL, the aim is to learn policies over multiple competing
+              objectives whose relative importance (preferences) is unknown to the agent.
+              While this alleviates dependence on scalar reward design, the expected return
+              of a policy can change significantly with varying preferences, making it
+              challenging to learn a single model to produce optimal policies under different
+              preference conditions. We propose a generalized version of the Bellman equation
+              to learn a single parametric representation for optimal policies over the space
+              of all possible preferences. After an initial learning phase, our agent can
+              execute the optimal policy under any given preference, or automatically infer
+              an underlying preference with very few samples. Experiments across four
+              different domains demonstrate the effectiveness of our approach.},
+  author   = {Runzhe Yang and Xingyuan Sun and Karthik Narasimhan},
+  doi      = {10.48550/arxiv.1908.08342},
+  month    = {8},
+  title    = {A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation},
+  url      = {https://arxiv.org/abs/1908.08342},
+  year     = {2019}
+}
+
+@report{Roijers2015,
+  abstract = {We argue that multi-objective methods are underrepresented in RL research, and present three scenarios to justify the need for explicitly multi-objective approaches. Key to these scenarios is that although the utility the user derives from a policy-which is what we ultimately aim to optimize-is scalar, it is sometimes impossible, undesirable or infeasible to formulate the problem as single-objective at the moment when the policies need to be learned. We also present the case for a utility-based view of multi-objective RL, i.e., that the appropriate multi-objective solution concept should be derived from what we know about the user's utility function, rather than axiomatically assumed to be the Pareto front. Many tasks have multiple, possibly conflicting, objectives. However, while interest in multi-objective RL (MORL) has grown in recent years, the majority of RL research and applications still assume only a single objective. Some researchers argue that explicit multi-objective modeling is not necessary, and that a scalar reward function is adequate. For example Sutton's reward hypothesis, states "that all of what we mean by goals and purposes can be well thought of as maximization of the expected value of the cumulative sum of a received scalar signal (reward)". The implication is that a multi-objective MDP can always be converted into a single-objective one. Such a conversion process would involve two steps. The first is to specify a scalarization function f , that projects the multi-objective value V π to a scalar utility V π w (s) = f (V π (s), w), where w is a vector parameterizing f. For example, if f is a linear combination of the values, w specifies the relative weight of the objectives. The second step is to define a single-objective MDP such that, for all π and s, the expected return equals the scalarized value V π w (s). However, there are three scenarios for which one or both of these conversion steps is impossible, infeasible, or undesirable (see Figure 1) (Roijers et al., 2013). The unknown weights scenario occurs when w is unknown at the moment of learning (e.g., when the weights correspond to prices that may vary over time). In this scenario, it can be preferable to use a multi-objective method to compute in advance a set of policies and then use the current weights to select the optimal policy at any point in time. In the decision support scenario, scalarization is infeasible throughout the entire decision-making process because of the difficulty of specifying w, or even f (for example, the user may have subjective preferences that defy meaningful quantification). In such a system, MORL can be used to calculate an optimal solution set with respect to any known constraints about f and w and then the user selects a policy according to their arbitrary preferences, rather than via explicit scalarization.},
+  author   = {Diederik M Roijers and Shimon Whiteson and Peter Vamplew and Richard Dazeley and Alessandro Lazaric and Mohammad Ghavamzadeh and Rémi Munos},
+  journal  = {European Workshop on Reinforcement Learning},
+  title    = {Why Multi-objective Reinforcement Learning?},
+  year     = {2015}
+}
+
+
+
+@article{Shuang2008,
+   abstract = {Autonomous optical navigation schemes for pinpoint landing of spacecraft on asteroids are considered. Due to the long communication delay and complicated dynamic environment close to asteroids, traditional spacecraft navigation and control using the deep space network (DSN) is not suitable for the precise landing of spacecraft on asteroids. Then it is necessary to develop new autonomous navigation algorithms for future asteroid sample and return missions. To meet this requirement, this paper presents two landmark tracking navigation algorithms based on nonlinear least squares (NLS) and extended Kalman filter (EKF). The validity of the proposed navigation schemes is confirmed by numerical simulation. © 2007 Elsevier Ltd. All rights reserved.},
+   author = {Li Shuang and Cui Pingyuan},
+   doi = {10.1016/j.actaastro.2007.11.009},
+   issn = {00945765},
+   issue = {6-7},
+   journal = {Acta Astronautica},
+   keywords = {Asteroid landing,Extended Kalman filter,Landmark tracking navigation,Nonlinear least squares},
+   month = {3},
+   pages = {391-403},
+   title = {Landmark tracking based autonomous navigation schemes for landing spacecraft on asteroids},
+   volume = {62},
+   year = {2008},
+}
+
+
+@article{Asmar2005,
+   abstract = {We discuss noise in Doppler tracking of deep space probes and provide a detailed noise model for Doppler radio science experiments. The most sensitive current experiments achieve fractional frequency fluctuation noise of about 3 × 10-15 at 1000-s integration time, corresponding to better than 1 micron per second velocity noise. Our noise model focuses primarily on the Fourier range ≈ 10-4-1 Hz, but we briefly discuss noise in lower-frequency observations. We indicate applications of the noise model to experiment planning, identify phenomena limiting current Doppler sensitivity, and discuss the prospects for significant sensitivity improvements. Copyright 2005 by the American Geophysical Union.},
+   author = {S. W. Asmar and J. W. Armstrong and L. Iess and P. Tortora},
+   doi = {10.1029/2004RS003101},
+   issn = {00486604},
+   issue = {2},
+   journal = {Radio Science},
+   month = {3},
+   title = {Spacecraft Doppler tracking: Noise budget and accuracy achievable in precision radio science observations},
+   volume = {40},
+   year = {2005},
+}
+
+@book{Cover1991,
+  title={Elements of Information Theory},
+  author={Cover, T.M. and Thomas, J.A.},
+  isbn={9780471062592},
+  lccn={lc90045484},
+  series={Wiley Series in Telecommunications and Signal Processing},
+  url={https://books.google.co.za/books?id=CX9QAAAAMAAJ},
+  year={1991},
+  publisher={Wiley}
+}
+@article{Ly2017,
+   abstract = {In many statistical applications that concern mathematical psychologists, the concept of Fisher information plays an important role. In this tutorial we clarify the concept of Fisher information as it manifests itself across three different statistical paradigms. First, in the frequentist paradigm, Fisher information is used to construct hypothesis tests and confidence intervals using maximum likelihood estimators; second, in the Bayesian paradigm, Fisher information is used to define a default prior; lastly, in the minimum description length paradigm, Fisher information is used to measure model complexity.},
+   author = {Alexander Ly and Maarten Marsman and Josine Verhagen and Raoul Grasman and Eric-Jan Wagenmakers},
+   month = {5},
+   title = {A Tutorial on Fisher Information},
+   url = {http://arxiv.org/abs/1705.01064},
+   year = {2017},
+}
+
+@article{Izzo2020,
+  abstract = {We consider the Earth-Venus mass-optimal interplanetary transfer of a low-thrust spacecraft and show how the optimal guidance can be represented by deep networks in a large portion of the state space and to a high degree of accuracy. Imitation (supervised) learning of optimal examples is used as a network training paradigm. The resulting models are suitable for an on-board, real-time, implementation of the optimal guidance and control system of the spacecraft and are called G&CNETs. A new general methodology called Backward Generation of Optimal Examples is introduced and shown to be able to efficiently create all the optimal state action pairs necessary to train G&CNETs without solving optimal control problems. With respect to previous works, we are able to produce datasets containing a few orders of magnitude more optimal trajectories and obtain network performances compatible with real missions requirements. Several schemes able to train representations of either the optimal policy (thrust profile) or the value function (optimal mass) are proposed and tested. We find that both policy learning and value function learning successfully and accurately learn the optimal thrust and that a spacecraft employing the learned thrust is able to reach the target conditions orbit spending only 2 permil more propellant than in the corresponding mathematically optimal transfer. Moreover, the optimal propellant mass can be predicted (in case of value function learning) within an error well within 1%. All G&CNETs produced are tested during simulations of interplanetary transfers with respect to their ability to reach the target conditions optimally starting from nominal and off-nominal conditions.},
+  author   = {Dario Izzo and Ekin Öztürk},
+  month    = {2},
+  title    = {Real-Time Optimal Guidance and Control for Interplanetary Transfers Using Deep Networks},
+  url      = {http://arxiv.org/abs/2002.09063},
+  year     = {2020}
+}
+
+@article{Willis2016,
+  abstract = {We use neural reinforcement learning to control a spacecraft around a small celestial body whose gravity field is unknown. The small body is assumed to be a triaxial ellipsoid and its density and dimensions are left unknown within large bounds. We experiment with different proprioceptive capabilities of the spacecraft emphasising lightweight neuromorphic systems for optic flow detection. We find that even in such a highly uncertain environment and using limited perception capabilities, our approach is able to deliver a control strategy able to hover above the asteroid surface with small residual drift.},
+  author   = {Stefan Willis and Dario Izzo and Daniel Hennes},
+  isbn     = {9780877036333},
+  issn     = {00653438},
+  journal  = {Advances in the Astronautical Sciences},
+  pages    = {1351-1368},
+  title    = {Reinforcement learning for spacecraft maneuvering near small bodies},
+  volume   = {158},
+  year     = {2016}
+}
+@article{Zeng2022,
+Author        = {Chen Zeng and Grant Hecht and Prajit KrisshnaKumar and Raj K. Shah and Souma Chowdhury and Eleonora M. Botta},
+Title         = {Learning Robust Policies for Generalized Debris Capture with an
+  Automated Tether-Net System},
+Eprint        = {2201.04180v1},
+DOI           = {10.2514/6.2022-2379},
+ArchivePrefix = {arXiv},
+PrimaryClass  = {cs.RO},
+Abstract      = {Tether-net launched from a chaser spacecraft provides a promising method to
+capture and dispose of large space debris in orbit. This tether-net system is
+subject to several sources of uncertainty in sensing and actuation that affect
+the performance of its net launch and closing control. Earlier
+reliability-based optimization approaches to design control actions however
+remain challenging and computationally prohibitive to generalize over varying
+launch scenarios and target (debris) state relative to the chaser. To search
+for a general and reliable control policy, this paper presents a reinforcement
+learning framework that integrates a proximal policy optimization (PPO2)
+approach with net dynamics simulations. The latter allows evaluating the
+episodes of net-based target capture, and estimate the capture quality index
+that serves as the reward feedback to PPO2. Here, the learned policy is
+designed to model the timing of the net closing action based on the state of
+the moving net and the target, under any given launch scenario. A stochastic
+state transition model is considered in order to incorporate synthetic
+uncertainties in state estimation and launch actuation. Along with notable
+reward improvement during training, the trained policy demonstrates capture
+performance (over a wide range of launch/target scenarios) that is close to
+that obtained with reliability-based optimization run over an individual
+scenario.},
+Year          = {2022},
+Month         = {Jan},
+Url           = {http://arxiv.org/abs/2201.04180v1},
+File          = {2201.04180v1.pdf}
+}
+@article{Gankidi2017,
+  author        = {Pranay Gankidi and Jekan Thangavelautham},
+  title         = {FPGA Architecture for Deep Learning and its application to Planetary
+                   Robotics},
+  eprint        = {1701.07543v1},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  abstract      = {Autonomous control systems onboard planetary rovers and spacecraft benefit
+                   from having cognitive capabilities like learning so that they can adapt to
+                   unexpected situations in-situ. Q-learning is a form of reinforcement learning
+                   and it has been efficient in solving certain class of learning problems.
+                   However, embedded systems onboard planetary rovers and spacecraft rarely
+                   implement learning algorithms due to the constraints faced in the field, like
+                   processing power, chip size, convergence rate and costs due to the need for
+                   radiation hardening. These challenges present a compelling need for a portable,
+                   low-power, area efficient hardware accelerator to make learning algorithms
+                   practical onboard space hardware. This paper presents a FPGA implementation of
+                   Q-learning with Artificial Neural Networks (ANN). This method matches the
+                   massive parallelism inherent in neural network software with the fine-grain
+                   parallelism of an FPGA hardware thereby dramatically reducing processing time.
+                   Mars Science Laboratory currently uses Xilinx-Space-grade Virtex FPGA devices
+                   for image processing, pyrotechnic operation control and obstacle avoidance. We
+                   simulate and program our architecture on a Xilinx Virtex 7 FPGA. The
+                   architectural implementation for a single neuron Q-learning and a more complex
+                   Multilayer Perception (MLP) Q-learning accelerator has been demonstrated. The
+                   results show up to a 43-fold speed up by Virtex 7 FPGAs compared to a
+                   conventional Intel i5 2.3 GHz CPU. Finally, we simulate the proposed
+                   architecture using the Symphony simulator and compiler from Xilinx, and
+                   evaluate the performance and power consumption.},
+  year          = {2017},
+  month         = {Jan},
+  url           = {http://arxiv.org/abs/1701.07543v1},
+  file          = {1701.07543v1.pdf}
+}
+@article{Gremyachikh2019,
+  author        = {Leonid Gremyachikh and Dmitrii Dubov and Nikita Kazeev and Andrey Kulibaba and Andrey Skuratov and Anton Tereshkin and Andrey Ustyuzhanin and Lubov Shiryaeva and Sergej Shishkin},
+  title         = {Space Navigator: a Tool for the Optimization of Collision Avoidance
+                   Maneuvers},
+  eprint        = {1902.02095v1},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.SY},
+  abstract      = {The number of space objects will grow several times in a few years due to the
+                   planned launches of constellations of thousands microsatellites. It leads to a
+                   significant increase in the threat of satellite collisions. Spacecraft must
+                   undertake collision avoidance maneuvers to mitigate the risk. According to
+                   publicly available information, conjunction events are now manually handled by
+                   operators on the Earth. The manual maneuver planning requires qualified
+                   personnel and will be impractical for constellations of thousands satellites.
+                   In this paper we propose a new modular autonomous collision avoidance system
+                   called "Space Navigator". It is based on a novel maneuver optimization approach
+                   that combines domain knowledge with Reinforcement Learning methods.},
+  year          = {2019},
+  month         = {Feb},
+  note          = {Advances in the Astronautical Sciences 2020 First IAA/AAS SciTech
+                   Forum on Space Flight Mechanics and Space Structures and Materials
+                   Conference, volume 170},
+  url           = {http://arxiv.org/abs/1902.02095v1},
+  file          = {1902.02095v1.pdf}
+}
+@article{Goh2021,
+  author        = {Edwin Goh and Hamsa Shwetha Venkataram and Mark Hoffmann and Mark Johnston and Brian Wilson},
+  title         = {Scheduling the NASA Deep Space Network with Deep Reinforcement Learning},
+  eprint        = {2102.05167v1},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  abstract      = {With three complexes spread evenly across the Earth, NASA's Deep Space
+                   Network (DSN) is the primary means of communications as well as a significant
+                   scientific instrument for dozens of active missions around the world. A rapidly
+                   rising number of spacecraft and increasingly complex scientific instruments
+                   with higher bandwidth requirements have resulted in demand that exceeds the
+                   network's capacity across its 12 antennae. The existing DSN scheduling process
+                   operates on a rolling weekly basis and is time-consuming; for a given week,
+                   generation of the final baseline schedule of spacecraft tracking passes takes
+                   roughly 5 months from the initial requirements submission deadline, with
+                   several weeks of peer-to-peer negotiations in between. This paper proposes a
+                   deep reinforcement learning (RL) approach to generate candidate DSN schedules
+                   from mission requests and spacecraft ephemeris data with demonstrated
+                   capability to address real-world operational constraints. A deep RL agent is
+                   developed that takes mission requests for a given week as input, and interacts
+                   with a DSN scheduling environment to allocate tracks such that its reward
+                   signal is maximized. A comparison is made between an agent trained using
+                   Proximal Policy Optimization and its random, untrained counterpart. The results
+                   represent a proof-of-concept that, given a well-shaped reward signal, a deep RL
+                   agent can learn the complex heuristics used by experts to schedule the DSN. A
+                   trained agent can potentially be used to generate candidate schedules to
+                   bootstrap the scheduling process and thus reduce the turnaround cycle for DSN
+                   scheduling.},
+  year          = {2021},
+  month         = {Feb},
+  url           = {http://arxiv.org/abs/2102.05167v1},
+  file          = {2102.05167v1.pdf}
+}
+@article{Zhou2021,
+  author        = {Dong Zhou and Guanghui Sun and Wenxiao Lei},
+  title         = {Space Non-cooperative Object Active Tracking with Deep Reinforcement
+                   Learning},
+  eprint        = {2112.09854v1},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CV},
+  abstract      = {Active visual tracking of space non-cooperative object is significant for
+                   future intelligent spacecraft to realise space debris removal, asteroid
+                   exploration, autonomous rendezvous and docking. However, existing works often
+                   consider this task into different subproblems (e.g. image preprocessing,
+                   feature extraction and matching, position and pose estimation, control law
+                   design) and optimize each module alone, which are trivial and sub-optimal. To
+                   this end, we propose an end-to-end active visual tracking method based on DQN
+                   algorithm, named as DRLAVT. It can guide the chasing spacecraft approach to
+                   arbitrary space non-cooperative target merely relied on color or RGBD images,
+                   which significantly outperforms position-based visual servoing baseline
+                   algorithm that adopts state-of-the-art 2D monocular tracker, SiamRPN. Extensive
+                   experiments implemented with diverse network architectures, different
+                   perturbations and multiple targets demonstrate the advancement and robustness
+                   of DRLAVT. In addition, We further prove our method indeed learnt the motion
+                   patterns of target with deep reinforcement learning through hundreds of
+                   trial-and-errors.},
+  year          = {2021},
+  month         = {Dec},
+  url           = {http://arxiv.org/abs/2112.09854v1},
+  file          = {2112.09854v1.pdf}
+}
+@article{Oestreich2020,
+  author        = {Charles E. Oestreich and Richard Linares and Ravi Gondhalekar},
+  title         = {Autonomous Six-Degree-of-Freedom Spacecraft Docking Maneuvers via
+                   Reinforcement Learning},
+  eprint        = {2008.03215v1},
+  archiveprefix = {arXiv},
+  primaryclass  = {eess.SY},
+  abstract      = {A policy for six-degree-of-freedom docking maneuvers is developed through
+                   reinforcement learning and implemented as a feedback control law. Reinforcement
+                   learning provides a potential framework for robust, autonomous maneuvers in
+                   uncertain environments with low on-board computational cost. Specifically,
+                   proximal policy optimization is used to produce a docking policy that is valid
+                   over a portion of the six-degree-of-freedom state-space while striving to
+                   minimize performance and control costs. Experiments using the simulated Apollo
+                   transposition and docking maneuver exhibit the policy's capabilities and
+                   provide a comparison with standard optimal control techniques. Furthermore,
+                   specific challenges and work-arounds, as well as a discussion on the benefits
+                   and disadvantages of reinforcement learning for docking policies, are discussed
+                   to facilitate future research. As such, this work will serve as a foundation
+                   for further investigation of learning-based control laws for spacecraft
+                   proximity operations in uncertain environments.},
+  year          = {2020},
+  month         = {Aug},
+  url           = {http://arxiv.org/abs/2008.03215v1},
+  file          = {2008.03215v1.pdf}
+}
+@article{Li2020,
+  abstract  = {In the design of multitarget interplanetary missions, there are always many options available, making it often impractical to optimize in detail each transfer trajectory in a preliminary search phase. Fast and accurate estimation methods for optimal transfers are thus of great value. In this paper, deep feed-forward neural networks are employed to estimate optimal transfer costs to three types of optimization problems: the transfer time of time-optimal low-thrust transfers, the fuel consumption of fuel-optimal low-thrust transfers, and the total Δv of minimum-Δv J2-perturbed multi-impulse transfers. To generate the training data, both considered categories of low-thrust trajectories are optimized using the indirect method, and the J2-perturbed multi-impulse trajectories are optimized using J2 homotopy and particle swarm optimization. The hyper-parameters of deep networks are determined by grid search, random search, and the tree-structured Parzen estimators approach. Results show that deep networks are capable of estimating the final mass or time of optimal transfers with a mean relative error of less than 0.5% for low-thrust transfers and less than 4% for multi-impulse transfers. Our results are also compared with other off-the-shelf machine-learning algorithms and the generalization capabilities of the developed deep networks for predicting cases well outside the training data are investigated. Applications in multitarget mission design are also investigated.},
+  author    = {Haiyang Li and Shiyu Chen and Dario Izzo and Hexi Baoyin},
+  doi       = {10.1016/j.actaastro.2019.09.023},
+  issn      = {00945765},
+  journal   = {Acta Astronautica},
+  keywords  = {Low thrust optimization,Multi impulse optimization,Multitarget mission design,Neural network approximators},
+  month     = {1},
+  pages     = {469-481},
+  publisher = {Elsevier Ltd},
+  title     = {Deep networks as approximators of optimal low-thrust and multi-impulse cost in multitarget missions},
+  volume    = {166},
+  year      = {2020}
+}
+
+
+@article{Furfaro2020,
+  author        = {Roberto Furfaro and Andrea Scorsoglio and Richard Linares and Mauro Massari},
+  title         = {Adaptive Generalized ZEM-ZEV Feedback Guidance for Planetary Landing via
+                   a Deep Reinforcement Learning Approach},
+  eprint        = {2003.02182v1},
+  doi           = {10.1016/j.actaastro.2020.02.051},
+  archiveprefix = {arXiv},
+  primaryclass  = {eess.SY},
+  abstract      = {Precision landing on large and small planetary bodies is a technology of
+                   utmost importance for future human and robotic exploration of the solar system.
+                   In this context, the Zero-Effort-Miss/Zero-Effort-Velocity (ZEM/ZEV) feedback
+                   guidance algorithm has been studied extensively and is still a field of active
+                   research. The algorithm, although powerful in terms of accuracy and ease of
+                   implementation, has some limitations. Therefore with this paper we present an
+                   adaptive guidance algorithm based on classical ZEM/ZEV in which machine
+                   learning is used to overcome its limitations and create a closed loop guidance
+                   algorithm that is sufficiently lightweight to be implemented on board
+                   spacecraft and flexible enough to be able to adapt to the given constraint
+                   scenario. The adopted methodology is an actor-critic reinforcement learning
+                   algorithm that learns the parameters of the above-mentioned guidance
+                   architecture according to the given problem constraints.},
+  year          = {2020},
+  month         = {Mar},
+  url           = {http://arxiv.org/abs/2003.02182v1},
+  file          = {2003.02182v1.pdf}
+}
+@article{Zavoli2020,
+  author        = {Alessandro Zavoli and Lorenzo Federici},
+  title         = {Reinforcement Learning for Low-Thrust Trajectory Design of
+                   Interplanetary Missions},
+  eprint        = {2008.08501v1},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  abstract      = {This paper investigates the use of Reinforcement Learning for the robust
+                   design of low-thrust interplanetary trajectories in presence of severe
+                   disturbances, modeled alternatively as Gaussian additive process noise,
+                   observation noise, control actuation errors on thrust magnitude and direction,
+                   and possibly multiple missed thrust events. The optimal control problem is
+                   recast as a time-discrete Markov Decision Process to comply with the standard
+                   formulation of reinforcement learning. An open-source implementation of the
+                   state-of-the-art algorithm Proximal Policy Optimization is adopted to carry out
+                   the training process of a deep neural network, used to map the spacecraft
+                   (observed) states to the optimal control policy. The resulting Guidance and
+                   Control Network provides both a robust nominal trajectory and the associated
+                   closed-loop guidance law. Numerical results are presented for a typical
+                   Earth-Mars mission. First, in order to validate the proposed approach, the
+                   solution found in a (deterministic) unperturbed scenario is compared with the
+                   optimal one provided by an indirect technique. Then, the robustness and
+                   optimality of the obtained closed-loop guidance laws is assessed by means of
+                   Monte Carlo campaigns performed in the considered uncertain scenarios. These
+                   preliminary results open up new horizons for the use of reinforcement learning
+                   in the robust design of interplanetary missions.},
+  year          = {2020},
+  month         = {Aug},
+  url           = {http://arxiv.org/abs/2008.08501v1},
+  file          = {2008.08501v1.pdf}
+}
+
+@report{Moffaert2014,
+  abstract = {Many real-world problems involve the optimization of multiple, possibly conflicting objectives. Multi-objective reinforcement learning (MORL) is a generalization of standard reinforcement learning where the scalar reward signal is extended to multiple feedback signals, in essence, one for each objective. MORL is the process of learning policies that optimize multiple criteria simultaneously. In this paper, we present a novel temporal difference learning algorithm that integrates the Pareto dominance relation into a reinforcement learning approach. This algorithm is a multi-policy algorithm that learns a set of Pareto dominating policies in a single run. We name this algorithm Pareto Q-learning and it is applicable in episodic environments with deterministic as well as stochastic transition functions. A crucial aspect of Pareto Q-learning is the updating mechanism that bootstraps sets of Q-vectors. One of our main contributions in this paper is a mechanism that separates the expected immediate reward vector from the set of expected future discounted reward vectors. This decomposition allows us to update the sets and to exploit the learned policies consistently throughout the state space. To balance exploration and exploitation during learning, we also propose three set evaluation mechanisms. These three mechanisms evaluate the sets of vectors to accommodate for standard action selection strategies, such as-greedy. More precisely, these mechanisms use multi-objective evaluation principles such as the hypervolume measure, the cardinality indicator and the Pareto dominance relation to select the most promising actions. We experimentally validate the algorithm on multiple environments with two and three objectives and we demonstrate that Pareto Q-learning outperforms current state-of-the-art MORL algorithms with respect to the hypervolume of the obtained policies. We note that (1) Pareto Q-learning is able to learn the entire Pareto front under the usual assumption that each state-action pair is sufficiently sampled, while (2) not being biased by the shape of the Pareto front. Furthermore, (3) the set evaluation mechanisms provide indicative measures for local action selection and (4) the learned policies can be retrieved throughout the state and action space.},
+  author   = {Kristof Van Moffaert and Ann Nowé},
+  journal  = {Journal of Machine Learning Research},
+  keywords = {Pareto sets,hypervolume,multi-objective,multiple criteria analysis,reinforcement learning},
+  pages    = {3663-3692},
+  title    = {Multi-Objective Reinforcement Learning using Sets of Pareto Dominating Policies},
+  volume   = {15},
+  year     = {2014}
+}
+@inproceedings{Kakihara2016,
+  title  = {Autonomous Orbit Determination of Multiple Spacecraft Using Active Sensing of Satellite-to-Satellite Tracking},
+  author = {Kota Kakihara},
+  year   = {2016}
+}
+@article{Huttenrauch2018,
+  abstract = {Recently, deep reinforcement learning (RL) methods have been applied successfully to multi-agent scenarios. Typically, these methods rely on a concatenation of agent states to represent the information content required for decentralized decision making. However, concatenation scales poorly to swarm systems with a large number of homogeneous agents as it does not exploit the fundamental properties inherent to these systems: (i) the agents in the swarm are interchangeable and (ii) the exact number of agents in the swarm is irrelevant. Therefore, we propose a new state representation for deep multi-agent RL based on mean embeddings of distributions. We treat the agents as samples of a distribution and use the empirical mean embedding as input for a decentralized policy. We define different feature spaces of the mean embedding using histograms, radial basis functions and a neural network learned end-to-end. We evaluate the representation on two well known problems from the swarm literature (rendezvous and pursuit evasion), in a globally and locally observable setup. For the local setup we furthermore introduce simple communication protocols. Of all approaches, the mean embedding representation using neural network features enables the richest information exchange between neighboring agents facilitating the development of more complex collective strategies.},
+  author   = {Maximilian Hüttenrauch and Adrian Šošić and Gerhard Neumann},
+  doi      = {10.48550/arxiv.1807.06613},
+  month    = {7},
+  title    = {Deep Reinforcement Learning for Swarm Systems},
+  url      = {http://arxiv.org/abs/1807.06613},
+  year     = {2018}
+}
+@article{Smola2007,
+  abstract  = {We describe a technique for comparing distributions without the need for density estimation as an intermediate step. Our approach relies on mapping the distributions into a reproducing kernel Hubert space. Applications of this technique can be found in two-sample tests, which are used for determining whether two sets of observations arise from the same distribution, covariate shift correction, local learning, measures of independence, and density estimation. © Springer-Verlag Berlin Heidelberg 2007.},
+  author    = {Alex Smola and Arthur Gretton and Le Song and Bernhard Schölkopf},
+  doi       = {10.1007/978-3-540-75225-7_5/COVER},
+  isbn      = {9783540752240},
+  issn      = {16113349},
+  journal   = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+  pages     = {13-31},
+  publisher = {Springer Verlag},
+  title     = {A hilbert space embedding for distributions},
+  volume    = {4754 LNAI},
+  url       = {https://link.springer.com/chapter/10.1007/978-3-540-75225-7_5},
+  year      = {2007}
+}
+@article{Lowe2017,
+  abstract = {We explore deep reinforcement learning methods for multi-agent domains. We
+              begin by analyzing the difficulty of traditional algorithms in the multi-agent
+              case: Q-learning is challenged by an inherent non-stationarity of the
+              environment, while policy gradient suffers from a variance that increases as
+              the number of agents grows. We then present an adaptation of actor-critic
+              methods that considers action policies of other agents and is able to
+              successfully learn policies that require complex multi-agent coordination.
+              Additionally, we introduce a training regimen utilizing an ensemble of policies
+              for each agent that leads to more robust multi-agent policies. We show the
+              strength of our approach compared to existing methods in cooperative as well as
+              competitive scenarios, where agent populations are able to discover various
+              physical and informational coordination strategies.},
+  author   = {Ryan Lowe and Yi Wu and Aviv Tamar and Jean Harb and Pieter Abbeel and Igor Mordatch},
+  doi      = {10.48550/arxiv.1706.02275},
+  month    = {6},
+  title    = {Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments},
+  url      = {https://arxiv.org/abs/1706.02275},
+  year     = {2017}
+}
+
+@article{Sriperumbudur2009,
+  abstract = {A Hilbert space embedding for probability measures has recently been proposed, with applications including dimensionality reduction, homogeneity testing, and independence testing. This embedding represents any probability measure as a mean element in a reproducing kernel Hilbert space (RKHS). A pseudometric on the space of probability measures can be defined as the distance between distribution embeddings: we denote this as $\gamma_k$, indexed by the kernel function $k$ that defines the inner product in the RKHS. We present three theoretical properties of $\gamma_k$. First, we consider the question of determining the conditions on the kernel $k$ for which $\gamma_k$ is a metric: such $k$ are denoted \{\em characteristic kernels\}. Unlike pseudometrics, a metric is zero only when two distributions coincide, thus ensuring the RKHS embedding maps all distributions uniquely (i.e., the embedding is injective). While previously published conditions may apply only in restricted circumstances (e.g. on compact domains), and are difficult to check, our conditions are straightforward and intuitive: bounded continuous strictly positive definite kernels are characteristic. Alternatively, if a bounded continuous kernel is translation-invariant on $\bb\{R\}^d$, then it is characteristic if and only if the support of its Fourier transform is the entire $\bb\{R\}^d$. Second, we show that there exist distinct distributions that are arbitrarily close in $\gamma_k$. Third, to understand the nature of the topology induced by $\gamma_k$, we relate $\gamma_k$ to other popular metrics on probability measures, and present conditions on the kernel $k$ under which $\gamma_k$ metrizes the weak topology.},
+  author   = {Bharath K. Sriperumbudur and Arthur Gretton and Kenji Fukumizu and Bernhard Schölkopf and Gert R. G. Lanckriet},
+  doi      = {10.48550/arxiv.0907.5309},
+  month    = {7},
+  title    = {Hilbert space embeddings and metrics on probability measures},
+  url      = {http://arxiv.org/abs/0907.5309},
+  year     = {2009}
+}
+
+@article{Li2022,
+  abstract  = {Context. The complex shape of asteroids and comets is a critical parameter in many scientific and operational studies. From the global irregular shape down to the local surface details, these topographies reflect the formation and evolutionary processes that remould the celestial body. Furthermore, these processes control how the surface will continue to evolve: from mass wasting on high slopes to spin-up due to anisotropic re-emission of thermal radiation. In addition, for space missions, the irregular coarse shape and complex landscape are a hazard to navigation, which must be accounted for in the planning phase.
+               
+               Aims. In this paper, we propose a novel method to synthesize physically correct 3D shape models of small celestial bodies, such as asteroids, to support the testing of a wide range of parameters in scientific and operational studies.
+               
+               Methods. We modeled virtual asteroid shapes using non-uniform sphere packings to represent the coarse shape, define an implicit surface, and then synthesize high-resolution topography with user-defined, locally controlled spot noise models. This effectively replaces the random noise model (e.g., Perlin noise) used in traditional approaches and allows us to construct a morphology based on actual physical shapes of the most common features observed on asteroids and comets. As an example of such a feature, we propose several kernel functions to add virtual craters to the coarse shape of the asteroid, of which the spatial distribution is controlled by typical crater production functions (e.g., a power law).
+               
+               Results. We demonstrate how this technique can be used to generate a variety of asteroid shapes and topographies using different cratering parameters and distributions. We apply our technique to artificially increase the resolution of existing models of the Didymos-Dimorphos system, the target of the Double Asteroid Redirection Test, and Hera missions. We show that our approach generates models that are suitable for typical analysis relying on detailed asteroid shapes, as well as operational scenarios for space missions. The meshes created with our algorithm can be directly used with existing visualization software and operations or science pipelines to generate data suitable for mission planning and to validate data analysis techniques.},
+  author    = {Xizhi Li and Jean-Baptiste Vincent and René Weller and Gabriel Zachmann},
+  journal   = {Astronomy & Astrophysics},
+  keywords  = {methods: numerical / minor planets / asteroids: general},
+  month     = {3},
+  pages     = {A176},
+  publisher = {EDP Sciences},
+  title     = {Numerical approach to synthesizing realistic asteroid surfaces from morphological parameters},
+  volume    = {659},
+  url       = {https://elib.dlr.de/187611/},
+  year      = {2022}
+}
 
 
 @book{Thorton2003,

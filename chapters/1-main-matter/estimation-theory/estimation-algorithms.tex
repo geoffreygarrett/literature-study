@@ -49,17 +49,7 @@ as a function of the state of the spacecraft at time $t_0$:
     \end{aligned}
 \end{equation*}
 
-The expressions of $h_i$ and $g_i$ can be used interchangeably in the
-measurement model predictions, to account for the fact that the measurements are
-often made at different times than the respective instantaneous states of the
-spacecraft. This is done using variational equations, which are simulated to
-obtain the state transition matrix $\bm{\Phi}(t_0, t)$ of the spacecraft, as
-described in \autoref{sec:linearization}, which may be interpolated for any
-arbitrary time within the temporal bounds of the ODE solution across
-$t_i\in[t_0, t_f]$ \cite[p.~]{Montenbruck2000}, so that one may relate an
-empirical $z_i$ at $\bm{x}(t_i)$ to $\bm{x}_0$ through $\bm{\Phi}(t_0,
-t_i)^{-1}\bm{x}_0$. This effectively constrains the trajectory to the designed
-IVP dynamical solution. Consequentially, the measurements concisely:
+The expressions of $h_i$ and $g_i$ can be used interchangeably in the measurement model predictions, to account for the fact that the measurements are often made at different times than the respective instantaneous states of the spacecraft. This is done using variational equations, which are simulated to obtain the state transition matrix $\bm{\Phi}(t_0, t)$ of the spacecraft, which may be interpolated for any arbitrary time within the temporal bounds of the ODE solution across $t_i\in[t_0, t_f]$ \cite{Montenbruck2000}, so that one may relate an empirical $z_i$ at $\bm{x}(t_i)$ to $\bm{x}_0$ through $\bm{\Phi}(t_0, t_i)^{-1}\bm{x}_0$. This effectively constrains the trajectory to the designed IVP dynamical solution. Consequentially, the measurements concisely:
 \begin{equation}
     \bm{z} = \bm{h}(\bm{x}_0) + \bm{\epsilon}.
 \end{equation}
@@ -145,12 +135,16 @@ for a step size $\Delta\bm{\beta}$. The resulting linearized model is:
     \end{aligned}
 \end{equation}
 
+where the residual vector becomes:
+
 \begin{equation}
     \begin{aligned}
         \bm{\rho} &= f(\bm{\beta}) - f(\bm{\beta}^*)  + \frac{\partial{f(\bm{\beta})}}{\partial{\bm{\beta}}}\Delta\bm{\beta}  \\
         \bm{\rho} &= \Delta\bm{z}  + \bm{H}\Delta\bm{\beta}  \\
     \end{aligned}
 \end{equation}
+
+The update rule for the estimated parameters then becomes:
 
 \begin{equation}
     \begin{aligned}
@@ -159,19 +153,20 @@ for a step size $\Delta\bm{\beta}$. The resulting linearized model is:
     \end{aligned}
 \end{equation}
 
+Until a convergence criterion is satisfied, such as~\cite{Kelley1999}:
+
 \begin{equation}
-    \left|\frac {\Delta\hat{\bm{\beta}}}{\hat{\bm{\beta}}}\right|<0.001,\qquad j=1,\dots ,n.
+    \left|\frac {\Delta\hat{\bm{\beta}}}{\hat{\bm{\beta}}}\right|<0.001.
 \end{equation}
 
-\cite{Kelley1999}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Kalman Filter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Without Western academia,
-by Rudolf E. Kalman \cite{Kalman1960, Kalman1961} and Richard S. Bucy \cite{Kalman1961}
-
+% Without Western academia,
+The Kalman Filter was developed by Rudolf E. Kalman and Richard S. Bucy \cite{Kalman1960, Kalman1961} and tackles sequential estimation problems. There are two primarily used types of Kalman Filters: the \gls{EKF} and the \gls{UKF}. 
 
 \def\predictstate{\vbox{
 \begin{equation}
@@ -244,7 +239,7 @@ by Rudolf E. Kalman \cite{Kalman1960, Kalman1961} and Richard S. Bucy \cite{Kalm
 \renewcommand{\arraystretch}{1.4}
 \centering
 \caption{
-    \textbf{}
+    \textbf{Procedure of the Extended Kalman Filter and equations.} There are two phases of the \gls{EKF}: the prediction phase and the update phase. The prediction phase is used to predict the state and the covariance of the state given a priori information (dynamic models). The update phase is used to update the state and the covariance of the state given posteriori information (observations). The equations are given in the table.
 }
 \label{tab:kalman-equations}
 \begin{tabularx}{\textwidth}{l X}
@@ -270,14 +265,14 @@ Measurement post-fit residual               & \postfitresidual       \\
 \end{tabularx}
 \end{table}
 
-\subsubsection{Linearized Kalman Filter}
+% \subsubsection{Linearized Kalman Filter}
 
-simplicity,
-optimality, tractability and robustness
+% simplicity,
+% optimality, tractability and robustness
 
-\begin{figure}[htp]
-    \centering \includegraphics[width=0.8\linewidth]{graphics/lkf.PNG} \caption{CEKF flow diagram for process of tracking and data prediction including all equations \cite{3}.} \label{fig:LKF}
-\end{figure}
+% \begin{figure}[htp]
+%     \centering \includegraphics[width=0.8\linewidth]{graphics/lkf.PNG} \caption{CEKF flow diagram for process of tracking and data prediction including all equations \cite{3}.} \label{fig:LKF}
+% \end{figure}
 
 
 \subsubsection{Extended Kalman Filter}
@@ -296,24 +291,20 @@ Although superior to Linearized Kalman Filtering in that the state propagation
 is represented correctly by the non-linear system; the main drawback is that the
 covariance is propagated through the linearised state transition matrix. This
 results in the uncertainty of the system being non-representative of the true
-non-linear system.
+non-linear system. See \autoref{tab:kalman-equations} for the equations of the \gls{EKF} and \autoref{fig:EKF} for an illustration of the \gls{EKF}.
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.8\linewidth]{graphics/ekf.PNG}
-    \caption{CEKF flow diagram for process of tracking and data prediction including all equations \cite{3}.}
-    \label{fig:LKF}
+    \caption{\textbf{Illustration of an Extended Kalman Filtered trajectory determination}. Image retrieved from Montenbruck and Gill \cite{Montenbruck2000}.}
+    \label{fig:EKF}
 \end{figure}
 
 \subsubsection{Unscented Kalman Filter}
 
-The \gls{UKF}
-First and second-order terms of the nonlinear system captured through the
-addition of the \gls{UT}.
+The \gls{UKF} was proposed by Julier and Uhlmann in 1997~\cite{Julier1997}. The primary improvement of the \gls{UKF} on the \gls{EKF} is that first and second-order terms of the nonlinear system are captured through the
+addition of the \gls{UT}.~\cite{Wan2000, Wan2001}  % not sure about this citation
 
-Proposed by Julier and Uhlmann in 1997~\cite{Julier1997}
-
-\cite{Wan2000, Wan2001}
 In order to combat the first-order propagation of covariance, a set of sigma
 points is chosen at each estimation step. These are chosen according to the
 covariance of the current state estimate and are passed through the non-linear
@@ -326,8 +317,8 @@ system to produce weighted estimates of the mean state and its covariance.
     \end{aligned}
 \end{equation}
 
-\cite{Cheng2011}
-The \textbf{sigma points} can be selected by
+
+The \textbf{sigma points} can be selected by using the following equations \cite{Cheng2011}:
 
 \begin{equation}
     \begin{aligned}
@@ -357,7 +348,7 @@ are then propagated through the non-linear observation model,
     \mathcal{Z}_k  = h(\mathcal{X}_k)\,\,\,\,\,\,k=1,...,2L
 \end{equation}
 
-and the mean and covariance of $\bm{z}$ is approximated using the weighted
+and the mean and covariance of $\bm{z}$ are approximated using the weighted
 sample mean and covariance of the posterior sigma points,
 
 \begin{equation}
@@ -367,18 +358,19 @@ sample mean and covariance of the posterior sigma points,
     \end{aligned}
 \end{equation}
 
+resulting in the final expression for the residuals:
 
 
 \begin{equation}
-   \bm{\rho}_i = \bm{z}_i - h(\bar{\bm{x}}_{i|i+1})
+   \bm{\rho}_i = \bm{z}_i - h(\bar{\bm{x}}_{i|i+1}).
 \end{equation}
 
 
 % Notethatthismethoddifferssubstantiallyfromgeneral“sam-pling”methods(e.g.,Monte-Carlomethodssuchasparticlefilters[1])whichrequireordersofmagnitudemoresamplepointsinanattempttopropagateanaccurate(possiblynon-Gaussian)distributionofthestate.Thedeceptivelysim-pleapproachtakenwiththeUTresultsinapproximationsthatareaccuratetothethirdorderforGaussianinputsforallnonlinearities.Fornon-Gaussianinputs,approximationsareaccuratetoatleastthesecond-order,withtheaccuracyofthirdandhigherordermomentsdeterminedbythechoiceofand(See[4]foradetaileddiscussionoftheUT).
 
-\begin{equation}
-   \bm{\rho}_i = \bm{z}_i - h(\bar{\bm{x}}_{i|i+1})
-\end{equation}
+% \begin{equation}
+%    \bm{\rho}_i = \bm{z}_i - h(\bar{\bm{x}}_{i|i+1})
+% \end{equation}
 
 % \begin{figure}[h]
 %     \centering
@@ -388,10 +380,12 @@ sample mean and covariance of the posterior sigma points,
 %     \label{fig:frames_rh}
 % \end{figure}
 
-\subsubsection{Joint versus Dual Filtering}
+%%%%%%%%%%% JOINT VS DUAL FILTERING %%%%%%%%%%%%%%%%%%
+% \subsubsection{Joint versus Dual Filtering}
 
-In general, dual estimation methods are more computationally advantageous, and
-joint estimation methods are more accurate \cite{Plett2005}.
+% In general, dual estimation methods are more computationally advantageous, and
+% joint estimation methods are more accurate \cite{Plett2005}.
+%%%%%%%%%%% JOINT VS DUAL FILTERING %%%%%%%%%%%%%%%%%%
 
 
 

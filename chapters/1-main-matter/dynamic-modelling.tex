@@ -54,7 +54,7 @@ In physical reality, the instantaneous thrust control capabilities of a spacecra
 
 It is evident from \autoref{tab:acc_effects} that the most influential effect on the kinetics of the spacecraft other than the trivial inclusion of the point-mass acceleration due to Eros within these mission parameters is the solar radiation pressure (SRP). It is therefore computationally beneficial, with minimal impact on the holistic result of the control and guidance, to exclude all sources of acceleration other than thrust, solar radiation pressure and the gravitational potential of the target asteroid.
 
-As mentioned in \autoref{ssec:frame_rtn}, the use of the RSW frame for thrust control provides significant insight into the effects incurred on the Keplerian elements of an orbit. In the same way that the effects of thrust in this frame provides meaningful insight to an astrodynamicist, it can be postulated that the learnability may be improved for an arbitrary machine learning algorithm.
+As mentioned in \autoref{ssec:relative_orbital_frame}, the use of the RSW frame for thrust control provides significant insight into the effects incurred on the Keplerian elements of an orbit. In the same way that the effects of thrust in this frame provide meaningful insight to an astrodynamicist, it can be postulated that the learnability may be improved for an arbitrary machine-learning algorithm.
 
 % \begin{equation}
 %     \ddot{\mathbf{r}}=-2\bm{\omega}\times\dot{\mathbf{r}}-\dot{\bm{\omega}}\times\mathbf{r}-\bm{\omega}\times(\bm{\omega}\times\mathbf{r})+\sum{\mathbf{a}}
@@ -96,7 +96,7 @@ As mentioned in \autoref{ssec:frame_rtn}, the use of the RSW frame for thrust co
         \textrm{where, }
         \mathbf{a}^I &= \textrm{an acceleration in the inertial frame (\autoref{ssec:frame_intertial}),}\\
         \mathbf{a}^B &= \textrm{an acceleration in the BCBF frame (\autoref{ssec:frame_bcbf}),}\\
-        \mathbf{a}^{RSW} &= \textrm{an acceleration in the RSW frame (\autoref{ssec:frame_rsw}),}\\
+        \mathbf{a}^{RSW} &= \textrm{an acceleration in the RSW frame (\autoref{ssec:relative_orbital_frame}),}\\
         \mathbf{R}^{Q/P} &= \textrm{rotation transformation from a frame P to Q,}\\
         \mathbf{a}_g &= \textrm{the acceleration due to gravity of the asteroid,}\\
         \mathbf{a}_{SRP} &= \textrm{the acceleration due to solar radiation pressure,}\\
@@ -393,8 +393,8 @@ and second kind $E$, it is possible to find an expression for $U$ and it's
 derivatives. Alternatively, as demonstrated by Willis et al. \cite{Willis2016},
 a more modern approach using Carlson elliptic integrals. After introducing
 $\kappa'=\kappa-\kappa_0$ in
-\autoref{eq:triaxial_ellipsoid_potential_elliptic_int}, the gravitational
-potential becomes,
+\autoref{eq:triaxial_ellipsoid_potential_elliptic_integral}, the gravitational
+potential becomes:
 
 \begin{equation}
     \begin{aligned}
@@ -454,10 +454,10 @@ acceleration due to the gravitational potential then becomes:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Expansion in spherical harmonics}
+\subsection{Expansion in spherical harmonics}\label{ssec:expansion_in_spherical_harmonics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The general approach for high fidelity gravitational potential modelling is the
+The general approach for high-fidelity gravitational potential modelling is the
 use of spherical harmonic expansion. The gravitational potential, $U$, of a
 body, in its body-fixed reference frame $\{X^B\}$ is described by the infinite
 series

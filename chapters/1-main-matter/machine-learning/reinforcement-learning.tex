@@ -1,9 +1,9 @@
 \newpage\section{Reinforcement Learning}\label{sec:reinforcement_learning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Reinforcement learning is a type of machine learning that focuses on tasks in which an agent receives a reward (or penalty) signal at each time step throughout its engagement with an environment in which it lives in, and interacts with it through decisions on which action to take. The roots of this field go back to Dr. Richard Bellman in 1954, who is also known as the ``Father of Dynamic Programming''. His works on Dynamic Programming \cite{Bellman1954,Bellman1957a}
+Reinforcement learning is a type of machine learning that focuses on tasks in which an agent receives a reward (or penalty) signal at each time step throughout its engagement with an environment in which it lives in and interacts with it through decisions on which action to take. The roots of this field go back to Dr. Richard Bellman in 1954, who is also known as the ``Father of Dynamic Programming'' in his works \cite{Bellman1954,Bellman1957a}
 
-Continuous control \cite{Recht2019}
+% Continuous control \cite{Recht2019}
 
 \input{graphics/tikz/agent-environment}
 
@@ -271,4 +271,40 @@ It should be noted that \autoref{eq:policy_gradient} exhibits different forms wi
             \bottomrule
     \end{tabularx}
 \end{table}
-    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{State Representation for Swarms}\label{ssec:state:swarm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Given the rising popularity of the use of multiple smaller, more inexpensive spacecraft~\cite{Wells2006, Laurin2008, Scott2013, Yu2014}, attention to swarms of spacecraft is a key objective in the future of space exploration. State representation for swarms is a significant challenge for reinforcement learning as the typical approach is to concatenate the information available to each agent about other agents in the swarm. This poses a challenge when we deal with models representing the state value function, state-action value function or the policy, as we expect a constant size in the state. One arbitrary way to tackle this would be to create models for each possible size of the state space, but this would require a huge amount of models to be trained and stored \cite{Lowe2017}. Another approach would be to use a fixed-size state space, but this would require the information about the other agents to be truncated. A more desirable goal would be the latter, as models would be agnostic of the size of the swarm, and would allow for additional agents to be added or removed without the need to retrain models. One approach to this is the use of mean embeddings proposed by Hüttenrauch et al. \cite{Huttenrauch2018}. This method involves the organisation of members of the swarm by neighbourhoods, and the use of a mean embedding for each neighbourhood. The mean embedding is a vector of constant size representing the state space. The authors explore the use of histograms, radial basis functions and neural networks trained end-to-end and report that using neural networks provides the richest information exchange between neighbouring agents, ``facilitating the development of complex collective strategies''. The authors introduce the use of kernel Hilbert spaces \cite{Smola2007, Sriperumbudur2009}. A probability distribution $P(X)$ can be represented as an element of a reproducing kernel Hilbert space, but its mean embedding:
+
+\begin{equation}
+\mu_X=\mathbb{E}_X[\phi(X)],
+\end{equation}
+
+where $\mu_X$ is the mean embedding and $\phi(X)$ is a (possibly infinite-dimensional) feature mapping. Given a set of observations denoted ${x_1,...,x_m}$ drawn \gls{iid} from $P(X)$, the empirical estimate of $\mu_X$ is given by:
+
+\begin{equation}
+\hat{\mu}_X=\frac{1}{m} \sum_{i=1}^m \phi\left(x_i\right)
+\end{equation}
+
+Putting this into the context of each agent $i$ and its information received from agent $j$, the local observations $o^{ij}$ are used to create the mean feature embedding $\mu^{O^i}$, which can be used as the state representation:
+
+\begin{equation}
+    \hat{\mu}_{O^i}=\frac{1}{\left|O^i\right|} \sum_{o^{i, j} \in O^i} \phi\left(o^{i, j}\right)
+\end{equation}
+
+The authors reported success in the use of a shallow network with \gls{RELU} (illustrated in \autoref{fig:activation-functions} and discussed in \autoref{activation_fn}), stating that deeper architectures could be used for more complex tasks. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Multi-objective Reinforcement Learning}\label{ssec:multi-objective}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In the real world, there is often not a single objective for a given optimal task, but two which form part of a trade-off. The optimal combination of the two objectives forms a ``Pareto front'' and a selection of one of these points is known as being ``Pareto optimal''. Reinforcement learning literature has explored the use of multi-objective reinforcement learning (MORL) to tackle these challenging problems~\cite{Roijers2015}. Among these approaches is Pareto Q-learning with high sample complexity~\cite{Moffaert2014}, envelope Q-learning \cite{Yang2019} requiring less sample complexity with assumptions through the Bellman equation, negotiable reinforcement learning~\cite{Desai2018}, and a formulation for \gls{PPO}~\cite{Khoi2021}. Furthermore, a general framework is provided by Nguyen et al. \cite{Nguyen2018}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reinforcement learning in spacecraft operations}\label{ssec:rl-in-space}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Reinforcement learning has been applied in the domain of space exploration in various tasks: Interplanetary trajectory design \cite{Zavoli2020, Izzo2020, Li2020}, planetary landing \cite{Furfaro2020}, small body proximity maneuvering \cite{Willis2016, Nesnas2021}, docking maneuvers \cite{Oestreich2020}, non-cooperative object tracking \cite{Zhou2021}, optimal \gls{DSN} scheduling \cite{Goh2021}, optimal collision avoidance \cite{Gremyachikh2019}, planetary robotics \cite{Gankidi2017} and debris capture \cite{Zeng2022}. This is not an exhaustive list, but a testament to the trend of reinforcement learning in space exploration growing rapidly.

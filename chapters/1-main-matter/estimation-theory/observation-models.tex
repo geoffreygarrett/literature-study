@@ -78,7 +78,7 @@ in Goldstone California (GDSCC), Canberra Australia (CDSCC), and Madrid Spain
 (MDSCC) with varying antenna sizes and types~\cite{Pham2020}. The frequency band
 allocations designated by the International Telecommunication Union (ITU), as
 used by the DSN, are provided in \autoref{tab:itu-bands}. There are three common
-data types observed with the DSN \cite{Berner2020}:
+data types observed with the DSN \cite{Berner2020}, namely:
 
 \begin{itemize}
     \item \textit{One-way}: The spacecraft generates the downlink signal(s) from an
@@ -154,7 +154,7 @@ the frequency of the signal, accuracies can range between 0.05 and 0.2 mrad
         }
         \label{fig:vlbi}
     \end{subfigure}
-    \caption{abc}
+    \caption{\textbf{Angle observables used in Spacecraft Tracking}. There are two primary methods used in tracking the angular position of a spacecraft from an observer: \gls{VLBI} and monopulse.}
     \label{fig:test}
 \end{figure}
 
@@ -218,15 +218,12 @@ downlink signal that is phase coherent with the uplink signal.
 \autoref{tab:turnaround-ratios} provides the recommended spacecraft transponder
 turnaround ratios for various uplink and downlink frequency bands.
 
-Doppler measurements are typically integrated over a period of about 60 seconds, however periods in the lower range of 1-10 seconds, or larger
-periods such as 1000 seconds may also be chosen.
-
 % Doppler measurements are typically integrated of a period of about 60 seconds
 % \cite{}, however periods in the lower range of 1-10 seconds \cite{}, or larger
 % periods such as 1000 seconds may also be chosen \cite{}.
 
 
-\cite{Soffel1989}
+
 
 \begin{equation}
     \frac{f_r}{f_t} = \frac{
@@ -246,9 +243,7 @@ periods such as 1000 seconds may also be chosen.
     \end{aligned}
 \end{equation*}
 
-The frequency shift, $f_r/f_t$ cannot be measured instantaneously and must be
-time averaged over a counting period, $t_c$
-
+Note that the frequency shift, $f_r/f_t$ cannot be measured instantaneously and must be time averaged over a counting (or integration) period, $t_c$. Doppler measurements are typically integrated over about 60 seconds, however, periods in the lower range of 1-10 seconds, or larger periods such as 1000 seconds may also be chosen~\cite{Asmar2005}. The physical frequency shift being measured accounted for relativity is~\cite{Soffel1989}:
 
 \begin{table}[htp!]
     \renewcommand{\arraystretch}{1.5}
@@ -283,6 +278,8 @@ time averaged over a counting period, $t_c$
 \subsubsection{Two-way Doppler Measurements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The number of wavelengths measured during the integration period is given by \cite{Montenbruck2000}:
+
 \begin{equation}
     N = \int_{t_1}^{t_2}(f_r-f_{ref})dt
 \end{equation}
@@ -297,16 +294,22 @@ time averaged over a counting period, $t_c$
     \end{aligned}
 \end{equation*}
 
+And is equivalently expressed as:
+
 \begin{equation}
-    N = \int_{t_1}^{t_2}(f_r)dt-f_{ref}(t_2-t_1)
+    N = \int_{t_1}^{t_2}(f_r)dt-f_{ref}(t_2-t_1),
 \end{equation}
+
+or:
 
 \begin{equation}
     N = \int_{t_1}^{t_2}(f_r)dt = T_{1,2}\int_{t_1-\tau_1}^{t_2-\tau_2}
 \end{equation}
 
+Providing a range-rate measurement of:
+
 \begin{equation}
-    \dot{\rho} = \int_{t_1}^{t_2}(f_r)dt = T_{1,2}\int_{t_1-\tau_1}^{t_2-\tau_2}
+    \dot{\rho} = \int_{t_1}^{t_2}(f_r)dt = T_{1,2}\int_{t_1-\tau_1}^{t_2-\tau_2}.
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -334,14 +337,14 @@ time averaged over a counting period, $t_c$
 %\end{equation}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%% LANDMARK TRACKING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Landmark Tracking}
 
 Landmark tracking is facilitated by a perspective projection model, usually a
 pin-hole camera model~\cite{Shuang2008} which allows for the mapping of 3D
 positions to 2D image points, for simulation and navigational purposes.
 Positions in the camera-fixed frame $(x^c, y^c, z^c)$, are mapped to pixel
-points on the image plane $(u,v)$ according to the relations:
+points on the image plane $(u,v)$ according to the relations \cite{Shuang2008}:
 
 \begin{equation}
     \begin{aligned}
@@ -350,41 +353,44 @@ points on the image plane $(u,v)$ according to the relations:
     \end{aligned}
 \end{equation}
 
-The line-of-sight vector $b_i^c$ of the $i^{th}$ image point to the camera
-exposure center in the camera-fixed frame is defined by:
+The full procedure for landmark tracking can be found by Shuang et al. ~\cite{Shuang2008}.
 
-\begin{equation}
-    \mathbf{b}_i^c=\frac{1}{\sqrt{(\bar{x}_i^c)^2+(\bar{y}_i^c)^2+f^2}}
-    \begin{bmatrix}
-        -\bar{x}^c_i \\
-        -\bar{y}^c_i \\
-        -f           \\
-    \end{bmatrix},
-\end{equation}
+% The line-of-sight vector $b_i^c$ of the $i^{th}$ image point to the camera
+% exposure center in the camera-fixed frame is defined by:
 
-\begin{equation}
-    \mathbf{I}_i^I=\frac{1}{\sqrt{(x^I_i - x^I)^2+(y^I_i - y^I)^2+(z^I_i - z^I)^2}}
-    \begin{bmatrix}
-        x^I_i - x^I \\
-        y^I_i - y^I \\
-        z^I_i - z^I \\
-    \end{bmatrix},
-\end{equation}
+% \begin{equation}
+%     \mathbf{b}_i^c=\frac{1}{\sqrt{(\bar{x}_i^c)^2+(\bar{y}_i^c)^2+f^2}}
+%     \begin{bmatrix}
+%         -\bar{x}^c_i \\
+%         -\bar{y}^c_i \\
+%         -f           \\
+%     \end{bmatrix},
+% \end{equation}
 
-\begin{equation}
-    \tilde{\mathbf{b}}_i^c=\mathbf{A}\mathbf{I}_i^I
-\end{equation}
+% \begin{equation}
+%     \mathbf{I}_i^I=\frac{1}{\sqrt{(x^I_i - x^I)^2+(y^I_i - y^I)^2+(z^I_i - z^I)^2}}
+%     \begin{bmatrix}
+%         x^I_i - x^I \\
+%         y^I_i - y^I \\
+%         z^I_i - z^I \\
+%     \end{bmatrix},
+% \end{equation}
+
+% \begin{equation}
+%     \tilde{\mathbf{b}}_i^c=\mathbf{A}\mathbf{I}_i^I
+% \end{equation}
 
 
-\begin{figure}[htp]
-    \centering
-    \captionsetup{format=hang} % hanging captions
-    \includegraphics[width=0.55\linewidth]{graphics/landmark_geometry.PNG}
-    \caption{
-        \textbf{Relative geometrical relationship between spacecraft and landmarks
-            for a pin-hole camera model}
-    }
-\end{figure}
+% \begin{figure}[htp]
+%     \centering
+%     \captionsetup{format=hang} % hanging captions
+%     \includegraphics[width=0.55\linewidth]{graphics/landmark_geometry.PNG}
+%     \caption{
+%         \textbf{Relative geometrical relationship between spacecraft and landmarks
+%             for a pin-hole camera model}
+%     }
+% \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%% LANDMARK TRACKING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %\textcolor{red}{Marie's Thesis + Michael. Model is similar to VLBI model.}
@@ -393,57 +399,57 @@ exposure center in the camera-fixed frame is defined by:
 %
 %\textcolor{red}{Moyer, formulation for observed and computed quantities in DSN types.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tracking Data models}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Tracking Data models}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Light-time correction (aberration)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Light-time correction (aberration)}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{one-way correction}
+% \textbf{one-way correction}
 
-\begin{equation}
-    \begin{aligned}
-        \tau_{\underline{A}B}^{(i+1)}(t_t) & = \frac{1}{c}|\bm{r}_B(t_t+\tau_{AB}^{(i)})-\bm{r}_A(t_t)|\text{, transmitter (A) clamped} \\
-        \tau_{A\underline{B}}^{(i+1)}(t_r) & = \frac{1}{c}|\bm{r}_B(t_r)-\bm{r}_A(t_r-\tau_{AB}^{(i)})|\text{, receiver (B) clamped}
-    \end{aligned}
-\end{equation}
+% \begin{equation}
+%     \begin{aligned}
+%         \tau_{\underline{A}B}^{(i+1)}(t_t) & = \frac{1}{c}|\bm{r}_B(t_t+\tau_{AB}^{(i)})-\bm{r}_A(t_t)|\text{, transmitter (A) clamped} \\
+%         \tau_{A\underline{B}}^{(i+1)}(t_r) & = \frac{1}{c}|\bm{r}_B(t_r)-\bm{r}_A(t_r-\tau_{AB}^{(i)})|\text{, receiver (B) clamped}
+%     \end{aligned}
+% \end{equation}
 
-\textbf{two-way correction}
+% \textbf{two-way correction}
 
-\begin{equation}
-    \begin{aligned}
-        \tau_{\underline{B}A}^{(i+1)} & = \frac{1}{c}|\bm{r}_B(t+\tau_{AB})-\bm{r}_A(t+\tau_{BA}^{(i)})|\text{, transponder (B) clamped} \\
-        \tau_{A\underline{B}}^{(i+1)} & = \frac{1}{c}|\bm{r}_B(t)-\bm{r}_A(t-\tau_{AB}^{(i)})|\text{, receiver (A) clamped}
-    \end{aligned}
-\end{equation}
+% \begin{equation}
+%     \begin{aligned}
+%         \tau_{\underline{B}A}^{(i+1)} & = \frac{1}{c}|\bm{r}_B(t+\tau_{AB})-\bm{r}_A(t+\tau_{BA}^{(i)})|\text{, transponder (B) clamped} \\
+%         \tau_{A\underline{B}}^{(i+1)} & = \frac{1}{c}|\bm{r}_B(t)-\bm{r}_A(t-\tau_{AB}^{(i)})|\text{, receiver (A) clamped}
+%     \end{aligned}
+% \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Range}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Range}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{RTLT}
-\begin{equation}
-    \overline{\dot{\rho}}(t) = \frac{c}{2}\frac{(\tau_{2u}+\tau_{2d})-(\tau_{1u}+\tau_{2d})}{t_c} = \frac{1}{2}\frac{(\rho_{2u}+\rho_{2d})-(\rho_{1u} + \rho_{1d})}{t_c},
-\end{equation}
+% \textbf{RTLT}
+% \begin{equation}
+%     \overline{\dot{\rho}}(t) = \frac{c}{2}\frac{(\tau_{2u}+\tau_{2d})-(\tau_{1u}+\tau_{2d})}{t_c} = \frac{1}{2}\frac{(\rho_{2u}+\rho_{2d})-(\rho_{1u} + \rho_{1d})}{t_c},
+% \end{equation}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Range Rate}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Range Rate}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Two-way Range Rate}
-\begin{equation}
-    \overline{\dot{\rho}}(t) = \frac{c}{2}\frac{(\tau_{2u}+\tau_{2d})-(\tau_{1u}+\tau_{2d})}{t_c} = \frac{1}{2}\frac{(\rho_{2u}+\rho_{2d})-(\rho_{1u} + \rho_{1d})}{t_c},
-\end{equation}
+% \textbf{Two-way Range Rate}
+% \begin{equation}
+%     \overline{\dot{\rho}}(t) = \frac{c}{2}\frac{(\tau_{2u}+\tau_{2d})-(\tau_{1u}+\tau_{2d})}{t_c} = \frac{1}{2}\frac{(\rho_{2u}+\rho_{2d})-(\rho_{1u} + \rho_{1d})}{t_c},
+% \end{equation}
 
-%\subsubsection{Range}
+% %\subsubsection{Range}
 
-\textbf{One-Way Range Rate}
-\begin{equation}
-    \overline{\dot{\rho}} = c\frac{(\tau_2-\tau_1)}{t_c}=\frac{(\rho_2-\rho_1)}{t_c}
-\end{equation}
+% \textbf{One-Way Range Rate}
+% \begin{equation}
+%     \overline{\dot{\rho}} = c\frac{(\tau_2-\tau_1)}{t_c}=\frac{(\rho_2-\rho_1)}{t_c}
+% \end{equation}
 
 
 %\subsection{Doppler Measurements}

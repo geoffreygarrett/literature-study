@@ -20,10 +20,10 @@ Newton's law of gravitation leads to the following nonlinear second-order differ
     \begin{aligned}
         \textrm{where }
         \gls{om:r:vec} & =\textrm{the rectangular coordinate vector position relative to the central body,}         \\
-        \gls{om:mu}        & =GM=G(m_1 + m_2)=\textrm{the gravitational parameter of the two-body system,}              \\
-        \eqdesc{om:G}\text{ ,}                                                                                  \\
-        m_1        & =\textrm{the mass of the primary (a.k.a. central) body, }                                  \\
-        m_2        & =\textrm{the mass of the secondary body, often omitted from M when \ensuremath{m_1>>m_2}.} \\
+        \gls{om:mu}    & =GM=G(m_1 + m_2)=\textrm{the gravitational parameter of the two-body system,}              \\
+        \eqdesc{om:G}\text{ ,}                                                                                      \\
+        m_1            & =\textrm{the mass of the primary (a.k.a. central) body, }                                  \\
+        m_2            & =\textrm{the mass of the secondary body, often omitted from M when \ensuremath{m_1>>m_2}.} \\
     \end{aligned}
 \end{equation*}
 
@@ -102,6 +102,18 @@ A \Gls{BCI} frame is non-rotating with respect to the stars. It can be derived f
     \label{fig:ECI}
 \end{figure}
 
+\begin{equation}
+    \mathbf{R}^{I/F}=\mathbf{R}_x(\pi/2-\delta_0)\mathbf{R}_z(\pi/2-\alpha_0)
+    \label{eq:bci_transformation}
+\end{equation}
+\begin{equation*}
+    \begin{aligned}
+        \textrm{where, }
+        \mathbf{R}_{x,y,z}(\phi) & = \textrm{transformation matrix for a rotation of $\phi$ radians about the respective axis (\autoref{appendix:rotational_transformations}),} \\
+        \alpha_0, \delta_0       & = \textrm{ICRF equatorial coordinates at epoch J2000.0}                                                                                      \\
+    \end{aligned}
+\end{equation*}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Body-centered body-fixed (BCBF)\label{ssec:frame_bcbf}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,13 +147,13 @@ The body-centred body-fixed (BCBF) reference frames are frames which have their 
     \mathbf{R}^{I/B}=\mathbf{R}_z(W)\mathbf{R}_x(\pi/2-\delta_0)\mathbf{R}_z(\pi/2-\alpha_0)
     \label{eq:bci_transformation}
 \end{equation}
-\begin{equation*}
-    \begin{aligned}
-        \textrm{where, }
-        \mathbf{R}_{x,y,z}(\phi) & = \textrm{transformation matrix for a rotation of $\phi$ radians about the respective axis (\autoref{appendix:rotational_transformations}),} \\
-        \alpha_0, \delta_0       & = \textrm{ICRF equatorial coordinates at epoch J2000.0}                                                                                      \\
-    \end{aligned}
-\end{equation*}
+% \begin{equation*}
+%     \begin{aligned}
+%         \textrm{where, }
+%         \mathbf{R}_{x,y,z}(\phi) & = \textrm{transformation matrix for a rotation of $\phi$ radians about the respective axis (\autoref{appendix:rotational_transformations}),} \\
+%         \alpha_0, \delta_0       & = \textrm{ICRF equatorial coordinates at epoch J2000.0}                                                                                      \\
+%     \end{aligned}
+% \end{equation*}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsection{Radial tangential normal (RTN)\label{ssec:frame_rtn}\label{ssec:frame_rsw}}
@@ -211,7 +223,7 @@ The relative position, velocity and acceleration in the \textbf{inertial} refere
 
 \begin{subequations}
     \begin{align}
-        \begin{split}\gls{om:r:vec}_{\mathrm{rel}} &=\gls{om:r:vec}_B-\gls{om:r:vec}_A \end{split}                                                      \\
+        \begin{split}\gls{om:r:vec}_{\mathrm{rel}} &=\gls{om:r:vec}_B-\gls{om:r:vec}_A \end{split}                                                          \\
         \begin{split}\gls{om:v:vec}_{\mathrm{rel}} &=\gls{om:v:vec}_B-\gls{om:v:vec}_A-\boldsymbol{\Omega} \times \gls{om:r:vec}_{\mathrm{rel}} \end{split} \\
         \begin{split}\mathbf{a}_{\mathrm{rel}} &=\mathbf{a}_B-\mathbf{a}_A-\dot{\boldsymbol{\Omega}} \times \gls{om:r:vec}_{\mathrm{rel}}-\boldsymbol{\Omega} \times\left(\boldsymbol{\Omega} \times \gls{om:r:vec}_{\mathrm{rel}}\right)-2 \boldsymbol{\Omega} \times \gls{om:v:vec}_{\mathrm{rel}}\end{split}
     \end{align}
@@ -321,10 +333,10 @@ Preliminary quantities required for the calculation of the classical orbital ele
 
 \begin{subequations}
     \begin{alignat}{2}
-        \mathbf{h}  & =\gls{om:r:vec} \times \gls{om:v:vec}                                       &  & \rightarrow\text{ angular momentum vector}    \\
-        \mathbf{e}  & =\frac{\gls{om:v:vec} \times \mathbf{h}}{\gls{om:mu}}-\frac{\gls{om:r:vec}}{r}      &  & \rightarrow\text{ eccentricity vector}        \\
-        \mathbf{n}  & =[0,0,1]^{\mathrm{T}} \times \mathbf{h}=[-h_y, h_x, 0]^{\mathrm{T}} &  & \rightarrow\text{ node vector}                \\
-        \mathcal{E} & = \frac{v^2}{2}-\frac{\gls{om:mu}}{r}                                       &  & \rightarrow\text{ specific mechanical energy}
+        \mathbf{h}  & =\gls{om:r:vec} \times \gls{om:v:vec}                                          &  & \rightarrow\text{ angular momentum vector}    \\
+        \mathbf{e}  & =\frac{\gls{om:v:vec} \times \mathbf{h}}{\gls{om:mu}}-\frac{\gls{om:r:vec}}{r} &  & \rightarrow\text{ eccentricity vector}        \\
+        \mathbf{n}  & =[0,0,1]^{\mathrm{T}} \times \mathbf{h}=[-h_y, h_x, 0]^{\mathrm{T}}            &  & \rightarrow\text{ node vector}                \\
+        \mathcal{E} & = \frac{v^2}{2}-\frac{\gls{om:mu}}{r}                                          &  & \rightarrow\text{ specific mechanical energy}
     \end{alignat}
 \end{subequations}
 
@@ -333,10 +345,10 @@ The equations used in calculating the quantities in \gls{om:oe:keplerian} are ta
 \begin{subequations}
     \begin{align}
         \begin{split} a &= \begin{cases}-\frac{\gls{om:mu}}{2 \mathcal{E}} & \text{ for } e \neq 1 \\
-             \infty                     & \text{ for } e = 1
+             \infty                             & \text{ for } e = 1
             \end{cases} \end{split}                                                              \\
-        \begin{split} p &= \begin{cases} a\left(1-e^2\right) & \text{ for } e \neq 1 \\
-              \frac{h^2}{\gls{om:mu}}     & \text{ for } e = 1
+        \begin{split} p &= \begin{cases} a\left(1-e^2\right)     & \text{ for } e \neq 1 \\
+              \frac{h^2}{\gls{om:mu}} & \text{ for } e = 1
             \end{cases} \end{split}                                                              \\
         \begin{split} i=\arccos \frac{h_y}{h} \end{split}                                                                      \\
         \begin{split} \underline{\Omega}=\arccos \frac{n_x}{n} \end{split}                                                     \\
@@ -432,7 +444,8 @@ Orbital perturbations are a component of perturbation theory which is a method o
     \ddot{\gls{om:r:vec}}=\frac{\gls{om:mu}}{r^2}+\gls{om:a:per},
     \label{eq:newtons_equation_planetary_with_p}
 \end{equation}
-where $\mathbf{p}$ is the net perturbative accelerations from all sources other than the spherically symmetric gravitational attraction between the two bodies. This section will discuss the various propagation used for incorporating perturbations into the orbit determination process. \autoref{ssec:cowell} will discuss the Cowell propagation method, \autoref{ssec:encke} will discuss the Encke's propagation method, \autoref{ssec:vop_lagrangian} (applicable to conservative forces) will discuss the Langrangian equations of motion propagation, and \autoref{ssec:vop_gaussian} will discuss the Gaussian equations of motion (applicable to conservative and non-conservative forces). It is acknowledged that
+where $\mathbf{p}$ is the net perturbative accelerations from all sources other than the spherically symmetric gravitational attraction between the two bodies. This section will discuss the various propagation used for incorporating perturbations into the orbit determination process. \autoref{ssec:cowell} will discuss the Cowell propagation method, \autoref{ssec:encke} will discuss the Encke's propagation method, \autoref{ssec:vop_lagrangian} (applicable to conservative forces) will discuss the Langrangian equations of motion propagation, and \autoref{ssec:vop_gaussian} will discuss the Gaussian equations of motion (applicable to conservative and non-conservative forces). 
+% It is acknowledged that
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cowell's method}\label{ssec:cowell}
@@ -461,8 +474,8 @@ Encke's Method is a numerical integration technique used to solve for the deviat
     \begin{aligned}
         \text{where, }
         \ddot{\gls{om:r:vec}}        & = \gls{om:a:per}-\frac{\gls{om:mu}}{r^3} \gls{om:r:vec}, \text{  for the perturbed orbit and} \\
-        \ddot{\boldsymbol{\rho}} & =-\frac{\gls{om:mu}}{\rho^3} \boldsymbol{\rho}, \text{  for the unperturbed orbit,}                  \\
-        \delta \gls{om:r:vec}        & = \gls{om:r:vec}-\boldsymbol{\rho}                                                               \\
+        \ddot{\boldsymbol{\rho}}     & =-\frac{\gls{om:mu}}{\rho^3} \boldsymbol{\rho}, \text{  for the unperturbed orbit,}           \\
+        \delta \gls{om:r:vec}        & = \gls{om:r:vec}-\boldsymbol{\rho}                                                            \\
         \ddot{\delta \gls{om:r:vec}} & = \ddot{\gls{om:r:vec}}-\ddot{\boldsymbol{\rho}}
     \end{aligned}
 \end{equation*}
@@ -476,8 +489,8 @@ The Lagrange planetary equations of motion (a.k.a. ``Lagrangian \gls{VOP}'') hav
 \begin{equation}
     \begin{aligned}
         \dv{a}{t}      & =-\frac{2a^2}{\gls{om:mu}}\pdv{R}{t_p}                                                                               \\
-        \dv{e}{t}      & =-\frac{\sqrt{1-e^2}}{\sqrt{\gls{om:mu}{a}}e}\pdv{R}{a} + \frac{a(1-e^2)}{\gls{om:mu}{e}} \pdv{R}{t_p}                       \\
-        \dv{t_p}{t}    & =\frac{2a^2}{\gls{om:mu}}\pdv{R}{a}+\frac{a(1-e^2)}{\gls{om:mu}{e}}\pdv{R}{e}                                                \\
+        \dv{e}{t}      & =-\frac{\sqrt{1-e^2}}{\sqrt{\gls{om:mu}{a}}e}\pdv{R}{a} + \frac{a(1-e^2)}{\gls{om:mu}{e}} \pdv{R}{t_p}               \\
+        \dv{t_p}{t}    & =\frac{2a^2}{\gls{om:mu}}\pdv{R}{a}+\frac{a(1-e^2)}{\gls{om:mu}{e}}\pdv{R}{e}                                        \\
         \dv{\Omega}{t} & =\frac{1}{\sqrt{\gls{om:mu}{a}(1-e^2)}\sin{i}}\pdv{R}{i}                                                             \\
         \dv{i}{t}      & =\frac{1}{\sqrt{\gls{om:mu}{a(1-e^2)}}}\bigg(\frac{1}{\tan{i}}\pdv{R}{\omega}-\frac{1}{\sin{i}}\pdv{R}{\Omega}\bigg) \\
         \dv{\omega}{t} & =-\frac{1}{\sqrt{\gls{om:mu}{a}(1-e^2)\tan{i}}}\pdv{R}{i}+\frac{\sqrt{1-e^2}}{\sqrt{\gls{om:mu}{a}}e}\pdv{R}{e}
@@ -492,10 +505,10 @@ The Gaussian \gls{VOP} equations are particularly advantageous as they allow for
 
 \begin{equation}
     \begin{aligned}
-        \dv{a}{t}      & =2\sqrt{\frac{a}{\gls{om:mu}}}\bigg(F_R\frac{ae}{\sqrt{1-e^2}}\sin{\nu}+F_S\frac{a^2\sqrt{1-e^2}}{a(1-e\cos{E})}\bigg)              \\
-        \dv{e}{t}      & =\frac{h}{\gls{om:mu}}\sin{\nu}F_R+\frac{1}{\gls{om:mu}{h}}\bigg((h^2+\gls{om:mu}{r})\cos{\nu}+\gls{om:mu}{r}\bigg)F_S                                      \\
-        \dv{i}{t}      & =\frac{r}{h}\cos{(\omega+\nu)}F_W                                                                                           \\
-        \dv{\Omega}{t} & =\frac{r}{h\sin{i}}\sin{(\omega+\nu)}F_W                                                                                    \\
+        \dv{a}{t}      & =2\sqrt{\frac{a}{\gls{om:mu}}}\bigg(F_R\frac{ae}{\sqrt{1-e^2}}\sin{\nu}+F_S\frac{a^2\sqrt{1-e^2}}{a(1-e\cos{E})}\bigg)                      \\
+        \dv{e}{t}      & =\frac{h}{\gls{om:mu}}\sin{\nu}F_R+\frac{1}{\gls{om:mu}{h}}\bigg((h^2+\gls{om:mu}{r})\cos{\nu}+\gls{om:mu}{r}\bigg)F_S                      \\
+        \dv{i}{t}      & =\frac{r}{h}\cos{(\omega+\nu)}F_W                                                                                                           \\
+        \dv{\Omega}{t} & =\frac{r}{h\sin{i}}\sin{(\omega+\nu)}F_W                                                                                                    \\
         \dv{\omega}{t} & =-\frac{1}{eh}\bigg(\frac{h^2}{\gls{om:mu}}\cos{\nu}F_R-(r+\frac{h^2}{\gls{om:mu}}\sin{\nu}F_S)\bigg)-\frac{r\sin{\omega+\nu}}{h\tan{i}}F_W \\
         \dv{\nu}{t}    & =\frac{h}{r^2}+\frac{1}{eh}\bigg(\frac{h^2}{\gls{om:mu}}\cos{\nu}F_R-(r+\frac{h^2}{\gls{om:mu}})\sin{\nu}F_S\bigg)
     \end{aligned}
@@ -511,7 +524,7 @@ Due to the singularities in the classical elements, the Gaussian \gls{VOP} equat
         \dv{g}{t} & =\sqrt{\frac{p}{\gls{om:mu}}}\bigg(-F_R\cos{L}+[(w+1)\sin{L}+g]\frac{F_S}{w}-(h\sin{L}-k\cos{L})\frac{gF_W}{w}\bigg) \\
         \dv{h}{t} & =\sqrt{\frac{p}{\gls{om:mu}}}\frac{s^2F_W}{2w}\sin{L}                                                                \\
         \dv{k}{t} & =\sqrt{\frac{p}{\gls{om:mu}}}\frac{s^2F_W}{2w}\cos{K}                                                                \\
-        \dv{L}{t} & =\sqrt{\gls{om:mu}{p}}\bigg(\frac{w}{p}\bigg)^2+\frac{1}{w}\sqrt{\frac{p}{\gls{om:mu}}}(h\sin{L}-k\cos{L})F_W                \\
+        \dv{L}{t} & =\sqrt{\gls{om:mu}{p}}\bigg(\frac{w}{p}\bigg)^2+\frac{1}{w}\sqrt{\frac{p}{\gls{om:mu}}}(h\sin{L}-k\cos{L})F_W        \\
     \end{aligned}
 \end{equation}
 
@@ -614,79 +627,119 @@ The parameters $c$ and $d$ in \autoref{eq:collision_2d_gaussian:params1} are def
     \label{fig:collision_2d_gaussian}
 \end{figure}
 
-The second object's location $\boldsymbol{q}$ has no uncertainty as it is attributed solely to the first object, for visualisation purposes, which is nominally located at the origin. For a collision to occur, the actual position of the first object must lie within the hard-body circle for a collision to occur, thus the total collision probability is obtained by integrating $h(\boldsymbol{x})$ over the hard-body circle.
+The second object's location $\boldsymbol{q}$ has no uncertainty as it is attributed solely to the first object, for visualisation purposes, which is nominally located at the origin. For a collision to occur, the actual position of the first object must lie within the hard-body circle, thus the total collision probability is obtained by integrating $h(\boldsymbol{x})$ over the hard-body circle.
 
 \begin{equation}
     \operatorname{prob}=\iint h(\boldsymbol{x}) u(\boldsymbol{x}-\boldsymbol{q}) \mathrm{d} \boldsymbol{x}
+    \label{eq:prob2}
 \end{equation}
 
-``A coordinate rotation is performed to eliminate the cross term in $h$ to yield
-
+The cross term in \autoref{eq:collision_2d_gaussian} is eliminated through a coordinate rotation, which gives:
 \begin{equation}
     h(\boldsymbol{x})=\left(1 / 2^{\frac{3}{2}} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a}\right) \exp \left[-\alpha x^{2}-\beta y^{2}\right]
+    \label{eq:collision_2d_gaussian:rotated}
 \end{equation}
+Where $\alpha$ and $\beta$ are defined by:
+\begin{subequations}
+    \begin{alignat}{1}
+         & \alpha=(e+f) / 2-\sqrt{g^2+(f-e)^2} / 2, \\
+         & \beta=(e+f) / 2+\sqrt{g^2+(f-e)^2} / 2,
+    \end{alignat}
+\end{subequations}
 
-``The correct sign in Eq. (17) is determined by ensuring that the cross term in Eq. (11) is zero, that is,
-\begin{equation}
-    2(f-e) \sin (\phi) \cos (\phi)+g\left[\cos (\phi)^{2}-\sin (\phi)^{2}\right]=0
-\end{equation}
+Patera then further simplifies the integral in \autoref{eq:prob2} by performing a scale transformation on the $y$ axis to make the Gaussian symmetric. Patera further includes the numerical implementation of this procedure \cite{Patera2001}.
 
-``A scale change in the $y$ axis is made to make $h(x)$ symmetric:''
+% and this rotation is defined by the transformation:
 
-\begin{equation}
-    \begin{gathered}
-        y=\sqrt{(\alpha / \beta)} y^{\prime} \\
-        h(\boldsymbol{x})=\left(\sqrt{\alpha} / 2^{\frac{3}{2}} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta}\right) \exp \left[-\alpha x^{2}-\alpha y^{\prime 2}\right]
-    \end{gathered}
-\end{equation}
+% \begin{equation}
+%     \boldsymbol{q}_r=T \boldsymbol{q},
+% \end{equation}
 
-``The $y$ component of $\boldsymbol{q}_{r}, q_{r}(2)$, is multiplied by a scale factor given by
+% where: 
 
-\begin{equation}
-    q_{r s}(2)=\sqrt{(\beta / \alpha)} q_{r}(2)
-\end{equation}
+% \begin{equation}
+%     \begin{aligned}
+%         T & =\left[\begin{array}{cc}
+%                            \cos (\phi)  & \sin (\phi) \\
+%                            -\sin (\phi) & \cos (\phi)
+%                        \end{array}\right],
+%     \end{aligned}
+% \end{equation}
 
-``The $y$ component of the hard-body circle is also multiplied by the scale factor resulting in
+% and:
+
+% \begin{subequations}
+%     \begin{alignat}{1}
+%     \cos (\phi) &=\sqrt{\frac{1}{2}\left[1-\frac{(f-e)}{\sqrt{g^2+(f-e)^2}}\right]}\\
+%     \sin (\phi) &=\pm \sqrt{\frac{1}{2}\left[1+\frac{(f-e)}{\sqrt{g^2+(f-e)^2}}\right]}
+%     \end{alignat}
+%     \label{eq:rotations}
+% \end{subequations}
+
+% The sign ambiguity in \autoref{eq:rotations} is resolved by ensuring that the cross term in \autoref{eq:collision_2d_gaussian:rotated} is zero, meaning that:
+% \begin{equation}
+%     2(f-e) \sin (\phi) \cos (\phi)+g\left[\cos (\phi)^{2}-\sin (\phi)^{2}\right]=0
+% \end{equation}
+
+% Then $h(x)$ is made to be symmetric through a scale change in the $y$ axis, which gives:
+
+% \begin{equation}
+%     \begin{gathered}
+%         y=\sqrt{(\alpha / \beta)} y^{\prime} \\
+%         h(\boldsymbol{x})=\left(\sqrt{\alpha} / 2^{\frac{3}{2}} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta}\right) \exp \left[-\alpha x^{2}-\alpha y^{\prime 2}\right].
+%     \end{gathered}
+% \end{equation}
+
+% The $y$ component of $\boldsymbol{q}_{r}: q_{r}(2)$ is then multiplied by this scale factor, giving:
+
+% \begin{equation}
+%     q_{r s}(2)=\sqrt{(\beta / \alpha)} q_{r}(2).
+% \end{equation}
+
+% The $y$ component of the hard-body circle is then multiplied by this scale factor, giving:
+
+% \begin{equation}
+%     (x / s)^{2}+(y / s)^{2}(\alpha / \beta)=1.
+% \end{equation}
+
+% ``where $s$ is the initial hard-body radius of the combined objects.
+
+% ``Using Eq. (20) in Eq. (10) and converting to polar coordinates, one finds
+
+% \begin{equation}
+%     \operatorname{prob}=\frac{\sqrt{\alpha}}{2^{\frac{3}{2}} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta}} \iint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) r \mathrm{~d} r \mathrm{~d} \nu
+% \end{equation}
+
+% ``Here the region of integration is defined by the ellipse given by Eq. (22). The advantage of having a symmetric probability density function is now clear because the integration over $r$ can be performed immediately yielding,''
 
 
-\begin{equation}
-    (x / s)^{2}+(y / s)^{2}(\alpha / \beta)=1
-\end{equation}
+% \begin{equation}
+%     \operatorname{prob}=\frac{1}{4 \sqrt{2} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta \alpha}}\left(\int_{s 2} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu-\int_{s 1} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu\right)
+% \end{equation}
 
-``where $s$ is the initial hard-body radius of the combined objects.
+% ``where $s 1$ and $s 2$ are contours defining the hard-body ellipse as shown in Fig. 2. The usual integration technique involves solving for $r$ for each value of $\nu$ along the contours $s 1$ and $s 2$ and determining the endpoints where $s 1$ joins $s 2$. These tedious computations can be avoided by noting that Eq. (24) is equivalent to the closed path integral defined by
 
-``Using Eq. (20) in Eq. (10) and converting to polar coordinates, one finds
+% \begin{equation}
+%     \text { prob }=\frac{-1}{4 \sqrt{2} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta \alpha}} \oint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu
+% \end{equation}
+% % \subsubsection{Analytical Methods}
 
-\begin{equation}
-    \operatorname{prob}=\frac{\sqrt{\alpha}}{2^{\frac{3}{2}} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta}} \iint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) r \mathrm{~d} r \mathrm{~d} \nu
-\end{equation}
+% ``where the minus sign is introduced to be consistent with integrating around the contour in the counterclockwisedirection. Equation (25) can be simplified by evaluating the coefficient of the integral, which resultsin Eq. (26a). If the origin is containedin the hard-bodyellipse, the line integral includes an infinitesimal circle about the origin that contributes $a+2 \pi$ to the value of the integral as shown in Fig. 3. In this case Eq. (26a) is replaced with Eq. (26b). When the origin is excluded from the hard-body ellipse,''
 
-``Here the region of integration is defined by the ellipse given by Eq. (22). The advantage of having a symmetric probability density function is now clear because the integration over $r$ can be performed immediately yielding,''
+% \begin{equation}
+%     \text { prob }=\frac{-1}{2 \pi} \oint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu
+% \end{equation}
+
+% ``When the origin is included in the hard-body ellipse,''
+% \begin{equation}
+%     \text { prob }=1-\frac{1}{2 \pi} \oint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu
+% \end{equation}
+
+% ``The reduction of the probability calculation to a simple contour integral involving only a scalar exponential in the integrand given by Eq. (26) greatly increases computational efficiency. In addition, the ease of defining the closed contour enables the methodology to be applied to the general case of non-sphericalobjects. An example of a non-spherical problem is presented in a subsequent section.''
 
 
-\begin{equation}
-    \operatorname{prob}=\frac{1}{4 \sqrt{2} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta \alpha}}\left(\int_{s 2} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu-\int_{s 1} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu\right)
-\end{equation}
+%%%%%
 
-``where $s 1$ and $s 2$ are contours defining the hard-body ellipse as shown in Fig. 2. The usual integration technique involves solving for $r$ for each value of $\nu$ along the contours $s 1$ and $s 2$ and determining the endpoints where $s 1$ joins $s 2$. These tedious computations can be avoided by noting that Eq. (24) is equivalent to the closed path integral defined by
-
-\begin{equation}
-    \text { prob }=\frac{-1}{4 \sqrt{2} \pi \sigma_{x} \sigma_{y} \sigma_{z} \sqrt{a \beta \alpha}} \oint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu
-\end{equation}
-% \subsubsection{Analytical Methods}
-
-``where the minus sign is introduced to be consistent with integrating around the contour in the counterclockwisedirection. Equation (25) can be simplified by evaluating the coefficient of the integral, which resultsin Eq. (26a). If the origin is containedin the hard-bodyellipse, the line integral includes an infinitesimal circle about the origin that contributes $a+2 \pi$ to the value of the integral as shown in Fig. 3. In this case Eq. (26a) is replaced with Eq. (26b). When the origin is excluded from the hard-body ellipse,''
-
-\begin{equation}
-    \text { prob }=\frac{-1}{2 \pi} \oint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu
-\end{equation}
-
-``When the origin is included in the hard-body ellipse,''
-\begin{equation}
-    \text { prob }=1-\frac{1}{2 \pi} \oint_{\text {ellipse }} \exp \left(-\alpha r^{2}\right) \mathrm{d} \nu
-\end{equation}
-
-``The reduction of the probability calculation to a simple contour integral involving only a scalar exponential in the integrand given by Eq. (26) greatly increases computational efficiency. In addition, the ease of defining the closed contour enables the methodology to be applied to the general case of non-sphericalobjects. An example of a non-spherical problem is presented in a subsequent section.''
 % \subsubsection{Tracking Methods}
 % The orbit determination of an artificial satellite requires empirical observations related to the satellites position of velocity. These observations are collected by a satellites tracking system with the use of electromagnetic wave propagation between a transmitter and a receiver. Each observation corresponding to a unique pair of transmitter and receiver can be generalised as a \textbf{link}.
 
